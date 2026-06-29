@@ -1,0 +1,58 @@
+"In Java, what is the default byte order for writing all values, ensuring platform independence?","All values are written in the big-endian fashion, regardless of the processor."
+What is the purpose of the `seek()` method in a random access file in Java?,The `seek()` method sets the file pointer to a specific byte position within the file for non-sequential access.
+"In Java serialization, which keyword is used to mark an instance field so that it is not included when an object is serialized?",The `transient` keyword.
+"During deserialization of a standard serializable class in Java, what is a notable aspect of object creation regarding constructors?",Objects are created without invoking any constructor of the class; field values are set directly from the input stream.
+"To protect against deserialization attacks, Java provides a serialization filter mechanism specified through which system property?",The `jdk.serialFilter` system property.
+"In Java regular expressions, what does the `.` symbol match?","It matches any single character, except for line terminators unless the DOTALL flag is set."
+How must you represent a literal backslash `\` within a Java string literal that defines a regular expression?,"You must escape it with another backslash, resulting in `\\`."
+What is the difference between the `matches()` and `find()` methods of the Java `Matcher` class?,"The `matches()` method attempts to match the entire input sequence against the pattern, while the `find()` method scans the input sequence to find the next subsequence that matches the pattern."
+"In Java's regular expression API, how are captured groups numbered?","Groups are numbered by their opening parenthesis from left to right, starting at 1. Group 0 represents the entire match."
+What is the function of the `replaceAll()` method of the Java `String` or `Matcher` class?,It replaces every subsequence of the input sequence that matches the pattern with the given replacement string.
+What are the two main kinds of XML parsers supplied by the Java API?,"Tree parsers (like DOM) that read the document into a tree structure, and streaming parsers (like SAX and StAX) that generate events as they read."
+What does a Document Type Definition (DTD) specify for an XML document?,"A DTD specifies the structure of the document, including the valid elements, attributes, and their arrangement."
+"In an XML DTD, what does the `#PCDATA` keyword signify?","It stands for ""parsed character data"" and indicates that an element can contain text, which will be parsed by the XML parser."
+"When parsing an XML file with an XML Schema, what method must be called on the `DocumentBuilderFactory` to enable support for namespaces?",The `setNamespaceAware(true)` method must be called on the factory.
+Why is it customary to use HTTP URLs as namespace identifiers in XML?,"It is an easy way to ensure uniqueness, leveraging the domain name system for the host part."
+"Which type of XML parser is most efficient for very large documents where you only need to process nodes as they are encountered, without building a complete in-memory tree?","A streaming parser, such as SAX or StAX, is most efficient."
+"In SAX parsing, which method of the `ContentHandler` is called when the parser encounters the beginning of an element?",The `startElement()` method is called.
+"The _____ mechanism allows you to specify rules for transforming XML documents into other formats, such as HTML or plain text.",XSL Transformations (XSLT)
+"In an XSLT stylesheet, what is the purpose of the `<xsl:apply-templates/>` instruction?","It instructs the XSLT processor to continue processing the children of the current node, applying any matching templates it finds."
+"In XSLT, the `<xsl:value-of select=""...""/>` statement is used for what purpose?",It computes the string value of the node set specified by the XPath in the `select` attribute and inserts it into the output.
+What is the primary purpose of the `java.net.URI` class compared to the `java.net.URL` class?,"The `URI` class's sole purpose is parsing identifiers, while the `URL` class can open a stream to the resource the identifier specifies."
+What is the correct modern approach to create a `URL` object in Java to avoid deprecated constructors?,"First construct a `URI` from a string, and then call the `toURL()` method on the `URI` object."
+What is the key difference in how GET and POST HTTP requests transmit parameters to a server?,"GET attaches parameters to the URL as a query string, while POST sends them in the body of the request."
+"According to URL encoding rules, what character is used to replace all spaces in parameter values?",The plus `+` character.
+"When sending POST data using `URLConnection`, which method must be called to indicate that you intend to write to the connection?",The `setDoOutput(true)` method.
+"If a server-side error (like a 404) occurs when using `HttpURLConnection`, which method should be called to read the error page sent by the server?",The `getErrorStream()` method.
+The modern Java `HttpClient` and `HttpRequest` classes use the _____ pattern for construction and configuration.,builder
+"When using `HttpClient.send()`, what is the role of the `HttpResponse.BodyHandler` argument?","It tells the client how to handle the response body, such as converting it to a string, a file, or discarding it."
+"In Java's simple HTTP server API, what class encapsulates all information about an incoming request and the response to be generated?",The `com.sun.net.httpserver.HttpExchange` class.
+What is the typical three-tier model in a database application?,"A model where a client application calls a middleware layer, which in turn makes the database queries, separating presentation, business logic, and data."
+What is the purpose of the Java Database Connectivity (JDBC) API?,JDBC is an API that lets Java programs connect to and interact with relational databases in a vendor-independent way.
+What is the difference between a `Statement` and a `PreparedStatement` in JDBC?,A `PreparedStatement` is precompiled by the database and is more efficient and secure against SQL injection for executing the same statement multiple times with different parameters.
+"In JDBC, what object is returned by a query execution and is used to iterate through the resulting rows of data?",A `java.sql.ResultSet` object.
+What is connection pooling in the context of database programming?,A technique where database connections are not physically closed but are kept in a queue and reused to improve performance.
+What does a `java.util.Locale` object represent in Java?,"It represents a specific geographical, political, or cultural region, capturing local preferences for formatting dates, numbers, and text."
+"In the US, the date 3/22/61 is written month/day/year. How would this date typically be formatted for a German user?","It would be formatted as day.month.year, such as `22.03.1961`."
+Which static method of the `java.text.NumberFormat` class would you use to get a formatter for currency values?,The `getCurrencyInstance()` method.
+"The _____ class provides locale-sensitive string comparison, allowing for correct dictionary-style ordering of strings across different languages.",java.text.Collator
+"In the `Collator` class, what is the difference between `PRIMARY`, `SECONDARY`, and `TERTIARY` strength levels?","`PRIMARY` distinguishes major differences (e.g., 'a' vs 'b'), `SECONDARY` also considers diacritical differences (e.g., 'a' vs 'ä'), and `TERTIARY` also distinguishes case (e.g., 'a' vs 'A')."
+What is the purpose of the `java.util.ResourceBundle` class?,"It is used to manage and load locale-specific objects, such as strings, to internationalize an application."
+"If you have resource property files named `Messages_en_US.properties` and `Messages_en.properties`, which one will be chosen for a user with the `en_GB` locale?","The more general `Messages_en.properties` will be chosen, as it matches the language."
+"In modern Java (9+), what character encoding are property files for `ResourceBundle` expected to use?",Property files are encoded as UTF-8.
+How can you programmatically invoke the Java compiler from within a Java application?,"By using the `JavaCompiler` interface, obtained via `ToolProvider.getSystemJavaCompiler()`."
+What is the purpose of the `javax.script` API in Java?,It provides a standard framework for embedding scripting language interpreters into Java applications.
+"To execute a script from a file using the `javax.script` API, which method of the `ScriptEngine` is used?",The `eval(Reader)` method.
+"If a scripting engine implements the `Invocable` interface, what capability does this provide?",It allows the Java application to directly call functions and methods defined within the script.
+What is the role of a class loader in Java's security architecture?,"A class loader is responsible for loading class files into the JVM, and it can perform custom checks for integrity and security before doing so."
+What is the parent-first delegation model for Java class loaders?,"A class loader first delegates the request to load a class to its parent loader, and only attempts to load the class itself if the parent cannot find it."
+"To create a custom class loader, you extend the `ClassLoader` class and override which method?",The `findClass(String className)` method.
+What is the function of the bytecode verifier in the JVM?,"The verifier inspects the bytecodes of a loaded class to ensure they are valid and cannot perform damaging actions, such as overflowing the stack or violating access rules."
+Why is the bytecode verifier necessary even if the code was produced by a trusted Java compiler?,It guards against maliciously altered class files that could contain valid but unsafe bytecode instructions created manually or with other tools.
+"What is a message digest, such as SHA-1?","A message digest is a fixed-size digital fingerprint of a block of data, used to verify the data's integrity."
+What are the two essential properties of a secure message digest?,1. Changing the data changes the digest. 2. It is computationally infeasible to create a different message with the same digest.
+"In a public key signature system, which key is used to create the signature, and which key is used to verify it?","The private key is used to create the signature, and the corresponding public key is used to verify it."
+What two facts can a recipient be assured of if a digital signature verification is successful?,1. The message has not been altered since it was signed. 2. The message was signed by the holder of the private key corresponding to the public key used for verification.
+What is the purpose of the `keytool` program provided with the JDK?,"It is a command-line tool used to manage keystores, which are databases of cryptographic keys and certificates."
+Which JDK command-line tool is used to sign and verify JAR files?,The `jarsigner` tool.
+What problem in public key cryptography is solved by a certificate authority (CA)?,"A CA solves the authentication problem by vouching for the identity of a public key's owner, creating a chain of trust."

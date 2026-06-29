@@ -1,0 +1,73 @@
+What is the primary purpose of Spring Security in a Spring application?,"It offers a highly customizable way of implementing authentication, authorization, and protection against common attacks."
+The process by which an application identifies a user (a person or another application) is called _____.,authentication
+What is the term for the process of deciding what an identified user is allowed to do within an application?,Authorization.
+"In Spring Security's default configuration, what username is used and how is the password generated?","The default username is 'user', and a random UUID password is generated and printed to the console on application startup."
+"Which component in Spring Security's architecture is responsible for managing user details, such as retrieving a user by username?",The `UserDetailsService`.
+What is the role of the `PasswordEncoder` in the Spring Security authentication process?,It is responsible for encoding a password and verifying if a raw password matches an existing encoded one.
+"To override Spring Boot's default user management, you can define a bean of type _____ in your configuration.",`UserDetailsService`
+What is the purpose of the `NoOpPasswordEncoder` and why should it not be used in production?,It treats passwords as plain text without any encoding; it is insecure for production environments.
+"In Spring Security, what type of bean must be defined to customize authentication methods and endpoint authorization rules?",A bean of type `SecurityFilterChain`.
+What contract (interface) must a class implement to represent a user in a way that Spring Security understands?,The `UserDetails` interface.
+"In the `UserDetails` contract, what does the `getAuthorities()` method return?","A collection of `GrantedAuthority` instances, representing the privileges a user has."
+What is the primary difference between `InMemoryUserDetailsManager` and `JdbcUserDetailsManager`?,"`InMemoryUserDetailsManager` stores user credentials in memory, while `JdbcUserDetailsManager` uses a database to manage users."
+The `PasswordEncoder` interface declares two primary abstract methods. What are they?,"`encode(CharSequence rawPassword)` and `matches(CharSequence rawPassword, String encodedPassword)`."
+Which implementation of `PasswordEncoder` is recommended for its use of a strong hashing function and is widely used in modern applications?,The `BCryptPasswordEncoder`.
+What is the purpose of the `DelegatingPasswordEncoder`?,It allows the use of multiple encoding strategies by delegating to the correct `PasswordEncoder` based on a prefix in the stored password hash.
+"In a Spring Security web application, security configurations are primarily applied through a series of _____.",filters
+"To add a custom filter before the standard `BasicAuthenticationFilter` in the filter chain, which method of `HttpSecurity` would you use?",The `addFilterBefore()` method.
+What is the purpose of extending `OncePerRequestFilter` instead of directly implementing the `Filter` interface?,"It ensures that the filter's logic is executed only once per request, which is useful for avoiding redundant processing."
+"Which core component in Spring Security is responsible for the actual logic of authentication, often delegating to a `UserDetailsService` and `PasswordEncoder`?",The `AuthenticationProvider`.
+"After a successful authentication, where does Spring Security store the `Authentication` object for the duration of the request?",In the `SecurityContext`.
+What is the default strategy used by `SecurityContextHolder` to manage the `SecurityContext` in a standard web application?,"`MODE_THREADLOCAL`, which associates the security context with the current thread of execution."
+"When using `@Async` methods, which `SecurityContextHolder` strategy should be used to propagate the security context to the new thread?",`MODE_INHERITABLETHREADLOCAL`.
+How does form-based login (`formLogin()`) differ from HTTP Basic authentication (`httpBasic()`) in terms of user experience?,"`formLogin()` redirects the user to an HTML login page, while `httpBasic()` uses the browser's native pop-up for credentials."
+"In endpoint authorization, what is the difference between an authority and a role?","Authorities are fine-grained permissions (e.g., 'READ'), while roles are coarse-grained groupings of authorities, conventionally prefixed with 'ROLE_' (e.g., 'ROLE_ADMIN')."
+Which method would you use in an authorization rule to specify that a user must have the 'WRITE' authority to access an endpoint?,The `hasAuthority('WRITE')` method.
+What does the `anyRequest().authenticated()` configuration achieve?,It specifies that any request to any endpoint in the application must be from an authenticated user.
+"To apply authorization rules to specific endpoints based on their path, which matcher method is used?",The `requestMatchers()` method.
+"In a path expression for `requestMatchers()`, what does the `**` wildcard represent?",It matches zero or more path segments.
+What is a Cross-Site Request Forgery (CSRF) attack?,An attack that tricks a logged-in user into submitting a malicious request to a web application on their behalf without their knowledge.
+How does Spring Security's default CSRF protection work?,"It requires a unique, server-generated token (the CSRF token) to be included in all state-changing requests (e.g., POST, PUT, DELETE)."
+"By default, which HTTP methods are exempt from Spring Security's CSRF protection?","GET, HEAD, TRACE, and OPTIONS."
+What does CORS stand for and what problem does it solve?,"Cross-Origin Resource Sharing; it allows a web application from one origin (domain) to request resources from a different origin, which is normally blocked by browsers."
+Which HTTP header is central to the CORS mechanism for specifying which origins are allowed to access a resource?,The `Access-Control-Allow-Origin` header.
+What is the purpose of a CORS preflight request?,"It is an OPTIONS request sent by the browser before the actual request to check if the server supports the intended CORS protocol, method, and headers."
+What is method security in Spring Security?,"It is a feature that allows you to apply authorization rules directly to method invocations within any layer of your application, not just at the web endpoint level."
+"To enable method-level security in a Spring Boot application, what annotation must be added to a configuration class?",The `@EnableMethodSecurity` annotation.
+The _____ annotation is used to apply authorization rules that are checked *before* a secured method is executed.,`@PreAuthorize`
+What is the purpose of the `@PostAuthorize` annotation in method security?,"It applies authorization rules *after* the method has been executed, allowing rules to be based on the method's return value."
+"In a method security SpEL expression, how do you refer to the value returned by the method?",You use the keyword `returnObject`.
+"For complex authorization logic that cannot be expressed in a simple SpEL expression, you can implement the _____ interface.",`PermissionEvaluator`
+What does the `@PreFilter` annotation do?,"It filters a collection or array passed as a method argument, removing elements that do not match a given SpEL expression before the method body is executed."
+"In a pre-filtering or post-filtering SpEL expression, what keyword is used to refer to each individual element of the collection being filtered?",`filterObject`.
+Why is using `@PostFilter` on a Spring Data repository method that retrieves all records from a table generally a bad practice for performance?,"It fetches all records from the database into application memory first, and only then filters them, which is highly inefficient for large datasets."
+What are the four main actors in an OAuth 2 system?,"The user, the client, the authorization server, and the resource server."
+"In OAuth 2, what is the role of the Authorization Server?","It authenticates the user and the client, and issues access tokens that the client can use to access protected resources."
+What is the difference between an opaque access token and a JSON Web Token (JWT)?,"An opaque token contains no data and must be validated by the authorization server (via introspection), whereas a JWT is a self-contained token with signed data that the resource server can validate locally."
+What is the most common OAuth 2 grant type used for applications where a user is present and needs to log in?,The Authorization Code grant type.
+What enhancement does PKCE (Proof Key for Code Exchange) add to the Authorization Code flow?,It adds protection against authorization code interception attacks by requiring the client to prove it was the original requester using a code verifier and challenge.
+Which OAuth 2 grant type is used for service-to-service communication where no user is involved?,The Client Credentials grant type.
+What is the primary purpose of a refresh token in OAuth 2?,"It allows a client to obtain a new access token when the current one expires, without requiring the user to log in again."
+What major feature does OpenID Connect (OIDC) add on top of the OAuth 2 specification?,"It adds an identity layer, providing an extra 'ID token' that contains standardized information about the authenticated user."
+"When configuring a Spring Security OAuth 2 resource server to validate JWTs, what is the purpose of the `jwkSetUri`?",It's the URI where the resource server can fetch the authorization server's public keys to verify the signature of incoming JWTs.
+The process where a resource server contacts the authorization server to validate an opaque token is known as _____.,introspection
+"When a backend application needs to call another secured backend service in an OAuth 2 system, it acts as a(n) _____.",client
+"To implement a 'Login with Google' feature in a Spring web app, which Spring Boot starter dependency is primarily used?",The `spring-boot-starter-oauth2-client` dependency.
+"In a reactive Spring application using WebFlux, what is the reactive equivalent of the `UserDetailsService`?",The `ReactiveUserDetailsService`.
+What is the reactive equivalent of `SecurityFilterChain` for configuring security in a WebFlux application?,`SecurityWebFilterChain`.
+"To enable method-level security in a reactive Spring application, which annotation is used?",The `@EnableReactiveMethodSecurity` annotation.
+"When testing Spring Security authorization configurations in isolation, what is the purpose of using `@WithMockUser`?","It populates the `SecurityContext` with a mock authenticated user, bypassing the actual authentication process to focus solely on testing authorization rules."
+"In Spring MVC tests, which `RequestPostProcessor` is used to simulate an authentication attempt with HTTP Basic?","The `httpBasic(""username"", ""password"")` post-processor."
+"To include a valid CSRF token in a test request using MockMvc, which `RequestPostProcessor` should be used?",The `csrf()` post-processor from `SecurityMockMvcRequestPostProcessors`.
+"When testing a reactive Spring application, what is the reactive equivalent of `MockMvc`?",`WebTestClient`.
+"The HTTP 401 Unauthorized status code is typically used to represent a failed _____, while the 403 Forbidden status is for a failed _____.","authentication, authorization"
+What is the primary contract that represents the authentication request and holds principal details in Spring Security?,The `Authentication` interface.
+"In a configuration class, how do you specify that an endpoint should be accessible to everyone, including unauthenticated users?",By using the `.permitAll()` method in the authorization configuration chain.
+"To configure an OAuth 2 resource server, which method of `HttpSecurity` is the starting point?",The `oauth2ResourceServer()` method.
+Which class is used to build a `UserDetails` object without creating a custom implementation class?,The `User` builder class (`User.withUsername(...)`).
+"When defining roles for a user, what prefix should the role name string have if using the `authorities()` method?",The `ROLE_` prefix.
+What component in a reactive app is the equivalent of `HttpServletRequest` and `HttpServletResponse` in a servlet-based app?,The `ServerWebExchange`.
+"In reactive programming with Project Reactor, a _____ is a publisher for a single value, while a _____ is a publisher for multiple values.","`Mono`, `Flux`"
+"When testing an OAuth 2 resource server, what method can be used with MockMvc to provide a mock JWT for the test request?",The `jwt()` method from `SecurityMockMvcRequestPostProcessors`.
+What is the purpose of the `AuthenticationEntryPoint` in Spring Security?,It is used to customize the response sent to the client when an authentication attempt fails or is required.
+What is the main difference between an `AuthenticationSuccessHandler` and an `AuthenticationFailureHandler`?,"An `AuthenticationSuccessHandler` defines the logic to execute upon a successful login, while an `AuthenticationFailureHandler` defines the logic for a failed login."

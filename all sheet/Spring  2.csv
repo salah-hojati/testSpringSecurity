@@ -1,0 +1,84 @@
+"In Spring, what is the core container that creates and manages application components (beans)?",The Spring application context.
+"What design pattern is used in Spring to wire beans together, where a container creates and maintains components and injects them into beans that need them?",Dependency Injection (DI).
+Which annotation in Spring indicates that a class will provide beans to the application context?,The `@Configuration` annotation.
+What annotation is used on methods within a `@Configuration` class to indicate that the returned object should be registered as a bean in the Spring container?,The `@Bean` annotation.
+Spring's automatic configuration is rooted in two techniques: _____ and component scanning.,autowiring
+What is the primary benefit of using Spring Boot starter dependencies in a build file?,"They transitively pull in other required libraries, simplifying dependency management and ensuring compatibility."
+"The `@SpringBootApplication` annotation is a composite annotation that combines `@SpringBootConfiguration`, `@EnableAutoConfiguration`, and what other annotation?",`@ComponentScan`.
+"In Spring MVC, what is the primary purpose of the `@Controller` annotation?",To identify a class as a component for component scanning and to mark it as a handler for web requests.
+Which annotation in Spring MVC is used to map HTTP GET requests for a specific path to a handler method?,The `@GetMapping` annotation.
+"In a Spring MVC controller method, what does the returned `String` value typically represent?",The logical name of the view to be rendered.
+"What special test annotation in Spring Boot is used to run a test in the context of a Spring MVC application, often for testing controllers in isolation?",The `@WebMvcTest` annotation.
+"In Spring MVC, how are model data objects made accessible to view templates like Thymeleaf?",Spring copies the model data into servlet request attributes before forwarding the request to the view.
+What is the annotation used in a Spring MVC controller method to handle HTTP POST requests?,`@PostMapping`.
+"To enable JavaBean Validation in a Spring Boot application, you need to add the `spring-boot-starter-_____` dependency.",validation
+"In Spring MVC, which annotation is placed on a controller method parameter to trigger validation for the submitted object?",The `@Valid` annotation.
+"In Spring MVC, what class must be included as a parameter in a controller method (after the `@Valid` object) to capture any validation errors?",The `Errors` class.
+What is the purpose of Spring's `JdbcTemplate` class?,"It simplifies JDBC data access by handling resource management and exception translation, removing boilerplate code."
+Spring Data's most powerful feature is the ability to automatically create repository implementations based on a repository _____.,interface
+"In Spring Data, which base repository interface provides basic CRUD (Create, Read, Update, Delete) methods?",`CrudRepository`.
+What annotation is used to mark a domain class as a JPA entity?,The `@Entity` annotation.
+"In JPA, which annotation is used to designate the primary key field of an entity?",The `@Id` annotation.
+"In Spring Data, how can you define a custom query method in a repository interface without writing an implementation?","By naming the method according to a specific convention that Spring Data parses to create the query (e.g., `findByDeliveryZip`)."
+"For more complex queries in Spring Data JPA that cannot be expressed by method naming conventions, which annotation can be used on a repository method?",The `@Query` annotation.
+"In Cassandra data modeling, tables have two kinds of keys: _____ keys and clustering keys.",partition
+"In Spring Data Cassandra, what annotation maps a domain class to a Cassandra table?",The `@Table` annotation.
+"In Spring Data MongoDB, the _____ annotation is used to identify a domain object that is to be persisted to a MongoDB collection.",`@Document`
+"To enable Spring Security in a Spring Boot application, what is the first step?",Add the `spring-boot-starter-security` dependency to the build.
+"In a Spring Security configuration class, what type of bean must be declared to define web security rules, such as which paths require authentication?",A `SecurityFilterChain` bean.
+"In Spring Security, the _____ object acts as a builder to configure security at the web level, such as request authorization and login forms.",`HttpSecurity`
+"In `HttpSecurity` configuration, which method is used to specify URL paths and their required security level?",The `.antMatchers()` method.
+How can you specify that a request path should only be accessible to users with a specific role in Spring Security?,"By using the `.hasRole(""ROLE_NAME"")` method."
+What is the purpose of Cross-Site Request Forgery (CSRF) protection in Spring Security?,It prevents malicious websites from submitting unauthorized commands on behalf of an authenticated user.
+"To secure individual methods rather than web requests, you can use method-level security annotations like `@PreAuthorize` and `_____`.",`@PostAuthorize`
+"In a Spring controller method, what annotation can be used on a parameter to inject the currently authenticated user's principal object?",The `@AuthenticationPrincipal` annotation.
+What is the purpose of Spring's environment abstraction?,"It aggregates properties from various sources (like property files, environment variables, etc.) into a single source for beans to consume."
+"Which annotation binds the properties of a Spring bean to external configuration properties, often specified with a prefix?",`@ConfigurationProperties`.
+"In Spring, _____ are a way to apply or ignore different configurations based on the runtime environment (e.g., dev, qa, prod).",profiles
+What annotation is used to conditionally create a bean or configuration class only when a specific profile is active?,The `@Profile` annotation.
+How do you activate a specific Spring profile when running an application?,"By setting the `spring.profiles.active` property, typically as a command-line argument or environment variable."
+What is the key difference between a standard `@Controller` and a `@RestController` in Spring?,"`@RestController` combines `@Controller` and `@ResponseBody`, causing all handler methods to write their return value directly to the response body instead of to a view."
+"In a Spring REST controller, what annotation binds the body of an incoming HTTP request to a method parameter?",The `@RequestBody` annotation.
+"If a controller method needs to return a response with a specific HTTP status code and headers, what class can it return?",`ResponseEntity`.
+What is the semantic difference between an HTTP PUT and an HTTP PATCH request?,"PUT is intended for a wholesale replacement of a resource, while PATCH is for a partial update."
+What is the purpose of Spring Data REST?,It automatically creates REST APIs for repositories that were created by Spring Data.
+What is HATEOAS (Hypermedia as the Engine of Application State)?,A principle where a client interacts with a network application entirely through hypermedia provided dynamically by application servers.
+"Which Spring class is the traditional, blocking client for consuming REST services?",`RestTemplate`.
+"In the OAuth 2 authorization code grant flow, what is the role of the authorization server?",It authenticates the user and issues access tokens to the client application after obtaining the user's consent.
+An API secured by OAuth 2 is also known as a _____ server.,resource
+What type of token is commonly used in OAuth 2 flows and contains claims about the user and permissions in a JSON format?,JSON Web Token (JWT).
+"In Spring Security's OAuth 2 resource server configuration, how do you specify that an endpoint requires a particular permission?","By using `.hasAuthority(""SCOPE_scopeName"")`."
+_____ is a style of inter-application communication where messages are sent indirectly from one application to another without waiting for a response.,Asynchronous messaging
+What Spring template class is used for sending messages with JMS (Java Message Service)?,`JmsTemplate`.
+Which annotation in Spring is used to create a message-driven POJO that listens for messages from a JMS destination?,`@JmsListener`.
+What is the Spring template class used for sending messages with RabbitMQ?,`RabbitTemplate`.
+What annotation marks a method as a listener for messages from a RabbitMQ queue?,`@RabbitListener`.
+What is the Spring template class for sending messages to Apache Kafka topics?,`KafkaTemplate`.
+The _____ project provides a ready-to-use implementation of many patterns from the book *Enterprise Integration Patterns*.,Spring Integration
+"In Spring Integration, what component serves as an entry point for an application to submit data into an integration flow?",A messaging gateway (`@MessagingGateway`).
+"In Spring Integration, what is the purpose of a transformer?",It converts a message's content or structure into a new form as it passes through a flow.
+What is the core idea behind reactive programming?,It's a programming paradigm centered around asynchronous data streams and the propagation of change.
+"Project Reactor, Spring's reactive library, provides two core reactive types: _____ for a stream of 0..N items, and _____ for a stream of 0..1 items.","`Flux`, `Mono`"
+"In Project Reactor, what is the role of the `subscribe()` method?","It triggers the flow of data through the reactive stream; without a subscriber, nothing happens."
+"Which Reactor operation transforms each item in a stream synchronously, one-for-one?",The `map()` operation.
+"Which Reactor operation transforms items by applying a function that returns a new `Publisher` (like a `Mono` or `Flux`), allowing for asynchronous transformations?",The `flatMap()` operation.
+What is Spring WebFlux?,"It is Spring's reactive-stack web framework, built on Project Reactor, that supports reactive and non-blocking applications."
+"The default embedded server for a Spring WebFlux application is _____, whereas for Spring MVC it is Tomcat.",Netty
+What testing utility is provided by Spring for writing tests against reactive WebFlux controllers?,`WebTestClient`.
+What is the reactive alternative to `RestTemplate` for making non-blocking HTTP requests?,`WebClient`.
+What does R2DBC (Reactive Relational Database Connectivity) provide?,"A specification for reactive, non-blocking access to relational databases."
+"In Spring Data, what is the reactive equivalent of the `CrudRepository` interface?",`ReactiveCrudRepository`.
+What is RSocket?,"A binary application protocol for multiplexed, reactive, and asynchronous communication between applications."
+Name the four communication models offered by RSocket.,"Request-response, request-stream, fire-and-forget, and channel."
+"In a Spring RSocket controller, what annotation is used to map incoming messages to a handler method based on a route?",`@MessageMapping`.
+What is the purpose of Spring Boot Actuator?,"It provides production-ready features, such as health checks, metrics, and application info, through exposed endpoints."
+"By default, what is the base path for all Actuator endpoints?",`/actuator`.
+Which two Actuator endpoints are enabled and exposed over the web by default?,The `/health` and `/info` endpoints.
+How can you expose additional Actuator endpoints over the web?,By setting the `management.endpoints.web.exposure.include` configuration property.
+What is Spring Boot Admin?,A community project that provides a user-friendly web UI for managing and monitoring Spring Boot applications on top of the Actuator endpoints.
+"Besides HTTP, Actuator endpoints are also exposed as _____ MBeans, which can be monitored with a client like JConsole.",JMX (Java Management Extensions)
+What is the most common way to package and deploy a Spring Boot application?,"As a self-contained, executable JAR file with an embedded web server."
+"To create a deployable WAR file from a Spring Boot application, the main application class must extend what class?",`SpringBootServletInitializer`.
+What is the purpose of a `Dockerfile` when containerizing a Spring application?,"It contains instructions for building a Docker image, specifying the base image, files to copy, and the command to run."
+"In a Kubernetes deployment manifest, what does the `replicas` property specify?",The desired number of instances (pods) of the application that should be running.
+What is the purpose of Kubernetes liveness and readiness probes?,"Liveness probes determine if a container needs to be restarted, while readiness probes determine if it's ready to accept traffic."

@@ -1,0 +1,25 @@
+"In recent Spring Security versions, what class is deprecated for customizing HTTP security and authentication?",The `WebSecurityConfigurerAdapter` class.
+What approach does modern Spring Security encourage instead of extending `WebSecurityConfigurerAdapter`?,A component-based security configuration.
+"Beginning with version _____, Spring deprecated the use of `WebSecurityConfigureAdapter`.",5.7.0-M2
+"To configure authentication in a component-based approach, you can define a `UserDetailsManager` or _____ component.",UserDetailsService
+"In Spring Security, what type of bean should be created to replace the deprecated method for configuring HTTP security?",A `SecurityFilterChain` bean.
+What object does the `HttpSecurity` configuration build to load request matchers and filters?,A `DefaultSecurityFilterChain` object.
+"What callback interface is now used for web security configurations, such as ignoring static resource paths?",The `WebSecurityCustomizer` interface.
+"What is the purpose of the following code snippet inside a `WebSecurityCustomizer` bean?
+`web -> web.ignoring().requestMatchers(""/css/**"", ""/js/**"");`","It configures Spring Security to ignore requests to paths matching `/css/**` and `/js/**`, typically for static assets."
+"In a `SecurityFilterChain`, what method is used to begin defining authorization rules for requests?",The `authorizeHttpRequests()` method.
+"What method in the request matcher registry restricts access to requests with a specific `HttpMethod` and role, like `HttpMethod.DELETE` for an 'ADMIN'?","The `requestMatchers(HttpMethod.DELETE).hasRole(""ADMIN"")` chain."
+"How do you configure an endpoint, such as `/user/**`, to be accessible by users with either 'USER' or 'ADMIN' roles?","By using `.requestMatchers(""/user/**"").hasAnyRole(""USER"", ""ADMIN"")`."
+"Which method allows all users, including anonymous ones, to access a specific endpoint like `/login/**`?","The `.requestMatchers(""/login/**"").permitAll()` method."
+What method chain ensures that any request not previously matched requires authentication?,The `.anyRequest().authenticated()` method chain.
+How do you configure Spring Security for stateless session management in a `SecurityFilterChain`?,By using `.sessionManagement(configurer -> configurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))`.
+"In Spring Boot MVC tests, which annotation is used to simulate a request from a user who is not authenticated?",`@WithAnonymousUser`
+What HTTP status code should an anonymous user receive when attempting to access a protected endpoint that requires authentication?,401 Unauthorized.
+"In Spring Boot MVC tests, what annotation simulates a request from a specific, authenticated user defined in the `UserDetailsService`?",`@WithUserDetails`
+"If a user is authenticated but tries to access a resource for which they lack the required role, what HTTP status code is returned?",403 Forbidden.
+What is the key difference between a 401 Unauthorized and a 403 Forbidden status code in Spring Security?,"401 means the user has not provided valid credentials, while 403 means the user is authenticated but lacks the necessary permissions for the resource."
+"What is the modern, lambda-based syntax in a `SecurityFilterChain` to disable CSRF protection?",`http.csrf(csrf -> csrf.disable())`
+What is the purpose of the method `http.getSharedObject(AuthenticationManagerBuilder.class)`?,It retrieves the `AuthenticationManagerBuilder` to configure a custom `AuthenticationManager` bean.
+"What is the modern, lambda-based syntax to enforce that all requests must use HTTPS?",`http.requiresChannel(channel -> channel.anyRequest().requiresSecure())`
+"When defining an in-memory user with `InMemoryUserDetailsManager`, what method should be used to encode the password?","The `.password(bCryptPasswordEncoder.encode(""password""))` method, using a password encoder bean."
+Which annotations can be added to a configuration class to enable method-level security?,"`@EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)`"

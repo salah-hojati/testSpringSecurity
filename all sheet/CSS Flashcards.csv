@@ -1,0 +1,72 @@
+Which type of HTML element starts on a new line and extends the full width of the page?,A block element.
+Which type of HTML element only occupies the width of its content and does not start on a new line?,An inline element.
+Name two examples of HTML block elements.,Paragraphs (`<p>`) and list items (`<li>`).
+Name two examples of HTML inline elements.,Anchor tags (`<a>`) and images (`<img>`).
+"In a CSS rule, what is the term for the part that selects the HTML element to be styled?",The selector.
+"In a CSS rule, a combination of a property and a value is called a _____.",declaration
+What is the term for multiple CSS declarations enclosed in curly brackets `{}`?,A declaration block.
+What are the three methods for including CSS in an HTML document?,"Inline CSS, Internal CSS, and External CSS."
+Which method of including CSS is considered best practice for managing styles across multiple pages?,"External CSS, using a `<link>` tag to a separate `.css` file."
+Why is inline CSS (using the `style` attribute) generally considered bad practice?,"Because you have to duplicate every style for every single tag, making it difficult to maintain."
+The CSS property `font-weight` sets the _____ of text characters.,thickness
+What is the numeric value for a `normal` font-weight in CSS?,400.
+"What is the numeric value for a `bold` font-weight in CSS, which is also the default for headings?",700.
+"What CSS property is used to set decorative lines on text, such as an underline or line-through?",`text-decoration`.
+What is the primary use case for the `text-decoration` property in modern web design?,To remove the default underline from anchor tags using the value `none`.
+The CSS property `font-style` is most commonly used to apply what style to text?,`italic`.
+What is the purpose of the `list-style` property in CSS?,"It sets the style of the marker (e.g., bullet point) for a list item."
+"What is the most common use case for the `list-style` property, especially for navigation bars?",Setting it to `none` to remove default bullet points when lists are used for structural purposes.
+The CSS property `text-align` controls the horizontal alignment of text within which type of element?,A block-level element.
+Why does `text-align` have no effect on inline elements by default?,"Because an inline element's box is only as wide as its content, leaving no extra space for the text to move within."
+What does the `line-height` property control in CSS?,"The amount of space above and below inline elements, effectively setting the distance between lines of text."
+The CSS property _____ controls the space between individual characters in a block of text.,`letter-spacing`
+"In CSS, what is the difference between absolute and relative units for sizing?","Absolute units (like pixels) are fixed, while relative units are based on the size of a parent element and can adjust proportionally."
+What is a pixel (px) in the context of CSS?,"A single, fixed-size point of light on a digital display, representing an absolute unit of measurement."
+How do you import a font from Google Fonts into an HTML document?,By copying the provided `<link>` tags from Google Fonts and pasting them into the `<head>` section of the HTML file.
+The CSS property for setting the color of text is simply `_____`.,`color`
+"What color system, commonly used in electronic displays and CSS, starts with black and combines red, green, and blue light?",The additive color system (RGB).
+What does a hexadecimal (hex) color code in CSS represent?,"It represents a color by specifying the intensity of Red, Green, and Blue (RGB) components with a `#` followed by six characters."
+"In the context of CSS, what is the 'Cascade'?",The principle that styles declared later in the stylesheet will take priority over earlier styles if the selectors are the same.
+"How can you apply the same CSS styles to multiple selectors (e.g., `h1`, `h2`, `h3`) without repeating the code?",By grouping the selectors with a comma-separated list.
+"What is the CSS syntax for selecting an element with a specific ID, for example, an ID of `main-title`?",`#main-title`
+How many times can a specific ID be used on a single HTML page?,Only once.
+"What is the CSS syntax for selecting elements with a specific class, for example, a class of `highlight`?",`.highlight`
+Why are class selectors generally preferred over ID selectors for styling?,"Because classes can be reused on multiple elements, offering greater flexibility and scalability."
+What is the purpose of a pseudo-class like `:hover` in CSS?,"It applies styles to an element only when it is in a specific state, such as when the user's mouse pointer is over it."
+Which pseudo-class is used to style a link that the user has already visited?,`:visited`.
+"What determines which CSS rule is applied when multiple, conflicting rules target the same element using different selectors?",Specificity.
+"Which type of selector has the highest specificity: ID, class, or type (element)?",The ID selector.
+What is CSS inheritance?,The process where properties set on a parent element are passed down to its child elements by default.
+Which CSS properties are commonly inherited by child elements?,"Text-related properties like `color`, `font-family`, and `font-weight`."
+What is the best practice for setting global font styles that should be inherited by most text elements on a page?,Set the styles on the `body` element.
+"The _____ selector, denoted by an asterisk (`*`), applies styles to every single element on the page.",universal
+"What are the four main components of the CSS Box Model, from the inside out?","Content, padding, border, and margin."
+What is 'padding' in the CSS Box Model?,The space between the element's content and its border.
+What is 'margin' in the CSS Box Model?,"The space outside an element's border, separating it from other elements."
+The CSS property `background-color` applies color to which parts of the box model?,The content and the padding.
+"By default, do standard CSS `width` and `height` properties apply to inline elements like `<span>` and `<a>`?","No, `width` and `height` cannot be set on most inline elements."
+"What is the shorthand property in CSS to set the width, style, and color of a border all at once?",`border`.
+The CSS property `border-radius` is used to create what visual effect on an element's corners?,Rounded corners.
+What is the default behavior of `box-sizing: content-box`?,"The `width` and `height` properties apply only to the content area; padding and border are added on top, increasing the element's total size."
+What is the effect of setting `box-sizing: border-box`?,"The `width` and `height` properties define the total size of the element, including content, padding, and border."
+What is a common 'CSS reset' rule applied with the universal selector (`*`)?,"Setting `margin: 0;`, `padding: 0;`, and `box-sizing: border-box;`."
+How can you horizontally center a block-level element that has a set width within its parent container?,"By setting its left and right margins to `auto` (e.g., `margin: 0 auto;`)."
+What is the key difference between the `width` and `max-width` properties?,"`width` sets a fixed width, while `max-width` sets a maximum width that the element will not exceed but allows it to shrink on smaller screens."
+Why is it best practice to use `max-width` instead of `width` for main page containers?,To ensure the container is responsive and its content does not overflow on screens narrower than the specified width.
+What does the `display: inline-block;` value do?,"It allows an element to flow inline with other content like an inline element, but also allows `width`, `height`, padding, and margin to be applied like a block element."
+A percentage (%) unit in CSS is always relative to what?,A property of its parent element.
+What is the `rem` unit in CSS relative to?,The font size of the root element (`<html>`).
+What is the common practice of setting `font-size: 62.5%` on the `html` element intended to achieve?,"It makes 1rem equal to 10 pixels (since the default is 16px), simplifying calculations."
+Where are CSS variables (custom properties) typically defined to make them globally available?,Within the `:root` pseudo-class.
+What is the syntax for defining a CSS variable named `primary-color`?,`--primary-color: value;`
+How do you use a CSS variable named `--primary-color` to set the background of an element?,`background-color: var(--primary-color);`
+"To initialize a flexbox layout, what CSS property and value must be applied to the parent container?",`display: flex;`
+"In a flexbox layout, the direct children of the flex container are known as _____.",flex items
+What does the `flex-direction` property control in a flexbox layout?,"It establishes the main axis, determining if flex items are arranged in a row or a column."
+The `justify-content` property aligns flex items along which axis?,The main axis.
+Which `justify-content` value places flex items at the end of the main axis?,`flex-end`.
+"Which `justify-content` value distributes flex items evenly, with the first and last items flush against the container edges?",`space-between`.
+The `align-items` property aligns flex items along which axis?,The cross axis.
+Which `align-items` value will vertically center items in a default row-based flex container?,`center`.
+"By default, what is the value of `align-items`, which causes flex items to stretch and fill the height of the container?",`stretch`.
+What is the purpose of the `gap` property in a flex container?,"It sets the space between flex items, both horizontally and vertically."

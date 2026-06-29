@@ -1,0 +1,86 @@
+What is the core function of the Central Processing Unit (CPU) in a computer?,"It continuously asks the question, ""What do you want me to do next?"" at an extremely high speed."
+What is the key difference between main memory (RAM) and secondary storage (like a hard drive)?,"Main memory is fast but volatile (loses data when power is off), while secondary storage is slower but permanent."
+"In Python, your program code is translated into a series of zeros and ones for the microprocessor, which is known as _____ language.",machine
+What is the purpose of the `print()` function in Python?,It displays output to the screen.
+"In Python, a _____ error occurs when the code violates the grammatical rules of the language.",syntax
+The name 'Python' was inspired by what British comedy troupe?,Monty Python's Flying Circus.
+What prompt does the Python interactive interpreter display to indicate it's ready for the next command?,The three-chevron prompt (>>>).
+What are 'reserved words' in Python?,They are words that have a special meaning to Python and cannot be used as variable names.
+"In Python, a file containing code is typically called a _____ and is saved with a `.py` extension.",script
+What are the three basic patterns of program execution discussed in the course?,"Sequential steps, conditional steps (skipping), and repeated steps (loops)."
+What is a constant in programming?,"A fixed value, such as a number or a string, that does not change."
+"In Python, how do you create a string constant?",By enclosing text in single or double quotes.
+What is a variable in programming?,A named place in memory where a programmer can store data and later retrieve it using the variable name.
+What are the rules for naming variables in Python?,"They must start with a letter or underscore, can contain letters, numbers, and underscores, and are case-sensitive."
+Variable names that are chosen to be descriptive and help others understand the code are called _____ variable names.,mnemonic
+"What does an assignment statement (e.g., `x = 1`) do in Python?",It stores a value into a variable.
+"In the assignment `x = x + 1`, how is the right-hand side evaluated?","The current value of x is retrieved, 1 is added to it, and the result is then stored back into x."
+What is the concept of 'type' in Python?,"It refers to the kind of data a variable holds, such as an integer, a float, or a string."
+What does the `+` operator do when used with two strings?,"It performs concatenation, joining the strings together end-to-end."
+How can you convert a string containing digits into an integer in Python?,"By using the `int()` function, for example `int('123')`."
+What is the primary difference between Python 2 and Python 3's division operator (`/`)?,"In Python 3, division always produces a floating-point result, whereas in Python 2 it performed integer division."
+What function is used to get input from a user in a Python program?,"The `input()` function, which displays a prompt and returns the user's typed text as a string."
+"In Python, how are blocks of code, such as those in an `if` statement or a loop, demarcated?","Through indentation, typically with four spaces."
+What is the purpose of the `try` and `except` keywords in Python?,"They are used to handle potential errors (exceptions) in a block of code, preventing the program from crashing."
+"When code inside a `try` block executes without error, what happens to the corresponding `except` block?",The `except` block is ignored and skipped.
+What is the primary benefit of defining a function in your code?,It allows you to store a block of code and reuse it multiple times by invoking the function name.
+The keyword _____ is used to define a function in Python.,`def`
+What is the difference between a parameter and an argument in the context of functions?,"A parameter is the variable name inside the function definition, while an argument is the value passed to the function when it is called."
+What does the `return` statement do inside a function?,It ends the function execution and sends a result value back to the caller.
+A loop that is guaranteed to run zero or more times is known as a _____ loop.,zero-trip
+"How can you create an infinite `while` loop, and what statement is used to exit it?","Create it with `while True:`, and use the `break` statement to exit."
+The `for` loop in Python iterates through a sequence of items. What is the variable that holds the current item during each iteration called?,The iteration variable.
+What is a common programming pattern or 'idiom' for finding the largest value in a sequence?,"Initialize a variable to a known small value (or `None`), then loop through the sequence, updating the variable whenever a larger value is found."
+"What is the purpose of the `is` operator, and how is it different from `==`?","The `is` operator tests for identity (if two variables point to the exact same object), which is stronger than `==`, which tests for equality (if two objects have the same value)."
+How do you access a specific character in a string in Python?,"By using the index operator `[]` with a number, where the first character is at index 0."
+What does it mean for a string to be 'immutable'?,"It means that once a string is created, its contents cannot be changed."
+"In Python string slicing, what does the expression `s[0:4]` extract?","It extracts characters starting at index 0 up to, but not including, index 4."
+What does the string method `find()` return if the substring is not found?,It returns -1.
+The string method _____ creates a new string with all occurrences of a substring replaced by another.,`.replace()`
+What does the `.strip()` string method do?,"It returns a copy of the string with leading and trailing whitespace (spaces, tabs, newlines) removed."
+How do you open a file in Python for reading?,"By using the `open()` function, which returns a file handle."
+What is the special character that represents a newline in a string?,The backslash-n character (`\n`).
+What is the most elegant way to read through a text file line by line in Python?,"Using a `for` loop directly on the file handle (e.g., `for line in fhand:`)."
+The string method _____ is commonly used on lines read from a file to remove the trailing newline character.,`.rstrip()`
+What distinguishes a data structure from an algorithm?,"An algorithm is a sequence of steps to solve a problem, while a data structure is a particular way of organizing and storing data in memory."
+"In Python, a _____ is a mutable, ordered collection of items enclosed in square brackets.",list
+How is a list different from a string in terms of mutability?,"Lists are mutable (their items can be changed), whereas strings are immutable."
+Which function returns the number of items in a list?,The `len()` function.
+"The _____ function can be used to generate a sequence of numbers, often used for creating index loops.",`range()`
+What is the result of using the `+` operator on two lists?,"It concatenates the lists, creating a new list containing all elements from both."
+What does the `.append()` method do for a list?,It adds a new item to the end of the list.
+Which string method breaks a string into a list of words?,The `.split()` method.
+"In Python, a _____ is a collection that stores data as key-value pairs, enclosed in curly braces.",dictionary
+How do you add a new key-value pair to a dictionary?,"By using an assignment statement with the new key in square brackets, e.g., `counts['chuck'] = 1`."
+What is the 'histogram' pattern in programming?,"It's a pattern for counting the frequency of items in a sequence, typically implemented using a dictionary."
+What is the advantage of using the `.get()` method when accessing a dictionary key?,"It allows you to provide a default value to return if the key is not found, avoiding a traceback."
+"What is a tuple in Python, and how is its syntax different from a list?","A tuple is an immutable, ordered sequence of elements, defined using parentheses `()` instead of square brackets `[]`."
+"Because tuples are comparable, a list of tuples can be sorted. How does the sorting process work?","It sorts based on the first element of each tuple, only moving to the second element if the first elements are tied."
+"Which dictionary method returns a list of (key, value) tuples?",The `.items()` method.
+What are regular expressions used for?,They are a specialized language for searching and parsing strings based on complex patterns.
+"In regular expressions, the `^` character matches what?",The beginning of a line.
+"In regular expressions, what does the `*` character mean?",It matches the preceding character zero or more times.
+The `re.findall()` function in Python returns what?,A list of all non-overlapping strings that match the regular expression pattern.
+How can you specify that you want to extract only a portion of a matching regular expression?,By placing parentheses `()` around the part of the pattern you want to extract.
+What is a network socket?,"A connection endpoint that allows a program to send and receive data across a network, much like a data phone call."
+"What protocol is commonly used for web traffic, and what is its standard port number?","The HyperText Transfer Protocol (HTTP), which typically uses port 80."
+What is the purpose of the `urllib` library in Python?,It simplifies web interactions by handling the socket connections and HTTP protocol details for you.
+What is the difference between `encode()` and `decode()` when working with strings and network data?,"`encode()` converts an internal Python string to bytes for network transmission, while `decode()` converts incoming bytes back into a string."
+What problem does the BeautifulSoup library solve?,"It parses messy and malformed HTML, allowing you to easily navigate the structure and extract tags and data."
+What is the term for the process of converting an in-memory data structure (like a dictionary) into a format suitable for network transmission?,Serialization.
+What are the two common data serialization formats used in web services?,XML (Extensible Markup Language) and JSON (JavaScript Object Notation).
+"In XML, data is enclosed in matching start and end _____, like `<name>` and `</name>`.",tags
+"In JSON, data is represented as objects (key-value pairs in _____) and arrays (lists in _____).","curly braces `{}`, square brackets `[]`"
+What is a Web Service API (Application Programming Interface)?,It's a contract provided by a service (like Google or Twitter) that defines how other programs can request data from it.
+What is the purpose of an API key?,"It is a secret token used to identify and authenticate an application when it makes a request to an API, often used for tracking usage."
+"In Object-Oriented Programming, what is a 'class'?",A class is a template or blueprint that defines the attributes (data) and methods (code) for a type of object.
+What is an 'object' or 'instance' in OOP?,"An object is a specific entity created from a class, containing its own data but sharing the methods defined by the class."
+What is the general term for a function defined inside a class?,A method.
+What is a database?,"Software designed to store, retrieve, and manage large amounts of structured data efficiently, without requiring the programmer to write loops for every operation."
+"What are the four basic operations of SQL, often referred to by the acronym CRUD?","Create (`INSERT`), Read (`SELECT`), Update (`UPDATE`), and Delete (`DELETE`)."
+"In SQL, what does the `SELECT * FROM Users` statement do?",It retrieves all columns (`*`) and all rows from the 'Users' table.
+The _____ clause in a SQL statement is used to filter rows based on a condition.,`WHERE`
+How do you sort the results of a `SELECT` query in SQL?,By using the `ORDER BY` clause followed by a column name.
+What is the concept of a 'primary key' in a database table?,"A unique, non-null integer assigned to each row that serves as its permanent identifier."
+"A _____ key is a column in one table that contains the primary key of a row in another table, creating a link between them.",foreign
+What is the purpose of the `JOIN` clause in SQL?,"It combines rows from two or more tables based on a related column between them, specified in an `ON` clause."

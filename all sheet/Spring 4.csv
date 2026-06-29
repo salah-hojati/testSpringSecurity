@@ -1,0 +1,150 @@
+What is the core principle of Inversion of Control (IoC) in the Spring Framework?,It's a design principle where the control of object creation and lifecycle is transferred from the application code to a container or framework.
+"What is the default bean scope in Spring, and what does it signify?","The default scope is Singleton, which means only one instance of the bean is created per Spring application context and shared across all requests."
+"The `@SpringBootApplication` annotation is a composite annotation that combines `@Configuration`, `@EnableAutoConfiguration`, and what other annotation?","`@ComponentScan`, which enables component scanning for beans."
+"In Spring MVC, what is the purpose of the `@RestController` annotation?","It's a convenience annotation that combines `@Controller` and `@ResponseBody`, indicating that the return value of methods should be written directly to the HTTP response body."
+Which Spring MVC annotation is used to map HTTP GET requests to a specific handler method?,The `@GetMapping` annotation.
+What tool can be used to easily bootstrap a new Spring Boot project with desired dependencies?,"The Spring Initializr, available at start.spring.io."
+What is the primary role of a `DispatcherServlet` in a Spring MVC application?,"It acts as the front controller, receiving all incoming HTTP requests and dispatching them to the appropriate handlers."
+"To inject a value from `application.properties` into a bean's field, you would use the _____ annotation.",`@Value`
+What is the purpose of Spring Profiles?,"They provide a way to segregate parts of your application configuration and make it available only in certain environments (e.g., dev, prod)."
+"In Spring Boot, what property is used to activate a specific profile, such as 'dev'?",`spring.profiles.active=dev`
+What is the function of the `@Autowired` annotation in Spring?,"It marks a constructor, field, or setter method to be automatically injected with a required dependency by the Spring container."
+What is the difference between a JAR and a WAR packaging for a Spring Boot application?,"A JAR file is a self-contained executable with an embedded server, while a WAR file is packaged for deployment to an external application server."
+"In REST API design, what HTTP method is idempotent and used to fully replace an existing resource?",PUT.
+Which HTTP method is used to apply partial modifications to a resource?,PATCH.
+What does HATEOAS stand for in the context of REST APIs?,Hypermedia as the Engine of Application State.
+"To bind an incoming HTTP request body to a method parameter in a Spring controller, which annotation should be used?",The `@RequestBody` annotation.
+What is the purpose of the `@PathVariable` annotation in Spring MVC?,It is used to bind a value from a placeholder in the request URI to a method parameter.
+What is the role of the `@Valid` annotation when used on a controller method parameter?,It triggers the validation of the annotated object based on Java Bean Validation constraints.
+"In Spring Data, what is the base interface that provides basic CRUD (Create, Read, Update, Delete) operations?",`CrudRepository`.
+Term: Object-Relational Mapping (ORM),Definition: A programming technique for converting data between incompatible type systems in object-oriented programming languages and relational databases.
+The _____ annotation from JPA is used to mark a Java class as a table in the database.,`@Entity`
+"In JPA, the `@Id` annotation is used for what purpose?",To specify the primary key property or field of an entity.
+What tool is commonly used with Spring Boot for managing database schema migrations and version control?,Flyway or Liquibase.
+What is the primary benefit of using Testcontainers for integration testing?,"It provides lightweight, disposable instances of services like databases or message brokers in Docker containers, ensuring a clean and consistent test environment."
+The concept of a system that provides its services even in the presence of faults is known as _____.,Resilience
+What is the core idea behind a `Circuit Breaker` pattern in a distributed system?,"To prevent a network or service failure from cascading by stopping requests to a failing service for a period of time, allowing it to recover."
+"In Spring Cloud, what project provides a concrete implementation of the Circuit Breaker pattern?",Resilience4J.
+What is the main function of an API Gateway in a microservices architecture?,"It acts as a single entry point for all client requests, routing them to the appropriate backend services and handling cross-cutting concerns like security and rate limiting."
+Which Spring Cloud project is used to build an API Gateway on top of the reactive stack?,Spring Cloud Gateway.
+What is the difference between virtualization and containerization?,"Virtualization virtualizes the hardware to run multiple OS instances, while containerization virtualizes the OS to run multiple isolated application processes on a single OS kernel."
+The standard for defining how to convert application source code into production-ready container images without a Dockerfile is called _____.,Cloud Native Buildpacks (CNBP)
+"In Kubernetes, what is the smallest deployable unit of computing that can be created and managed?","A Pod, which can contain one or more containers."
+"What Kubernetes object manages the state of Pods, handling scaling and rolling updates?",A Deployment.
+How do services within a Kubernetes cluster discover and communicate with each other?,"Through a Kubernetes Service object, which provides a stable IP address and DNS name for a set of Pods."
+How does a liveness probe differ from a readiness probe in Kubernetes?,"A liveness probe checks if a container is running and should be restarted if it fails, while a readiness probe checks if the container is ready to accept traffic."
+What is the primary function of Spring Boot Actuator?,"It exposes production-ready operational information about a running application, such as health, metrics, and configuration, via HTTP or JMX endpoints."
+Which Actuator endpoint provides a summary of the application's health status?,The `/actuator/health` endpoint.
+_____ is a vendor-neutral application metrics facade included with Spring Boot Actuator for collecting and exporting metrics.,Micrometer
+What are the three main pillars of observability in software systems?,"Logs, metrics, and traces."
+What is the core difference between authentication and authorization in security?,"Authentication verifies who a user is, while authorization determines what an authenticated user is allowed to do."
+"In Spring Security, what is the central component that processes incoming requests through a series of filters?",The `SecurityFilterChain`.
+What is the purpose of the `PasswordEncoder` interface in Spring Security?,To encode passwords using a one-way hashing algorithm for secure storage and to verify submitted passwords against the stored hash.
+"The `UserDetailsService` interface in Spring Security has one primary method, which is responsible for what action?","The `loadUserByUsername()` method, which locates a user based on their username."
+Term: OAuth 2.0,"Definition: An authorization framework that enables a third-party application to obtain limited access to an HTTP service, either on behalf of a resource owner or by allowing the third-party application to obtain access on its own behalf."
+What is the primary role of an Authorization Server in an OAuth 2.0 flow?,"It is responsible for authenticating the resource owner, obtaining their consent, and issuing access tokens to the client application."
+"In OAuth 2.0, what is the difference between an Access Token and an ID Token?","An Access Token is used to access protected resources (an API), while an ID Token (from OIDC) contains identity information about the authenticated user in a JWT format."
+OpenID Connect (OIDC) is an identity layer built on top of which framework?,OAuth 2.0.
+"To protect a Spring Boot application as an OAuth 2.0 Resource Server, you would typically add the `spring-boot-starter-oauth2-resource-server` dependency and configure the _____ URI.",JWT Issuer URI
+What is the purpose of Cross-Site Request Forgery (CSRF) protection?,To prevent malicious websites from forcing an authenticated user's browser to perform unwanted actions on a trusted site where the user is currently logged in.
+"In the reactive programming paradigm, what is the fundamental difference between imperative and reactive code execution?","Imperative code is blocking and sequential, while reactive code is non-blocking and event-driven, processing data as asynchronous streams."
+"In Project Reactor, which type represents a reactive stream of 0 or 1 items?",`Mono`.
+"In Project Reactor, which type represents a reactive stream of 0 to N items?",`Flux`.
+"What is the name of Spring's reactive web framework, used as an alternative to Spring MVC?",Spring WebFlux.
+"In a reactive application, what is the modern, non-blocking alternative to `RestTemplate` for making HTTP requests?",`WebClient`.
+"When testing reactive streams with Project Reactor, what utility class is used to subscribe to a `Flux` or `Mono` and make assertions about the emitted data?",`StepVerifier`.
+"In an event-driven architecture, what component is responsible for receiving events from publishers and delivering them to interested subscribers?","An event broker or message broker (e.g., RabbitMQ, Kafka)."
+What is the primary benefit of an event-driven architecture?,"It enables loose coupling and asynchronous communication between services, improving scalability and resilience."
+Which Spring Cloud project simplifies the development of event-driven applications by providing binders for message brokers?,Spring Cloud Stream.
+Which Spring Cloud project promotes implementing business logic as functions that can be adapted for various platforms like serverless or messaging?,Spring Cloud Function.
+What is 'serverless' computing?,"A cloud computing model where the cloud provider dynamically manages the allocation and provisioning of servers, allowing developers to focus only on their application code."
+What is GraalVM?,"A high-performance JDK distribution designed to accelerate Java application performance while consuming fewer resources, which can compile applications into native executables."
+What is the main advantage of compiling a Spring Boot application to a native executable using GraalVM?,It results in a significantly faster startup time and lower memory consumption compared to running on a traditional JVM.
+Which Spring project provides the Ahead-of-Time (AOT) transformations needed to compile a Spring application into a native executable?,Spring Native (which has since been integrated into Spring Boot 3).
+What is Knative?,"A Kubernetes-based platform used to build, deploy, and manage modern serverless workloads."
+GitOps is a set of practices for operating software systems that uses _____ as the single source of truth for declarative infrastructure and applications.,Git
+How does the pull-based deployment model of GitOps differ from traditional CI/CD pipelines?,"In GitOps, an agent inside the cluster pulls the desired state from Git and applies it, whereas traditional pipelines push changes to the cluster."
+What popular open-source tool is often used to implement the GitOps agent for continuous deployment on Kubernetes?,Argo CD or Flux.
+"In Spring Data, the `ReactiveCrudRepository` interface is the reactive equivalent of `CrudRepository` and returns which types?",It returns reactive types like `Mono` for single-entity operations and `Flux` for multiple-entity operations.
+What is the purpose of Spring Boot DevTools?,It provides development-time features like automatic application restart on code changes and live browser reloads to improve developer productivity.
+"In Spring Security, what does the `hasAuthority()` method check for when defining authorization rules?",It checks if the authenticated principal has been granted a specific authority (a granular permission).
+How does the `hasRole()` check in Spring Security differ from `hasAuthority()`?,"By convention, `hasRole('ADMIN')` is equivalent to `hasAuthority('ROLE_ADMIN')`, automatically adding the 'ROLE_' prefix."
+"To enable method-level security in Spring, such as `@PreAuthorize`, what annotation must be added to a configuration class?",The `@EnableMethodSecurity` annotation (or `@EnableGlobalMethodSecurity` in older versions).
+What is the function of the `@PreAuthorize` annotation in Spring Security?,"It allows for declarative, expression-based access control to be applied to a method before it is invoked."
+"The _____ annotation is used in Spring Security for filtering a method's return collection, removing elements that do not meet a specified condition.",`@PostFilter`
+"In Spring tests, what is the role of the `@SpringBootTest` annotation?","It loads a full Spring application context for integration testing, optionally starting a web server on a random or defined port."
+"For testing the web layer of a Spring MVC application in isolation without a full server, which annotation is typically used?","The `@WebMvcTest` annotation, which auto-configures `MockMvc`."
+What is the purpose of the `MockMvc` object in Spring testing?,It allows for testing Spring MVC controllers by performing requests and asserting responses without needing to start a full HTTP server.
+Which annotation is used in Spring tests to provide a mock authenticated user in the security context?,The `@WithMockUser` annotation.
+What is the purpose of the `@ConfigurationProperties` annotation?,It binds and validates external configuration properties from files (like `application.yml`) to a Java bean.
+"In a cloud-native architecture, services that are designed to retain no client session information are known as _____ services.",Stateless
+"Services designed to persist state, such as databases or file systems, are categorized as _____ services.",Stateful
+The 12-Factor App methodology recommends storing configuration that varies between environments in the _____.,"Environment (e.g., environment variables)"
+What does R2DBC stand for and what problem does it solve?,"Reactive Relational Database Connectivity; it defines a reactive API for accessing relational databases, providing a non-blocking alternative to JDBC."
+Term: Backing Service,"Definition: Any external resource that an application consumes over the network to deliver its functionality, such as databases, message brokers, or caching systems."
+"In a Spring application, what is the purpose of a `CommandLineRunner` bean?","It provides a `run()` method that is executed once at application startup, after the context is loaded, often used for initial data loading."
+What is the primary role of a JSON Web Token (JWT)?,"To securely represent claims between two parties, commonly used for transmitting identity and authorization information in a compact, self-contained way."
+"A JWT consists of three parts separated by dots: the header, the payload, and the _____.",Signature
+What is the function of the `TokenRelay` gateway filter in Spring Cloud Gateway?,It automatically forwards the incoming OAuth 2.0 access token to the downstream services being routed to.
+What is a 'fat JAR' or 'executable JAR' in the context of Spring Boot?,"A single JAR file that contains the application code along with all its dependencies and an embedded web server, allowing it to be run with a simple `java -jar` command."
+"In Spring Security, what is the purpose of `SecurityContextHolder`?","It is the primary strategy for storing the security context, which contains the `Authentication` object representing the currently authenticated user."
+"What is the difference between `@Component`, `@Service`, and `@Repository` annotations in Spring?","They are all stereotypes for `@Component`, but `@Service` indicates a business logic bean, and `@Repository` indicates a data access bean and enables exception translation."
+"To customize the JSON serialization of an object, you can add annotations from which popular Java library that Spring Boot uses by default?","Jackson (e.g., `@JsonProperty`, `@JsonIgnore`)."
+What is the purpose of the `spring-boot-starter-test` dependency?,"It provides a comprehensive set of libraries for testing Spring Boot applications, including Spring Test, JUnit, AssertJ, and Mockito."
+What does it mean for an application to be 'disposable' according to the 15-Factor methodology?,"It means the application can be started or stopped gracefully at a moment's notice, facilitating fast elastic scaling, rapid deployment, and robust production systems."
+The strategy of gradually rolling out a new version of an application to a small subset of users before making it available to everyone is known as a _____ release.,Canary
+What is the primary role of a `DataSource` bean in a Spring application?,"It acts as a factory for database connections, typically managing a pool of connections for efficiency."
+What is the purpose of the `SimpleMessageConverter` in Spring Messaging?,"It converts simple Java types like Strings, byte arrays, Maps, and Serializable objects to and from standard message formats for brokers like JMS."
+"In RabbitMQ, messages are sent to an _____ and consumed from a _____.",exchange; queue
+What is the purpose of Kustomize in a Kubernetes workflow?,"It is a tool for customizing Kubernetes resource configurations without modifying the original YAML files, allowing for environment-specific overlays (e.g., dev, prod)."
+What Spring Security interface defines the contract for an object that represents an authenticated entity?,The `Authentication` interface.
+What is the function of the `AuthenticationProvider` in Spring Security?,"It attempts to authenticate a given `Authentication` object, containing the core logic for a specific authentication mechanism (e.g., username/password)."
+"To enable graceful shutdown in Spring Boot, what configuration property should be set?",`server.shutdown=graceful`
+What is the purpose of the `spring.lifecycle.timeout-per-shutdown-phase` property?,"It configures the grace period, which is the maximum time the application is allowed for processing pending requests during a graceful shutdown."
+The `Mapped Diagnostic Context` (MDC) in logging libraries like SLF4J is used for what purpose?,"To add structured, contextual information (like a trace ID or user ID) to log messages, which can be invaluable for debugging distributed systems."
+"In RSocket, which communication model involves a single request from the client followed by a stream of multiple responses from the server?",Request-stream.
+What RSocket communication model is used when a client sends data to the server but does not require a response?,Fire-and-forget.
+"In a Spring RSocket controller, what annotation is used to map incoming messages on a specific route to a handler method?",The `@MessageMapping` annotation.
+What is the core purpose of Spring Integration?,"It enables lightweight messaging within Spring-based applications and supports integration with external systems via declarative adapters, implementing Enterprise Integration Patterns."
+"In Spring Integration, what is the function of a Transformer component?",It converts a message's content or structure into a different format.
+What is a `ServiceActivator` in Spring Integration?,"A generic endpoint for connecting a service (a Spring bean method) to the messaging system, typically used to invoke a method with the message payload."
+What is the primary role of the `spring-boot-starter-web` dependency?,"It provides all the necessary libraries for building web applications with Spring MVC, including an embedded Tomcat server by default."
+Which annotation allows a Spring bean to access configuration properties that have been bound to a separate class using `@ConfigurationProperties`?,The bean can simply be injected like any other bean using `@Autowired` or constructor injection.
+What is the purpose of the `@SessionAttributes` annotation on a Spring MVC controller?,"It lists the names of model attributes that should be stored in the HTTP session, making them available across multiple requests."
+How can you disable CSRF protection in a Spring Security configuration?,By calling `http.csrf(csrf -> csrf.disable())` within the `SecurityFilterChain` bean configuration.
+"The _____ interface in Spring is used to convert an object from one type to another, and can be automatically registered with Spring MVC.",`Converter`
+"In Project Reactor, the _____ operation transforms items in a stream asynchronously, often by applying a function that returns a `Mono` or `Flux` for each item.",`flatMap()`
+"To create an immutable release artifact in a CI/CD pipeline, the build stage combines the application codebase with its dependencies into a uniquely identified _____.",Build
+What is the 'API First' approach in cloud-native development?,A design practice where the contract for a service's API is defined and agreed upon before any implementation work begins.
+Which Spring Data project provides support for JDBC persistence against a relational database?,Spring Data JDBC.
+"In a Spring Data repository, how does Spring derive a query from a method name like `findByDeliveryZip(String zip)`?","Spring Data parses the method name, recognizes 'find...By' as the action, and 'DeliveryZip' as the property to query against, automatically generating the query implementation."
+What is the purpose of the `DelegatingPasswordEncoder` in Spring Security?,"It allows an application to support multiple password encoding algorithms simultaneously by prefixing the encoded password with an identifier (e.g., `{bcrypt}`)."
+"In Spring Security, the `BCryptPasswordEncoder` uses a strong hashing function known as _____.",bcrypt
+What is the role of a `RequestValidationFilter` when added to the Spring Security filter chain?,"It is a custom filter that can be used to validate incoming requests, for example, to ensure a required header is present before authentication is attempted."
+How can you add a custom filter *before* an existing filter (like `BasicAuthenticationFilter`) in the Spring Security chain?,By using the `addFilterBefore()` method on the `HttpSecurity` object.
+What is a key benefit of extending `OncePerRequestFilter` instead of implementing the raw `Filter` interface?,"It guarantees that the filter logic is executed only once per request, even in the case of internal forwards or includes within the servlet container."
+"To test a REST controller that is secured, what `RequestPostProcessor` can be used with `MockMvc` to simulate an HTTP Basic authentication request?","The `httpBasic(""username"", ""password"")` post-processor."
+What Spring Security Test annotation can be used to run a test method with a mocked security context containing a user with specified roles or authorities?,`@WithMockUser`.
+"In an R2DBC entity, what annotation is used to enable automatic population of creation and modification timestamps?","Auditing annotations like `@CreatedDate` and `@LastModifiedDate`, enabled via `@EnableR2dbcAuditing`."
+What is the purpose of a 'fanout' exchange in RabbitMQ?,"It routes messages to all of the queues that are bound to it, ignoring the routing key, effectively broadcasting the message."
+What is the difference between a `Mono<Void>` and an empty `Mono`?,"A `Mono<Void>` successfully completes without a value, signaling completion of a task, while an empty `Mono` completes without emitting any signal (neither item nor error), indicating no value was found."
+"In Spring Data JPA, how do you map a domain object to an entity?",By annotating the class with `@Entity` and its primary key field with `@Id`.
+What is the function of the `spring-boot-starter-data-jpa` dependency?,"It includes Spring Data JPA, Hibernate as the default JPA provider, and Spring's JDBC support for easy relational database access."
+What is the purpose of the `@CrossOrigin` annotation in a Spring MVC controller?,"It configures Cross-Origin Resource Sharing (CORS), allowing web clients from different origins to make requests to the annotated endpoint."
+"In Spring Security, what is the role of the `GrantedAuthority` interface?",It represents an authority (a permission or role) granted to the `Authentication` object.
+The OAuth 2.0 grant type where a client exchanges an authorization code for an access token is known as the _____.,Authorization Code Grant
+"Which OAuth 2.0 grant type is used when a client needs to access resources on its own behalf, without a user's involvement?",Client Credentials Grant.
+"In Spring Security, what is the purpose of the `@AuthenticationPrincipal` annotation in a controller method?",It provides a convenient way to inject the authenticated principal object directly as a method argument.
+The `server.port` property in a Spring Boot application is used to configure what?,The port number on which the embedded web server will listen for requests.
+"In Project Reactor, what does the `subscribeOn()` operator do?",It specifies the `Scheduler` (thread pool) on which the subscription and upstream emissions should occur.
+"Which Spring Boot Actuator endpoint provides a detailed report on the application's configuration, including all property sources and their values?",The `/actuator/env` endpoint.
+What is the function of the `@Data` annotation from Project Lombok?,"It is a convenience annotation that bundles the features of `@ToString`, `@EqualsAndHashCode`, `@Getter`, `@Setter`, and `@RequiredArgsConstructor` together."
+"To define a repository for reactive access to a MongoDB collection, you would extend the _____ interface.",`ReactiveCrudRepository`
+"In Spring Security, the `formLogin()` configuration enables authentication using what method?",It enables authentication via an HTML form where the user submits their username and password.
+What is the purpose of the `thymeleaf-spring6` dependency in a Spring Boot project?,It provides the integration for using Thymeleaf as the template engine for rendering views in Spring MVC.
+How does Spring Data REST simplify the creation of REST APIs?,It automatically analyzes your application's `Repository` interfaces and exposes RESTful HTTP endpoints for them with minimal configuration.
+The `retryWhen()` operator in Project Reactor is used for what purpose?,"It allows for retrying a failed sequence based on a companion `Flux` that signals when to retry, enabling strategies like exponential backoff."
+"In Kubernetes, an _____ is an API object that manages external access to the services in a cluster, typically HTTP.",Ingress
+What is the primary role of `spring-boot-admin-starter-client`?,It enables a Spring Boot application to register itself with a Spring Boot Admin server for monitoring and management.
+What is JMX (Java Management Extensions)?,"A Java technology that supplies tools for managing and monitoring applications, system objects, devices, and service-oriented networks."
+"In Spring, how can you expose a bean as a JMX MBean for monitoring?",By annotating the bean with `@ManagedResource` and its methods/attributes with `@ManagedOperation` or `@ManagedAttribute`.

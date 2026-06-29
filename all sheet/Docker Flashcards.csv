@@ -1,0 +1,66 @@
+What is the primary purpose of a container in software development?,To package an application with all its necessary dependencies and configurations into a portable unit.
+"A storage location for container images, which can be public or private, is known as a _____.",container repository
+What is the name of the official public repository for Docker container images?,Docker Hub
+How do containers solve the problem of setting up a local development environment with multiple services?,"By allowing developers to run each service in an isolated container using a single command, regardless of the host OS."
+"In a traditional deployment process, what problem often arises from the communication between development and operations teams?",Misunderstandings or omissions in textual installation guides can lead to deployment failures and back-and-forth communication.
+How do containers simplify the deployment process regarding server configuration?,"They eliminate the need for most environmental configuration on the server, as dependencies are packaged within the container."
+What is the only software that must be installed on a server to run containerized applications?,The Docker runtime.
+"Technically, a container is made up of layers of stacked _____, with a Linux-based image often at the base.",images
+What is the key difference between a Docker image and a Docker container?,"An image is the packaged artifact, while a container is a running instance of that image."
+What command would you use to see all currently running Docker containers?,docker ps
+"In virtualization, Docker virtualizes the _____ layer of the operating system.",applications
+"In virtualization, a Virtual Machine (VM) virtualizes the _____ of the operating system.",complete operating system (applications layer and its own kernel)
+Why are Docker images typically much smaller than VM images?,Because they only contain the applications layer and share the host operating system's kernel.
+What is the main compatibility limitation of Docker compared to VMs?,A Linux-based Docker image cannot run natively on a Windows host kernel (and vice versa) without a compatibility layer.
+What is Docker Toolbox used for?,It's a workaround to run Docker on older Mac and Windows systems that do not meet the requirements for native Docker execution.
+The `docker run` command combines which two distinct actions if the image is not found locally?,It pulls the image from a repository and then starts a container from it.
+What does the `-d` flag in the `docker run -d redis` command signify?,"It runs the container in detached mode, meaning it runs in the background."
+"How can you view a list of all containers, including those that are stopped?",By using the command `docker ps -a`.
+What is the purpose of the `-p` flag in a `docker run` command?,It binds a port from the host machine to a port inside the container.
+"In the command `docker run -p 8080:80`, which port belongs to the host and which to the container?","8080 is the host port, and 80 is the container port."
+How can you view the logs of a running container?,By using the command `docker logs <container_id_or_name>`.
+What command allows you to get an interactive terminal session inside a running container?,docker exec -it <container_id_or_name> /bin/sh (or /bin/bash)
+What is the difference between `docker start` and `docker run`?,"`docker run` creates a new container from an image, while `docker start` restarts an existing, stopped container."
+"In a development workflow, where is a custom Docker image typically pushed after being built by a CI server like Jenkins?",To a private Docker repository.
+What is the purpose of Docker Compose?,To define and run multi-container Docker applications from a single configuration file.
+What is the name of the default configuration file used by Docker Compose?,docker-compose.yml
+"In a `docker-compose.yml` file, each container definition is listed under the top-level key _____.",services
+How does Docker Compose handle networking between the services defined in its configuration file?,"It automatically creates a common network, allowing services to communicate with each other using their service names as hostnames."
+What is the Docker Compose command to start all services defined in the configuration file?,docker-compose up
+"What is the Docker Compose command to stop and remove all containers, networks, and volumes created by `up`?",docker-compose down
+What is the purpose of a Dockerfile?,It is a text document that contains all the commands a user could call on the command line to assemble an image.
+What is the first instruction in every Dockerfile?,"The `FROM` instruction, which specifies the base image."
+"In a Dockerfile, what does the `RUN` instruction do?",It executes any commands in a new layer on top of the current image and commits the results.
+"In a Dockerfile, what is the difference between the `COPY` and `RUN` instructions?","`COPY` copies files from the host into the container's filesystem, while `RUN` executes commands inside the container."
+The _____ instruction in a Dockerfile provides the default command to execute when a container is started from the image.,CMD
+"What is the command to build a Docker image from a Dockerfile in the current directory, tagging it as 'my-app:1.0'?",docker build -t my-app:1.0 .
+"Before pushing an image to a private repository, what two steps are typically required?",You must first log in to the repository and then tag the image with the repository's full domain name.
+"What command is used to rename a local image to include a private repository's address, preparing it for a push?",docker tag <source_image> <repository_address/target_image>
+"When deploying an application using Docker Compose, how do you specify an image from a private repository?","You use the full image name, including the private repository's domain, under the `image` key."
+What problem do Docker volumes solve?,"They provide a mechanism for persisting data generated by and used by Docker containers, so data isn't lost when a container is removed."
+The type of Docker volume where Docker manages the storage area on the host and you refer to it by a user-defined name is called a _____ volume.,named
+"In a `docker-compose.yml` file, how do you attach a named volume called `db-data` to a container's `/var/lib/mysql` directory?","Under the service, add `volumes: [""db-data:/var/lib/mysql""]`, and define `db-data` in a top-level `volumes` section."
+What is the purpose of a Docker network?,It allows containers to be isolated and communicate with each other or with the host machine.
+The Docker command `docker network create my-net` is used for what purpose?,To create a new user-defined bridge network named 'my-net'.
+"How can you make two running containers, `mongo` and `mongo-express`, communicate with each other over a custom network?","By starting both containers with the `--network` flag specifying the same network name, allowing them to connect using container names."
+The `--name` option in the `docker run` command is used for what purpose?,"To assign a custom, memorable name to a container, which can be used in place of the container ID."
+"In a Dockerfile, the `ENV` instruction is used to set what?",Environment variables within the image.
+What is the primary benefit of using multi-stage builds in a Dockerfile?,To reduce the final image size by separating the build environment from the runtime environment.
+"What is the term for the individual, read-only filesystems that are stacked to create a Docker image?",Layers
+Why does downloading a new version of a Docker image often take less time than the initial download?,"Because Docker reuses any layers that are identical between the old and new versions, only downloading the layers that have changed."
+"In the context of container orchestration, what is the primary role of a tool like Kubernetes?","To automate the deployment, scaling, and management of containerized applications across multiple servers."
+What is the AWS service for storing private Docker container images called?,Elastic Container Registry (ECR)
+"To stop a running container, you can use the command `docker stop` followed by the _____ or _____.","container ID, container name"
+The `docker pull` command is used to perform what action?,"To download an image or a repository from a registry, such as Docker Hub."
+What command lists all the Docker images stored on your local machine?,docker images
+"If you stop a container, is its data stored in a volume lost?","No, data in a volume persists independently of the container's lifecycle."
+How does a container achieve isolation from the host and other containers?,It uses Linux kernel features like namespaces for process isolation and cgroups for resource limiting.
+"When connecting a Node.js application in one container to a MongoDB database in another on the same Docker Compose network, what hostname should the connection string use?",The service name of the MongoDB container as defined in the `docker-compose.yml` file.
+What is a 'host volume' in Docker?,A type of volume that mounts a specific file or directory from the host's filesystem into a container.
+What is an 'anonymous volume' in Docker?,"A volume that is created by Docker without a specific name, managed entirely by the Docker daemon."
+Why are named volumes generally preferred over host volumes for production use?,"Because they are managed by Docker, are independent of the host file structure, and work consistently across different platforms."
+The Docker command to remove a stopped container is `docker _____`.,rm
+The Docker command to remove an image is `docker _____`.,rmi
+"In a Dockerfile for a Node.js application, the command `CMD [""node"", ""server.js""]` serves what purpose?",It specifies that the `node server.js` command should be run when the container starts.
+What is the significance of the `.` at the end of the `docker build -t my-app .` command?,"It specifies the build context, which is the set of files at the specified location (in this case, the current directory) that can be sent to the Docker daemon."
+"When running two containers of the same database image, how can you avoid port conflicts on the host machine?",By mapping the container's internal port to two different ports on the host machine.

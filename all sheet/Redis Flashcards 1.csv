@@ -1,0 +1,76 @@
+"In Redis, what are the three types of values that STRINGs can store?","Byte strings, integers, and floating-point values."
+What is the range for integers stored in Redis STRINGs on a 64-bit platform?,Signed 64-bit integers.
+"According to the text, which floating-point standard is used for Redis float values?",IEEE 754 floating-point doubles.
+What value does Redis assume if you attempt to increment a key that does not exist?,Zero.
+Which command increments the value stored at a key by a specific integer amount?,INCRBY
+"Starting in Redis 2.6, which command allows for the incrementing of a string value by a float?",INCRBYFLOAT
+What error occurs if you attempt to increment a string that cannot be interpreted as an integer or float?,An error is returned by Redis.
+Which command is used to concatenate a value to the end of an existing string in Redis?,APPEND
+"In Redis versions 2.6 and later, what is the preferred command for fetching a substring?",GETRANGE
+What was the previous name of the GETRANGE command used in earlier Redis versions?,SUBSTR
+"When using SETRANGE, what does Redis fill the string with if the existing string is not long enough to reach the specified offset?",Null bytes.
+What value is returned by GETBIT if the requested bit is beyond the end of the string?,Zero.
+Which command is used to count the number of set bits (1s) in a string?,BITCOUNT
+"Which command performs bitwise operations like AND, OR, and XOR across multiple strings?",BITOP
+How does Redis represent bit offsets within a byte string?,From the highest-order bit to the lowest-order bit.
+Which command pushes a value onto the right (tail) end of a LIST?,RPUSH
+Which command removes and returns the leftmost item from a LIST?,LPOP
+What is the function of the LINDEX command?,It returns the item at a specific offset in a LIST.
+Which command retrieves a range of items from a LIST using inclusive start and end offsets?,LRANGE
+Which command reduces a LIST to only the items within a specified range of indices?,LTRIM
+"In the context of Redis commands, what does the term 'atomic' imply?",No other client can read or change data while the command group is executing.
+Which command pops the leftmost item from a LIST or waits for one to become available?,BLPOP
+What is the function of the RPOPLPUSH command?,It pops the rightmost item from one list and pushes it to the left of another.
+What is the primary difference between SETs and LISTs in Redis?,"SETs hold unique, unordered items, while LISTs hold ordered sequences that can include duplicates."
+Which SET command returns the total number of items in a SET?,SCARD
+How does SRANDMEMBER behave when provided with a negative count?,It returns the absolute value of the count in randomly chosen items that may not be distinct.
+Which command is used to move a member from a source SET to a destination SET?,SMOVE
+Which command returns the mathematical difference between the first SET and all subsequent SETs?,SDIFF
+Which command stores the intersection of multiple SETs into a new destination key?,SINTERSTORE
+"In Redis, what do HASHes allow you to store?",Groups of key-value pairs associated with a single high-level key.
+Which command deletes specific fields from a HASH?,HDEL
+Which command fetches all the field names (keys) present in a HASH?,HKEYS
+What is the function of the HEXISTS command in a HASH?,It returns whether a specific field exists within the HASH.
+Why might HKEYS and HVALS be used instead of HGETALL for very large HASHes?,To avoid blocking other requests by transferring large values all at once.
+How are ZSET scores stored internally in Redis?,As IEEE 754 floating-point doubles.
+Which ZSET command returns the number of members with scores between a minimum and maximum value?,ZCOUNT
+Which ZSET command returns the 0-indexed position of a member in ascending order?,ZRANK
+What is the purpose of the ZREVRANGEBYSCORE command?,It fetches members in reverse order based on a score range.
+What is the default aggregation method for ZINTERSTORE and ZUNIONSTORE?,SUM
+"When performing ZSET operations on a standard SET, what score does Redis assign to SET members?",One.
+What happens to a message sent to a Pub/Sub channel if there are no active listeners?,The message is lost.
+Which Pub/Sub command allows a client to subscribe to channels matching a glob-style pattern?,PSUBSCRIBE
+What is a major reliability risk when using Pub/Sub in Redis?,Subscribed clients that disconnect will never see messages sent during the downtime.
+What data types can the SORT command operate on?,"LISTs, SETs, and ZSETs."
+Which SORT keyword is required to sort items as binary strings rather than numbers?,ALPHA
+"In a basic Redis transaction, what happens to commands sent between MULTI and EXEC?",They are queued and executed sequentially without interruption only after EXEC is called.
+How does the Python Redis library handle MULTI/EXEC transactions by default?,It uses a pipeline object.
+Which command cancels a transaction and clears the command queue after MULTI has been called?,DISCARD
+What is the function of the WATCH command in Redis?,It provides optimistic locking by failing a transaction if the watched key is modified by another client.
+"Which command is used to remove an expiration time from a key, making it permanent?",PERSIST
+What does the TTL command return?,The remaining time to live for a key in seconds.
+What are the two primary persistence options available in Redis?,Snapshotting (RDB) and Append-Only File (AOF).
+Which command initiates a point-in-time snapshot of the database while still responding to other commands?,BGSAVE
+How does the SAVE command differ from BGSAVE?,"SAVE blocks all clients until the snapshot is finished, whereas BGSAVE forks a child process to work in the background."
+What is the main risk of using only snapshotting persistence?,Data written between the last successful snapshot and a system crash will be lost.
+What does the 'appendfsync everysec' configuration do?,It explicitly syncs write commands to the disk once per second.
+What risk is associated with using 'appendfsync always' on SSDs?,"It can lead to extreme write amplification, significantly reducing the drive's lifespan."
+Which command is used to manually trigger the compaction of an Append-Only File?,BGREWRITEAOF
+What is the primary purpose of Redis replication?,To allow slave servers to maintain an up-to-date copy of a master's data for scaling reads or reliability.
+Which command is used on a slave to start replicating from a master server?,SLAVEOF [host] [port]
+What happens to the existing data on a slave server when it first connects to a master?,All existing data is flushed and replaced by the master's snapshot.
+Does Redis support multi-master replication natively?,"No, it only supports master-slave replication."
+What is the function of the 'redis-check-aof --fix' utility?,It scans an AOF file for the first malformed command and trims the file to just before that point.
+"In the context of network communications, what is 'pipelining'?",Sending multiple commands at once and waiting for all replies to reduce network round trips.
+Why is 'optimistic locking' used in Redis instead of 'pessimistic locking'?,To minimize wait times for clients by allowing them to retry rather than blocking on a lock holder.
+"In a non-transactional pipeline in the Python Redis client, what must be passed to the 'pipeline()' method?",False
+What is 'write amplification' in the context of SSDs?,"A phenomenon where small, frequent writes cause the drive to perform more internal work than necessary, wearing it out faster."
+How can you determine if all data known to a Redis server has been synced to disk when using AOF?,Check the 'aof_pending_bio_fsync' value in the output of the INFO command; it should be 0.
+"In the IP-to-city lookup example, how are dotted-quad IP addresses converted to a format usable as a ZSET score?",They are converted into an unsigned 32-bit integer.
+What is a 'counting semaphore'?,A type of lock that limits the number of concurrent processes that can access a resource to a fixed count.
+What makes a locking mechanism 'unfair' in a distributed system?,When system clock skews between hosts allow one client to 'steal' a lock from another.
+How does the 'fair semaphore' implementation in the text prevent clock skew issues?,It uses a steadily increasing counter and a separate ZSET to track the order of requests.
+What Redis command is used for the atomic 'set if not exists' operation required for simple locks?,SETNX
+What is the recommended method to avoid 'dogpiling' in high-load Redis systems?,Using explicit distributed locks to prevent multiple clients from attempting to process the same data simultaneously.
+Which command returns the position of a ZSET member ordered from high score to low score?,ZREVRANK
+What is the purpose of the 'WEIGHTS' parameter in ZINTERSTORE and ZUNIONSTORE?,It allows you to multiply the scores of each input ZSET by a specific factor before the operation.

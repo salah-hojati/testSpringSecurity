@@ -1,0 +1,74 @@
+What is the core idea behind the 'microservice architectural style'?,"It is an approach to developing a single application as a suite of small, independently deployable services, each running in its own process."
+"In a monolithic architecture, how are code components designed to work?","They are designed to work together as one cohesive unit, sharing the same server resources like memory and CPU."
+"One benefit of microservices is _____, which allows each component to be deployed and scaled independently without service interruption.",scalability
+What is meant by 'polyglot programming' in the context of microservices?,It means microservices can be written in different programming languages and use different databases or OS environments.
+"According to the CNCF, what do cloud-native technologies empower organizations to do?","They empower organizations to build and run scalable applications in modern, dynamic environments like public, private, and hybrid clouds."
+What is Continuous Integration (CI)?,"It is a software development practice where developers regularly merge their code changes into a central repository, after which automated builds and tests are run."
+"What type of automated test is designed to test each individual piece of source code, such as functions and methods?",Unit tests.
+What is the purpose of Quality tests or static code analysis in a CI/CD pipeline?,"They check that the code is well-formatted, follows best practices, and has no serious coding errors or patterns that might generate bugs."
+What is Continuous Deployment (CD)?,It is an extension of continuous integration where every change that passes all stages of the CI pipeline is released automatically to a production or staging environment.
+What is the fundamental concept of 'Pipeline as Code'?,"It is the practice of defining the entire continuous integration and continuous delivery pipeline in a text-based file, which is version-controlled alongside the application code."
+"In Jenkins, what is the name of the text file that defines the CI/CD pipeline?",Jenkinsfile.
+What is the purpose of the `agent` directive in a Declarative Jenkinsfile?,"It specifies where the entire pipeline, or a specific stage, will execute in the Jenkins environment, such as on a particular node or in a Docker container."
+The `stages` block in a Declarative Jenkinsfile contains a sequence of one or more _____ directives.,stage
+What does the 'Checkout' stage in a typical CI pipeline do?,"It pulls the latest changes from the source code repository (SCM), such as GitHub or Bitbucket."
+What is the function of the Jenkins Pipeline Stage View plugin?,"It provides a visualization of the pipeline's stages, showing the progress and status of each stage for every build."
+What is the role of a Jenkins 'worker' or 'agent' in a distributed Jenkins architecture?,"It is a separate machine that connects to the Jenkins master and is used to offload build jobs, allowing for parallel execution and specialized build environments."
+What is one requirement for a worker machine to be added to a Jenkins cluster?,Java must be installed on the worker machine.
+What is the primary drawback of using the JNLP (Java Web Start) method to connect a worker to the Jenkins master?,The worker machine cannot be started or restarted automatically by the Jenkins master if it goes down.
+What is the principle of 'immutable infrastructure'?,"Instead of updating existing servers, any change is packaged into a new machine image, a new server is deployed from that image, and the old server is destroyed."
+"Which HashiCorp tool is used for building automated machine images, often called 'golden images'?",Packer.
+What is the typical three-step process Packer follows to create a machine image?,"1. Boot a temporary instance, 2. Provision the instance with configuration tools, 3. Create a new image from the provisioned instance and shut it down."
+What is the purpose of placing Groovy scripts in the `$JENKINS_HOME/init.groovy.d` directory?,"Jenkins automatically executes these scripts during startup to perform initial configurations, such as creating users or setting security."
+The _____ plugin in Jenkins allows you to bind credentials to environment variables for use in build steps.,Credentials Binding
+What is Infrastructure as Code (IaC)?,"It is the process of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools."
+Which HashiCorp tool focuses on bootstrapping and initializing servers and other infrastructure resources across multiple cloud providers?,Terraform.
+What is the name of the declarative language used by Terraform to describe infrastructure resources?,HashiCorp Configuration Language (HCL).
+What does the `terraform plan` command do?,"It creates an execution plan, showing what actions Terraform will take to reach the desired state without actually applying the changes."
+Which Terraform command is used to apply the changes required to reach the desired state of the configuration?,terraform apply
+"In AWS, what is a Security Group?",It acts as a virtual firewall for your instance to control inbound and outbound traffic.
+What is the purpose of an Internet Gateway (IGW) in an AWS VPC?,"It is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in your VPC and the internet."
+"In AWS networking, what is the role of a NAT (Network Address Translation) Gateway?","It enables instances in a private subnet to connect to the internet or other AWS services, but prevents the internet from initiating a connection with those instances."
+What is a 'bastion host' or 'jump box' in cloud architecture?,"It is a special-purpose computer on a network specifically designed and configured to withstand attacks, serving as a secure entry point to a private network from an external network."
+"In Terraform, what does the `count` meta-argument allow you to do when defining a resource?",It allows you to create multiple instances of a resource without having to write a separate resource block for each one.
+"In GCP, what is a service account used for?",It is a special type of Google account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs.
+"In Azure, a _____ represents an application accessing your resources and is identified by a client ID and authenticated with a password or certificate.",service principal (SP)
+What is the purpose of a 'monorepo' in source code management?,It is a single repository that contains the source code for multiple projects or microservices.
+What is a multibranch pipeline job in Jenkins?,It's a feature that allows Jenkins to automatically discover branches in a source control repository and create corresponding pipeline jobs for them if they contain a Jenkinsfile.
+How can you trigger Jenkins builds automatically when changes are pushed to a GitHub repository?,By configuring a webhook in the GitHub repository that sends a POST request to the Jenkins URL upon a push event.
+What is the primary benefit of running automated tests inside Docker containers within a Jenkins pipeline?,"It provides a clean, consistent, and isolated execution environment for each build, avoiding conflicts with dependencies installed on worker nodes."
+What is the function of a code linter?,"It analyzes source code to flag programming errors, bugs, stylistic errors, and suspicious constructs."
+The `junit` step in a Jenkinsfile is used for what purpose?,"It is used to consume XML test reports (like those in JUnit format) to publish test results, track failures, and display trends."
+What is Headless Chrome?,"It is a way to run the Chrome browser in a headless environment without its full graphical user interface, which is useful for automated UI testing."
+What is SonarQube?,"It is an open-source platform for continuous inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities."
+"In SonarQube, what is a 'Quality Gate'?","It is a set of conditions that a project must meet before it can be qualified for release, such as code coverage percentage or number of critical vulnerabilities."
+The `waitForQualityGate` step in a Jenkins pipeline integrated with SonarQube does what?,It pauses the pipeline execution until SonarQube has completed its analysis and reports the status of the Quality Gate.
+What is a binary repository manager like Nexus or Artifactory used for in a CI/CD workflow?,"It is used to store, manage, and distribute build artifacts, such as Docker images, Maven packages, or npm modules."
+"In Jenkins, the `docker.withRegistry` block simplifies what process?","It simplifies authentication with a private Docker registry, allowing subsequent Docker commands within the block to push or pull images without manual login steps."
+What is a common strategy for versioning Docker images in a CI pipeline?,Tagging the Docker image with the Git commit ID to ensure traceability between the code and the built artifact.
+What is Anchore Engine used for in a CI/CD pipeline?,It is an open-source tool used to scan Docker images for security vulnerabilities and policy compliance.
+"In Docker Swarm, what is the role of a 'manager' node?","Manager nodes are responsible for cluster management tasks, such as maintaining cluster state, scheduling services, and serving the Swarm mode HTTP API endpoints."
+What command is used to deploy or update an application stack on a Docker Swarm cluster using a compose file?,`docker stack deploy`
+What is 'mesh routing' in Docker Swarm?,"It is a feature that allows any node in the cluster to accept incoming requests for a service, even if no container for that service is running on that node, and route the request to a node that is."
+"In Kubernetes, what is the 'control plane'?","It is the set of components that manages the Kubernetes cluster, making global decisions about the cluster (e.g., scheduling) as well as detecting and responding to cluster events."
+What is the primary command-line tool for interacting with a Kubernetes cluster?,kubectl.
+"In Kubernetes, a _____ is the smallest deployable unit of computing that you can create and manage.",Pod
+What is a Kubernetes 'Deployment' resource used for?,"It provides declarative updates for Pods and ReplicaSets, allowing you to describe a desired state, and the Deployment controller changes the actual state to the desired state at a controlled rate."
+What is the purpose of a Kubernetes 'Service'?,"It defines a logical set of Pods and a policy by which to access them, providing a stable endpoint (IP address and DNS name) for a group of Pods."
+What is Helm in the context of Kubernetes?,"Helm is a package manager for Kubernetes that helps you define, install, and upgrade even the most complex Kubernetes applications."
+"A Helm package, which contains pre-configured Kubernetes resources, is called a _____.",Chart
+"In a Helm chart, what is the purpose of the `values.yaml` file?","It provides default configuration values for the chart, which can be overridden at installation or upgrade time."
+"The `helm install` command is used to deploy a chart to a Kubernetes cluster, creating an instance known as a _____.",Release
+"In serverless computing, what does FaaS stand for?",Function as a Service.
+What is the core benefit of serverless architecture for developers?,"Developers can focus on writing code and adding business value instead of dealing with infrastructure provisioning and management, which is handled by the cloud provider."
+"In AWS Lambda, what is an 'alias'?","An alias is a pointer to a specific function version, which can be used to route traffic for different environments like development, staging, or production."
+What is Prometheus?,It is an open-source systems monitoring and alerting toolkit originally built at SoundCloud.
+What is the role of Grafana when used with Prometheus?,Grafana is used to query Prometheus and visualize the collected metrics in near real-time dashboards.
+What is the purpose of the ELK stack?,"The ELK stack (Elasticsearch, Logstash, Kibana) is used for centralized logging, allowing you to collect, parse, store, and visualize logs from multiple sources."
+"In the ELK stack, what is the function of Logstash?","Logstash is a server-side data processing pipeline that ingests data from multiple sources, transforms it, and then sends it to a 'stash' like Elasticsearch."
+"Logstash uses _____ patterns to parse unstructured log data into structured, queryable fields.",Grok
+What is the function of the Role-based Authorization Strategy plugin in Jenkins?,It allows you to define global roles and project roles with specific permissions and then assign those roles to users or groups.
+What is a Jenkins Shared Library?,"It is a feature that allows you to define reusable Groovy code (functions, classes, or global variables) in a separate Git repository and share it across multiple pipelines."
+"In a Jenkins Shared Library, where must custom global variables or steps be defined?",They must be defined in Groovy scripts inside the `vars/` directory of the library's repository.
+How can you back up a Jenkins master's configuration and data?,"By backing up the entire `$JENKINS_HOME` directory, which contains all jobs, plugins, build history, and system configurations."
+"What Jenkins feature allows you to schedule a job to run periodically at a specific time, similar to a Unix cron job?",The 'Build periodically' trigger option in a job's configuration.

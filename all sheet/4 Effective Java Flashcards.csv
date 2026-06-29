@@ -1,0 +1,82 @@
+What is a major advantage of static factory methods over constructors regarding object creation?,"Unlike constructors, they are not required to create a new object each time they're invoked, allowing for caching or reusing instances."
+What flexibility do static factory methods have regarding their return type that constructors lack?,"They can return an object of any subtype of their return type, enabling APIs to return objects without making their implementation classes public."
+What is the main limitation of providing only static factory methods for a class?,Classes without public or protected constructors cannot be subclassed.
+"When constructing an object with many optional parameters, the _____ pattern is a good choice as it combines safety and readability.",Builder
+What is the most concise and preferred approach for implementing a singleton in modern Java?,Declare a single-element enum type.
+How can you enforce noninstantiability for a utility class that only contains static methods and fields?,By making its constructor private.
+What performance issue can arise from unintentional autoboxing in a loop?,"It can lead to the creation of a vast number of unnecessary objects, significantly degrading performance."
+A class that _____ is susceptible to memory leaks and should be alert to nulling out obsolete references.,manages its own memory
+What common sources of memory leaks involve object references being held longer than necessary?,"Caches, listeners, and other callbacks."
+"Instead of using finalizers or cleaners for resource termination, what should a class implement?","The `AutoCloseable` interface, requiring clients to call the `close` method, typically using try-with-resources."
+What are the two legitimate uses for cleaners and finalizers?,"To act as a safety net in case a resource owner neglects to call `close`, or to terminate noncritical native resources."
+Why is the `try-with-resources` statement preferred over the `try-finally` block for closing resources?,"It produces shorter, more readable code and provides better diagnostics by not suppressing original exceptions."
+"In the `equals` contract, the _____ property states that for any non-null reference value x, `x.equals(x)` must return true.",reflexivity
+Why is it problematic for a subclass to add a new value component and override `equals` without respecting the superclass's `equals` method?,It often violates the symmetry or transitivity requirements of the `equals` contract.
+What is the key provision of the `hashCode` contract that is violated if you override `equals` but not `hashCode`?,Equal objects must have equal hash codes.
+What is the consequence of a `hashCode` implementation that returns the same value for every object?,"Hash tables degenerate to linked lists, causing programs that should run in linear time to run in quadratic time."
+"If a value class has an obvious natural ordering, what interface should it implement?",The `Comparable` interface.
+"In a `compareTo` implementation, why should you avoid using subtraction (e.g., `o1.hashCode() - o2.hashCode()`) for comparison?",It can lead to integer overflow and violates the transitivity requirement of the `Comparator` contract.
+"In Java, the rule for reducing accessibility of an overridden method in a subclass is that it _____.",cannot have a more restrictive access level than in the superclass
+What is the primary reason public classes should not expose mutable fields?,"It relinquishes the ability to enforce invariants, take auxiliary actions when a field is accessed, and change the internal representation later."
+"To guarantee immutability, a class must ensure that it cannot be extended. What are the two ways to achieve this?","Make the class `final`, or make all of its constructors private or package-private and use static factories."
+What is a major benefit of immutable objects in concurrent programming?,They are inherently thread-safe and require no synchronization.
+"The _____ pattern, where a new class provides the same interface but holds an instance of the original class, is a superior alternative to inheritance.",wrapper class (or composition)
+Why must a class designed for inheritance document its self-use of overridable methods?,To allow subclass authors to understand the semantics of overriding methods and avoid breaking class invariants.
+What is a key advantage of using interfaces over abstract classes for defining types?,"Existing classes can easily be retrofitted to implement a new interface, whereas they generally cannot be retrofitted to extend a new abstract class."
+What is a skeletal implementation class?,An abstract class provided with an interface that implements the remaining non-primitive interface methods atop the primitive ones.
+What risk is associated with adding a default method to an existing interface?,It can cause existing implementations to fail at runtime if the default implementation does not maintain their invariants.
+"What is a 'constant interface', and why is it considered a poor use of the interface construct?",It is an interface containing only static final fields; it's a poor use because it pollutes the class's namespace and is not a good way to export constants.
+"If a nested class does not require access to an enclosing instance, what modifier should always be included in its declaration?","The `static` modifier, making it a static member class to avoid memory leaks."
+What is the primary danger of using a raw type like `List` instead of a parameterized type like `List<String>`?,"You lose all compile-time type safety, which can lead to `ClassCastException` at runtime."
+What is the difference between an unbounded wildcard type `Set<?>` and a raw type `Set`?,"The wildcard type is safe because you cannot put any element (other than null) into it, preserving type safety, whereas the raw type is not."
+"When should you use the `@SuppressWarnings(""unchecked"")` annotation?","Only when you can prove that the code is typesafe, and you should use it on the smallest possible scope."
+What is the fundamental conflict between arrays and generics in Java?,"Arrays are covariant and reified, while generics are invariant and erased, which can lead to compile-time errors and runtime exceptions when mixed."
+A method with a generic varargs parameter can cause _____ because the varargs mechanism creates an array that is not typesafe.,heap pollution
+What is the purpose of the `@SafeVarargs` annotation?,"To indicate that a method with a generic varargs parameter is typesafe, suppressing client-side warnings."
+What is the PECS mnemonic for using bounded wildcards in generic APIs?,"Producer-extends, Consumer-super."
+"A class that uses `Class` objects as keys to a map, where the value is an instance of the type represented by the key, is called a _____.",typesafe heterogeneous container
+What is a constant-specific method implementation in an enum?,An abstract method declared in the enum type that is overridden with a concrete method for each constant in a constant-specific class body.
+"For representing sets of enum constants, the _____ class is a modern, typesafe, and high-performance replacement for bit fields.",EnumSet
+What is a marker annotation?,An annotation with no parameters that simply “marks” the annotated element for special treatment by a tool.
+What is a key advantage of a marker interface over a marker annotation?,"A marker interface defines a type that can be used for compile-time type checking, whereas a marker annotation does not."
+"As of Java 8, _____ are by far the best way to represent small function objects.",lambdas
+When should you prefer method references over lambdas?,When the method reference is shorter and clearer than the equivalent lambda.
+Why is it generally better to use a standard functional interface from `java.util.function` than to create a custom one?,It makes the API easier to learn by reducing its conceptual surface area and provides interoperability benefits.
+"The `forEach` terminal operation in a stream should only be used to _____ the result of a stream computation, not to perform the computation.",report
+What is the purpose of a downstream collector in the `groupingBy` method?,"It produces a value (e.g., a `Set`, a count) from a stream containing all the elements that map to a given key."
+"If a public API method needs to return a sequence of elements, why might returning a `Collection` or `Iterable` be better than returning a `Stream`?","It allows users who want to iterate over the sequence with a for-each loop to do so directly, which is not possible with a `Stream`."
+What characteristic of a data source is crucial for achieving good performance gains from parallel streams?,"The ability to be accurately and cheaply split into subranges, a property of its spliterator."
+What is the general principle regarding checking parameters for validity in a method?,You should clearly document restrictions on parameters and enforce them with checks at the beginning of the method body.
+Why must you make defensive copies of mutable components passed into a constructor for an immutable class?,To prevent the client from modifying the object's internal state after construction by retaining a reference to the mutable component.
+What are three techniques for shortening overly long parameter lists in a method signature?,"Break the method up, create helper classes for parameter groups, or adapt the Builder pattern."
+"Why is it dangerous to overload methods with the same number of parameters, especially with autoboxing?","Selection among overloaded methods is static (at compile-time), which can lead to counterintuitive behavior if the compiler chooses a different overload than the programmer expects."
+"When a method with varargs is invoked, what data structure is created to hold the variable arguments?",An array.
+A method that returns a collection or an array should never return _____ if there are no results.,null
+Under what circumstances should a method be declared to return `Optional<T>`?,When it might not be able to return a result and it's important for clients to explicitly handle that possibility.
+What should a method's documentation comment describe for its contract with a client?,"It should enumerate all preconditions, postconditions, and any side effects."
+"The `@implSpec` Javadoc tag is used to document the contract between a method and its _____, which is critical for classes designed for inheritance.",subclass
+Why is a `for-each` loop generally preferable to a traditional `for` loop with an iterator or index?,It eliminates clutter and opportunities for error by hiding the iterator or index variable.
+"Why should you avoid using `float` and `double` for calculations that require exact answers, like monetary calculations?","They provide binary floating-point arithmetic, which is not suitable for exact decimal representations and can lead to rounding errors."
+What are the three major differences between primitive types and boxed primitive types?,"Primitives have only values (not identities), no null value, and are more time- and space-efficient."
+Why is it bad practice to use strings to represent aggregate types?,"It's cumbersome, error-prone, and slow, as it forces clients to parse the string and creates a fragile, de facto API."
+"Why should you favor using interfaces over classes to refer to objects (e.g., `List<Foo> list = new ArrayList<>()`)?","It makes the program more flexible, as the implementation can be easily changed later by modifying only the constructor."
+What are the primary costs of using reflection?,"Loss of compile-time type checking, verbose code, and significantly slower performance."
+"According to Jackson's two rules of optimization, what should you do first?","Don't do it, and (for experts) don't do it yet; instead, strive to write good, well-structured programs."
+"In Java's typographical naming conventions, constant fields should have names consisting of one or more uppercase words separated by the _____ character.",underscore (`_`)
+Exceptions are designed for _____ conditions; they should never be used for ordinary control flow.,exceptional
+What is the cardinal rule for deciding whether to use a checked or an unchecked exception?,Use checked exceptions for conditions from which the caller can reasonably be expected to recover.
+What is exception translation?,"The practice of catching a lower-level exception and, in its place, throwing a higher-level exception that is an abstraction of the lower-level cause."
+Why should you never have an empty `catch` block?,"It ignores the exception, which can cause the program to continue silently in the face of an error and fail at an arbitrary later time."
+What is the purpose of the `volatile` modifier on a field?,"It ensures that any thread that reads the field will see the most recently written value, providing a communication effect of synchronization."
+"Why is the increment operator (`++`) not atomic, even on a `volatile` field?","It performs two separate operations: a read and a write, which can be interleaved by another thread."
+What is the primary danger of invoking an alien method from within a synchronized block?,"It can lead to exceptions, deadlocks, or data corruption because you don't know what the alien method will do."
+"Instead of writing your own work queues, you should use the _____ provided in `java.util.concurrent`.",Executor Framework
+"What are state-dependent modify operations, such as `Map.putIfAbsent`, and why are they important for concurrent collections?","They combine several primitive operations into a single atomic one, which is necessary because you cannot lock a concurrent collection to compose methods atomically."
+A _____ is a synchronizer that allows one or more threads to wait until a set of operations being performed in other threads completes.,CountDownLatch
+A class that is safe for concurrent use even if every method invocation is surrounded by external synchronization is known as _____.,thread-hostile
+Why is depending on the thread scheduler for the correctness or performance of a program a bad idea?,"The resulting program will be neither robust nor portable, as scheduler behavior varies across JVMs and platforms."
+Why does making a class `Serializable` increase the likelihood of bugs and security holes?,It introduces an extralinguistic mechanism for creating objects (deserialization) that acts as a 'hidden constructor' and can bypass normal invariant checks.
+What is the purpose of declaring a `serialVersionUID` field in a serializable class?,"It prevents an `InvalidClassException` at runtime if the class structure changes, ensuring serialization compatibility between different class versions."
+"When deserializing an object, why must a `readObject` method make defensive copies of any mutable fields?",To protect the class's invariants from a malicious byte stream that could provide references to mutable objects controlled by an attacker.
+"For an instance-controlled class (like a singleton) that must be `Serializable`, what method must be provided to preserve the instance control guarantee?",A `readResolve` method.
+What is the serialization proxy pattern?,"A technique where a serializable class has a private static nested class that serves as its serialization proxy, containing the logical state of the outer class instance."

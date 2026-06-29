@@ -1,0 +1,73 @@
+What is the primary purpose of a Version Control System (VCS) like Git?,"To manage and track changes in projects, allowing for checkpoints and collaboration among multiple engineers."
+"In the context of Git, what is a 'checkpoint' analogous to in a video game?",It is a saved state of the project that you can revert back to if something goes wrong.
+What is the key difference between Git and GitHub?,"Git is the version control software itself, while GitHub is a service that hosts Git repositories online."
+What command is used to check the installed version of Git?,The command `git --version` or `git -v` is used to check the installed version.
+What does the instructor state is a common misconception for beginners regarding Git and GitHub?,Beginners often mistakenly assume that Git and GitHub are the same thing.
+"Besides GitHub, what is another popular service provider for hosting Git repositories mentioned in the course?",Bitbucket is mentioned as another popular service provider.
+The `git init` command creates a hidden folder to track all files and subfolders. What is the name of this folder?,The hidden folder created is named `.git`.
+What advice is given about manually changing files inside the `.git` folder?,You should never manually go into the `.git` folder and make any changes.
+"In the world of Git, what is the short term for 'repository'?",The short term for repository is 'repo'.
+What command initializes a new Git repository in the current directory?,The command `git init` is used to initialize a new Git repository.
+How many times should you run the `git init` command per project?,The `git init` command should only be run once per project.
+"Which Git command should be run often to check the current state of the repository, including untracked or modified files?",The `git status` command should be run often to check the repository's state.
+"If `git status` reports 'fatal: not a git repository', what does this mean?",It means the current directory (or any parent directories) has not been initialized as a Git repository.
+"The three-stage workflow in Git consists of the Working Directory, the Staging Area, and the _____.",Local Repository (after a commit).
+What command moves files from the Working Directory to the Staging Area?,The `git add <filename>` command moves files to the Staging Area.
+What is the purpose of the Staging Area in Git?,The Staging Area is an intermediate zone where you prepare and group the changes you want to include in the next commit.
+"In Git, a checkpoint or a saved state of the repository is formally called a _____.",commit
+What command is used to permanently save the staged changes to the local repository?,The `git commit` command is used to save staged changes.
+What is the purpose of the `-m` flag when using `git commit`?,The `-m` flag allows you to provide a commit message directly from the command line.
+"According to the course, what happens if you run `git commit` without the `-m` flag?",It opens a default text editor (like Vim) for you to write a more detailed commit message.
+The recommended convention for writing commit messages is to use the present tense and give an order to the codebase. This style is known as _____.,imperative
+"The principle that one commit should only do one job (e.g., fix one bug or add one feature) is known as _____.",atomic commits
+Which command is used to view the history of commits in a repository?,The `git log` command is used to view the commit history.
+What does the `--oneline` flag do when used with `git log`?,"It condenses the commit history, showing each commit as a single line with the commit hash and message."
+Which command allows you to set configuration variables like your username and email for Git?,The `git config` command is used to set configuration variables.
+What is the command to set your username globally in Git?,"`git config --global user.name ""Your Name""`"
+What is the command to set your email address globally in Git?,"`git config --global user.email ""youremail@example.com""`"
+What is the purpose of creating a `.gitignore` file?,"To specify files and folders that Git should intentionally ignore and not track, such as sensitive data or dependency folders."
+A file that often contains sensitive API keys or passwords and should be included in `.gitignore` is the _____ file.,.env
+"In Git, alternative timelines where you can work on features or fixes without affecting the main codebase are called _____.",branches
+"What is the default branch name created by Git, which is often renamed to 'main'?",The default branch name is 'master'.
+What command lists all the branches in your local repository?,The `git branch` command lists all local branches.
+Which command is used to create a new branch?,The command `git branch <branch-name>` creates a new branch.
+How do you switch from your current branch to a different existing branch?,You use the command `git checkout <branch-name>` or `git switch <branch-name>`.
+What is the shortcut command to create a new branch and immediately switch to it?,The command `git checkout -b <new-branch-name>` creates and switches to the new branch.
+The process of combining the history of two different branches is known as _____.,merging
+What command is used to merge changes from another branch into your current branch?,The command `git merge <branch-name>` is used to merge another branch into the current one.
+What happens when you try to merge two branches that have conflicting changes in the same part of the same file?,"A merge conflict occurs, which you must resolve manually before the merge can be completed."
+What is the special pointer in Git that always points to the latest commit of the branch you are currently on?,The special pointer is called 'HEAD'.
+"After a successful merge, what is a common practice for the feature branch that is no longer needed?",The feature branch is often deleted using `git branch -d <branch-name>`.
+What does the `git diff` command show?,"It shows the differences between various states of a file, such as between the working directory and the staging area, or between two commits."
+"The `git diff` command does not compare two different files, but rather the same file _____.",over time
+"What command allows you to temporarily save your uncommitted changes so you can switch branches, and then re-apply them later?",The `git stash` command is used for this purpose.
+"After stashing your changes, what command do you use to re-apply the most recently stashed changes and remove them from the stash list?",The `git stash pop` command is used to re-apply and remove the changes from the stash.
+What command shows you a list of all your stashed changes?,The `git stash list` command shows the list of stashed changes.
+What is the `git rebase` command used for?,It's an alternative to merging that rewrites commit history to create a linear sequence of commits.
+What is the primary danger or caution associated with using `git rebase`?,"It rewrites history, which can cause significant problems if used on branches that are shared with other people."
+On which branch should you generally AVOID running `git rebase`?,You should generally avoid running `git rebase` on the main or master branch.
+How do you download a copy of an existing remote repository to your local machine?,You use the `git clone <repository-url>` command.
+What is a 'remote' in Git?,"A remote is a reference to a repository that is hosted on the internet or another network, like on GitHub."
+What is the conventional name for the primary remote repository?,The conventional name is 'origin'.
+What command adds a new remote repository to your local project?,The command `git remote add <name> <url>` adds a new remote.
+Which command is used to send your committed changes from your local repository to a remote repository?,The `git push` command is used to send changes to a remote repository.
+What does the `-u` flag in `git push -u origin main` accomplish?,"It sets the remote branch ('origin main') as the 'upstream' reference for the current local branch, allowing you to use `git push` without arguments in the future."
+What is the difference between `git fetch` and `git pull`?,"`git fetch` downloads new data from a remote but doesn't integrate it into your working files, while `git pull` fetches the data and immediately merges it."
+The `git pull` command is a combination of which two other Git commands?,`git pull` is a combination of `git fetch` followed by `git merge`.
+"In the open-source contribution workflow on GitHub, what is the first step you take before cloning a repository you don't own?","You first 'fork' the repository, which creates a personal copy of it under your own GitHub account."
+"After forking a repository and making changes in a new branch, how do you propose your changes to the original project?",You create a 'pull request' (PR) from your forked repository to the original one.
+What is the very first and most crucial step before starting to code on an open-source contribution?,"To talk to the project maintainers, usually by opening an issue, to discuss the proposed change or feature."
+What unique identifier is associated with every commit in Git?,A unique hash (SHA-1 checksum) is associated with every commit.
+What is the purpose of the HEAD pointer in a Git repository?,"HEAD is a pointer to the current branch reference, which in turn points to the last commit you're working on."
+What command allows you to view the content of your global git configuration file in the terminal?,The command `cat ~/.gitconfig` (on Linux/Mac) will display the global configuration file.
+"If you are stuck in the Vim editor after a `git commit`, what is the key sequence to save and quit?","Press `Esc`, then type `:wq` (write and quit), and press `Enter`."
+"To add all modified and new files in the current directory to the staging area, what shortcut can you use with `git add`?",You can use `git add .` to add all files in the current directory and subdirectories.
+What is the command to rename the current branch to 'main'?,The command `git branch -M main` is used to rename the current branch.
+"In a merge conflict marker `<<<<<<< HEAD`, what does `HEAD` represent?",`HEAD` represents the version of the code from your current branch (the one you are merging into).
+What command allows you to temporarily jump back in time to view the state of your project at a specific commit?,The command `git checkout <commit-hash>` allows you to view the project at a specific commit.
+"After resolving a merge conflict manually in your editor, what is the next Git command you must run before committing?",You must run `git add <conflicted-file>` to mark the conflict as resolved and stage the changes.
+"The `git log` command displays commits in reverse chronological order, meaning the _____ commit is shown first.",most recent
+"The video instructor emphasizes that Git is a '_____ First Tool,' meaning proficiency with the command line is key.",Terminal
+What does a 'pull request' (PR) on GitHub signify?,It is a request to the maintainers of a repository to 'pull' your changes from your branch into their main branch.
+What is the primary purpose of the `README.md` file in a GitHub repository?,"It serves as the homepage of the repository, providing a description, setup instructions, and general information about the project."
+What is the difference between a 'fast-forward' merge and a regular merge?,A fast-forward merge occurs when there are no new commits on the base branch; Git simply moves the pointer forward. A regular merge creates a new merge commit.

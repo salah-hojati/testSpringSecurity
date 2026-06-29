@@ -1,0 +1,24 @@
+What is the primary definition of Apache Maven provided in the tutorial?,It is a project management and comprehension tool that provides developers a complete build lifecycle framework.
+What is the primary goal of Maven for developers?,"To provide a comprehensive, reusable, maintainable, and easier to comprehend model for projects."
+Maven uses a standard directory layout and a default build lifecycle to allow a development team to automate a project's _____ in almost no time.,build infrastructure
+What does the 'Model-based builds' feature of Maven enable?,"It allows Maven to build any number of projects into predefined output types such as jar, war, or metadata."
+"Using the same metadata as the build process, what two types of project documentation can Maven generate?",A website and a PDF.
+"For release management, what type of system does Maven integrate with without requiring additional configuration?","A source control system, such as CVS."
+What does the 'Backward Compatibility' feature of Maven support?,It allows easy porting of project modules from older versions of Maven and supports those older versions.
+What does the 'Automatic parent versioning' feature of Maven eliminate?,The need to specify the parent in the sub-module for maintenance.
+How does Maven's 'Parallel builds' feature achieve performance improvements?,It analyzes the project dependency graph and schedules modules to be built in parallel.
+What specific aid does Maven's improved error reporting provide to help understand an error?,It provides a link to the Maven wiki page with a full description of the error.
+What are the two key prerequisites for learning Apache Maven?,Basic knowledge of Java and an understanding of software build and deployment processes.
+What does the acronym POM stand for in the context of Maven?,Project Object Model.
+What is the specific filename for Maven's Project Object Model?,pom.xml
+Where must the pom.xml file always be located within a project?,It must reside in the base directory of the project.
+What is the fundamental role of the POM file in a Maven project?,It contains information about the project and various configuration details used by Maven to build the project(s).
+"Besides dependencies and plugins, name two other types of configuration information found in a POM.","Goals, build profiles, project version, developers, or mailing list."
+Term: Artifact (in Maven),"A file, usually a JAR, that gets deployed to a Maven repository."
+What are the three components that together uniquely identify a Maven artifact?,"A group ID, an artifact ID, and a version string."
+What is the common convention for an artifact's group ID?,"It is usually a reversed domain name, like com.example.foo."
+The principle that developers are not required to create build processes themselves in Maven is known as _____ over Configuration.,Convention
+Name four of the areas Maven helps developers manage.,"Builds, Documentation, Reporting, Dependencies, SCMs, Releases, Distribution, or mailing list."
+What is the command-line instruction to check the installed version of Maven?,mvn --version
+"In a typical deployment process, what is the first step involving the source code repository?",Check-in the code from all projects into the SVN or source code repository and tag it.
+"After a build in a typical deployment process, where is the output (e.g., WAR or EAR file) stored?",It is stored in a common network location.

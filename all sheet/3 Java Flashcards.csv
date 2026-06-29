@@ -1,0 +1,102 @@
+What is a major advantage of static factory methods over constructors regarding object creation?,"Unlike constructors, they are not required to create a new object each time they're invoked, allowing for pre-constructed instances or caching."
+"A second advantage of static factory methods is that, unlike constructors, they can return an object of any _____ of their return type.",subtype
+What is the main limitation of providing only static factory methods for a class?,Classes without public or protected constructors cannot be subclassed.
+"When designing a class with many optional parameters, what pattern combines the safety of telescoping constructors with the readability of JavaBeans?",The Builder pattern.
+"In the Builder pattern, the builder's setter methods typically return the builder itself. What is the resulting API style called?",A fluent API.
+"What is the preferred approach for implementing a singleton, providing a guarantee against multiple instantiations even in the face of serialization or reflection attacks?",A single-element enum type.
+How can you enforce noninstantiability for a utility class that is just a grouping of static methods and fields?,By making its constructor private.
+Why is using `String.matches` for repeated use in performance-critical situations a bad practice?,"It internally creates a `Pattern` instance on every call, which is expensive as it requires compiling a regular expression."
+What is unintentional autoboxing and why can it severely degrade performance?,"It's the automatic conversion between primitive and boxed primitive types, which can lead to creating a large number of unnecessary objects in loops."
+"In a class that manages its own memory, such as a custom stack, what must a programmer do to prevent memory leaks from 'obsolete references'?",Manually null out references to objects once they are no longer part of the active portion of the data structure.
+What are three common sources of memory leaks in Java?,"Classes that manage their own memory, caches, and listeners or other callbacks."
+What is the recommended alternative to using finalizers or cleaners for resource cleanup?,Have the class implement `AutoCloseable` and require clients to use the `try-with-resources` statement.
+"What are the two legitimate, but limited, uses for cleaners and finalizers?","To act as a safety net in case a resource's `close` method is neglected, and to terminate noncritical native resources."
+Why is `try-with-resources` superior to `try-finally` for closing resources?,It is more concise and provides better exception handling by correctly managing suppressed exceptions.
+Under what circumstance is it appropriate to override the `equals` method?,When a class has a notion of logical equality that differs from mere object identity and a superclass has not already provided a suitable override.
+"The `equals` contract states that for any non-null reference values x and y, `x.equals(y)` must return true if and only if `y.equals(x)`. What is this property called?",Symmetry.
+"If you override the `equals` method, what other method must you always override?",The `hashCode` method.
+What is the key provision of the `hashCode` contract that is violated if you override `equals` but not `hashCode`?,Equal objects must have equal hash codes.
+"What is a simple, effective recipe for computing a hash code?","Combine the hash codes of significant fields, multiplying the accumulated result by 31 before adding the hash code of the next field."
+Why is providing a good `toString` implementation important for a class?,"It makes the class more pleasant to use and systems using it easier to debug, as `toString` is automatically invoked by `println`, debuggers, and assertion messages."
+"If you are writing a value class with an obvious natural ordering, what interface should you implement to allow it to be easily sorted and used in comparison-based collections?",The `Comparable` interface.
+"When implementing a `compareTo` method, why should you avoid using the `<` and `>` operators on the results of subtracting integer fields?",This approach can cause integer overflow and violates the transitivity requirement of the `Comparator` contract.
+What is the fundamental principle of encapsulation that guides class design?,"Minimize the accessibility of classes and members, making each component as inaccessible as possible."
+When can a `public static final` field be considered an acceptable constant?,Only when it contains either a primitive value or a reference to an immutable object.
+Why should public classes never expose mutable fields?,"Doing so relinquishes the ability to limit the values a field can contain, enforce invariants, or take action when the field is modified."
+What is the first rule for creating an immutable class?,Do not provide any methods that modify the object's state (mutators).
+How can a class guarantee its immutability against subclassing?,By making the class `final` or by making all of its constructors private or package-private and using static factories.
+Inheritance is inappropriate for classes in different packages that are not designed for it because it violates _____.,encapsulation
+"What design pattern provides a safe, powerful alternative to inheritance for adding functionality to a class?","The wrapper class pattern (also known as the decorator pattern), which uses composition."
+"For a class designed for inheritance, what must its constructors not do?","They must not invoke any of their overridable methods, directly or indirectly."
+What documentation tag should be used to describe a method's self-use patterns and internal workings for subclasses?,The `@implSpec` Javadoc tag.
+What is a key advantage of using interfaces over abstract classes to define types?,"Existing classes can easily be retrofitted to implement a new interface, whereas they generally cannot be retrofitted to extend a new abstract class."
+An abstract class that is provided with an interface to help with implementation is known as a _____.,skeletal implementation class
+Why must you exercise extreme caution when adding default methods to existing interfaces?,"There is no guarantee they will work in all preexisting implementations, which might compile without error but fail at runtime."
+What is the 'constant interface' anti-pattern?,"An interface that contains no methods and consists solely of `static final` fields, which is a poor use of interfaces."
+What is the primary difference between a static member class and a nonstatic member class (inner class)?,"Each instance of a nonstatic member class is implicitly associated with an enclosing instance of its containing class, while a static member class is not."
+"If a nested class instance can exist in isolation from an instance of its enclosing class, it must be a _____.",static member class
+Why is it critically important to prefer static member classes over nonstatic ones if access to an enclosing instance is not required?,"Omitting the `static` modifier creates a hidden reference to the enclosing instance, which can cause memory leaks by preventing garbage collection."
+What is the main danger of using raw types like `List` instead of parameterized types like `List<String>`?,"You lose all compile-time type safety, deferring potential `ClassCastException` errors to runtime."
+What is the difference between a raw type like `Set` and an unbounded wildcard type like `Set<?>`?,"The unbounded wildcard type is typesafe; you cannot put any element (other than null) into a `Collection<?>`, preventing corruption of the collection's type invariant."
+"When using the `@SuppressWarnings(""unchecked"")` annotation, what rule should you always follow?",Always use it on the smallest scope possible and add a comment explaining why the cast is safe.
+What is a 'recursive type bound' and what does it express?,"It is a type parameter constrained by an interface involving that same parameter (e.g., `<E extends Comparable<E>>`), used to express mutual comparability."
+What does the PECS mnemonic stand for in the context of bounded wildcards in generic APIs?,"Producer-Extends, Consumer-Super."
+"When a generic method parameter is used to produce values for a variable (a producer), what type of bounded wildcard should be used?",`? extends T`
+"When a generic method parameter is used to consume values from a variable (a consumer), what type of bounded wildcard should be used?",`? super T`
+What is 'heap pollution' in the context of generics and varargs?,"It occurs when a variable of a parameterized type refers to an object that is not of that type, which can happen because the varargs facility is built on arrays that have different type rules from generics."
+What annotation should be used on a generic varargs method that has been proven to be typesafe?,`@SafeVarargs`
+What is the 'typesafe heterogeneous container' pattern?,"A pattern that uses a `Map<Class<?>, Object>` where each key is a `Class` token and the corresponding value is of the type represented by the key."
+"In an enum type, how can you associate different behavior with each constant?",By declaring an abstract method in the enum and overriding it with a concrete method for each constant in a constant-specific class body.
+"What class from `java.util` provides a modern, typesafe, and high-performance replacement for bit fields when working with sets of enums?",`EnumSet`
+What is a 'marker annotation'?,"An annotation with no parameters that simply 'marks' an element to indicate it should receive special treatment by a tool (e.g., `@Test`)."
+"What is the primary advantage of a marker interface (e.g., `Serializable`) over a marker annotation?","A marker interface defines a type, which allows for compile-time type checking that is not possible with an annotation."
+"In Java 8 and later, what is the best way to represent small function objects?",Lambdas.
+When are method references preferred over lambdas?,When the method reference is shorter and clearer than the equivalent lambda.
+What should you do before creating your own functional interface?,"Check the `java.util.function` package to see if one of the standard functional interfaces, like `Predicate` or `Function`, will suffice."
+"In a stream pipeline, what is the difference between an intermediate operation and a terminal operation?","Intermediate operations are lazy and produce another stream, while terminal operations are eager and produce a non-stream result or side effect."
+What stream terminal operation should be used for computation and accumulation instead of `forEach`?,"The `collect` operation, using a `Collector`."
+Why is it generally better for a public API to return a `Collection` or other `Iterable` subtype rather than a `Stream`?,"A `Stream` can only be traversed once and cannot be used in a `for-each` loop, whereas a `Collection` is iterable and more versatile for users."
+Under what conditions can parallelizing a stream pipeline actually harm performance?,"When the stream source does not split efficiently (e.g., `Stream.iterate`) or when the work done per element is too small to overcome the overhead of parallelization."
+"To protect a class's internal state from modification, it is essential to make a _____ of each mutable parameter to the constructor.",defensive copy
+"To maintain immutability, what must accessors for mutable internal fields do?",They must return defensive copies of the mutable fields.
+What are three techniques for shortening an overly long parameter list in a method?,"Break the method up, create a helper class to hold parameters, or adapt the Builder pattern to method invocation."
+"Why should you avoid confusing uses of overloading, especially with the same number of parameters?","Selection among overloaded methods is static (at compile time), which can lead to counterintuitive behavior and subtle bugs, unlike overridden methods which are selected dynamically."
+Why should you never return `null` in place of a zero-length array or an empty collection?,"It creates extra work for the client to handle a `null` return value and is error-prone, whereas returning an empty container is a clean, standard practice."
+A method that might not be able to return a value can be declared to return _____ to make this possibility explicit to clients.,`Optional<T>`
+"For every exported API element (class, method, field), what must you provide to ensure the API is usable?",A documentation comment (doc comment).
+Why is it generally better to use a `for-each` loop over a traditional `for` loop with iterators or indexes?,"It is more concise, less error-prone by hiding the iterator/index variable, and applies equally to collections and arrays."
+"Why should you avoid using `float` and `double` for calculations that require exact answers, like monetary calculations?","They represent binary floating-point arithmetic and cannot accurately represent base-10 fractions like 0.1, leading to rounding errors."
+"For calculations requiring exact answers with decimal points, what class should be used instead of `float` or `double`?",`BigDecimal`.
+What are the three major differences between primitive types and boxed primitives?,Primitives only have values while boxed primitives have identities; primitives are always functional values while boxed primitives can be `null`; primitives are more time- and space-efficient.
+Applying the `==` operator to boxed primitives is almost always a mistake. Why?,"It performs an identity comparison (checking if they are the same object in memory), not a value comparison."
+Why is it a bad practice to use the string concatenation operator (`+`) in a loop?,"It is implemented by creating a new `String` object on each iteration, which can lead to quadratic time complexity and poor performance."
+What should be used instead of the string concatenation operator for combining multiple strings efficiently?,`StringBuilder`'s `append` method.
+"As a general rule, parameters, return values, variables, and fields should be declared using _____ types rather than class types.",interface
+What are the main drawbacks of using reflection?,"Loss of compile-time type checking, verbose and messy code, and significantly slower performance."
+What are Jackson's two rules of optimization?,Rule 1: Don't do it. Rule 2 (for experts only): Don't do it yet.
+What is the cardinal rule for deciding whether to use a checked or an unchecked exception?,Use checked exceptions for conditions from which the caller can reasonably be expected to recover.
+Runtime exceptions should be reserved for what kind of conditions?,"Programming errors, which indicate a violation of API usage or a bug."
+What is 'exception translation'?,"Catching a lower-level exception and, in its place, throwing an exception that is appropriate to the higher-level abstraction."
+"To aid debugging, lower-level exceptions can be passed to the constructor of a higher-level exception, a technique known as _____.",exception chaining
+"To make debugging easier, the detail message of an exception should capture the _____ for programmatic access.",failure-capture information
+What does it mean for a method to be 'failure-atomic'?,"If the method fails, the object should be left in the state that it was in prior to the method invocation."
+What is the problem with having an empty `catch` block?,"It ignores the exception, which defeats its purpose and can cause a program to fail at an arbitrary later time without any indication of the root cause."
+Synchronization is required for reliable communication between threads as well as for _____.,mutual exclusion
+What keyword ensures that modifications to a field are always visible to other threads?,`volatile`
+"Why is the `++` operator not atomic, even on a `volatile` field?","It performs two separate operations: a read and a write, which can be interleaved by other threads."
+The best way to avoid concurrency problems is to not share mutable data. This can be achieved by sharing immutable data or by _____.,confining mutable data to a single thread
+"To avoid liveness and safety failures, you should never call an alien method from within a _____.",synchronized region
+What is a 'deadlock' in concurrent programming?,"A situation where one or more threads are blocked forever, waiting for a condition that cannot be met."
+"In the Executor Framework, the unit of work (the task) is separate from the execution mechanism (the executor service). What are the two kinds of tasks?",`Runnable` and `Callable`.
+What is a major advantage of using `ConcurrentHashMap` over `Collections.synchronizedMap`?,"`ConcurrentHashMap` provides much higher concurrency by managing its own synchronization internally at a finer grain, and is generally faster."
+"What type of `Queue` extension supports operations that block until they can be successfully performed, making it suitable for producer-consumer queues?",`BlockingQueue`.
+What synchronizer is a one-time barrier that allows one or more threads to wait until a set of operations being performed in other threads completes?,`CountDownLatch`.
+"What level of thread safety describes a class whose instances are mutable, but have sufficient internal synchronization that they can be used concurrently without external synchronization?",Unconditionally thread-safe.
+The 'private lock object' idiom is used to prevent clients and subclasses from interfering with an object's synchronization. What is this idiom?,Storing a `private final Object` and synchronizing on it instead of on the instance itself (`this`).
+"Why should you not depend on the thread scheduler, `Thread.yield`, or thread priorities for the correctness of your program?","Their behavior is not specified and varies across JVM implementations, making the program non-portable and unreliable."
+What is the primary danger of deserializing untrusted data?,"It is a fabulous source of availability attacks, denial-of-service attacks, and remote code execution attacks."
+"A major cost of implementing `Serializable` is that once a class is released, its _____ is frozen for the life of the class.",serialized form
+"Every serializable class has a unique identification number associated with it, which should be declared as a `static final long` field named _____.",`serialVersionUID`
+"When a class is designed for inheritance, what must its `readObject` method do first, before anything else?",It must invoke `defaultReadObject`.
+"For a serializable singleton class to maintain its singleton property upon deserialization, what method must it provide?",A `readResolve` method that returns the sole instance.
+What is the 'serialization proxy pattern'?,"A pattern where a serializable class has a private static nested class that serves as its serialization proxy, and the outer class's `writeReplace` and `readResolve` methods translate between instances."

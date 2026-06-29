@@ -1,0 +1,82 @@
+What is a database?,A collection of data stored in a format that can be easily accessed.
+What software application is used to manage databases?,"A Database Management System, or DBMS."
+"In relational databases, data is stored in _____ that are linked to each other using relationships.",tables
+What is SQL (or SQUEL)?,It is the language used to work with relational database management systems to query or modify data.
+"Non-relational databases, also known as _____, do not use tables or relationships and do not understand SQL.",NoSQL
+SQL was originally developed at IBM and was called SQUEL. What did SQUEL stand for?,Structured English Query Language.
+What graphical tool is used to connect to a MySQL database server and manage databases in the course?,MySQL Workbench.
+What is the default port for a MySQL server connection?,3306.
+What is the IP address for the local machine (localhost) when setting up a MySQL connection?,127.0.0.1.
+"In MySQL Workbench, what does the 'Schemas' tab in the navigator panel show?",It shows the databases available in the current database server.
+What is the function of the yellow thunder icon in the MySQL Workbench toolbar?,It executes the selected SQL code or the entire script if nothing is selected.
+"In a database table, what are columns and rows (records)?","Columns represent attributes of an object (e.g., first_name), and rows (records) represent a single instance of that object (e.g., one customer)."
+"Why do relational databases use IDs (e.g., `customer_id`) to link tables instead of repeating information like a customer's name?","To avoid data redundancy and simplify updates, as information that might change (like an address) only needs to be modified in one place."
+What SQL statement must be run first to select a specific database to execute queries against?,"The `USE` statement, followed by the database name (e.g., `USE sql_store;`)."
+What is the convention for casing in SQL statements?,"Capitalize SQL keywords (like `SELECT`, `FROM`) and use lowercase for everything else (like table and column names)."
+"In a `SELECT` statement, what character is used as a wildcard to retrieve all columns from a table?",An asterisk (*).
+What is the correct order for the four main clauses in a basic SQL query?,"`SELECT`, `FROM`, `WHERE`, `ORDER BY`."
+How can you comment out a single line in a SQL query?,By placing two hyphens (`--`) at the beginning of the line.
+"In a `SELECT` statement, how do you provide a custom name or 'alias' for a calculated column?","By using the `AS` keyword followed by the desired alias (e.g., `points * 1.1 AS new_price`)."
+"If you want to use a space in a column alias, what must you do?","You must enclose the alias in single or double quotes (e.g., `AS 'discount factor'`)."
+"What is the order of operations for arithmetic operators in SQL (e.g., `*`, `+`)?",It follows standard mathematical rules: multiplication and division have higher precedence than addition and subtraction.
+How can you change the default order of arithmetic operations in a SQL expression?,By using parentheses `()` to group operations.
+What keyword is added to a `SELECT` clause to return only unique (non-duplicate) values from a column?,"The `DISTINCT` keyword (e.g., `SELECT DISTINCT state`)."
+What is the purpose of the `WHERE` clause in a SQL query?,To filter records and return only those that meet a specified condition.
+List the six main comparison operators used in a `WHERE` clause.,"Greater than (`>`), greater than or equal to (`>=`), less than (`<`), less than or equal to (`<=`), equal (`=`), and not equal (`!=` or `<>`)."
+"When filtering based on string or date values in a `WHERE` clause, what must you do to the value?","You must enclose the string or date value in single quotes (e.g., `WHERE state = 'VA'`)."
+What is the standard format for representing dates in MySQL?,"'YYYY-MM-DD' (e.g., '1990-01-01')."
+"When using the `AND` operator to combine conditions in a `WHERE` clause, which records are returned?",Only records where *both* conditions are true.
+"When using the `OR` operator to combine conditions in a `WHERE` clause, which records are returned?",Records where *at least one* of the conditions is true.
+Which logical operator has higher precedence in SQL: `AND` or `OR`?,The `AND` operator is always evaluated first.
+"What logical operator is used to negate a condition, returning records where the condition is false?",The `NOT` operator.
+What is the result of negating the condition `birth_date > '1990-01-01' AND points > 1000`?,`birth_date <= '1990-01-01' OR points <= 1000`.
+The `IN` operator is a cleaner way to write a `WHERE` clause that combines multiple _____ conditions.,`OR`
+Rewrite the following condition using the `IN` operator: `WHERE state = 'VA' OR state = 'GA' OR state = 'FL'`,"`WHERE state IN ('VA', 'GA', 'FL')`"
+"What operator is used to filter for values within a specific range, including the boundary values?","The `BETWEEN` operator (e.g., `WHERE points BETWEEN 1000 AND 3000`)."
+What operator is used for pattern matching in strings?,The `LIKE` operator.
+"In a `LIKE` pattern, what does the percent sign (`%`) represent?","Any number of characters (zero, one, or many)."
+"In a `LIKE` pattern, what does the underscore (`_`) represent?",A single character.
+Write a `LIKE` pattern to find all last names that start with 'b'.,`'b%'`
+Write a `LIKE` pattern to find all last names that end with 'y'.,`'%y'`
+Write a `LIKE` pattern to find a last name that is exactly six characters long and ends with 'y'.,`'_____y'` (five underscores followed by 'y').
+What operator provides more powerful pattern matching than `LIKE` using regular expressions?,The `REGEXP` operator.
+"In a regular expression, what does the caret (`^`) signify?",The beginning of a string.
+"In a regular expression, what does the dollar sign (`$`) signify?",The end of a string.
+"In a regular expression, what does the vertical bar (`|`) signify?","A logical OR, allowing you to match one of several patterns."
+"In a regular expression, what do square brackets (`[]`) signify?","A match for any single character listed within the brackets (e.g., `[gim]e` matches 'ge', 'ie', or 'me')."
+"How would you write a regular expression to find last names that contain either 'field', 'mac', or 'rose'?",`'field|mac|rose'`
+How do you search for records where a column's value is missing or absent?,"By using the `IS NULL` operator (e.g., `WHERE phone IS NULL`)."
+What is the purpose of the `ORDER BY` clause?,To sort the rows in the result set based on one or more columns.
+"By default, `ORDER BY` sorts records in what order?",Ascending order (`ASC`).
+What keyword is used with `ORDER BY` to sort records in descending order?,`DESC`.
+"When sorting by multiple columns (e.g., `ORDER BY state, first_name`), how are the records sorted?","The records are first sorted by the first column (`state`), and then records with the same value in the first column are sorted by the second column (`first_name`)."
+What is the primary key of a table?,A column (or set of columns) whose values uniquely identify each record in that table.
+"Why should you avoid sorting by column position (e.g., `ORDER BY 1, 2`)?","Because if the order of columns in the `SELECT` clause changes in the future, the sort order will produce unexpected results."
+What is the purpose of the `LIMIT` clause?,To restrict the number of rows returned by a query.
+"How would you write a query to implement pagination, skipping the first 6 records and then retrieving the next 3?","By using `LIMIT 6, 3`, where 6 is the offset (records to skip) and 3 is the count (records to retrieve)."
+The `LIMIT` clause should always come _____ in a SQL statement.,at the end
+What is the purpose of the `JOIN` clause?,To combine columns from two or more tables based on a related column between them.
+"In a `JOIN`, what is the purpose of the `ON` condition?","It specifies how the tables are related by defining the columns that should match (e.g., `ON c.customer_id = o.customer_id`)."
+"Why is it often necessary to prefix a column name with a table name or alias in a `JOIN` query (e.g., `c.customer_id`)?",To resolve ambiguity when the same column name exists in more than one of the joined tables.
+A(n) _____ join returns only the rows where the joined columns have matching values in both tables.,inner
+"A(n) _____ join returns all rows from the left table and the matched rows from the right table; if there is no match, the result is `NULL` on the right side.",left
+"To see all customers, regardless of whether they have placed an order or not, you would use a _____ join between the `customers` and `orders` tables.",left
+What is a self-join?,"A join in which a table is joined with itself, often to query hierarchical data like employees and their managers within the same table."
+"When performing a self-join, it is mandatory to use different _____ for the table.",aliases
+What does a composite primary key refer to?,"A primary key that consists of more than one column, where the combination of the columns' values uniquely identifies each record."
+"When joining tables with composite primary keys, the `ON` clause must contain a _____ join condition.",compound (multiple conditions combined with `AND`)
+What is a cross join?,"A join that combines every record from the first table with every record from the second table, resulting in a Cartesian product."
+"Instead of an `ON` clause, what keyword can be used to join tables if the linking columns have the exact same name in both tables?","The `USING` keyword, followed by the column name in parentheses (e.g., `USING (customer_id)`)."
+What operator is used to combine the rows from the result sets of two or more `SELECT` statements into a single result set?,The `UNION` operator.
+What is the main rule for using the `UNION` operator?,Each `SELECT` statement within the `UNION` must have the same number of columns in the result sets.
+"In a table's design, what does the `AUTO_INCREMENT` attribute do for a primary key column?","It automatically generates a unique, sequential number for each new row inserted into the table."
+What SQL statement is used to add one or more new rows to a table?,The `INSERT INTO` statement.
+How do you insert multiple rows into a table with a single `INSERT INTO` statement?,"By listing multiple sets of values in parentheses, separated by commas, after the `VALUES` keyword."
+What MySQL function returns the ID generated for an `AUTO_INCREMENT` column by the most recent `INSERT` statement?,`LAST_INSERT_ID()`
+The statement `CREATE TABLE new_table AS SELECT ...` is used to do what?,"Create a new table and populate it with data from a `SELECT` query, copying the structure and data but not attributes like primary keys or auto-increment."
+A `SELECT` statement that is part of another SQL statement (like `INSERT` or `UPDATE`) is known as a _____.,subquery
+How can you copy only a subset of data from one table to another existing table?,Using an `INSERT INTO ... SELECT` statement with a `WHERE` clause in the `SELECT` part.
+What SQL statement is used to modify existing records in a table?,The `UPDATE` statement.
+"In an `UPDATE` statement, the `SET` clause is used to specify _____ and the `WHERE` clause is used to specify _____.",the new values for the columns; which rows to update
+What statement is used to remove one or more rows from a table?,The `DELETE FROM` statement.
+What happens if you execute a `DELETE FROM` statement without a `WHERE` clause?,All records in the table will be deleted.

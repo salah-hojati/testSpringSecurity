@@ -1,0 +1,86 @@
+What is the primary purpose of the Spring Framework in Java development?,"It is an open-source framework for building enterprise Java applications, simplifying development by providing a comprehensive programming and configuration model."
+"In Spring, what mechanism is used to manage object creation and their dependencies, removing the need for manual instantiation?",Dependency Injection (DI).
+What is the recommended and most common type of dependency injection in Spring?,"Constructor Injection, because it ensures that an object is created with all its required dependencies and supports immutability."
+"The annotation `@Autowired` placed directly on a class field (e.g., `private final StudentRepository repository;`) is an example of what type of injection?",Field Injection.
+Why is field injection generally not recommended in Spring?,"It can lead to issues with testing (requiring reflection to set mocks) and can hide the true dependencies of a class, making the code harder to maintain."
+"When you have multiple beans of the same type, how can you specify which one to inject?",By using the `@Qualifier` annotation along with `@Autowired` to specify the bean name.
+"Alternatively, if you have multiple beans of the same type, which annotation can you place on one bean's definition to make it the default choice for injection?",The `@Primary` annotation.
+What is a 'Spring Boot Starter'?,"A set of convenient dependency descriptors that you can include in your application to get all the necessary dependencies for a specific functionality, like 'spring-boot-starter-web'."
+"Which file is used in a Maven project to manage project dependencies, build information, and metadata?",The `pom.xml` file.
+"In a `pom.xml`, the `<groupId>` typically represents the _____, while the `<artifactId>` represents the _____.",company or organization; project or module name
+What is the purpose of the `spring-boot-starter-validation` dependency?,"It provides support for data validation using annotations from the Jakarta Bean Validation API, such as `@NotEmpty`, `@Email`, and `@Size`."
+"In a Spring Boot application, what is the role of the `application.properties` or `application.yml` file?","It is used to configure the application, such as setting the server port, database connection details, and other custom properties."
+How can you define environment-specific configurations in Spring Boot?,"By creating profile-specific property files, such as `application-dev.properties` or `application-test.yml`, and activating the corresponding profile."
+The _____ annotation marks a class that provides bean definitions to the Spring application context.,`@Configuration`
+Which annotation is used on a method within a `@Configuration` class to declare a Spring Bean?,The `@Bean` annotation.
+What is the generic stereotype annotation that indicates a class is a Spring-managed component?,`@Component`.
+What are the three specialized versions of the `@Component` annotation for specific layers?,"`@Service` (for the business layer), `@Repository` (for the data access layer), and `@RestController` (for the presentation/web layer)."
+What is REST (Representational State Transfer)?,"An architectural style for creating web services that defines constraints, such as being client-server, stateless, and cachable, using standard HTTP methods."
+"In REST API design, what is the convention for naming resource endpoints (e.g., for users or products)?","Use plural nouns, such as `/users` or `/products`."
+Which HTTP method is idempotent and used to retrieve data from a server?,`GET`.
+"Which HTTP method is used to create a new resource on the server, with the data included in the request body?",`POST`.
+Which HTTP method is used to completely update an existing resource?,`PUT`.
+Which HTTP method is used to delete a resource specified by a URL?,`DELETE`.
+"An HTTP status code in the 2xx range, such as `200 OK` or `201 Created`, indicates what?","The request was successfully received, understood, and accepted."
+What does the HTTP status code `201 Created` signify?,The request has been fulfilled and has resulted in one or more new resources being created.
+"An HTTP status code in the 4xx range, such as `404 Not Found` or `400 Bad Request`, indicates what?","A client-side error, meaning the request contains bad syntax or cannot be fulfilled."
+What does the HTTP status code `401 Unauthorized` mean?,The request has not been applied because it lacks valid authentication credentials for the target resource.
+What does the HTTP status code `403 Forbidden` mean?,"The server understood the request but refuses to authorize it, meaning the authenticated user does not have the necessary permissions."
+"An HTTP status code in the 5xx range, such as `500 Internal Server Error`, indicates what?","A server-side error, meaning the server failed to fulfill an apparently valid request."
+"In Spring MVC, which annotation combines `@Controller` and `@ResponseBody` to create a controller for RESTful services?",`@RestController`.
+Which annotation is used to map HTTP GET requests onto specific handler methods?,`@GetMapping`.
+"To extract a value from the URL path, such as the `id` in `/products/{id}`, which annotation would you use on a method parameter?",`@PathVariable`.
+"To extract a query parameter from the URL, such as `brand` in `/products?brand=Apple`, which annotation would you use on a method parameter?",`@RequestParam`.
+"Which annotation binds the body of an HTTP request to a method parameter, typically a DTO or domain object?",`@RequestBody`.
+What is JPA (Java Persistence API)?,"A Java specification that describes the management of relational data in Java applications, providing an object-relational mapping (ORM) facility."
+The `@Entity` annotation is used to specify that a class is an entity and is mapped to a _____ in the database.,table
+Which annotation is used to specify the primary key of an entity?,`@Id`.
+Which annotation is used to configure the way the ID is generated for an entity?,`@GeneratedValue`.
+What does the generation strategy `GenerationType.IDENTITY` mean?,"It indicates that the persistence provider must assign primary keys for the entity using a database identity column, relying on the database's auto-increment feature."
+"To map a many-to-one relationship (e.g., many Products belong to one Category), which annotation is used on the 'many' side?",`@ManyToOne`.
+"To map a one-to-many relationship (e.g., one Product has many Images), which annotation is used on the 'one' side?",`@OneToMany`.
+"In a bidirectional `@OneToMany` relationship, what is the purpose of the `mappedBy` attribute?",It indicates that the 'many' side of the relationship is the owner and specifies the field in the child entity that maps back to the parent.
+What is the purpose of `CascadeType.ALL` in a JPA relationship annotation?,"It propagates all persistence operations (e.g., save, update, delete) from the parent entity to the associated child entities."
+What is the purpose of the DTO (Data Transfer Object) pattern?,"To transfer data between different layers of an application, decoupling the service/API layer from the internal database entity structure."
+"In Spring Data JPA, what interface do you extend to create a repository that provides CRUD operations for a specific entity?","`JpaRepository<T, ID>`."
+How does Spring Data JPA create query implementations from repository method names like `findByCategoryName(String categoryName)`?,It parses the method name and automatically generates the corresponding JPQL or SQL query based on a defined naming convention.
+What is Spring Security?,A powerful and highly customizable authentication and access-control framework for securing Spring-based applications.
+"In Spring Security, the _____ is the main entry point for web security, allowing you to configure CORS, CSRF, session management, and rules for protected resources.",`SecurityFilterChain`
+What is a JWT (JSON Web Token)?,"A compact, URL-safe standard for creating access tokens that assert a number of claims, used for stateless authentication."
+A JWT consists of three parts separated by dots. What are they?,"Header, Payload, and Signature."
+"In Spring Security, what is the role of the `UserDetailsService` interface?","To load user-specific data (like username, password, and authorities) from a persistent store."
+"The implementation of the `UserDetails` interface represents a core piece of user information, containing methods like `getUsername()`, `getPassword()`, and `getAuthorities()`.",True.
+What is the purpose of a `OncePerRequestFilter` in a Spring Security context?,"It is a base class for filters that are guaranteed to be executed only once per request within a single request thread, commonly used for processing authentication tokens like JWTs."
+The `@EnableWebSecurity` annotation is used to enable _____ for a Spring Boot application.,Spring's web security support
+"In Spring Security, what is the purpose of the `PasswordEncoder`?","To perform a one-way transformation on a password to securely store it, typically using hashing algorithms like BCrypt."
+"In the context of testing, what is 'mocking'?","Creating simulated objects that mimic the behavior of real objects in controlled ways, used to isolate the unit under test from its dependencies."
+Which library is commonly used with JUnit in Spring applications for creating mock objects?,Mockito.
+"In Mockito, what does the `when(...).thenReturn(...)` construct do?","It defines the behavior of a mocked method, specifying what value should be returned when the method is called with certain arguments."
+The `@Test` annotation in JUnit 5 marks a method as a _____.,test method
+What is the purpose of the `@BeforeEach` annotation in JUnit 5?,"It marks a method that should be executed before each test method in the class, typically used for setup logic."
+What is the purpose of the `@AfterEach` annotation in JUnit 5?,"It marks a method that should be executed after each test method in the class, typically used for teardown or cleanup logic."
+"How do assertions (e.g., `assertEquals`) function in a unit test?","They verify that a certain condition is met; if the condition is false, the test fails."
+What is the purpose of the `@Valid` annotation when used on a `@RequestBody` parameter?,"It triggers the validation of the object based on constraints (e.g., `@NotEmpty`, `@NotNull`) defined within the object's class."
+"The `Optional<T>` class is used in Java to represent a value that may or may not be present, helping to avoid _____.",`NullPointerException`s
+"In the shopping cart project, what does the `@JoinColumn` annotation specify?",It specifies the foreign key column used when joining an entity association or an element collection.
+What is the difference between `@Entity` and `@Table` annotations in JPA?,"`@Entity` marks a class as a manageable persistence object, while `@Table` allows you to specify the exact name of the database table it maps to."
+"In the shopping cart project, what is the relationship between `Cart` and `CartItem`?","A one-to-many relationship, where one `Cart` can have many `CartItem`s."
+What is the purpose of creating a custom exception class like `ResourceNotFoundException`?,"To handle specific error scenarios in a structured way, allowing for clearer error handling and more meaningful responses to the client."
+"In Postman, what is the 'Body' tab used for in requests like POST or PUT?","To send data to the server, often in formats like JSON or form-data."
+"In Postman, what is the 'Authorization' tab used for?","To configure and send authentication credentials with a request, such as a Bearer Token for JWT authentication."
+What does the `spring.jpa.hibernate.ddl-auto=update` property do?,"It instructs Hibernate to update the database schema if necessary upon application startup, without dropping existing data."
+"In the shopping cart project, how is the total price of a cart calculated?","By summing up the total price of all `CartItem`s, where each item's total is its unit price multiplied by its quantity."
+"In a many-to-many relationship between `User` and `Role`, what is typically used to manage the association in the database?",A join table (or link table) that contains foreign keys referencing the primary keys of both the user and role tables.
+The `@ManyToMany` annotation is used to define a many-to-many relationship between two _____.,entities
+"In Spring Security, what is the role of an `AuthenticationManager`?","It processes an `Authentication` request, attempting to authenticate the user."
+How can you disable CSRF (Cross-Site Request Forgery) protection in a Spring Security configuration?,By using `http.csrf(csrf -> csrf.disable())` within the `SecurityFilterChain` bean configuration.
+What is the purpose of the `AuthenticationEntryPoint` in Spring Security?,"It is used to commence an authentication scheme when an unauthenticated user attempts to access a protected resource, often by returning a 401 Unauthorized error."
+"In the provided JWT implementation, claims such as user ID and roles are encoded into the token's _____.",payload
+What is the purpose of `SecurityContextHolder` in Spring Security?,"It is a helper class that provides access to the security context, which stores the `Authentication` object representing the currently authenticated user."
+Term: Java Record,"A special type of class in Java, introduced in Java 14, designed to be a transparent and immutable carrier for a fixed set of data, reducing boilerplate code for DTOs and value objects."
+"The `@Profile(""dev"")` annotation on a bean or configuration class ensures it is only active when the 'dev' profile is _____.",enabled
+"In the context of REST, what does it mean for a service to be 'stateless'?",The server does not store any client context or session state between requests; each request from a client must contain all the information needed to understand and process it.
+What is a 'mapper' class in the context of the DTO pattern?,A class or component responsible for converting data between entity objects and DTOs.
+"In the `SecurityFilterChain`, what is the purpose of `.authorizeHttpRequests()`?","It is used to begin configuring URL-based security rules, specifying which requests should be permitted, denied, or require authentication."
+How does the `BCryptPasswordEncoder` work?,"It uses the BCrypt strong hashing function to encode passwords, which includes a randomly generated salt with each hash to protect against rainbow table attacks."
+"In the shopping cart project, when an order is successfully placed, what happens to the user's cart?","The cart is cleared, and its items are converted into order items associated with the new order."

@@ -1,0 +1,72 @@
+What is the key difference between 'Linux' and a 'Linux distribution'?,"Linux is the kernel, while a distribution combines the kernel with other software (like GNU tools) to create a complete operating system."
+Who started the GNU project with the goal of creating a freely available operating system?,Richard Stallman.
+The acronym GNU is a recursive acronym that stands for _____.,GNU's Not Unix.
+Who is the creator of the Linux kernel?,Linus Torvalds.
+What is the primary function of the Linux kernel?,It is a program that talks directly to the hardware and manages resources and processes.
+Which Linux distribution is known as the most popular in the world and is based on Debian?,Ubuntu.
+Which Linux distribution is most commonly used in cybersecurity and for penetration testing?,Kali Linux.
+Which major Linux distribution is primarily targeted at business users and charges for support?,Red Hat.
+What are the three official editions of Ubuntu?,"Desktop, Server, and Core (for IoT devices and robots)."
+"In Ubuntu, what does the 'LTS' in a version name stand for?",Long Term Support.
+"What type of application is Oracle VirtualBox, used for running operating systems within another OS?",A type 2 hypervisor.
+"In VirtualBox, what is the difference between a 'dynamically allocated' and a 'fixed size' virtual hard disk?","A dynamically allocated disk only uses space as it fills up, while a fixed size disk allocates the full amount of space immediately."
+"In the Ubuntu installer, what is the purpose of the 'Try Ubuntu' option?","It allows you to test the operating system on your hardware without installing it, ensuring compatibility."
+What is the name of the application in Ubuntu that allows you to find and install new software through a graphical interface?,The Software Center.
+What is the application that allows you to interact with the Linux operating system using text-based commands?,The terminal emulator.
+"In the default Ubuntu terminal prompt `josh@ubuntu-20:~$`, what does the tilde character (`~`) represent?",The user's home directory.
+"What is the most important command for a beginner to learn, which displays the manual page for other commands?",The `man` command.
+How would you view the manual page for the `ls` command?,By typing `man ls` in the terminal.
+Which key do you press to quit and exit a `man` page view?,The 'q' key.
+The `pwd` command is used to _____.,print the name of the current working directory.
+What is the purpose of the `cd` command?,To change the current directory.
+"In the terminal, what command would you use to navigate up one level in the directory structure?",`cd ..`
+"If you are in any directory on the system, what happens when you type the `cd` command with no arguments?",It takes you back to your user's home directory.
+The `ls` command is used for what purpose?,To list the contents of a directory.
+How are hidden files or folders typically denoted in Linux?,They start with a period (.).
+"Which option for the `ls` command is used to show all files, including hidden ones?",The `-a` option.
+"Which option for the `ls` command provides a 'long listing' format, showing details like permissions, owner, and size?",The `-l` option.
+"When using `ls -l`, which option makes the file sizes display in a human-readable format (e.g., KB, MB, GB)?",The `-h` option.
+What command is used to create a new directory?,The `mkdir` command.
+Which option for the `mkdir` command allows you to create a parent directory and its child directories all at once?,The `-p` option.
+"The `rmdir` command is used to remove directories, but it only works if the directory is _____.",empty.
+"Which command is used to determine a file's type, independent of its extension?",The `file` command.
+"What is the simplest way to create a new, empty file from the command line?",Using the `touch` command.
+What command is used to remove files or directories?,The `rm` command.
+"To remove a directory and all of its contents, you must use the `rm` command with the _____ option.",-r (recursive)
+What command is used to copy files and directories?,The `cp` command.
+"To copy an entire directory, you must use the `cp` command with the _____ option.",-r (recursive)
+The `mv` command has two primary functions: moving files/directories and _____ files/directories.,renaming
+What does the `head` command do by default?,It displays the first 10 lines of a file.
+What does the `tail` command do by default?,It displays the last 10 lines of a file.
+The `cat` command is used to print the _____ of a file to the terminal.,entire contents
+"The name 'cat' is short for _____, reflecting its ability to combine the contents of multiple files.",concatenate
+"What command displays a line of text, and can be used with the `>` operator to write that text into a file?",The `echo` command.
+What is the purpose of the `less` and `more` commands?,To view the contents of large files one page at a time.
+"In the Linux file system hierarchy, what does the single forward slash (`/`) represent?","The root directory, which contains every other file and directory."
+"Which directory in the Linux file system contains essential command binaries like `cd`, `pwd`, and `mv`?",The `/bin` directory.
+The `/boot` directory contains what critical files?,"Files needed for the Linux system to boot up, such as the kernel and bootloader files."
+Which directory represents physical devices like hard drives and USB drives as files?,The `/dev` directory.
+Where are system-wide configuration files for applications typically stored?,In the `/etc` directory.
+The _____ directory contains a separate folder for each user's personal files.,/home
+Which directory contains the home directory for the 'root' superuser?,The `/root` directory.
+Which directory is used for storing temporary files that are often deleted upon reboot?,The `/tmp` directory.
+The _____ directory contains variable data like system logs.,/var
+Which command tells you how long the system has been running?,The `uptime` command.
+The `free` command is used to display the amount of _____ memory in the system.,free and used
+Which command provides a snapshot of the currently running processes?,The `ps` command.
+What does the `df` command report?,It reports file system disk space usage.
+"Which command is an interactive process viewer that updates in real-time, often considered an improvement over `top`?",The `htop` command.
+"What is the modern command used to show or manipulate routing, network devices, and interfaces, which is replacing `ifconfig`?","The `ip` command (e.g., `ip a`)."
+What does `sudo` stand for?,Super User Do.
+What is the purpose of the `sudo` command?,It temporarily elevates a user's privileges to perform administrative tasks.
+"On Debian-based systems like Ubuntu, what is the name of the command-line package management tool?",apt (Advanced Package Tool).
+What is the purpose of the `sudo apt update` command?,It refreshes the local cache of available software packages from the repositories.
+"After running an update, which command is used to install the newest versions of all packages currently on the system?",The `sudo apt upgrade` command.
+How would you install a package named 'vlc' using the apt package manager?,By running `sudo apt install vlc`.
+How would you remove a package named 'vlc' using the apt package manager?,By running `sudo apt remove vlc`.
+"Which beginner-friendly, terminal-based text editor displays its command shortcuts at the bottom of the screen?",nano.
+"In the `nano` text editor, what key combination is used to save (Write Out) the current file?",Ctrl + O.
+"In the `nano` text editor, what key combination is used to exit the program?",Ctrl + X.
+"In the `vim` text editor, what key must you press to enter 'insert mode' and begin typing text?",The 'i' key.
+"In `vim`, after pressing `Esc` to leave insert mode, what command do you type to save the file and quit?",:wq
+"In `vim`, after pressing `Esc`, what command do you type to quit without saving any changes?",:q!

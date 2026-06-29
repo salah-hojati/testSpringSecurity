@@ -1,0 +1,93 @@
+What is the primary role of HTML in creating a website?,"HTML creates the content of a website, such as buttons, text, and images."
+What is the primary role of CSS in creating a website?,CSS changes the appearance and style of a website to make it look nice.
+What is the primary role of JavaScript in creating a website?,"JavaScript makes a website interactive, allowing it to perform actions when a user interacts with it."
+The instructions we give to a computer in a programming language are called _____.,code
+What is the term for when a computer follows the instructions in a piece of code?,Running the code.
+What are the rules that must be followed exactly when using a programming language like JavaScript called?,Syntax.
+What JavaScript command creates a pop-up message box in the browser?,The `alert()` command.
+"In JavaScript, what character is used for multiplication?",The star or asterisk character (`*`).
+"In JavaScript, what character is used for division?",The forward slash character (`/`).
+"Adding, subtracting, multiplying, and dividing are called _____ in JavaScript.",operations
+"How can you control which part of a mathematical calculation gets done first, overriding the default order of operations?","By using brackets `()`, as the calculation inside the brackets is always done first."
+What is the recommended best practice when calculating money in JavaScript to avoid floating-point inaccuracies?,"Calculate in cents to work with whole numbers, and then convert back to dollars at the end."
+What does a string represent in JavaScript?,A string represents text.
+What is the feature called when JavaScript automatically converts a number into a string when added to another string?,Type coercion or automatic type conversion.
+What is the escape character used to create a new line of text within a string?,The `\n` (new line) character.
+What is the escape character used to include a single quote within a string that is defined by single quotes?,The `\'` (backslash single quote) character.
+What is the name for strings created with backticks (`) in JavaScript?,Template strings.
+What special feature of template strings lets you insert a value directly into the string?,"Interpolation, using the `${...}` syntax."
+What is the purpose of a code editor like Visual Studio Code?,A code editor helps us write and organize our code.
+"In HTML, what does the `<script>` element do?",The `<script>` element is used to contain and run JavaScript code within an HTML file.
+Where in the HTML body is it common practice to place the `<script>` element and why?,"At the bottom, to ensure the web page is created and loaded first before JavaScript tries to make it interactive."
+"What HTML attribute can be added to an element, like a button, to run JavaScript code when it is clicked?",The `onclick` attribute.
+What is the syntax for creating a single-line comment in JavaScript?,Two forward slashes (`//`). Anything after them on the same line is ignored.
+What is the purpose of `console.log()` in JavaScript?,"It displays a value in the browser's console, which is useful for debugging and checking code results."
+What keyword is used to create a new variable in JavaScript?,The `let` keyword.
+What is the term for saving a value inside a variable for the first time?,Assigning a value.
+What is the term for changing the value saved inside an existing variable?,Reassigning a value.
+What keyword is used to create a variable that cannot be changed or reassigned?,The `const` keyword.
+What does a Boolean value represent in programming?,A Boolean value represents whether something is true or false.
+"In JavaScript, what is the result of the expression `3 > 5`?",The Boolean value `false`.
+What comparison operator in JavaScript checks if two values are equal in both value and type?,The triple equals operator (`===`).
+Why is it generally recommended to use `===` instead of `==` for equality checks in JavaScript?,"Because `==` performs type coercion, which can lead to unexpected results, while `===` provides a strict comparison."
+What structure in JavaScript is used to run code only if a certain condition is true?,An `if` statement.
+The _____ logical operator (`&&`) checks if two boolean values are both true.,and
+The _____ logical operator (`||`) checks if at least one of two boolean values is true.,or
+The _____ logical operator (`!`) takes a boolean value and flips it to the opposite.,not
+"In JavaScript, what is a 'truthy' value?","A value that behaves like `true` when used in a boolean context, such as in an `if` statement."
+"In JavaScript, what is a 'falsy' value?",A value that behaves like `false` when used in a boolean context.
+Name two examples of falsy values in JavaScript.,"Any two of: `false`, the number `0`, the empty string `''`, `NaN`, `undefined`, or `null`."
+"What is the ternary operator, and what is it a shortcut for?",The ternary operator (`condition ? value1 : value2`) is a shortcut for an `if-else` statement.
+How do you define a function in JavaScript?,"Using the `function` keyword, followed by a name, parentheses for parameters, and curly brackets for the code."
+What is a parameter in a function?,"A parameter is like a variable that exists only inside a function, allowing you to pass values into it."
+What does the `return` statement do inside a function?,It gets a value out of the function and immediately ends the function's execution.
+What is the concept of 'scope' in relation to variables?,Scope determines where a variable can be accessed; variables created inside curly brackets only exist within those brackets.
+"In JavaScript, what does an object allow you to do?",An object allows you to group multiple related values together.
+"In an object, the label on the left of a value is called the _____.",property
+How do you access a property of an object in JavaScript using dot notation?,"By typing the object's name, followed by a dot, and then the property name (e.g., `product.name`)."
+What is bracket notation used for when accessing object properties?,"Bracket notation (`object['property-name']`) is used for properties that don't work with dot notation, like those with dashes or spaces."
+What is a function saved inside an object called?,A method.
+What does the `JSON.stringify()` method do?,"It converts a JavaScript object into a JSON string, which is the format required for storing in `localStorage`."
+What does the `JSON.parse()` method do?,It converts a JSON string back into a JavaScript object.
+"When working with objects in JavaScript, variables store a _____ to the object in memory, not the object itself.",reference
+What does the destructuring shortcut (`const { property } = object;`) allow you to do?,It provides an easier way to take a property out of an object and save it into a variable with the same name.
+What is the DOM (Document Object Model)?,The DOM is a built-in JavaScript object called `document` that represents the entire HTML page and allows JavaScript to interact with it.
+Which method of the `document` object lets you get any element from the page and put it into JavaScript?,`document.querySelector()`.
+"To select an element by its class using `document.querySelector()`, what character must precede the class name in the selector string?",A dot (`.`).
+What property of an HTML element object in JavaScript controls all the HTML inside that element?,The `innerHTML` property.
+What property of a textbox (input) element controls the text inside it?,The `.value` property.
+"When you get a value from the DOM (e.g., from an input field), what data type is it always?",A string.
+How do you convert a string value from the DOM into a number so you can perform math on it?,By using the built-in `Number()` function.
+"In CSS, what is the difference between `padding` and `margin`?","`Padding` is the space on the inside of an element, while `margin` is the space on the outside of an element."
+What does an array represent in JavaScript?,An array represents a list of values.
+What method is used to add a value to the end of an array?,The `.push()` method.
+What method is used to remove a value from an array at a specific index?,"The `.splice(index, numberOfElements)` method."
+What is the purpose of a loop in programming?,A loop lets us run some code over and over again.
+The `for` loop is a standard loop that consists of what three parts?,"The loop variable, the loop condition, and the increment step."
+What is the 'accumulator pattern' technique used with loops?,"It's a technique where a loop accumulates a result into a variable, such as calculating a total sum or building up a string."
+The `forEach` method is a simpler way to loop through an ____.,array
+What is the main difference between a regular function and an arrow function syntax?,An arrow function uses an arrow (`=>`) instead of the `function` keyword.
+What is a key advantage of using `addEventListener` over the `onclick` attribute?,`addEventListener` separates JavaScript from HTML and allows adding multiple event listeners for the same event.
+What is the difference between synchronous and asynchronous code?,"Synchronous code waits for one line to finish before going to the next, while asynchronous code does not wait and moves to the next line immediately."
+"What does the built-in `setTimeout(callback, delay)` function do?",It runs a function (the callback) after waiting for a specified amount of time (the delay in milliseconds).
+"What does the built-in `setInterval(callback, delay)` function do?",It repeatedly runs a function (the callback) every specified interval of time (the delay in milliseconds).
+"A _____ is a JavaScript object that lets us write asynchronous code in a more manageable way, splitting it into steps using `.then()`.",Promise
+"What is the modern, preferred way to make HTTP requests in JavaScript, which uses promises?",The `fetch()` function.
+What does the `async` keyword do when placed before a function declaration?,It makes the function return a promise and allows the use of the `await` keyword inside it.
+What does the `await` keyword do inside an async function?,It pauses the function's execution and waits for a promise to finish before continuing.
+What is the core idea of object-oriented programming (OOP)?,To organize code by grouping related data (properties) and functions (methods) together into objects.
+"In OOP, what is a 'class'?",A class is a blueprint or template for creating objects.
+What is a 'constructor' in a class?,A special method for creating and initializing an object created with a class.
+What OOP concept allows a class to get properties and methods from another class?,"Inheritance, implemented using the `extends` keyword."
+What is a 'backend' in the context of web development?,"A computer, usually located in a data center, that is connected to the internet and runs code to support a website."
+What protocol do computers use to send messages to each other over the internet?,HTTP (Hypertext Transfer Protocol).
+"In an HTTP request-response cycle, the message sent from the browser to the backend is called the _____, and the message sent back is called the _____.",request; response
+What does API (Application Programming Interface) refer to in the context of a backend?,"The list of all supported URL paths and what they do, which defines how we can interact with the backend."
+What is the purpose of an automated test?,"To automatically check if a piece of code is working correctly, making it easier to test many situations and retest after code changes."
+"In testing, a 'test case' refers to a specific ____ that we are testing.",situation
+A _____ is a collection of related tests.,test suite
+What is the purpose of a testing framework like Jasmine?,"It provides functions and a structure to make it easier to write, run, and organize automated tests."
+"In Jasmine, the `describe()` function is used to create a _____, and the `it()` function is used to create a specific _____.",test suite; test
+"In Jasmine, what function is used to check if a value is equal to another value?",The `expect(value).toEqual(otherValue)` function.
+What is the primary benefit of using JavaScript modules (`import`/`export`)?,They provide a better way to organize code into separate files without polluting the global scope or creating naming conflicts.
+"To use module features in a script loaded in HTML, what attribute must be added to the `<script>` tag?","The `type=""module""` attribute."

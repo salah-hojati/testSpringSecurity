@@ -1,0 +1,66 @@
+What computing paradigm is characterized by a central computer making all decisions for a business transaction from end to end?,"The centralized computing paradigm, historically represented by mainframe computers."
+"In a _____ computing paradigm, different components of a system are located on different networked computers, communicating and coordinating their actions.",distributed
+What is the key difference between distributed and decentralized computing?,"In decentralized computing, there is no central control point, whereas distributed computing can still have a central authority coordinating the distributed components."
+What does 'eventual consistency' mean in the context of distributed systems?,"It is a consistency model where, given no new updates, all replicas of data will gradually become consistent over time."
+"In terms of service granularity, what is a 'monolith' architecture?",An architecture where functional modules are only logically separated but are physically packaged and deployed as a single unit.
+How does a 'macroservice' architecture differ from a monolith?,"In a macroservice architecture, different functional modules are packaged into separate archives (like .jars), but are still deployed together in a single unit (like an .ear or .war)."
+The hexagonal architecture is also known by what other name?,The ports and adapters architecture.
+"In hexagonal architecture, what is the role of a 'port'?","A port is a consumer-agnostic entry and exit point to or from the application, typically defined as an interface in Java."
+"In hexagonal architecture, what is the purpose of an 'adapter'?","An adapter implements a port (interface) to connect the application core with external tools, technologies, or delivery mechanisms."
+"Adapters that initiate an action on the application, such as a UI controller, are called _____ or driving adapters.",primary
+"Adapters that react to an action from a primary adapter, such as a database repository, are called _____ or driven adapters.",secondary
+What does HATEOAS stand for?,Hypermedia as the Engine of Application State.
+What is the core principle of HATEOAS in a REST API?,A client interacts with a network application entirely through hypermedia provided dynamically by application servers in API responses.
+What is HAL (Hypertext Application Language)?,"A standard convention for defining hypermedia, such as links to external resources, within JSON or XML data."
+"The Onion Architecture's core principle is that coupling direction is always towards the _____, with outer layers depending on inner layers.",center
+How does Onion Architecture relate to Hexagonal Architecture?,"Hexagonal Architecture's ports and adapters can be seen as the outermost layer of the Onion Architecture, isolating the application core from infrastructure."
+What problem does GraphQL aim to solve compared to traditional REST APIs?,"It allows clients to request exactly the data they need and nothing more, preventing over-fetching or under-fetching of data."
+"In a message-oriented microservice architecture, what is the primary benefit of using a publish-subscribe channel over a point-to-point channel?","It allows for loose coupling, enabling multiple consumer microservices to receive the same event and allowing the system to evolve by adding new subscribers without changing the publisher."
+What pattern is used to simulate a synchronous request-reply interaction over an asynchronous messaging channel?,"The return address pattern, where the request message includes information about the reply channel and a correlation ID."
+What is SEDA (Staged Event-Driven Architecture)?,"An architecture that decomposes a complex, event-driven application into a set of stages connected by queues to manage concurrency and system resources."
+"In a Spring application, what Java class can be returned from a REST controller method to enable asynchronous HTTP request processing?",DeferredResult
+"Increasing the compute power (CPU, RAM) of an existing machine to handle more load is known as _____ scalability.",vertical
+Adding more machines to a system to distribute load is known as _____ scalability.,horizontal
+"In Kafka, how can multiple instances of a consumer microservice process messages from a single topic in parallel?","By placing the consumers in the same consumer group and having the topic divided into multiple partitions, Kafka distributes the partitions among the consumers."
+What integration pattern involves a component that receives messages from multiple sources and combines them into a single outgoing message?,The Aggregator pattern.
+How do containers differ from virtual machines (VMs)?,"Containers virtualize the operating system, sharing the host OS kernel, while VMs virtualize the hardware, requiring a full guest OS for each VM."
+What is the purpose of a `Dockerfile`?,It is a text document that contains a series of instructions on how to build a Docker image.
+"In Docker, what is the mechanism that allows filesystems to be layered on top of each other, enabling efficient image sharing?","A layered filesystem, which implements a union mount (like Unionfs or aufs)."
+"When a file in a running Docker container is modified, the change is written to a specific layer. What is this layer called?",The container's read-write layer.
+The pattern of copying a file from a read-only image layer to the container's read-write layer upon modification is known as _____.,copy on write
+"What is the primary function of a Docker Registry, such as Docker Hub?",It is a repository for storing and distributing Docker images.
+What Google tool allows you to build Docker images for Java applications directly from Maven or Gradle without needing a Dockerfile or a local Docker daemon?,Jib.
+"What is the preferred mechanism for persisting data generated by and used by Docker containers, independent of the container's lifecycle?",Volumes.
+What is Docker Compose used for?,It is a tool for defining and running multi-container Docker applications using a single YAML file.
+"In a `docker-compose.yml` file, what does the `depends_on` keyword specify?",It specifies the startup and shutdown order dependencies between services.
+A `Dockerfile` that uses multiple `FROM` statements to create intermediate layers that are not included in the final image is using a technique called _____.,multi-stage builds
+What is the primary role of Kubernetes in a microservices architecture?,"It is a container orchestration tool that automates the deployment, scaling, and management of containerized applications."
+"In Kubernetes architecture, the components that control and manage the cluster, such as the API server and scheduler, are part of the _____.",Control Plane
+The actual containerized applications in a Kubernetes cluster run on _____ nodes.,worker
+"What is the smallest and simplest deployable unit in Kubernetes, representing a wrapper around one or more containers?",A Pod.
+What Kubernetes object is responsible for maintaining a stable set of replica Pods running at any given time?,A ReplicaSet.
+"What higher-level Kubernetes resource is used to declaratively manage application deployments and updates, which in turn creates and manages ReplicaSets?",A Deployment.
+"What Kubernetes object provides a stable, abstract way to expose an application running on a set of Pods as a network service with a single IP address?",A Service.
+What type of Kubernetes Service exposes the service on each Node’s IP at a static port (the NodePort)?,NodePort.
+"What type of Kubernetes service exposes the application using a cloud provider's load balancer, providing an external IP address?",LoadBalancer.
+"What Kubernetes object manages external access to services in a cluster, typically HTTP, and can provide load balancing, SSL termination, and name-based virtual hosting?",An Ingress.
+"For managing stateful applications like databases in Kubernetes, what workload API object is used to manage a set of Pods with unique, persistent identities and stable network identifiers?",A StatefulSet.
+Concept: Persistent Volume (PV) in Kubernetes,"Definition: A piece of storage in the cluster that has been provisioned by an administrator or dynamically provisioned using Storage Classes, existing independently of any individual Pod."
+Concept: Persistent Volume Claim (PVC) in Kubernetes,Definition: A request for storage by a user. It consumes PV resources and acts like a check that can be mounted by a Pod.
+What is Amazon Elastic Kubernetes Service (Amazon EKS)?,A managed Kubernetes service from AWS that makes it easier to run Kubernetes on AWS without needing to install and operate your own Kubernetes control plane.
+What is Infrastructure as Code (IaC)?,"The practice of managing and provisioning computing infrastructure through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools."
+What is Terraform?,An open-source Infrastructure as Code (IaC) tool that allows you to define and provision data center infrastructure using a declarative configuration language.
+"In Terraform, what is the purpose of the `terraform plan` command?","It creates an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure before applying them."
+What does the `terraform apply` command do?,"It applies the changes required to reach the desired state of the configuration, creating, updating, or destroying infrastructure resources as needed."
+What is Helm in the context of Kubernetes?,"A package manager for Kubernetes that helps you define, install, and upgrade even the most complex Kubernetes applications."
+"In Helm, a package containing all the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster is called a _____.",Chart
+A _____ is an instance of a chart running in a Kubernetes cluster.,Release
+"In a Helm chart, what is the purpose of the `values.yaml` file?","It provides default configuration values for a chart, which can be overridden during installation or upgrade."
+What command is used to install a Helm chart into a Kubernetes cluster?,`helm install`
+How can you upgrade an existing Helm release with a new version of a chart or new configuration values?,By using the `helm upgrade` command.
+What tool allows you to declaratively manage a collection of Helm chart releases for an entire cluster in a single YAML file?,Helmfile.
+What is Skaffold?,"A command-line tool that facilitates continuous development for Kubernetes-native applications by handling the workflow for building, pushing, and deploying."
+"When running `skaffold dev`, what happens when a developer saves a change to a source code file?","Skaffold detects the change, automatically rebuilds the image, and redeploys the application to the Kubernetes cluster."
+What is the difference between IaaS and PaaS in cloud computing?,"IaaS (Infrastructure as a Service) provides raw computing resources like VMs and storage, while PaaS (Platform as a Service) provides a platform including OS, middleware, and runtime, on which users can develop and run applications."
+"In AWS, what service provides a logically isolated section of the cloud where you can launch resources in a virtual network that you define?",Amazon Virtual Private Cloud (VPC).
+"What AWS service provides secure, resizable compute capacity in the cloud, commonly known as virtual servers?",Amazon Elastic Compute Cloud (EC2).

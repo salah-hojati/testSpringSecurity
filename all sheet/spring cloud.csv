@@ -1,0 +1,79 @@
+"According to the CNCF, what are the three main components that exemplify the cloud native approach?","Containers, service meshes, and microservices."
+"In the context of cloud native applications, what is the term for moving a traditional application to the cloud without redesigning it?",Lift and shift.
+"What cloud computing model provides virtualized computing resources over the internet, such as virtual machines?",Infrastructure as a Service (IaaS).
+The ability of a system to handle an increasing workload by adding more resources is known as _____.,scalability
+What is the key difference between vertical scalability and horizontal scalability?,"Vertical scaling adds resources (CPU, memory) to a single node, while horizontal scaling adds more nodes (instances)."
+"A system where components have minimal knowledge of each other, allowing for independent evolution, is described as having _____.",loose coupling
+What is the term for a system that can provide its services even in the presence of faults?,Resilience.
+"In resilience engineering, what is the term for a defect that produces an incorrect internal state in software or infrastructure?",A fault.
+What is the core idea behind the DevOps practice?,A culture of collaboration between different roles to deliver business value together.
+The 15-Factor methodology principle stating that an application and its codebase have a one-to-one mapping is called '_____.',"One codebase, one application"
+"According to the 15-Factor methodology, what is the distinction between the 'build', 'release', and 'run' stages?","Build compiles the code into an artifact, release combines the artifact with configuration, and run executes the release in an environment."
+What is a 'backing service' according to the 15-Factor methodology?,"An external resource that an application uses, such as a database, message broker, or caching system, treated as an attached resource."
+Why does the 15-Factor methodology advocate for keeping development and production environments as similar as possible?,"To ensure environment parity, which reduces risks and bugs that arise from differences between environments."
+"An application is considered _____ if it can be started or stopped at any time, enabling elasticity and resilience.",disposable
+"In Spring Boot, what is the purpose of an embedded server like Tomcat?","It makes the application self-contained, removing the dependency on an external server being available in the execution environment."
+"The smallest deployable unit in Kubernetes, which can include one or more containers, is called a _____.",Pod
+What is the function of a Kubernetes Deployment object?,"It manages the life cycle of a stateless, replicated application, ensuring the desired number of Pods is always running."
+How does a Kubernetes Service object enable service discovery and load balancing within a cluster?,"It provides a stable DNS name and IP address that routes traffic to a set of Pods, balancing the load among them."
+"In Spring MVC, what annotation identifies a class as a controller for handling incoming HTTP requests?",The `@RestController` annotation.
+"How do you bind a method parameter to a URI template variable in Spring MVC, such as `{isbn}` in `/books/{isbn}`?",Using the `@PathVariable` annotation.
+"To validate the body of an incoming web request in Spring, you would use the _____ annotation on the corresponding method parameter.",`@Valid`
+"In Spring, how can you centralize exception handling for a REST API to map exceptions to specific HTTP status codes?",By using a class annotated with `@RestControllerAdvice`.
+What is the purpose of the `@SpringBootTest` annotation in testing?,It bootstraps a full Spring application context for integration testing.
+"To create a more focused integration test for Spring MVC components without loading the entire application context, which annotation should be used?",The `@WebMvcTest` annotation.
+"In Spring Boot, what is the primary mechanism for separating configuration that varies between deployment environments?","Profiles, which are logical groups of beans or configuration data activated under specific conditions."
+"To bind external configuration properties (e.g., from an `application.yml` file) to a structured Java object, you would use the _____ annotation.",`@ConfigurationProperties`
+What is the primary role of Spring Cloud Config Server?,"To provide centralized, externalized configuration management for applications in a distributed system, typically backed by a Git repository."
+How can a Spring Boot application dynamically reload its configuration from a Config Server at runtime without restarting?,"By sending a POST request to the `/actuator/refresh` endpoint, which triggers a refresh event for beans in the `@RefreshScope`."
+What is the main advantage of using a managed database service from a cloud provider over running your own database container in production?,"The cloud provider manages critical concerns like high availability, clustering, storage, data replication, and backups."
+What is the purpose of a database migration tool like Flyway?,"It provides version control for your database schema, allowing you to track, version, and deploy database changes in an automated and reliable way."
+"In Spring Data, what annotation is used to mark a field as the primary key for a persistent entity?",The `@Id` annotation.
+How does Spring Data enable database auditing to automatically track creation and modification timestamps?,By using the `@EnableJdbcAuditing` or `@EnableR2dbcAuditing` annotation and marking entity fields with `@CreatedDate` and `@LastModifiedDate`.
+What Java library makes it easy to use backing services like databases as containers within integration tests?,Testcontainers.
+What is the key advantage of a container image's layered architecture?,"It enables caching and reuse of unchanged layers, making image builds and transfers faster and more efficient."
+What is the primary function of a `Dockerfile`?,It's a text-based file containing instructions to assemble a container image layer by layer.
+Cloud Native Buildpacks (like Paketo) offer a high-level abstraction for turning application source code into container images without needing a _____.,Dockerfile
+What tool provides a declarative way to define and manage the life cycle of multi-container applications using a YAML file?,Docker Compose.
+"In Kubernetes, a _____ ensures that a specified number of pod replicas are running at any given time.",ReplicaSet
+The configuration management approach where you define what you want to achieve (the desired state) and let the orchestrator figure out how to achieve it is called _____ configuration.,declarative
+"In a distributed system, what is the purpose of a service registry?","To keep track of all running service instances and their locations (e.g., IP addresses) to enable service discovery."
+"Kubernetes provides _____ service discovery, where the platform handles service registration and load balancing transparently to the application.",server-side
+What is the default behavior of Spring Boot when it receives a termination signal (SIGTERM)?,"It stops the server immediately, but can be configured for graceful shutdown."
+"In the context of request handling, what is the main drawback of the 'thread-per-request' model?","A thread blocks and wastes resources while waiting for I/O operations (like database calls), limiting scalability."
+"Reactive programming utilizes an _____ model, where a few threads can handle many concurrent requests without blocking on I/O.",event loop
+"In Project Reactor, what is the difference between a `Mono` and a `Flux`?","A `Mono` is a publisher for a stream of 0 or 1 items, while a `Flux` is a publisher for a stream of 0 to N items."
+Which Spring project provides support for building reactive web applications?,Spring WebFlux.
+"What is the modern, non-blocking alternative to `RestTemplate` for making HTTP requests in Spring?",`WebClient`.
+"The _____ driver specification allows reactive, non-blocking access to relational databases.",R2DBC (Reactive Relational Database Connectivity)
+What is the purpose of the API Gateway pattern in a microservices architecture?,"It provides a single entry point to the system, decoupling internal APIs from clients and handling cross-cutting concerns."
+"In Spring Cloud Gateway, what component determines if an incoming request matches a specific route?",A predicate.
+What is the function of a 'filter' in Spring Cloud Gateway?,Filters modify incoming requests before they are routed or outgoing responses before they are sent back to the client.
+The _____ pattern prevents cascading failures by temporarily stopping requests to a service that is consistently failing.,Circuit Breaker
+What are the three states of a circuit breaker?,"Closed, Open, and Half-Open."
+What is the purpose of a rate limiter in an API gateway?,"To control the rate of traffic from clients, protecting the system from overload or Denial-of-Service (DoS) attacks."
+How does Spring Session with Redis solve the problem of session management in a distributed system?,"It externalizes session data to a shared Redis store, allowing multiple instances of an application to access the same session, thus keeping the application stateless."
+"In Kubernetes, what object is used to manage external access to services within the cluster, typically handling HTTP and HTTPS routing?",An Ingress object.
+What problem does an event-driven architecture solve by using asynchronous communication?,"It solves the problem of temporal coupling, where services need to be available at the same time to interact."
+"In RabbitMQ, producers publish messages to an _____, which then routes them to one or more queues.",exchange
+"In Spring Cloud Function, what are the three core functional interfaces representing business logic?","`Function<T, R>` (input and output), `Supplier<T>` (output only), and `Consumer<T>` (input only)."
+What is the primary role of Spring Cloud Stream?,"It provides a framework for building message-driven microservices, binding business logic (often as functions) to message channels on an external broker."
+"In Spring Cloud Stream, what is a 'consumer group'?",A group of consumer instances where each message sent to a destination is delivered to only one instance within that group.
+What are the three main roles in the OAuth 2.0 framework?,"The Client (application), the Resource Server (API), and the Authorization Server (identity provider)."
+What is the purpose of an ID Token in the OpenID Connect (OIDC) flow?,It represents a successful authentication event and contains information (claims) about the authenticated user.
+What does an Access Token represent in OAuth 2.0?,It represents the authorization granted to a Client to access protected resources on a Resource Server on behalf of the user.
+How does Spring Security protect against Cross-Site Request Forgery (CSRF) attacks in SPAs?,"By using a CSRF token that is generated by the server and must be included by the client in any state-changing requests (e.g., POST, PUT, DELETE)."
+"In Spring Security, how can you enforce that a method can only be executed by users with a specific role, like 'employee'?","By using method security with an annotation like `@PreAuthorize(""hasRole('employee')"")`."
+What is the purpose of the TokenRelay filter in Spring Cloud Gateway?,It automatically forwards the user's Access Token from the gateway to downstream services.
+"The practice of using log events, metrics, and distributed traces to understand a system's internal state is known as _____.",observability
+What is the role of Spring Boot Actuator in making an application observable?,"It provides production-ready features like health checks, metrics, and info endpoints to monitor and manage the application."
+Kubernetes uses a _____ probe to determine if a container is alive and should be restarted.,liveness
+A Kubernetes _____ probe is used to determine if a container is ready to start accepting traffic.,readiness
+What is distributed tracing used for in a microservices architecture?,"To track a request as it flows through multiple services, helping to localize errors and troubleshoot performance issues."
+"In Kubernetes, how can you store non-confidential configuration data as key-value pairs separate from the application container?",Using a ConfigMap.
+"For storing sensitive information like passwords or API keys in Kubernetes, you should use a _____.",Secret
+What is the core principle of GitOps?,"Using a Git repository as the single source of truth for the desired state of the system, which is then automatically reconciled by an agent in the cluster."
+What is the main benefit of compiling a Java application to a native image using GraalVM?,"It results in a faster startup time, reduced memory consumption, and instant peak performance compared to running on a JVM."
+GraalVM's Native Image mode uses _____ compilation instead of the Just-In-Time (JIT) compilation used by a standard JVM.,Ahead-Of-Time (AOT)
+What is the key characteristic of a serverless platform that differentiates it from traditional PaaS?,The ability to automatically scale application instances up from zero when requests arrive and down to zero when idle.
+What is the role of Knative in a Kubernetes environment?,"It provides a Kubernetes-based platform for building, deploying, and managing modern serverless workloads."

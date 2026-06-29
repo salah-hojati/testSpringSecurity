@@ -1,0 +1,68 @@
+What is Kubernetes?,An open-source container orchestration framework originally developed by Google for managing containerized applications across different environments.
+What three core features does a container orchestration tool like Kubernetes guarantee for applications?,"High availability (no downtime), scalability (high performance), and disaster recovery (data restoration)."
+What is the smallest deployable unit of computing that can be created and managed in Kubernetes?,A Pod.
+"A Pod is an abstraction layer over a _____, allowing Kubernetes to manage the running environment without directly interacting with the container technology.",container
+Why are Pods in Kubernetes described as 'ephemeral'?,Because they can die easily and are replaced with a new instance that gets a new IP address.
+"What Kubernetes component provides a static, permanent IP address for a set of Pods to solve the problem of ephemeral Pod IP addresses?",A Service.
+What is the function of an 'internal service' in Kubernetes?,"It provides a stable IP address for communication between Pods within the cluster, without exposing them to the public."
+"Which Kubernetes component is used to manage external access to services in a cluster, typically handling HTTP/HTTPS routing with domain names?",Ingress.
+"For external configuration data like URLs or properties, which Kubernetes component is used to decouple configuration from the application container?",ConfigMap.
+What is the primary difference between a ConfigMap and a Secret in Kubernetes?,"A Secret is used for sensitive data like passwords and is stored in a base64 encoded format, whereas a ConfigMap is for non-sensitive data in plain text."
+"How is data persistence achieved in Kubernetes for a Pod, ensuring data survives restarts?","By using a Volume, which attaches a physical storage on a hard drive (local or remote) to the Pod."
+"In Kubernetes, a _____ acts as a blueprint for creating and managing a set of replicated, stateless application Pods.",Deployment
+Why would you typically work with Deployments instead of creating Pods directly?,"Deployments manage the replication, scaling, and updates of Pods, providing a higher level of abstraction and control."
+"For stateful applications like databases that require stable, unique network identifiers and persistent storage, which Kubernetes component should be used instead of a Deployment?",StatefulSet.
+What is a common practice for hosting databases when using Kubernetes to avoid the complexity of StatefulSets?,To host the database outside of the Kubernetes cluster and have applications inside the cluster communicate with it externally.
+"In Kubernetes architecture, what is the role of a Worker Node?",A Worker Node is a server that runs the application Pods and containers.
+What are the three essential processes that must be installed on every Kubernetes Worker Node?,"A container runtime (like Docker), kubelet, and kube-proxy."
+What is the responsibility of the `kubelet` process on a Worker Node?,It is the primary node agent that communicates with the Master Node and is responsible for running the pods and containers assigned to its node.
+What is the function of `kube-proxy` on a Worker Node?,It maintains network rules on nodes and enables communication by forwarding requests from Services to the correct Pods.
+"In Kubernetes architecture, the _____ nodes control the cluster state and manage the Worker Nodes.",Master
+What are the four processes that run on every Kubernetes Master Node?,"API Server, Scheduler, Controller Manager, and etcd."
+"Which Master Node process acts as the gateway to the Kubernetes cluster, handling all incoming requests and authentication?",The API Server.
+What is the primary role of the Scheduler in a Kubernetes Master Node?,It decides which Worker Node a new Pod should be scheduled on based on resource availability and other constraints.
+"Which Master Node component detects cluster state changes, such as a crashed Pod, and attempts to recover the state by rescheduling it?",The Controller Manager.
+What is `etcd` in the context of Kubernetes?,"It is a key-value store that acts as the cluster's brain, storing all cluster state information."
+What is Minikube used for?,It is a tool that creates a single-node Kubernetes cluster on a local machine for testing and development purposes.
+What is `kubectl`?,"It is the command-line tool used to interact with any Kubernetes cluster to create, configure, and manage resources."
+Which `kubectl` command is used to list all the pods in the current namespace?,`kubectl get pods`
+"Instead of creating Pods directly with `kubectl`, you typically create a _____ which then manages the creation of Pods.",Deployment
+What is the purpose of a ReplicaSet in Kubernetes?,"A ReplicaSet's purpose is to maintain a stable set of replica Pods running at any given time, and it is typically managed by a Deployment."
+How can you view the logs of an application running inside a specific Pod?,Using the `kubectl logs <pod-name>` command.
+Which command allows you to get an interactive terminal session inside a running container within a Pod?,`kubectl exec -it <pod-name> -- /bin/bash` (or a similar shell).
+"In practice, instead of using many command-line options, how are Kubernetes components usually created and configured?",By using YAML configuration files that are applied with the `kubectl apply -f <filename>` command.
+What is the benefit of using `kubectl apply` over `kubectl create`?,"`kubectl apply` can both create a resource if it doesn't exist and update it if it already exists, based on the configuration file."
+What are the three main parts of every Kubernetes configuration file?,"Metadata, Specification (spec), and an auto-generated Status."
+What is the purpose of the `spec` (specification) section in a Kubernetes YAML file?,"It defines the desired state of the component, including all its configuration settings."
+How does a Kubernetes Deployment know which Pods to manage?,It uses a `selector` in its specification to match `labels` defined in the Pod's metadata.
+"In a Service's YAML configuration, the `port` defines where the service is accessible, while the `_____` defines the port on the pod to which traffic should be forwarded.",targetPort
+"What `kubectl` command can be used to see detailed information about a resource, including its endpoints and events?",`kubectl describe <resource-type> <resource-name>`
+How can you create multiple Kubernetes resources (like a Deployment and a Service) from a single YAML file?,By separating each resource definition in the file with three dashes (`---`).
+"To reference a value from a Kubernetes Secret in a Pod's environment variable, you would use the `valueFrom` key with a `_____` reference.",secretKeyRef
+What is a Kubernetes Namespace used for?,"It acts as a virtual cluster to organize, group, and isolate resources within a single physical cluster."
+"Which namespace contains system processes and components managed by Kubernetes itself, and should not be used for user applications?",The `kube-system` namespace.
+"If no namespace is specified when creating a resource, in which namespace is it created by default?",The `default` namespace.
+How can services in one namespace be accessed from another namespace?,"By using a full DNS name that includes the service name and the namespace, such as `<service-name>.<namespace-name>`."
+What are two examples of Kubernetes resources that are not namespaced and exist globally across the cluster?,Node and PersistentVolume.
+"To make Ingress routing rules work in a cluster, what must be installed in addition to the Ingress resource itself?",An Ingress controller.
+What is the function of an Ingress controller?,"It is a pod that evaluates all Ingress rules in the cluster and manages the traffic redirection accordingly, acting as the entry point."
+"In an Ingress YAML file, the `host` specifies the domain name, and the `backend` specifies the internal _____ and _____ to which traffic should be forwarded.","serviceName, servicePort"
+How do you configure an HTTPS connection for an Ingress resource?,By adding a `tls` section that references a Secret containing the TLS certificate and key.
+What is Helm in the context of Kubernetes?,It is a package manager for Kubernetes that simplifies the deployment and management of applications through packages called Helm charts.
+A bundle of pre-configured Kubernetes YAML files for deploying an application is called a ____.,Helm chart
+What is the purpose of the `values.yaml` file in a Helm chart?,"It provides default configuration values that are injected into the template files, allowing for easy customization of a deployment."
+"In Helm 2, what was the server-side component that ran inside the cluster to manage releases?",Tiller.
+Why was Tiller removed in Helm 3?,"It posed a significant security risk because it had broad permissions to create, update, and delete components within the cluster."
+What Kubernetes component is an abstraction of a piece of storage in the cluster that has been provisioned by an administrator?,PersistentVolume (PV).
+How does an application Pod request storage from a PersistentVolume?,"It uses a PersistentVolumeClaim (PVC), which acts as a request for storage with specific characteristics."
+"For database persistence, why is it recommended to use a remote storage volume type over a local one?","Remote storage is not tied to a specific node, ensuring data is available even if a pod gets rescheduled to a different node."
+What Kubernetes component automates the creation of PersistentVolumes by dynamically provisioning them when a PVC requests storage?,A StorageClass.
+"StatefulSets provide each Pod replica with a stable, persistent identifier. What two things does this identifier consist of?","A fixed, ordered name (e.g., `app-0`, `app-1`) and a stable network ID (a unique DNS name)."
+"Why is the ordered, graceful deployment and scaling of StatefulSets crucial for applications like databases?","It ensures data consistency by controlling the order in which replicas (e.g., master and slaves) are started, updated, or shut down."
+"What is the default Service type in Kubernetes, which exposes the service on a cluster-internal IP?",ClusterIP.
+"Which type of service is used when a client needs to discover and communicate with specific Pods directly, bypassing the service's load balancer?",A Headless Service.
+How is a Headless Service created?,By setting the `clusterIP` field to `None` in the service's YAML configuration.
+A `NodePort` service exposes the service on a static port on each _____'s IP address.,Worker Node
+What is the valid port range for a `NodePort` service?,30000 to 32767.
+Which service type is typically used in cloud environments to expose a service externally using the cloud provider's native load balancer?,LoadBalancer.
+"When a `LoadBalancer` service is created, what other two service types are automatically created behind the scenes?",NodePort and ClusterIP.

@@ -1,0 +1,60 @@
+"In Java I/O, what is the key difference between the big-endian fashion used by Java and the native processor's byte order?","Java always writes values in big-endian fashion, regardless of the processor, making its data files platform-independent."
+What is the purpose of the `writeUTF` method in Java's binary I/O?,It writes string data using a modified version of UTF-8 for backward compatibility with older Java virtual machines.
+"In a random access file, what method is used to move the file pointer to a specific byte position?",The `seek()` method is used to set the file pointer to a desired offset.
+How do you determine the total number of records in a random access file if all records have a fixed size?,You use the `length()` method to get the file size in bytes and divide it by the size of each record.
+"During object deserialization of a standard serializable class, which part of the class's initialization process is bypassed?",No constructor of the class is invoked; field values are set directly from the object input stream.
+What security risk is associated with deserialization bypassing constructors?,"An attacker can craft bytes describing an invalid object state that could never have been created through its constructor, such as an employee with a negative salary."
+"A Java serialization filter, configured via the `jdk.serialFilter` system property, can abort deserialization based on what metrics?","It can use class names, stream size, array sizes, total number of references, and the longest chain of references."
+"In a regular expression file path pattern, what does the `**` sequence match?","It matches zero or more characters, crossing directory boundaries, such as in `**.java`."
+Which reserved character in a regular expression matches any single character (except line terminators by default)?,The dot or period character (`.`)
+"In a Java string literal representing a regular expression, why must a backslash be escaped (e.g., `\\b` for a word boundary)?",A single backslash is an escape character for the string itself; a double backslash is needed to pass a literal backslash to the regex engine.
+What is the difference between the `Matcher.matches()` and `Matcher.find()` methods?,"`matches()` attempts to match the entire input sequence against the pattern, while `find()` scans the input sequence to find the next subsequence that matches."
+What does the `Scanner.findAll()` method return when used with a regular expression pattern?,"It returns a `Stream<MatchResult>`, allowing for modern stream-based processing of all matches found in the scanner's input."
+"In regular expressions, what is the purpose of using parentheses `()` around a sub-pattern?","They create a capturing group, allowing you to extract the portion of the string that matched the sub-pattern using `matcher.group(n)`."
+What is the role of the `String.replaceAll()` method in the context of regular expressions?,It replaces every subsequence of the input string that matches the given regular expression with a specified replacement string.
+What are the two primary types of XML parsers supplied by the Java API?,"Tree parsers (like DOM) which read the entire document into a tree structure, and streaming parsers (like SAX) which generate events as they read."
+"In an XML document, what is the purpose of a CDATA section, delimited by `<![CDATA[...]]>`?","It allows the inclusion of strings containing special characters like `<`, `>`, and `&` without them being interpreted as markup."
+What must be done to a `DocumentBuilderFactory` to make the parsers it creates support XML namespaces?,You must call `factory.setNamespaceAware(true)`.
+A _____ parser is inefficient for very large XML documents if your processing algorithm is simple because it reads the entire document into a tree data structure.,DOM (Document Object Model)
+"In SAX parsing, which method of the `ContentHandler` interface is called when the parser encounters the beginning of an element?",The `startElement()` method.
+What is the primary purpose of XSL Transformations (XSLT)?,"XSLT specifies rules for transforming XML documents into other formats, such as plain text, XHTML, or another XML format."
+"In an XSLT stylesheet, what does the `<xsl:apply-templates/>` instruction do?","It tells the XSLT processor to continue processing the children of the current node, applying any matching templates it finds for them."
+The _____ statement in XSLT computes the string value of a node set specified by an XPath expression.,`xsl:value-of`
+What is the main difference between Java's `URI` class and `URL` class?,"The `URI` class is for parsing identifiers, while the `URL` class can open a stream to the resource for schemes like http, ftp, and file."
+"In a server-based URI, the authority part has the structure `[user-info@]host[:port]`. What are its components?","An optional user information part, a host name or IP address, and an optional port number."
+"To send data with a POST request using `URLConnection`, what must you do before getting the output stream?",You must call `connection.setDoOutput(true)`.
+What class and method are used to URL-encode parameter values for GET or POST requests?,The static `encode()` method of the `java.net.URLEncoder` class.
+"If a server-side error occurs (like a 404), calling `connection.getInputStream()` throws an exception. How can you read the error page sent by the server?",By calling the `getErrorStream()` method on the `HttpURLConnection` object.
+"What is the modern alternative to `URLConnection` for making HTTP requests, introduced in Java 11?",The `java.net.http.HttpClient` API.
+"When building an `HttpRequest` with the `HttpClient` API, a _____ is used to supply the request body for methods like POST and PUT.",BodyPublisher
+"When sending a request with `HttpClient`, a _____ is used to determine how the response body should be handled, such as converting it to a string or saving it to a file.",BodyHandler
+What command can be used since Java 18 to start a simple static file server from the command line?,`jwebserver` or `java -m jdk.httpserver`.
+"In the Simple HTTP Server API, what object is passed to a handler to provide access to both the request and response data?",An `HttpExchange` object.
+"In the Simple HTTP Server API, what is the role of a `Filter`?","A filter can modify the request or response, or carry out additional work such as logging or authentication, before or after the handler is invoked."
+What is the primary advantage of the three-tier model in database applications over a traditional client/server model?,"It separates presentation (client) from business logic (middle tier) and data, allowing multiple client types to access the same logic and data."
+Term: JDBC,"Definition: Java Database Connectivity, an API that lets Java programs connect to and interact with relational databases."
+What is the difference between a JDBC `Statement` and a `PreparedStatement`?,"`PreparedStatement` is used for precompiled SQL statements that can be executed multiple times efficiently, and it helps prevent SQL injection attacks."
+"In JDBC, which method on a `Connection` object is used to create a `Statement` object?",The `createStatement()` method.
+What does the `executeUpdate()` method of a JDBC `Statement` return?,It returns an integer representing the number of rows affected by the SQL Data Manipulation Language (DML) statement.
+What is a `ResultSet` in JDBC?,"It is an object that represents the result of a database query, providing access to the rows of data retrieved."
+What is the purpose of JDBC metadata?,"It provides structural information about the database itself, such as a list of tables, column names, and data types, which is useful for writing database tools."
+"In enterprise applications, what is the purpose of connection pooling?","It reuses existing database connections instead of closing and reopening them, which improves performance by reducing the overhead of establishing connections."
+Term: Locale (in Java),"Definition: An object that captures local preferences for formatting numbers, dates, currency, and for language-specific string comparison."
+How would you create a `Locale` object for German as spoken in Switzerland?,"By using the constructor `new Locale(""de"", ""CH"")`."
+What is the purpose of the `NumberFormat.getCurrencyInstance(locale)` method?,"It returns a formatter for currency amounts that is configured according to the rules of the specified locale (e.g., using the correct currency symbol and formatting)."
+Why is a `Collator` object used for sorting strings instead of the default `String.compareTo()` method in international applications?,"A `Collator` provides locale-sensitive string comparison, correctly handling rules for accents, case, and character order specific to a language (e.g., in Swedish, 'Å' comes after 'Z')."
+"In the `Collator` class, what does setting the strength to `PRIMARY` achieve?","It instructs the collator to pay attention only to primary differences (e.g., 'a' vs 'b') and ignore secondary (accents) and tertiary (case) differences."
+"A _____ is used to locate and load localized application resources, such as strings from property files or objects from classes.",`ResourceBundle`
+"If you need a resource bundle for the locale `de_CH`, in what order will `ResourceBundle.getBundle` search for property files?",1. `baseName_de_CH.properties` 2. `baseName_de.properties` 3. `baseName.properties`.
+How can you programmatically invoke the Java compiler from within a Java application?,By obtaining a `JavaCompiler` instance from `ToolProvider.getSystemJavaCompiler()` and calling its `run()` or `getTask()` method.
+What is the purpose of the Java Scripting API (JSR 223)?,It provides a standard way to embed scripting languages (like JavaScript or Python) into Java applications and execute their scripts.
+"In the Java Scripting API, a _____ is a library that can execute scripts in a particular language.",scripting engine
+What does the `Invocable` interface allow you to do with a script engine?,It allows you to call functions and methods defined within a script directly from your Java code.
+What role does the bytecode verifier play in Java's security model?,"It inspects the bytecodes of a newly loaded class to ensure they don't perform damaging actions, such as violating access rules or causing stack overflows."
+Why is a bytecode verifier necessary even if the code was produced by a trusted Java compiler?,The verifier guards against maliciously altered class files that could be crafted manually to contain valid but unsafe bytecode instructions.
+"What is a message digest, such as SHA-1, in cryptography?","It is a digital fingerprint of a block of data, used to verify data integrity by ensuring the data has not been altered."
+"Digital signature algorithms like DSA use a pair of keys. Which key is used to sign a message, and which is used to verify the signature?","The private key is used to sign the message, and the corresponding public key is used to verify the signature."
+What two facts can a recipient be assured of if a digital signature verification passes?,1. The original message has not been altered. 2. The message was signed by the holder of the private key matching the public key used for verification.
+What command-line tool is used in Java to manage keystores of certificates and key pairs?,The `keytool` program.
+Which command-line tool is used to sign and verify JAR files in Java?,The `jarsigner` program.
+What is the role of a Certificate Authority (CA) in public key cryptography?,"A Certificate Authority is a trusted entity that signs the public keys of others, vouching for the identity of the key's owner and solving the authentication problem."

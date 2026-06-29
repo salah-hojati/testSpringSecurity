@@ -1,0 +1,17 @@
+"In Spring Security, where is the principal information of each authenticated user held on a per-thread basis?",It is held in a `ThreadLocal` storage.
+What object represents the principal's information within Spring Security's `ThreadLocal` storage?,An `Authentication` object.
+Which class provides access to the security context in Spring Security?,The `SecurityContextHolder` class.
+What is the first object that needs to be created to manually trigger a standard username/password authentication?,A `UsernamePasswordAuthenticationToken` containing the user's credentials.
+"After creating a `UsernamePasswordAuthenticationToken`, which component is used to process it and perform the actual authentication?",The `AuthenticationManager`.
+What is the result of a successful call to `authManager.authenticate(authReq)`?,A fully populated `Authentication` object representing the authenticated principal.
+"After obtaining a valid `Authentication` object from the `AuthenticationManager`, what is the next step to make the user authenticated for the current thread?",Set the `Authentication` object into the `SecurityContext` using `sc.setAuthentication(auth)`.
+How do you obtain the current `SecurityContext` to modify it?,By calling `SecurityContextHolder.getContext()`.
+Which method call can be used to verify if the current user is authenticated after setting the context?,The `securityContext.getAuthentication().isAuthenticated()` method.
+"In a Spring MVC application, which default filter in the security chain is responsible for persisting the `SecurityContext` between requests?",The `SecurityContextPersistenceFilter`.
+The `SecurityContextPersistenceFilter` delegates the persistence of the `SecurityContext` to an instance of what interface?,The `SecurityContextRepository` interface.
+What is the default implementation class for `SecurityContextRepository` that persists the context to the HTTP session?,The `HttpSessionSecurityContextRepository` class.
+"To make a manually set authentication available for all subsequent requests from a client, where must the `SecurityContext` be stored?",It must be manually set as an attribute in the `HttpSession`.
+What is the name of the constant key used to store the `SecurityContext` in the `HttpSession`?,`SPRING_SECURITY_CONTEXT_KEY`.
+From which class is the `SPRING_SECURITY_CONTEXT_KEY` constant statically imported?,The `HttpSessionSecurityContextRepository` class.
+Why is it not straightforward to directly use the `HttpSessionSecurityContextRepository` to save the context manually?,"Because it works with the `SecurityContextPersistenceFilter`, which uses a custom response wrapper not available in this context."
+"To make a manual authentication persistent in a web context, you must get the _____ and set the `SecurityContext` as an attribute.",`HttpSession`

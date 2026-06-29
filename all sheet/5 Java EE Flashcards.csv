@@ -1,0 +1,90 @@
+What is a Java EE component?,A self-contained functional software unit that is assembled into a Java EE application with its related classes and files and that communicates with other components.
+"In Java EE, what provides underlying services like transaction management and resource pooling for components?",A container for every component type.
+"What Java EE mechanism allows objects to get references to resources without instantiating them directly, using annotations on fields or methods?",Injection (either resource injection or dependency injection).
+The _____ annotation enables you to inject any resource available in the JNDI namespace into any container-managed object.,@Resource
+"In Java EE, application clients and applets are components that run on the _____.",client
+"In a JSF application, what scope persists during a single HTTP request?",Request scope (@RequestScoped).
+What is the primary benefit of JavaServer Faces (JSF) technology in web application development?,It offers a clean separation between behavior and presentation for web applications.
+"In JSF, what is the process where the web container generates output, like HTML, based on the server-side view?",Rendering.
+What is the purpose of the `<navigation-rule>` element in a JSF application's configuration file?,It defines how to navigate from one page to another based on a logical outcome from a component's action.
+During which phase of the JSF lifecycle are component values from the request converted and validated?,The Process Validations phase.
+"In the JSF lifecycle, if `renderResponse` is called, which phase is immediately executed next?",The Render Response phase.
+"In JSF, what is a Facelet?",A page declaration language used for building JavaServer Faces views using HTML-style templates.
+A _____ in Facelets is a special type of template that acts as a reusable component.,composite component
+"In a Facelets composite component, what is the function of the `<composite:interface>` tag?","It declares the usage contract for a composite component, including its attributes."
+"In Expression Language (EL), what syntax is used for immediate evaluation, where the expression is evaluated as soon as the page is first rendered?",The `${}` syntax.
+"In Expression Language (EL), what syntax is used for deferred evaluation, where the expression is evaluated later in the page lifecycle?",The `#{}` syntax.
+What is a method expression in Expression Language (EL)?,"An expression used to refer to a public method of a bean, often for handling events or validation in JSF components."
+Which Expression Language (EL) operator is a prefix operation used to determine if a value is null or empty?,The `empty` operator.
+What is the function of the `h:commandButton` tag in the JSF HTML tag library?,It renders an HTML input element that submits a form to the application.
+What does the `h:dataTable` tag in JSF represent?,"A data wrapper that renders an HTML table, which can be dynamically updated."
+"In JSF, what core tag is used to specify a custom converter for a component's data?",The `<f:converter>` tag.
+The `f:validateLongRange` tag in JSF is an example of what type of component functionality?,A standard validator.
+"In JSF, a component tag attribute like `validator` or `actionListener` refers to a managed bean method using a _____.",method expression
+"Besides implementing a `Validator` interface, how can you perform validation for a JSF component?",By writing a method in a managed bean and referencing it with the component's `validator` attribute.
+What is the primary purpose of the `<f:ajax>` tag in JSF?,"To add Ajax functionality to a component, allowing parts of a page to be updated without a full page refresh."
+"In the `<f:ajax>` tag, what does the `render` attribute specify?",A list of component identifiers to be re-rendered on the client after the Ajax request completes.
+When would you need to create a custom JSF component?,"When you need to add new behavior to a standard component, such as generating an additional type of event."
+What is the purpose of a custom JSF renderer?,"To generate the specific markup (like HTML) for a component, separating its appearance from its behavior."
+"In a JSF component class, what is the term for converting a request parameter to the component's local value?",Decoding.
+What is the term for converting a JSF component's local value into the corresponding markup for display?,Encoding.
+"What annotation in a class, along with a scope annotation, automatically registers that class as a CDI managed bean?",The `@Named` annotation.
+"In CDI, what scope persists across all users' interactions with a web application?",Application scope (`@ApplicationScoped`).
+What is a servlet?,"A Java class used to extend the capabilities of servers that host applications accessed via a request-response model, commonly for web servers."
+"Which annotation is used to configure a servlet, including its URL pattern, in a declarative way?",The `@WebServlet` annotation.
+"In servlets, what does the `RequestDispatcher.include()` method do?",It includes the content of another resource (like a servlet or static file) in the response.
+"What technology enables real-time, bidirectional communication between a client and a server over a single, long-lived connection?",The Java API for WebSocket.
+"In the Java API for WebSocket, what annotation is used to designate a class as a WebSocket endpoint?",The `@ServerEndpoint` annotation.
+"In a WebSocket endpoint class, which annotation marks a method to be called when a message is received from a client?",The `@OnMessage` annotation.
+What is the purpose of an `Encoder` in the Java API for WebSocket?,To convert a custom Java object into a WebSocket message (text or binary) that can be sent to a client.
+What is the purpose of a `Decoder` in the Java API for WebSocket?,To convert an incoming WebSocket message into a custom Java object.
+The Java API for JSON Processing (JSON-P) provides two programming models: the object model API and the _____ API.,streaming
+"In JSON-P's object model API, which class represents an event-based parser that can read JSON data from a stream?",The `JsonParser` class.
+What is the purpose of the `javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL` context parameter in `web.xml`?,"It makes the JSF implementation treat empty strings submitted from a form as null, which is crucial for Bean Validation constraints like `@NotNull` to work correctly."
+"In CDI, what is the role of a producer method?","It generates an object that can be injected, especially for objects that are not beans or require custom initialization."
+An _____ in CDI is a class whose methods are invoked when a business method of a target class is invoked.,interceptor
+"In CDI, what type of annotation is used to associate an interceptor with a target bean or method?","An interceptor binding type, annotated with `@InterceptorBinding`."
+What is a stereotype in CDI?,"An annotation, applied to a bean, that incorporates a set of other annotations, simplifying the configuration of beans with similar functions."
+"In JAX-WS, what annotation defines a Java class as a web service endpoint?",The `@WebService` annotation.
+What is a Service Endpoint Interface (SEI) in JAX-WS?,A Java interface or class that declares the methods a client can invoke on the service.
+"What are the four main create, read, update, delete operations used by the uniform interface principle of RESTful web services?","PUT, GET, POST, and DELETE."
+"In JAX-RS, what is the purpose of the `@Path` annotation?",It identifies the URI path or path template to which a resource class or method will respond.
+The `@GET` annotation in a JAX-RS resource method is a request method designator that maps the method to handle HTTP _____ requests.,GET
+"In JAX-RS, what does the `@Produces` annotation specify?",The MIME media type(s) that a resource can produce and send back to the client.
+"In a JAX-RS resource method, what annotation is used to extract a parameter from the request URI's query string?",The `@QueryParam` annotation.
+"In JAX-RS, URI path parameters, which correspond to variables in a `@Path` template, are extracted using the _____ annotation.",@PathParam
+"What JAX-RS annotation is used to extract information from a request with the MIME type `application/x-www-form-urlencoded`, such as data from an HTML form POST?",The `@FormParam` annotation.
+What is the simplest way for a client within a Java EE server environment to obtain a reference to an enterprise bean?,"Through dependency injection, using the `@EJB` annotation."
+Which type of session bean maintains a conversational state with a single client?,A stateful session bean.
+What is the purpose of annotating a method in a stateful session bean with `@Remove`?,"It designates the method to be called by a client to remove the bean instance, after which the container destroys it."
+"Which type of session bean is instantiated once per application and provides a mechanism for shared, concurrent access?",A singleton session bean.
+"In a singleton session bean with container-managed concurrency, what does `@Lock(LockType.WRITE)` signify?","It ensures exclusive access to the method, locking out all other client threads from invoking any method on the bean instance."
+"In EJB, an _____ signals an error in the business logic, is not wrapped by the container, and should be handled by the client.",application exception
+"In JPA, what is an entity?","A lightweight persistence domain object that typically represents a table in a relational database, where each instance corresponds to a row."
+What annotation is required for a class to be treated as a JPA entity?,The `@javax.persistence.Entity` annotation.
+"Every JPA entity must have a _____, which is a unique object identifier that enables clients to locate a particular entity instance.",primary key
+"The primary component of the Java Persistence API for managing entities, including persisting, finding, and removing them, is the _____.",EntityManager
+"In JPA, what is the purpose of pessimistic locking (e.g., `PESSIMISTIC_WRITE`)?","It locks the underlying database data as soon as it is accessed in a transaction, preventing other transactions from modifying or reading it until the lock is released."
+"JMS enables communication that is loosely coupled and _____, meaning the receiving client does not have to be active when the sending client sends a message.",asynchronous
+"In JMS, what is the messaging model where a message is delivered from one producer to one consumer waiting on a queue?",Point-to-point (PTP).
+"In JMS, what is the messaging model where a producer sends a message to a topic, and it is delivered to all subscribed consumers?",Publish/subscribe (pub/sub).
+What is a message-driven bean (MDB)?,"An enterprise bean that acts as a JMS message listener, allowing for the asynchronous consumption of messages."
+A _____ is an object created by a JMSContext or session and is used for receiving messages sent to a destination.,message consumer
+"In Java EE security, what is the process of proving that a communicating entity is acting on behalf of a specific, authorized identity?",Authentication.
+What security mechanism in Java EE limits interactions with resources to a collection of users or programs to enforce integrity or confidentiality?,Authorization (or access control).
+"Security that is specified in a deployment descriptor or through annotations, rather than in application code, is known as _____ security.",declarative
+"Security that is embedded in an application's code to make security decisions, for example using `isUserInRole()`, is known as _____ security.",programmatic
+"In Java EE security, what is a realm?","A security policy domain defined for a web or application server, containing a collection of users and groups."
+"What protocol provides transport-layer security for authentication, message integrity, and confidentiality, often used with HTTPS?",Secure Sockets Layer (SSL).
+"In JAX-RS, what is the purpose of the `@Consumes` annotation?",It specifies the MIME media type(s) that a resource can accept from the client.
+Which type of session bean does not maintain any conversational state for a specific client?,A stateless session bean.
+"In JPA, how do you mark a field in an entity class to be excluded from persistence?",By annotating it with `@javax.persistence.Transient` or marking it with the `transient` Java keyword.
+What is the purpose of a `persistence.xml` file in a JPA application?,"It is the standard configuration file for defining persistence units, including data source, properties, and a list of managed entity classes."
+"In a servlet, how do you retrieve a parameter from an HTTP request?",By calling the `getParameter(String name)` method on the `HttpServletRequest` object.
+What is the difference between including and forwarding a request using a `RequestDispatcher`?,"Including adds the resource's output to the current response, while forwarding transfers control to the resource completely, which then generates the entire response."
+"In batch processing, what is the purpose of a 'chunk-oriented' step?","It processes data by reading and processing a set of items (a chunk) at a time within a transaction, which includes an item reader, an optional processor, and an item writer."
+What is a 'batchlet' in the context of Java EE Batch Processing?,"A task-oriented step that performs a single operation, such as executing a command or calling a web service, and is executed once within its step."
+What is the role of the `JobOperator` interface in the Batch API?,"It provides an interface for managing jobs, including starting new jobs, stopping running jobs, and retrieving the status of past jobs."
+"In Concurrency Utilities for Java EE, what is a `ManagedExecutorService`?",A container-managed executor service that allows applications to run tasks in parallel with access to the Java EE component's context.
+What is the purpose of JTA (Java Transaction API)?,"It provides a standard interface for demarcating transactions, allowing operations to be grouped together so they either all succeed or all fail (rollback)."
+What is the role of JNDI (Java Naming and Directory Interface) in a Java EE application?,"It provides a unified interface to multiple naming and directory services, allowing applications to look up and access resources like data sources or EJBs by name."

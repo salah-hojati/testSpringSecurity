@@ -1,0 +1,73 @@
+Who is the chief architect of Windows NT and also wrote the DEC VAX/VMS operating system?,Dave Cutler.
+"In the context of operating systems, what is 'Black Box Syndrome'?","It describes proprietary, compiled software where the user has no knowledge of its internal workings and is contractually forbidden from reverse engineering it."
+"According to the source, what is the most common advice to fix Windows problems, and why is this the case?","Rebooting the computer, because it is impossible to apply reason and logic to a closed, unknowable system."
+What is the term for the administrator of a Linux host who has unlimited privileges?,The root user.
+What is the name of the operating system created by Ken Thompson and Dennis Ritchie at Bell Labs as a simpler alternative to Multics?,"UNICS, which was later renamed to UNIX."
+Who created the Linux kernel in 1991 while a student at Helsinki University?,Linus Torvalds.
+"The GNU core utilities, a key part of the Linux operating system, were developed by a group led by whom?",Richard M. Stallman.
+"The GNU General Public License (GPL), under which Linux is copyrighted, is often called a _____ instead of a copyright.",copyleft
+What is the core tenet of the Unix philosophy as stated by Doug McIlroy?,Write programs that do one thing and do it well; write programs to work together; write programs to handle text streams.
+"In the Linux philosophy, what concept states that hardware devices, directories, sockets, and partitions are all represented as files in the directory tree?",Everything is a file.
+What is the Filesystem Hierarchy Standard (FHS)?,A standard that names a set of directories and designates their purposes to ensure consistency across Linux distributions.
+"What is the primary user account on a Linux system, often referred to as the superuser or administrator?",root.
+What open-source virtualization platform is recommended for use in this course to run virtual machines?,VirtualBox.
+What is the purpose of taking a 'snapshot' of a virtual machine?,"To save the current state of the VM, allowing you to roll back to that state if an experiment causes problems."
+What is the name of the Fedora installation program?,Anaconda.
+What is the function of the Thunar application in the Xfce desktop environment?,It is the default file manager.
+"In the Xfce desktop, what is the function of the 'Workspace switcher' on the bottom panel?",It allows you to switch between multiple virtual desktops.
+Which command-line utility is used by SysAdmins to install software updates on Fedora?,"The `dnf` command (e.g., `dnf -y update`)."
+A text-mode user interface between the user and the operating system is known as the _____.,Command-Line Interface (CLI).
+"What is the default command-line shell for most Linux distributions, including Fedora?",The bash (Bourne again shell) shell.
+Linux provides multiple _____ to allow for several text-mode logins from a single keyboard and monitor.,virtual consoles
+"On a physical Linux machine, what key combination is used to switch to virtual console 2 (vc2)?",Ctrl-Alt-F2.
+A software program that emulates a hardware terminal within a graphical desktop environment is called a _____.,terminal emulator
+What is the purpose of the `screen` utility in Linux?,It is a terminal multiplexer that allows a user to access multiple separate terminal sessions inside a single window or remote terminal session.
+What does the `pwd` command stand for and what does it do?,Present Working Directory; it prints the full path of the current directory.
+What is the difference between an absolute path and a relative path in Linux?,"An absolute path starts from the root directory (/), while a relative path starts from the present working directory."
+The `cd -` command is a shortcut that changes the directory to the location stored in which environment variable?,$OLDPWD.
+"In the bash shell, what key is used for command-line completion?",The Tab key.
+"Which command is used to view the contents of a file one page at a time, allowing for scrolling up and down?",The `less` command.
+What is the purpose of the pipe `|` operator in a shell command?,"It connects the standard output of one command to the standard input of another command, creating a pipeline."
+"What problem, common before modern package managers, involved a frustrating cycle of trying to resolve software installation requirements?",Dependency hell.
+What is the underlying package management program on which `dnf` is a wrapper?,RPM (Red Hat Package Manager).
+What are the five basic steps of the problem-solving process outlined in the text?,"Knowledge, Observation, Analysis, Action, and Test."
+"In the `top` command's output, what does 'load average' represent?","It is a measurement of the number of processes that are running or waiting to run on the CPU over three time intervals (1, 5, and 15 minutes)."
+"In the CPU usage statistics (`top`, `sar`), what does the '%wa' or 'iowait' value indicate?","It indicates the percentage of time the CPU was idle while waiting for an I/O operation (e.g., from a disk) to complete."
+What is the purpose of the `kill` command in Linux?,"It is used to send a signal to a process, typically to request its termination."
+"Which signal number is associated with SIGKILL, a non-interceptable signal that forcefully terminates a process?",Signal 9.
+"Which command provides a more user-friendly, interactive, and graphical view of system processes compared to `top`?",htop.
+What is the function of the `iotop` command?,It monitors disk I/O usage by individual processes in a top-like interface.
+What is the `/proc` filesystem in Linux?,"It is a virtual filesystem that provides an interface to kernel data structures, allowing users to view and modify system and process information."
+What technology allows storage devices to monitor their own health and report on various attributes to predict failures?,"S.M.A.R.T. (Self-Monitoring, Analysis, and Reporting Technology)."
+"The _____ command is part of the sysstat package and can be used to collect, report, and save system activity information over time.",sar (System Activity Reporter)
+"When a command is entered in bash, what does the shell check for first?",Bash first checks if the command is an internal (built-in) command.
+What is the purpose of the `$PATH` environment variable?,It contains a colon-separated list of directories that the shell searches for executable commands.
+What is the term for using special characters like `*` and `?` to match multiple file names in a shell command?,Globbing (or special pattern characters).
+"In shell globbing, what does the asterisk (`*`) character match?","It matches any number of any characters, including zero characters."
+What command is used to search for lines containing a specific pattern within files or data streams?,The `grep` command.
+What is the function of the `find` command?,"It searches for files in a directory hierarchy based on complex criteria such as name, size, modification time, and type."
+What are the three distinct parts of the complete process that takes a Linux host from an off state to a running state?,"Hardware boot, Linux boot, and Linux startup."
+"What is the name of the bootloader used by most modern Linux distributions, which loads the kernel into memory?",GRUB (GRand Unified Bootloader).
+"After GRUB loads the kernel, what modern init system is responsible for the Linux startup process, starting services and reaching a target state?",systemd.
+"In a legacy BIOS system, the first 512-byte sector on a hard drive is called the _____, which contains the initial bootstrap code.",Master Boot Record (MBR)
+"The sole purpose of GRUB stage 1 is to load _____, which contains filesystem drivers.",GRUB stage 1.5
+Where are the Linux kernel files (vmlinuz) and the GRUB configuration file (grub.cfg) typically located?,In the `/boot` directory.
+What command is used to regenerate the `grub.cfg` file after modifying the `/etc/default/grub` configuration file?,`grub2-mkconfig -o /boot/grub2/grub.cfg`.
+"In `systemd`, what is the equivalent of the old SystemV runlevel 5 (graphical multiuser mode)?",The `graphical.target`.
+Which command displays the kernel ring buffer messages from the most recent boot?,The `dmesg` command.
+A _____ is a program that provides the graphical login screen for a Linux desktop.,display manager
+What is the difference between a login shell and a non-login shell?,"A login shell is started after a user authenticates (e.g., on a virtual console), while a non-login shell is started without authentication (e.g., opening a new terminal window)."
+Which configuration file is typically sourced for all interactive non-login bash shells?,`~/.bashrc`.
+"In a shell, what is an 'alias' used for?","It is a method for substituting a long command or a command with common options with a shorter, easier-to-type name."
+What are the two primary metadata structures that a file consists of in a Linux filesystem?,The directory entry and the inode.
+What information is stored in a file's inode?,"The inode contains metadata such as user/group ownership, permissions, timestamps, file type, and pointers to the file's data blocks."
+What is the difference between a hard link and a symbolic (soft) link?,"A hard link is a directory entry that points directly to an inode, while a symbolic link is a separate file that contains the path to another file."
+Can a hard link point to a file on a different filesystem?,"No, hard links cannot cross filesystem boundaries because inode numbers are only unique within a single filesystem."
+Which command is used to create symbolic links?,The `ln -s` command.
+"In the Filesystem Hierarchy Standard (FHS), where are system configuration files typically stored?",In the `/etc` directory.
+What is the purpose of the `/home` directory in the FHS?,"It serves as the storage location for user files, with each user having their own subdirectory."
+"The current default filesystem for new Fedora installations is BtrFS, but the more widely used filesystem discussed in the text is _____.",EXT4
+What is the purpose of a journaling filesystem like EXT4?,"It records changes that will be performed in a journal before committing them to the main filesystem, drastically reducing recovery time after a crash."
+What command-line utility is used to create and manipulate partition tables on a storage device?,The `fdisk` command.
+"After creating a new partition, what command is used to create a filesystem (e.g., EXT4) on it?","The `mkfs` command (e.g., `mkfs -t ext4 /dev/sdb1`)."
+What command is used to check and repair a Linux filesystem?,The `fsck` command.

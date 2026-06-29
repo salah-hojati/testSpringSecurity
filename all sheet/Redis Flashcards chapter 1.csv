@@ -1,0 +1,70 @@
+What type of database is Redis defined as in terms of memory usage?,An in-memory remote database.
+How many primary data structure types does Redis support?,Five.
+"Beyond performance, what two features allow Redis to scale from a prototype to a large-scale system?",Replication and client-side sharding.
+What is the primary difference between Redis and a relational database regarding data relationships?,Redis has no database-defined or -enforced way of relating data between structures.
+"Which high-performance, key-value cache server is Redis most commonly compared to?",Memcached.
+What are the two primary ways Redis handles data persistence to disk?,Point-in-time dumps and append-only files.
+"In Redis scaling, what is the specific purpose of master/slave replication?",To support higher rates of read performance and handle server failover.
+What is 'sharding' in the context of Redis performance?,A method of partitioning data into different pieces across multiple machines.
+Why is a SET used to track users who have voted on a specific article?,To ensure that each user can only vote for the same article once.
+What does the HGETALL command return to the user?,The entire hash (all keys and their associated values).
+Which command retrieves an item at a specific position within a Redis LIST?,LINDEX
+Which Redis structure is best suited for storing article details like title and link?,HASH
+What is the primary benefit of using append-only file (AOF) persistence configured to sync every second?,It balances performance with high data durability by only risking one second of data.
+What is the default sorting order for Redis ZSET commands like ZRANGE?,Ascending (lowest score to highest score).
+What is the purpose of the ZINCRBY command?,To increment the score of a specific member in a ZSET.
+"How many seconds are in one day, as used in the Redis scoring calculation?","86,400"
+Why is client-side sharding used in Redis deployments?,To scale write performance by partitioning data across multiple Redis machines.
+What unique data structure feature allows Redis to be more efficient than memcached for managing lists of items?,Native support for LIST and SET structures that allow direct item removal.
+What is the unique property of a Redis ZSET (Sorted Set)?,Items are ordered by associated floating-point scores.
+"Why is 'Unix time' (seconds since Jan 1, 1970) used for scoring in time-based applications?",It is easily fetched in most programming languages and platforms.
+"In the article voting example, how many points are added to an article's score per vote?",432
+Which command is used to check if a specific string is a member of a SET?,SISMEMBER
+Concept: Append-only file (AOF),A persistence method that logs every command that alters data to disk as it occurs.
+What does the DEL command return if it successfully deletes a value?,The number of items that were deleted.
+Which command allows you to check if a key exists in Redis?,EXISTS
+How does ZRANGE order the items it fetches from a ZSET?,By their positions in ascending sorted order of their scores.
+Which command adds a member with a specific score to a ZSET?,ZADD
+What are the index arguments for LRANGE to fetch every item in a LIST?,0 for the start index and -1 for the last index.
+What is the function of the Redis INCR command?,To increment a counter and return the new value (often used for generating IDs).
+Which command fetches a single value from a specific field in a HASH?,HGET
+"When using SADD, what value does Redis return if the item already exists in the SET?",0
+Which SET command removes a specific item from the set by its value?,SREM
+Under what condition would ZREVRANGEBYSCORE be used instead of ZRANGE?,When you need to fetch items in descending order based on their scores.
+Which LIST command is used to add a value to the right end of the list?,RPUSH
+Why would a developer use ZINTERSTORE and EXPIRE together when filtering groups?,To cache the result of an expensive intersection for a short period.
+What is the defining characteristic of a Redis SET compared to a LIST?,A SET uses a hash table to ensure all strings are unique and is unordered.
+Why are random writes to Redis data consistently fast?,The data is always stored in memory.
+Process: Creating a new article ID in the voting system example.,"The system calls INCR on a specific counter key (e.g., 'article:')."
+What specific types of values can be stored within a Redis STRING?,"Strings, integers, or floating-point values."
+How is a Redis LIST structure implemented internally?,As a linked list of strings.
+Which command removes a specific key-value pair from a Redis HASH?,HDEL
+What is the standard character used by Redis developers to separate namespaces in key names?,The colon character ($:$).
+What does a Redis HASH store?,An unordered mapping of keys to values.
+What action does the LPOP command perform on a LIST?,It removes and returns the value from the left end of the list.
+"In the context of ZINTERSTORE, what does the 'aggregate=max' parameter ensure?",The resulting score for a member is the maximum of the scores from the input sets.
+"What mathematical operation do SINTER, SUNION, and SDIFF perform on SETs?","Intersection, union, and difference, respectively."
+"In the provided example, what is the formula for the 'cutoff' time for article voting?",$time.time() - 7 \times 86400$
+"When using ZINTERSTORE, what is the default score assigned to items coming from a SET?",1
+Why would a developer choose Redis over a standard relational database for real-time analytics?,To avoid the performance bottleneck of random reads/writes required to update on-disk rows.
+Concept: Master/Slave Replication,"A feature where slaves connect to a master, receive a full database copy, and then receive real-time write updates to scale read performance."
+"In Redis, what does ZINTERSTORE do when combining a SET and a ZSET?",It finds members present in both and combines their scores (treating SET members as having a score of 1).
+"In the article voting logic, what happens to the 'voted' SET after one week?",It is automatically deleted by Redis using the EXPIRE command.
+Which Redis data structure allows for pushing and popping items from both ends?,LIST
+What command allows you to fetch article IDs from a ZSET in descending order of score?,ZREVRANGE
+List the five data structures available in Redis.,"STRINGs, LISTs, SETs, HASHes, and ZSETs (Sorted Sets)."
+"In ZSETs, members must be unique, but can scores be duplicated?",Yes.
+How do slave servers in a Redis setup keep their data current with the master?,The master sends all writes to connected slaves to update their datasets in real time.
+Which command is used to make Redis automatically delete a key after a set amount of time?,EXPIRE
+What is the typical use case for a Redis HASH in representing application objects?,It is similar to a document in a document store or a row in a relational database.
+What occurs when the ZREM command is called on a ZSET member?,The item is removed from the ZSET.
+Which HASH command stores a value at a specific sub-key?,HSET
+Which command increments a numeric value stored inside a HASH field?,HINCRBY
+How does Redis achieve high performance despite supporting complex data structures?,By being an in-memory database and avoiding typical query parser/optimizer overhead.
+What distinguishes Redis HASHes from standard Redis STRINGs?,HASHes allow you to group multiple related key-value pairs under a single top-level key.
+"In a Sorted Set, what is the term for the unique string keys stored in the set?",Members.
+How does Redis handle a GET request for a key that does not exist?,It returns nil (which translates to None in Python).
+Which command fetches members from a ZSET based on a provided range of scores?,ZRANGEBYSCORE
+What is the return value of SET if the operation is successful?,OK
+Which command is used to fetch the data stored at a specific key in Redis?,GET
+What is the command to return every item currently stored in a SET?,SMEMBERS

@@ -1,0 +1,24 @@
+What is an API key in the context of REST API security?,"It is a token that a client provides when making API calls to identify itself to the API, without referencing an actual user."
+"According to the source, REST APIs are _____, and thus should not use sessions or cookies for security.",stateless
+"Besides API Keys, what are three other security mechanisms mentioned for stateless REST APIs?","Basic authentication, JWT, and OAuth2-based tokens."
+"In Basic Authentication, what does the `Authorization` header contain?",The word `Basic` followed by a space and a Base64-encoded string of `username:password`.
+"What is the de facto standard for REST API security, which allows delegated access via an access token?",OAuth2
+What is the essential Maven dependency required to implement API key authentication with Spring Security?,The `spring-boot-starter-security` dependency.
+The custom authentication filter in the tutorial extends which Spring-aware `javax.servlet.Filter` implementation?,The `GenericFilterBean` class.
+What is the primary responsibility of the `doFilter()` method in the custom `AuthenticationFilter`?,To evaluate the API Key header and set the resulting `Authentication` object into the current `SecurityContext`.
+"In the custom filter's `doFilter` method, what is used to store the authenticated user's security information for the duration of the request?",The `SecurityContextHolder`.
+"If an exception occurs during authentication in the custom filter, what HTTP status code is returned to the client?",HTTP `401 Unauthorized` (`HttpServletResponse.SC_UNAUTHORIZED`).
+"In the `AuthenticationService` class, what is the name of the HTTP header used to pass the API key?",`X-API-KEY`
+What exception is thrown by the `AuthenticationService` if the API key is missing or invalid?,`BadCredentialsException`
+"To represent the authenticated request, the custom `ApiKeyAuthentication` class extends which abstract class that implements the `Authentication` interface?",`AbstractAuthenticationToken`
+"Inside the `ApiKeyAuthentication` constructor, what method call is used to mark the token as successfully authenticated?",`setAuthenticated(true)`
+"In the `ApiKeyAuthentication` class, what does the `getPrincipal()` method return?",The API key itself.
+How is the custom `AuthenticationFilter` registered within the Spring Security configuration?,By creating a `SecurityFilterChain` bean and using the `addFilterBefore()` method on an `HttpSecurity` instance.
+"In the `SecurityConfig` class, the custom `AuthenticationFilter` is added before which standard Spring Security filter?",`UsernamePasswordAuthenticationFilter`
+What session management policy is set in the `SecurityConfig` because the application uses stateless REST endpoints?,`SessionCreationPolicy.STATELESS`
+What two classes must be excluded from Spring Boot's auto-configuration to discard the default security setup?,`SecurityAutoConfiguration.class` and `UserDetailsServiceAutoConfiguration.class`.
+"When testing the secured API with curl, what HTTP status code is expected for a request made without any security credentials?",401 Unauthorized.
+What does a curl command need to include to successfully access a resource secured by the implemented API key mechanism?,A header in the format `'X-API-KEY: <secret>'`.
+"After processing the request in the custom filter, what method is called on the `FilterChain` to pass the request to the next filter?","`filterChain.doFilter(request, response)`"
+"In the security configuration, the `authorizeHttpRequests` lambda configures that all requests (`/**`) must be _____.",authenticated
+The `AuthenticationService.getAuthentication` method extracts the API key from the incoming ____.,`HttpServletRequest`

@@ -1,0 +1,75 @@
+"What is SQL an acronym for, and what is its primary use?",SQL stands for Structured Query Language and is used to interact with relational database management systems.
+What is the primary function of a Relational Database Management System (RDBMS)?,An RDBMS is software used to create and manage relational databases.
+What is the most general definition of a database?,A database is any collection of related information.
+CRUD is an acronym for the four main operations performed with a database. What do the letters stand for?,"Create, Read (or Retrieve), Update, and Delete."
+What are the two main types of databases found in computing?,Relational (SQL) and non-relational (NoSQL) databases.
+How do relational databases organize data?,"Relational databases organize data into one or more tables, each with columns and rows."
+How do non-relational (NoSQL) databases typically organize data?,"They organize data in formats other than traditional tables, such as key-value stores, documents (JSON, XML), or graphs."
+What is the purpose of a database query?,A database query is a request made to the database management system for specific information.
+"In a relational database table, a _____ defines a single attribute for all entries.",column
+"In a relational database table, a _____ represents a single, individual entry.",row
+What is the purpose of a primary key in a relational database table?,A primary key is an attribute that uniquely identifies each row in the table.
+"A _____ key is a type of primary key that has no mapping to anything in the real world, such as an auto-generated ID number.",surrogate
+"A _____ key is a type of primary key that has a mapping to the real world, such as a Social Security Number.",natural
+What is a foreign key in a relational database?,"A foreign key is an attribute in one table that stores the primary key of a row from another table, linking the two tables together."
+What is a composite key in a relational database?,A composite key is a primary key that consists of two or more columns combined to uniquely identify a row.
+SQL is a hybrid language composed of four sub-languages. What are they?,"Data Query Language (DQL), Data Definition Language (DDL), Data Control Language (DCL), and Data Manipulation Language (DML)."
+What is the function of a Data Definition Language (DDL) in SQL?,"DDL is used to define database schemas, such as creating or modifying tables and their structures."
+What is the function of a Data Manipulation Language (DML) in SQL?,"DML is used for inserting, updating, and deleting data from the database."
+What does the INT data type in SQL represent?,INT represents whole numbers (integers) without any decimal places.
+"In the SQL data type `DECIMAL(M,N)`, what do `M` and `N` represent?","`M` represents the total number of digits, and `N` represents the number of digits after the decimal point."
+What is the purpose of the `VARCHAR(n)` data type in SQL?,It is used to store a string of text with a maximum length of `n` characters.
+What is the SQL command used to create a new table in a database?,`CREATE TABLE table_name (...);`
+What is the SQL command to completely delete a table and its structure from a database?,`DROP TABLE table_name;`
+"Which SQL command is used to modify the structure of an existing table, such as by adding or removing a column?",`ALTER TABLE`
+"To add a new column named `gpa` with a decimal data type to the `student` table, you would use the command `ALTER TABLE student ADD gpa _____ (3,2);`",DECIMAL
+What is the basic syntax for inserting a new row of data into a table?,"`INSERT INTO table_name VALUES (value1, value2, ...);`"
+"If you only want to insert data into specific columns of a table, how would you modify the `INSERT INTO` statement?","Specify the column names after the table name: `INSERT INTO table_name (column1, column2) VALUES (value1, value2);`"
+What does the `NOT NULL` constraint ensure when applied to a table column?,It ensures that a value must be provided for that column; it cannot be left empty (NULL).
+What does the `UNIQUE` constraint ensure when applied to a table column?,It ensures that every value in that column must be unique across all rows in the table.
+How can you specify a default value for a column if no value is provided during an `INSERT` operation?,"By using the `DEFAULT` constraint during table creation, such as `major VARCHAR(20) DEFAULT 'undecided';`"
+What is the purpose of the `AUTO_INCREMENT` attribute on a primary key column in MySQL?,"It automatically generates a new, unique, incrementing number for that column for each new row inserted."
+Which SQL command is used to modify existing records in a table?,The `UPDATE` command.
+"In an `UPDATE` or `DELETE` statement, what is the purpose of the `WHERE` clause?",The `WHERE` clause specifies which rows should be affected by the operation.
+What SQL command would change the major to 'Bio' for all students whose major is currently 'Biology'?,`UPDATE student SET major = 'Bio' WHERE major = 'Biology';`
+What is the SQL command for removing rows from a table?,The `DELETE FROM` command.
+What happens if you execute a `DELETE FROM student;` command without a `WHERE` clause?,All rows from the `student` table will be deleted.
+"In a `SELECT` statement, what does the asterisk (`*`) symbol signify?",It signifies that you want to retrieve all columns from the specified table.
+How do you retrieve only the `name` and `major` columns from the `student` table?,"Use the command `SELECT name, major FROM student;`"
+Which clause is used to sort the results of a `SELECT` query?,The `ORDER BY` clause.
+How would you sort employees in descending order of their salary?,By adding `ORDER BY salary DESC` to the query.
+What does the `LIMIT` clause do in a `SELECT` statement?,It restricts the number of rows returned by the query to a specified amount.
+Which SQL keyword allows you to rename a column in the result set of a query?,The `AS` keyword.
+What is the purpose of the `DISTINCT` keyword in a `SELECT` statement?,"It returns only the unique values from a specified column, removing any duplicates."
+Which SQL function is used to count the number of rows that match a specified criterion?,The `COUNT()` function.
+How would you find the average salary of all employees using an SQL function?,Use the `AVG(salary)` function in a `SELECT` statement.
+Which SQL function calculates the total of a numeric column?,The `SUM()` function.
+"In SQL, the _____ clause is used with aggregate functions like `COUNT()` or `SUM()` to group rows that have the same values in specified columns into summary rows.",`GROUP BY`
+What is the purpose of the `LIKE` keyword in a `WHERE` clause?,It is used to search for a specified pattern in a column.
+"In a `LIKE` clause, the percent sign (`%`) wildcard represents what?",Any sequence of zero or more characters.
+"In a `LIKE` clause, the underscore (`_`) wildcard represents what?",Any single character.
+Which `LIKE` pattern would find all client names that end with 'LLC'?,`'%LLC'`
+What does the `UNION` operator do in SQL?,It combines the result sets of two or more `SELECT` statements into a single result set.
+What is a key rule for using the `UNION` operator regarding the columns in the `SELECT` statements?,Each `SELECT` statement within the `UNION` must have the same number of columns with similar data types.
+What is the primary purpose of a `JOIN` clause in SQL?,A `JOIN` clause is used to combine rows from two or more tables based on a related column between them.
+An _____ `JOIN` returns records that have matching values in both tables.,`INNER`
+"A _____ `JOIN` returns all records from the left table, and the matched records from the right table.",`LEFT`
+"A _____ `JOIN` returns all records from the right table, and the matched records from the left table.",`RIGHT`
+What is a nested query (or subquery) in SQL?,A nested query is a query that is embedded inside another SQL query.
+A common use for a nested query is with the `IN` operator. How does this work?,The outer query's `WHERE` clause checks if a value is present in the list of results returned by the inner (nested) query.
+What does the `ON DELETE SET NULL` foreign key constraint do?,"When a record in the parent table is deleted, the corresponding foreign key values in the child table are set to NULL."
+What does the `ON DELETE CASCADE` foreign key constraint do?,"When a record in the parent table is deleted, the corresponding records in the child table are also automatically deleted."
+"In the comparison between Amazon.com and a paper shopping list, what key advantage does a computer-based database offer for Amazon?",Computers are great at keeping track of large amounts of information (trillions of pieces) and managing security and backups effectively.
+What comparison operator in SQL is represented by `<>`?,Not equal to.
+"If you want to sort results first by `major` in ascending order and then by `student_id` in descending order, what would the `ORDER BY` clause look like?","`ORDER BY major ASC, student_id DESC;`"
+A _____ represents a single horizontal entry in a relational database table.,row
+A _____ represents a single vertical attribute in a relational database table.,column
+"In SQL, what is the convention for capitalizing keywords like `SELECT`, `FROM`, and `WHERE`?","They are often written in all caps to distinguish them from table and column names, though it is not technically required."
+What character must end every SQL command?,A semicolon (;).
+"In a `SELECT` statement, how could you return the `first_name` column but have it be labeled as `Forename` in the output?",By using an alias: `SELECT first_name AS Forename FROM employee;`
+"Which command would you use to find out the structure of a table named 'student' in MySQL, including its columns and data types?",`DESCRIBE student;`
+"The SQL query `SELECT COUNT(emp_id), sex FROM employee GROUP BY sex;` would return what kind of information?","It would return the number of employees for each distinct sex (e.g., a count for 'M' and a count for 'F')."
+"Which SQL data type would be appropriate for storing a large binary file, such as an image?",BLOB (Binary Large Object).
+"To find all employees born in February, you could use the pattern `WHERE birth_date LIKE '____-02-%'`. What does `____` represent in this pattern?","It represents any four single characters, matching the four digits of the year."
+"When joining the `employee` table and the `branch` table, what condition would you specify in the `ON` clause to link managers to their branches?",`ON employee.emp_id = branch.mgr_id`
+"If a `LEFT JOIN` is performed with `employee` as the left table and `branch` as the right, which table will have all of its rows included in the result?",The `employee` table.

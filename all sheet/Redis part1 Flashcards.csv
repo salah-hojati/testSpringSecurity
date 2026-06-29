@@ -1,0 +1,55 @@
+What type of database is Redis classified as?,An in-memory remote non-relational (NoSQL) database.
+How many primary data structures does Redis support?,Five.
+What are the two primary scaling methods Redis uses to handle high data volume and request rates?,Replication and sharding.
+"In Redis terminology, what is 'sharding'?",A method of partitioning data into different pieces across multiple machines.
+How does Redis relate data between different internal structures?,There is no database-enforced way of relating data; it is non-relational.
+What is the primary difference between Redis and memcached regarding data storage options?,Redis supports four additional data structures beyond plain string keys.
+Which two Redis features allow for scaling read performance and handling server failover?,Master/slave replication.
+What are the two methods Redis uses for disk persistence?,Point-in-time dumps and append-only files (AOF).
+How does Redis replication handle data updates between the master and slaves?,The master sends writes to connected slaves to update their datasets in real time.
+Which Redis data structure allows for storing unique strings in an unordered collection?,SET.
+Which Redis data structure stores an ordered sequence of strings using a linked-list implementation?,LIST.
+Which Redis data structure maps string members to floating-point scores for ordering?,ZSET (Sorted Set).
+Which Redis data structure is an unordered hash table of keys to values?,HASH.
+What is the function of the Redis 'DEL' command?,It deletes the value stored at a given key regardless of its data type.
+Which command fetches a range of items from a Redis LIST?,LRANGE.
+How does the Redis 'SADD' command respond if an item already exists in the SET?,It returns 0 and does not add the item.
+"In a Redis ZSET, what are the unique keys associated with scores called?",Members.
+What character is subjectively but commonly used in Redis to separate parts of key names to create namespaces?,The colon character ($:$).
+"In the article voting example, what determines the 'score' of an article besides the number of votes?",The time the article was posted (Unix time).
+Why is 'Unix time' specifically used in the scoring systems described in the text?,It can be fetched easily in most programming languages and on every platform.
+Which Redis command is used to increment a specific value inside a HASH structure?,HINCRBY.
+Which Redis command increments the score of a member within a ZSET?,ZINCRBY.
+How do you ensure a Redis SET of 'voted users' is automatically removed after a week?,Use the 'EXPIRE' command on the SET's key.
+"Which Redis command performs an intersection between SETs and ZSETs, allowing for the combination of scores?",ZINTERSTORE.
+"In a web application context, what is a 'token cookie'?",A cookie containing random bytes used as a key to look up user data on a server.
+What is the primary performance drawback of using relational databases for session management at high scale?,"Relational databases are often limited to $200$–$2,000$ individual row writes per second."
+"In the session management example, what does the 'recent:' ZSET store?",A mapping of login tokens to the timestamp of their last activity.
+Why is a ZSET used instead of a simple key-value pair for tracking recent user sessions?,It allows for easy sorting and periodic cleanup of the oldest sessions.
+"When using Redis for shopping carts, what data structure maps item IDs to their quantities?",A HASH.
+What is the benefit of 'Web page caching' in Redis for a high-traffic site?,"It reduces the need to dynamically generate static content, lowering server load and latency."
+Which Redis command is used to set a key with a specific time-to-live (TTL) in seconds?,SETEX.
+"In the row-caching example, what is the purpose of the 'schedule:' ZSET?",It stores timestamps indicating when a specific database row should next be cached.
+"In the row-caching example, what does a 'delay' value of $0$ or less signify in the 'delay:' ZSET?",The row should no longer be cached and its existing cache should be deleted.
+How can JSON be utilized with Redis for database row caching?,By encoding database rows as JSON strings to be stored as Redis STRING values.
+Why might a developer choose Redis over memcached for calculating real-time aggregates?,Redis supports atomic increment commands on structures that keep associated aggregates together.
+What is the effect of the 'LPOP' command on a Redis LIST?,It removes and returns the value from the left end of the list.
+Which Redis command checks if a specific value is present in a SET?,SISMEMBER.
+Which Redis command returns all fields and values stored in a HASH?,HGETALL.
+"In Redis ZSETs, what is the default sorting order for members based on their scores?",Ascending (lowest score to highest).
+What does the Redis command 'ZRANGEBYSCORE' do?,It fetches members from a ZSET whose scores fall within a specific numeric range.
+How is the 'voted:' SET named for a specific article in the voting system example?,"The string 'voted:' is concatenated with the article ID (e.g., 'voted:100408')."
+"Which Redis command is used to generate a new, unique ID by incrementing a counter key?",INCR.
+"In the context of scaling, what is 'failover' in a Redis master/slave setup?",The process of a slave taking over when the master server crashes.
+What happens to the scores in the 'viewed:' ZSET during the periodic 'rescale_viewed' function?,They are multiplied by $0.5$ using 'ZINTERSTORE' to reduce their value over time.
+What is the purpose of the 'can_cache' function in the analytics example?,To determine if a page is popular enough to be stored in the limited memory cache.
+How does the 'clean_sessions' daemon identify which tokens to delete?,It fetches the oldest tokens from the 'recent:' ZSET by index.
+"In a ZINTERSTORE operation between a SET and a ZSET, what default score is assigned to the SET members?",A score of $1$.
+What command allows a user to remove an item from a HASH by its sub-key?,HDEL.
+What is the primary advantage of using 'Signed cookies' over 'Token cookies'?,Everything needed to verify the cookie is contained within the cookie itself.
+What is the primary advantage of using 'Token cookies' over 'Signed cookies'?,"They are smaller, which benefits mobile and slow clients during requests."
+"In the row-caching daemon, what is the purpose of the 50-millisecond sleep if no rows are ready?",To prevent the daemon from constantly polling and wasting CPU cycles when idle.
+Which Redis command is used to retrieve the score associated with a specific member in a ZSET?,ZSCORE.
+"In the provided Python examples, what does the 'conn' variable represent?",The connection object to the Redis server.
+Which command is used to add a member to a ZSET if it does not already exist?,ZADD.
+What does the Redis 'SMEMBERS' command return?,The entire set of items stored at the given key.

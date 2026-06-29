@@ -1,0 +1,83 @@
+What is the primary architectural style of a microservices application?,"It arranges an application as a collection of loosely coupled, fine-grained services."
+"In a monolithic architecture, how is the system typically deployed?","It is deployed as a single unit, with all files and components copied to a server at once."
+"Which software design pattern, documented by Martin Fowler, is used to incrementally transform a monolithic system into microservices?",The Strangler pattern.
+What is a major drawback of microservices architecture mentioned in the course?,"It can add extra complexity, as you end up with many smaller pieces to manage, secure, and test."
+"In microservices, there's a risk that a change to one service can cause a system-wide failure. What is this effect called?",A domino effect.
+What is a benefit of microservices regarding system resilience?,"Since each microservice runs in its own address space, if one goes down, it's less likely to take the whole system down with it."
+"A potential drawback of microservices is that calls between services go through APIs, which adds a small delay. What is this delay called?",Latency.
+What architectural approach takes advantage of modern development practices and cloud infrastructure to build complex systems?,Cloud Native.
+What does the cloud-native concept of 'immutable infrastructure' mean?,"It means infrastructure is never updated in place; instead, it is replaced with a newer version."
+The CNCF categorizes its open-source projects into three maturity levels. What are they?,"Sandbox, incubating, and graduated."
+"Graduated projects in the CNCF landscape, such as Kubernetes and Helm, are generally considered suitable for what type of organization?",Conservative enterprises.
+"In cloud-native terminology, containers are often treated more like _____ than pets.",cattle
+What is a container in the context of software deployment?,"A unit of deployment containing everything needed for the code to run, including the code, runtime, and system libraries."
+How do containers differ from Virtual Machines (VMs) in terms of what they virtualize?,"A VM virtualizes the hardware, while a container virtualizes the operating system by sharing the host OS kernel."
+What is the primary reason containers start much faster than VMs?,Containers do not have to boot a full operating system because they use the host OS kernel.
+"Docker uses a local _____ to store container images, which prevents re-downloading layers that already exist locally.",cache
+What is a container registry?,"A centralized repository where container images are stored, similar to Git for source code."
+What is the role of a container orchestrator like Kubernetes?,"It allows you to manage, scale, and monitor the containers running on your servers."
+"What is the easiest way to run Docker on a local machine (Windows, Mac, or Linux)?",By installing Docker Desktop.
+"On Windows, what technology allows Docker Desktop to run a Linux distribution within the Windows installation for better performance?",Windows Subsystem for Linux version 2 (WSL2).
+What Docker CLI command displays information about the Docker installation on your machine?,docker info
+What command is used to download a container image from a registry without running it?,docker pull
+What is the function of the `-d` flag in the `docker run` command?,"It runs the container in detached mode (in the background), giving you your terminal prompt back."
+The `docker ps` command lists running containers. What flag do you add to also list stopped containers?,The `-a` flag.
+"What command allows you to execute a command, such as opening a shell, inside a running container?",docker container exec
+What command is used to delete a stopped container from memory?,docker rm (or docker remove)
+What command is used to delete a container image from your local machine?,docker rmi (or docker remove image)
+What is the purpose of the `docker system prune` command?,"It deletes all images currently not in use, which helps with spring cleanup."
+"In a Dockerfile, what command specifies the base image from which you are building?",The `FROM` command.
+What is the function of the `COPY` command in a Dockerfile?,It copies files or folders from the host machine into the container's filesystem.
+"In a Dockerfile, the `RUN` command is used to _____.",execute commands inside the container during the image build process
+What does the `EXPOSE` command in a Dockerfile do?,"It adds metadata to the image, informing Docker that the container listens on the specified network port at runtime."
+The `CMD` instruction in a Dockerfile specifies what?,The command to run when the container starts.
+"In Docker, where must data be stored to persist after a container crashes or is destroyed?","Outside the container, in what is called a volume."
+What is the function of the `-v` (or `--volume`) parameter in the `docker run` command?,It maps an external folder or a Docker volume to a local folder inside the container.
+What does YAML stand for?,YAML Ain't Markup Language.
+What is the purpose of Docker Compose?,To define and run multi-container Docker applications using a single YAML file.
+"In a Docker Compose file, the code running in one container can communicate with another using its _____ as the hostname.",service name
+What Docker Compose command both builds the images (if they don't exist) and starts the services?,docker compose up
+The `docker compose down` command performs which two actions?,It stops the containers and then removes them from memory.
+What command is used to push a locally built Docker image to a container registry like Docker Hub?,docker push
+What does the abbreviation K8s stand for?,"Kubernetes (K, 8 letters, s)."
+What is the name of the component in the Kubernetes control plane that exposes the Kubernetes REST API?,The API server.
+"In the Kubernetes architecture, what are the machines that run your application containers called?",Worker nodes.
+What is the command-line tool for interacting with a Kubernetes cluster?,kubectl
+"In Kubernetes, what is a 'context'?","A group of access parameters (cluster, user, namespace) that lets you connect to a specific Kubernetes cluster."
+What `kubectl` command is used to view the currently active context?,kubectl config current-context
+What is the 'declarative' way of creating resources in Kubernetes?,Defining the desired state of resources in YAML files and applying them to the cluster using `kubectl apply` or `kubectl create`.
+What is a Kubernetes namespace used for?,"To group resources within a cluster, often to create logical environments like dev, test, and prod."
+What is the key-value data store used by Kubernetes to store the entire state of the cluster?,etcd.
+Which component of the Kubernetes control plane is responsible for watching for newly created pods and assigning them to a node?,The kube-scheduler.
+What is the name of the agent that runs on each worker node and is responsible for managing the pod lifecycle?,The kubelet.
+What is the smallest and simplest unit of deployment in Kubernetes?,A pod.
+A pod is in the _____ state when it has been accepted by the cluster but one or more of its container images have not yet been created.,Pending
+What does the 'CrashLoopBackOff' pod state indicate?,"It indicates that a pod started, crashed, was restarted by Kubernetes, and crashed again repeatedly."
+"What `kubectl` command provides detailed information about a resource, including its configuration, status, and recent events?",kubectl describe
+What is an 'init container' in a Kubernetes pod?,"A container that runs to completion before the main application containers in a pod are started, used for setup tasks."
+"In Kubernetes, _____ are key-value pairs used to identify, describe, and group related sets of objects.",labels
+How do services and other Kubernetes objects find the specific pods they need to interact with?,By using selectors to filter objects based on their labels.
+What is the 'sidecar' pattern in a multi-container pod?,A pattern where a helper container provides extra functionality (like logging or monitoring) to the main application container.
+"The _____ is an application running on Kubernetes, which is composed of one or more pods.",workload
+What is the primary job of a Kubernetes ReplicaSet?,"To manage pod replicas, ensuring that a specified number of instances are always running (providing self-healing)."
+"While a ReplicaSet provides self-healing, the _____ workload provides declarative updates and rollbacks for pods.",Deployment
+"In a Deployment manifest, what is the default update strategy if one is not specified?",RollingUpdate.
+What is the purpose of a Kubernetes DaemonSet?,To ensure that an instance of a specific pod is running on all (or a subset of) nodes in the cluster.
+"Which Kubernetes workload is designed for applications that require stable, unique network identifiers and persistent storage, such as databases?",A StatefulSet.
+What kind of service is required by a StatefulSet to provide a stable network endpoint?,"A headless service, created by setting `clusterIP` to `None`."
+"Which Kubernetes workload is used for short-lived, task-based workloads that run to completion and then terminate?",A Job.
+"What Kubernetes object runs Jobs on a repeating schedule, similar to a traditional cron job?",A CronJob.
+"In a blue-green deployment pattern, how is traffic switched from the 'blue' (old) version to the 'green' (new) version?",By updating the service's selector to point to the labels of the new version's pods.
+What problem do Kubernetes Services solve?,"They provide a stable, durable IP address and DNS name to access a set of pods, whose own IP addresses are ephemeral."
+"What is the default service type in Kubernetes, which is only accessible from within the cluster?",ClusterIP.
+Which service type exposes an application on a static port on each of the cluster's nodes?,NodePort.
+Which service type provisions an external load balancer from a cloud provider to expose an application to the internet?,LoadBalancer.
+"In Kubernetes, a _____ represents a piece of pre-provisioned storage in the cluster, managed by an administrator.",PersistentVolume (PV)
+How does a pod request storage in Kubernetes?,"By creating a PersistentVolumeClaim (PVC), which is a request for storage that gets bound to an available PersistentVolume."
+What is the purpose of a StorageClass in Kubernetes?,"It allows for the dynamic provisioning of storage, eliminating the need for an administrator to pre-create PersistentVolumes."
+"What Kubernetes object is used to decouple and externalize configuration values as key-value pairs, which can be injected as environment variables?",A ConfigMap.
+"The Kubernetes _____ object is similar to a ConfigMap but is intended for sensitive data, which it stores as base64-encoded strings.",Secret
+Which type of probe in Kubernetes tells the kubelet whether an application inside a container is ready to accept traffic?,A Readiness probe.
+What happens if a Liveness probe fails in Kubernetes?,"Kubernetes will kill the pod and replace it with a new one, assuming the application is in an unrecoverable state."
+What is the role of the Horizontal Pod Autoscaler (HPA) in Kubernetes?,It automatically scales the number of pods in a workload up or down based on observed metrics like CPU utilization.
+What component must be installed in a Kubernetes cluster for the Horizontal Pod Autoscaler to function?,The Metric Server.

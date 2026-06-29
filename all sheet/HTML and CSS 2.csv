@@ -1,0 +1,77 @@
+What does HTML stand for?,HTML stands for Hypertext Markup Language.
+"In HTML, what is the term for the rules that dictate how the coding language should be written?",The term for these rules is syntax.
+"An HTML _____ is a generic term used to describe anything that can be displayed on a webpage, such as a button or a paragraph.",element
+What is the function of an HTML tag?,An HTML tag tells the computer what kind of element you are trying to create.
+What is the syntactical difference between an opening HTML tag and a closing HTML tag?,"A closing tag has a forward slash (/) in front of the tag name, while an opening tag does not."
+What is the purpose of an HTML attribute?,An HTML attribute modifies how an element behaves or appears.
+"In the HTML tag `<a href=""..."" target=""..."">`, what are `href` and `target` known as?",They are known as attribute names.
+What is the purpose of the `href` attribute in an anchor `<a>` element?,The `href` attribute specifies the destination URL that the link points to.
+What is the effect of setting the `target` attribute of a link to `_blank`?,It causes the link to open in a new browser tab.
+How does HTML handle multiple spaces or new lines in the code?,"HTML ignores extra spaces and new lines, rendering them as a single space on the webpage."
+"To change the default number of spaces used for indentation in VS Code, you can search for the _____ setting.",tab size
+What is the function of the `<style>` element in HTML?,The `<style>` element contains CSS code that modifies the appearance of other HTML elements.
+"In a CSS rule like `button { color: red; }`, what is `button` called?",`button` is called a CSS selector.
+"In a CSS rule like `button { color: red; }`, what is `color` called?",`color` is called a CSS property.
+"In a CSS rule like `button { color: red; }`, what is `red` called?",`red` is called a CSS value.
+What punctuation mark is used to end a CSS style declaration?,A semicolon (;) is used to end a CSS style declaration.
+What CSS property is used to change the color of text inside an element?,The `color` property is used to change the text color.
+How do you remove the default border from an HTML element using CSS?,You can set the `border` property to `none`.
+The RGB color model creates colors by combining which three primary colors?,"RGB combines Red, Green, and Blue."
+What RGB value represents the color white?,"The RGB value `(255, 255, 255)` represents white."
+What RGB value represents the color black?,"The RGB value `(0, 0, 0)` represents black."
+What CSS property changes the mouse cursor into a hand pointer when hovering over an element?,The `cursor` property set to `pointer` changes the mouse to a hand.
+"In HTML, the _____ attribute is used to label an element so it can be targeted by a specific CSS rule.",class
+What symbol must precede a class name in a CSS selector to target elements with that class?,A dot (.) must precede the class name in a CSS selector.
+The CSS property for adding space on the outside of an element is called _____.,margin
+What CSS property adds spacing to the right of an element?,The `margin-right` property adds space to the right.
+What does the `:hover` pseudo-class in CSS allow you to do?,It allows you to apply styles that are active only when the user's mouse is over the element.
+"A CSS _____ adds extra styles to an element in a specific situation, such as when it is being hovered over or clicked.",pseudo-class
+What CSS pseudo-class applies styles when an element is actively being clicked on?,The `:active` pseudo-class applies styles upon clicking.
+What does the CSS `opacity` property control?,"The `opacity` property controls how see-through an element is, with values from 0 (invisible) to 1 (fully visible)."
+What is the purpose of the CSS `transition` property?,The `transition` property allows for a smooth change in an element's style over a specified duration.
+"To create a smooth, 0.15-second fade-out effect on hover, you would use the CSS rule `transition: opacity _____s;`.",0.15
+How can you transition multiple CSS properties at once?,"You can list multiple properties separated by a comma in the `transition` declaration (e.g., `transition: background-color 1s, color 1s;`)."
+What CSS property is used to add a shadow effect around an element's frame?,The `box-shadow` property is used to add a shadow.
+What does the 'A' in the RGBA color format represent?,The 'A' stands for Alpha and represents the opacity of the color.
+What is the purpose of the Chrome DevTools?,It is a set of web developer tools built into Google Chrome for inspecting and debugging web pages.
+"The spacing on the inside of an element, between the content and the border, is controlled by the CSS _____ property.",padding
+What is the purpose of the `vertical-align` property in CSS?,It controls the vertical alignment of an inline or inline-block element relative to its line.
+Which CSS property is used to specify the font for an element?,The `font-family` property specifies the font.
+What CSS property is used to make text bold?,"The `font-weight` property is used to make text bold (e.g., `font-weight: bold;` or `font-weight: 700;`)."
+"To center text horizontally within its container, you would use the CSS property `text-align: _____;`.",center
+What is an HTML entity used for?,"An HTML entity is used to display special characters that might otherwise be misinterpreted as HTML code (e.g., `&gt;` for '>')."
+"When two CSS rules target the same element, the rule with the more _____ selector takes priority.",specific
+"Between an element selector (`p`) and a class selector (`.video-title`), which has higher specificity in CSS?",The class selector (`.video-title`) has higher specificity.
+"What is the most generic HTML text element, which has no default styling and is useful for applying custom styles to a part of a text line?",The `<span>` element is the most generic text element.
+"The first line in every HTML file, `<!DOCTYPE html>`, tells the browser to do what?",It tells the browser to use a modern version of HTML.
+"In a standard HTML document structure, the `<body>` element is intended to contain what?",The `<body>` element contains all the elements that are visible on the page.
+"In a standard HTML document structure, where would you place the `<title>` element?","The `<title>` element, which sets the browser tab text, is placed inside the `<head>` element."
+What is the function of the VS Code extension 'Live Server'?,Live Server automatically reloads the webpage in the browser whenever the code is changed and saved.
+How do you link an external CSS file to an HTML document?,"You use a `<link>` element within the `<head>` section with `rel=""stylesheet""` and an `href` attribute pointing to the CSS file."
+"An element that does not require a closing tag, such as `<img>` or `<input>`, is known as a _____ element.",void
+"In an `<img>` tag, what is the purpose of the `src` attribute?",The `src` (source) attribute specifies the path to the image file to be displayed.
+What HTML element is used to create a text input box?,"The `<input>` element is used to create a text box, typically with `type=""text""`."
+The _____ attribute in an `<input>` element provides a short hint that describes the expected value of an input field.,placeholder
+What is a characteristic of a block-level element in HTML?,"A block-level element takes up the entire width of its container, forcing a new line before and after it."
+What is a characteristic of an inline-block element in HTML?,An inline-block element only takes up as much width as necessary and can appear on the same line as other elements.
+You can switch an element between block and inline-block behavior using the CSS `_____` property.,display
+What is the primary purpose of the `<div>` element in HTML?,The `<div>` element is a generic container used to group other elements together for styling and layout purposes.
+"To create a two-column layout using CSS Grid, you set `display: grid;` on the container and then define the columns using the `_____-_____-_____` property.",grid-template-columns
+"In CSS Grid, what does the `1fr` unit represent?",The `1fr` (fractional) unit represents one share of the available space in the grid container.
+What CSS property is used to set the space between columns in a CSS Grid layout?,The `column-gap` property sets the space between columns.
+What CSS property is used to set the space between rows in a CSS Grid layout?,The `row-gap` property sets the space between rows.
+"To make an image scale to fit its container, you should set its CSS `width` to _____.",100%
+"To create a horizontal layout with Flexbox, you set `display: flex;` on the container and `flex-direction: _____;`.",row
+"In Flexbox, what is the effect of setting `flex: 1;` on an item?",It causes the item to grow and take up the available free space within the flex container.
+"The Flexbox property `justify-content: _____-_____` distributes items evenly, with the first item at the start and the last item at the end.",space-between
+Which Flexbox property is used to align items along the vertical axis (in a row layout)?,The `align-items` property is used for vertical alignment.
+What is the purpose of the CSS `position: fixed;` property?,"It positions an element relative to the browser window, meaning it stays in the same place even when the page is scrolled."
+What is the purpose of the CSS `position: absolute;` property?,It positions an element relative to its nearest positioned ancestor (an element with a position other than `static`).
+"To place an absolutely positioned element inside a relatively positioned container, the container must have the CSS property `position: _____`.",relative
+What does the `z-index` property control in CSS?,"The `z-index` property controls the stacking order of positioned elements, with higher values appearing in front of lower values."
+"In Flexbox, `flex-direction: _____` arranges items vertically, one on top of the other.",column
+What is a CSS tooltip?,"A tooltip is a small pop-up box that appears when a user hovers over an element, providing additional information."
+"What does a media query in CSS, like `@media (max-width: 600px)`, allow you to do?","It allows you to apply specific CSS rules only when the browser window's width meets a certain condition, enabling responsive design."
+"What are semantic elements in HTML, such as `<header>` and `<nav>`?",They are elements that behave like `<div>`s but provide meaningful names that describe their purpose to browsers and screen readers.
+How do you write a comment in HTML?,A comment in HTML starts with `<!--` and ends with `-->`.
+How do you write a comment in CSS?,A comment in CSS starts with `/*` and ends with `*/`.

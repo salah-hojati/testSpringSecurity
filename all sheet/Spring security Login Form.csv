@@ -1,0 +1,26 @@
+What command-line tool is used in the article to create a new React application?,The `create-react-app` tool is used by executing the command `create-react-app react`.
+Which Maven plugin is used to integrate the React project build with the Maven build lifecycle?,The `frontend-maven-plugin` is used to build the React project with Maven.
+"In the `frontend-maven-plugin` configuration, what does the `<workingDirectory>` element specify?","It specifies the directory where npm commands will be executed, in this case, the root of the React project."
+What is the purpose of the `install-node-and-npm` goal in the `frontend-maven-plugin` execution?,It downloads and installs the versions of Node.js and npm specified in the plugin's configuration.
+"In the Spring MVC configuration, which method is overridden in `WebMvcConfigurer` to serve static resources like the React app?",The `addResourceHandlers` method is overridden to map URL patterns to file locations.
+How is the React application's `index.html` file configured to be served as a static resource in `MvcConfig`?,A resource handler is added for `/index.html` that points to the location `/WEB-INF/view/react/build/index.html`.
+"In the `SecSecurityConfig`, which method of the `formLogin` configuration specifies the custom login page URL?","The `.loginPage(""/index.html"")` method is used."
+"What is the purpose of the `.loginProcessingUrl(""/perform_login"")` configuration in Spring Security?",It specifies the URL to which the login form data should be posted for authentication processing.
+"The `formLogin` configuration uses _____.`failureUrl(""/index.html?error=true"")` to handle failed login attempts.","`.failureUrl(""/index.html?error=true"")`"
+"What does the `.defaultSuccessUrl(""/homepage.html"", true)` method do in the Spring Security configuration?","It redirects the user to `/homepage.html` after a successful login, with `true` forcing the redirect every time."
+Which HTTP method and URL patterns are permitted for all users to access the static React assets in the security configuration?,"GET requests for `/index*`, `/static/**`, `/*.js`, `/*.json`, and `/*.ico` are permitted for all users."
+What JavaScript syntax version is explicitly mentioned for building the React application components?,ES6 (ECMAScript 2015) syntax is used.
+"In React, what is the purpose of using `PropTypes` for a component?",It is used for type validation of the properties (props) passed to a component during development.
+A React component that wraps an `<input />` element to manage its state and perform validation is known as a _____.,controlled component
+"In the `Form.js` component, what callback function is passed as a prop to each `Input` component to manage validation errors?",The `handleError` function is passed as a prop.
+How does the `Form` component's constructor check if a login failure has occurred upon rendering?,It checks for the existence of an `error` property passed into it (`if(props.error)`).
+"In the `handleSubmit` function of the `Form` component, what web API is used to send the login data to the server?",The `fetch` API is used.
+What JavaScript object is used to construct a set of key/value pairs representing the form fields for submission?,"A `FormData` object is used, initialized with the form element."
+"Before being sent in the `fetch` request body, the `FormData` is wrapped in a _____ object.",`URLSearchParams`
+"In the response handler for the `fetch` call, what property of the response object indicates that the server initiated a redirect?",The `v.redirected` property is checked.
+"What is the first line of code inside the `handleSubmit` function, and what is its purpose?",`event.preventDefault()` is called to stop the browser's default form submission behavior.
+"In `react/src/index.js`, how are the URL query parameters (like `?error=true`) accessed?",By creating a new `URLSearchParams(window.location.search)` object.
+How is the login error status communicated to the `Form` component when it is rendered in `index.js`?,It is passed as an `error` prop: `<Form {...props} error={params.get('error')} />`.
+"What Maven command initiates the entire build process, including the execution of the `frontend-maven-plugin`?",`mvn compile`
+"After a successful Maven build, where are the final, static files of the React application placed?",They are gathered in the `src/main/webapp/WEB-INF/view/react/build` directory.
+Which method is used in `SecSecurityConfig` to configure protection against Cross-Site Request Forgery?,"The `.csrf()` method is used, configured with `CookieCsrfTokenRepository.withHttpOnlyFalse()`."

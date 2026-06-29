@@ -1,0 +1,119 @@
+What is the primary goal of the Cloud Native Computing Foundation (CNCF)?,"To empower organizations to build and run scalable applications in modern, dynamic environments like public, private, and hybrid clouds."
+"The five leading cloud computing service models are Infrastructure as a Service (IaaS), Container as a Service (CaaS), Platform as a Service (PaaS), Function as a Service (FaaS), and _____.",Software as a Service (SaaS)
+What key property of cloud native applications refers to the ability to scale software depending on the load?,Elasticity (or Scalability).
+What is the term for a system's ability to remain available and deliver services even when failures happen?,Resilience.
+What is the difference between virtualization and containerization regarding the operating system kernel?,"Virtualization involves sharing hardware, while containers share the same operating system kernel."
+"In the serverless computing model, who is responsible for managing the underlying infrastructure and servers?","The platform is responsible, not the developer."
+"According to the 15-Factor methodology, where should an application's configuration be stored?","Configuration should be stored as environment variables, external to the application's codebase."
+What is the role of a 'backing service' in a cloud native application?,"It is an external resource that an application uses to deliver its functionality, such as a database or message broker."
+What is the purpose of the Spring Initializr service (start.spring.io)?,"It is a service used to generate the basic structure and build configuration for JVM-based projects, particularly Spring Boot applications."
+"In a Spring Boot application, what annotation combines `@SpringBootConfiguration`, `@EnableAutoConfiguration`, and `@ComponentScan`?",The `@SpringBootApplication` annotation.
+What is a container image?,"A lightweight, executable package that includes everything needed to run an application, including code, runtime, system tools, and libraries."
+The text-based file containing all the steps to generate a Docker image is called a _____.,Dockerfile
+What is the primary function of Kubernetes in a cloud native architecture?,"Kubernetes is a container orchestration platform that automates the deployment, scaling, and management of containerized applications."
+What are the smallest deployable units of computing that you can create and manage in Kubernetes?,Pods.
+"In Kubernetes, what object is responsible for managing the replication and lifecycle of Pods, ensuring a desired number of them are always running?","A Deployment, which uses a ReplicaSet."
+How does a Kubernetes `Service` provide stable access to a set of running Pods?,"It provides a stable IP address and DNS name, and load balances traffic across the Pods it targets, even as they are created or destroyed."
+The Spring Boot dependency `spring-boot-starter-web` provides libraries for building web applications with Spring _____.,MVC
+What is the main advantage of using an embedded server (like Tomcat) in a Spring Boot application?,"It makes the application self-contained and standalone, removing the external dependency on a pre-installed server."
+What Spring MVC annotation is used to mark a class as a controller where every method returns a domain object instead of a view?,`@RestController`
+"In Spring MVC, what annotation is used to map HTTP GET requests onto specific handler methods?",`@GetMapping`
+The `@Valid` annotation in a Spring controller method instructs Spring to do what?,To validate the annotated object (often from the request body) based on constraints defined by the Java Bean Validation API.
+What is the purpose of the `@SpringBootTest` annotation in testing?,"It loads a full Spring application context, making it suitable for integration tests that require the interaction of multiple components."
+What is a 'slice test' in Spring Boot testing?,"An integration test that loads only a specific subgroup of components (a 'slice') of the application context, such as `@WebMvcTest` for the web layer."
+What is the purpose of the `@MockBean` annotation in Spring tests?,"It adds a mock object to the Spring application context, replacing any existing bean of the same type."
+What is the function of the `@ConfigurationProperties` annotation in Spring Boot?,It provides a type-safe way to bind external configuration properties (from files or environment variables) to a Java bean.
+How can you activate a specific configuration profile in a Spring Boot application?,"By setting the `spring.profiles.active` property in `application.properties`, as a command-line argument, or as an environment variable."
+What is the purpose of Spring Cloud Config Server?,"It provides a centralized, externalized configuration management service for distributed systems, often backed by a Git repository."
+What annotation allows a Spring bean's properties to be refreshed at runtime without restarting the application?,`@RefreshScope`
+What is Testcontainers used for in the context of application testing?,"Testcontainers is a library that provides lightweight, throwaway instances of common databases, message brokers, or any other service that can run in a Docker container for testing purposes."
+What is the role of Flyway in database management?,"Flyway is a database migration tool that provides version control for your database schema, allowing you to track, version, and deploy database changes automatically."
+What does the `EXPOSE` instruction in a Dockerfile do?,"It informs Docker that the container listens on the specified network ports at runtime, but it does not actually publish the port."
+What is the advantage of using multi-stage builds in a Dockerfile for a Java application?,"It allows you to use a larger build environment to compile the code and then copy only the necessary artifacts to a smaller, leaner final image, reducing the overall image size."
+What is the default Kubernetes Service type that exposes a set of Pods only within the cluster's internal network?,`ClusterIP`
+What is the purpose of a liveness probe in Kubernetes?,"It checks if a container is running, and if the probe fails, Kubernetes will restart the container."
+What is the purpose of a readiness probe in Kubernetes?,"It checks if a container is ready to start accepting traffic, and if the probe fails, Kubernetes will remove the Pod's IP address from the endpoints of all Services."
+What is the difference between the thread-per-request model and the event loop model for handling I/O?,"The thread-per-request model uses a blocking thread for each request, while the event loop model uses a small number of threads to handle many requests non-blockingly and asynchronously."
+"In Project Reactor, a _____ represents a reactive stream of 0 or 1 items.",Mono
+"In Project Reactor, a _____ represents a reactive stream of 0 to N items.",Flux
+What is the role of Spring WebFlux in the Spring ecosystem?,"It is Spring's reactive-stack web framework, designed for building fully asynchronous and non-blocking applications."
+What is R2DBC (Reactive Relational Database Connectivity)?,"It is a specification that provides a reactive, non-blocking API for connecting to relational databases, serving as an alternative to JDBC."
+What is the primary function of an API Gateway in a microservices architecture?,"It acts as a single entry point for all client requests, routing them to the appropriate backend services and handling cross-cutting concerns like security and rate limiting."
+The Circuit Breaker pattern is a fault tolerance mechanism designed to do what?,"It prevents an application from repeatedly trying to execute an operation that is likely to fail, allowing it to fail fast and prevent system-wide cascading failures."
+What is Spring Cloud Circuit Breaker?,"It provides an abstraction over different circuit breaker implementations like Resilience4J, allowing for consistent application of the pattern."
+"In an event-driven architecture, what is the key difference between producers and consumers of events?","Producers create and send events to a message broker, while consumers subscribe to the broker to receive and process those events."
+What does it mean for producers and consumers to be 'temporally decoupled'?,It means the producer and consumer do not have to be running at the same time for the system to work; the message broker stores the event until the consumer is ready.
+What is the role of Spring Cloud Function?,It promotes the implementation of business logic as functions and provides a uniform programming model across serverless providers.
+What problem does Spring Cloud Stream solve?,"It provides a framework for building message-driven microservices, abstracting away the specifics of the underlying message broker (like RabbitMQ or Kafka)."
+"In OAuth2 terminology, what is an Authorization Server?",The server that authenticates the resource owner and issues access tokens after obtaining authorization.
+What is OpenID Connect (OIDC)?,"An identity layer built on top of the OAuth 2.0 protocol, which allows clients to verify the identity of an end-user based on authentication performed by an authorization server."
+What is a JSON Web Token (JWT)?,"A compact, URL-safe means of representing claims to be transferred between two parties, commonly used for authentication and authorization in APIs."
+"In Spring Security, what is the purpose of the `SecurityFilterChain` bean?","It defines the security rules for HTTP requests, such as which endpoints require authentication and what authorization is needed."
+What is a 'token relay' in the context of an API Gateway?,"A pattern where the gateway, after authenticating a user, forwards the user's access token in requests to downstream services, allowing them to act on the user's behalf."
+"In OAuth2, an application that hosts protected data that a client can access is known as a(n) _____.",Resource Server
+"What is the purpose of Spring Data's auditing feature (e.g., using `@CreatedDate` or `@LastModifiedBy`)?",It automatically captures and persists metadata about when and by whom an entity was created or modified.
+The goal of _____ is to be able to ask arbitrary questions about a system without needing to know in advance what you want to ask.,Observability
+What three telemetry signals are often considered the pillars of observability?,"Logs, metrics, and traces."
+What is the primary function of Spring Boot Actuator?,"It exposes operational information about a running application—such as health, metrics, and configuration—through HTTP or JMX endpoints."
+What is the purpose of Fluent Bit in a logging architecture?,"It is a lightweight log processor and forwarder that can collect logs from different sources and send them to various destinations, such as Loki."
+"Prometheus is a monitoring system that operates on a _____ model, where it periodically scrapes metrics from configured endpoints.",pull
+What is distributed tracing?,"A method used to profile and monitor applications, especially those built using a microservices architecture, by tracking requests as they travel across multiple services."
+"In Kubernetes, what are `ConfigMaps` used for?","They are used to store non-confidential configuration data as key-value pairs, which can then be consumed by Pods as environment variables or mounted files."
+"What Kubernetes object is used to manage sensitive information like passwords, OAuth tokens, and ssh keys?",Secrets.
+What is the purpose of Kustomize in managing Kubernetes configurations?,"It allows you to customize raw, template-free YAML files for multiple environments without modifying the original base configurations."
+The core idea behind _____ is that an application is always in a releasable state.,Continuous Delivery (CD)
+What is GitOps?,"A way of implementing Continuous Delivery for cloud native applications, where Git is the single source of truth for declarative infrastructure and applications."
+What is the main advantage of compiling a Java application to a native image using GraalVM?,It results in a native executable with significantly faster startup times and lower memory consumption compared to running on a JVM.
+What is the role of Knative in a Kubernetes environment?,"It is a Kubernetes-based platform that provides components for deploying, running, and managing modern serverless workloads."
+"In the Hexagonal Architecture pattern, what is the purpose of 'ports'?",Ports are interfaces that define how external actors (like UIs or databases) can interact with the application's core business logic.
+"In the Hexagonal Architecture pattern, what are 'adapters'?","Adapters are the concrete implementations of ports that connect the application core to external technologies (e.g., a REST controller or a JPA repository)."
+What is the function of the `@Autowired` annotation in Spring?,"It marks a constructor, field, or setter method to be autowired by Spring's dependency injection facilities."
+What is the purpose of the Data Transfer Object (DTO) pattern?,"To transfer data between processes, often to separate the internal domain model from the external representation exposed by an API."
+The `docker-compose up` command is used to do what?,"It builds, (re)creates, starts, and attaches to containers for a service defined in a `docker-compose.yml` file."
+What is Helm in the context of Kubernetes?,"Helm is a package manager for Kubernetes that helps you define, install, and upgrade even the most complex Kubernetes applications using 'charts'."
+What is Skaffold used for in cloud-native development?,"Skaffold is a command-line tool that facilitates continuous development for Kubernetes-native applications by handling the workflow for building, pushing, and deploying applications."
+What does IaC (Infrastructure as Code) mean?,"It is the process of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools."
+What is the purpose of Terraform?,Terraform is an open-source Infrastructure as Code (IaC) tool that allows you to define and provide data center infrastructure using a declarative configuration language.
+What is the function of an Ingress Controller in Kubernetes?,"It is a component that acts on Ingress resources to manage external access to services in a cluster, typically handling HTTP/S routing, load balancing, and SSL termination."
+What does the `@Entity` annotation from Jakarta Persistence (JPA) signify?,It specifies that a class is an entity and is mapped to a table in a database.
+"In JPA, the `@GeneratedValue(strategy = GenerationType.IDENTITY)` annotation configures the primary key generation to rely on what?",It relies on an auto-incremented database column to generate the primary key value.
+What does the `@OneToMany` annotation indicate in a JPA entity?,"It defines a one-to-many relationship between two entities, where one instance of the current entity is associated with multiple instances of another entity."
+What is the function of the `@Qualifier` annotation in Spring?,It is used along with `@Autowired` to avoid ambiguity when there are multiple beans of the same type that could be injected.
+"In Spring Data JPA, what is the naming convention for a repository method that finds an entity by a specific property?","The method should be named `findBy<PropertyName>`, for example, `findByUsername(String username)`."
+What is the purpose of the `@Service` annotation in Spring?,"It is a specialization of the `@Component` annotation used to indicate that a class is a service, typically holding business logic."
+What is the primary role of the service layer in an application architecture?,"It encapsulates the application's business logic, acting as an intermediary between the controller (web) layer and the repository (data access) layer."
+What is HATEOAS (Hypermedia as the Engine of Application State)?,A constraint of the REST application architecture where a client interacts with a network application entirely through hypermedia provided dynamically by application servers.
+What Spring project provides support for implementing HATEOAS in REST APIs?,Spring HATEOAS.
+What is the purpose of the `@Table` annotation in JPA?,"It is used to specify the details of the table that will be used to persist the entity in the database, such as the table name."
+What does the `@Column` annotation allow you to specify for a persistent entity field in JPA?,"It allows you to specify the mapping for a persistent property or field, such as the column name in the database table."
+The `RestTemplate` class in Spring is used for what purpose?,"It is the central Spring class for synchronous client-side HTTP access, simplifying interaction with RESTful services."
+"The `WebClient` in Spring WebFlux is a modern, reactive alternative to which class?",`RestTemplate`.
+What is the function of the `flatMap()` operator in Project Reactor?,"It transforms items emitted by a reactive stream into new publishers (Mono or Flux), and then flattens the emissions from those publishers into a single new stream."
+What is the `map()` operator used for in Project Reactor?,It transforms each item emitted by a reactive stream into a new item by applying a synchronous function.
+What is a 'message broker' in the context of distributed systems?,An intermediary software component that translates a message from the formal messaging protocol of the sender to the formal messaging protocol of the receiver.
+AMQP (Advanced Message Queuing Protocol) is a standard protocol often used with which message broker?,RabbitMQ.
+What is a 'consumer group' in Apache Kafka?,"A set of consumers that cooperate to consume data from some topics, where each partition of a topic is consumed by exactly one consumer within the group."
+"In a Spring application using RabbitMQ, what annotation is used to create a message listener endpoint?",`@RabbitListener`.
+"In a Spring application using Kafka, what annotation is used to create a message-driven listener?",`@KafkaListener`.
+The `JmsTemplate` in Spring provides a convenient way to send messages using which Java API?,JMS (Java Message Service).
+What is the purpose of the `@MessageMapping` annotation in Spring?,"It is used to map messages onto methods, typically for handling WebSocket or RSocket messages."
+"RSocket is a binary protocol that provides four distinct communication models: request-response, request-stream, fire-and-forget, and _____.",channel
+"In Spring Security, what is the function of a `PasswordEncoder`?","It provides a service for encoding passwords using a one-way hashing algorithm, such as BCrypt."
+"The `UserDetailsService` interface in Spring Security has a single method, `loadUserByUsername`, which is responsible for what?",Locating a user based on their username and returning a `UserDetails` object representing that user for authentication purposes.
+What type of attack does CSRF (Cross-Site Request Forgery) protection prevent?,It prevents malicious websites from tricking a user's browser into making unintended requests to a trusted site where the user is authenticated.
+What is the function of the `spring-boot-maven-plugin`?,"It collects all the jars on the classpath and builds a single, runnable 'uber-jar', which makes it more convenient to execute and transport the application."
+What is the main purpose of the `@SessionAttributes` annotation in a Spring MVC controller?,"It is used to store model attributes in the HTTP session between requests, which is useful for wizard-style forms that span multiple pages."
+Spring Data's `Pageable` interface is used for what purpose?,"It is an abstraction for pagination information, allowing repositories to return a subset ('page') of results from a query."
+"What is the difference between `@Component`, `@Service`, `@Repository`, and `@Controller` annotations in Spring?","They are all specializations of `@Component` used for autodection, but they provide semantic meaning for their respective layers: generic component, service layer, persistence layer, and presentation layer."
+What is the role of `Lombok` in a Java project?,"It is a library that automatically plugs into your editor and build tools to generate boilerplate code like getters, setters, constructors, and `toString()` methods via annotations like `@Data`."
+What is the primary function of the DispatcherServlet in Spring MVC?,"It acts as the front controller, receiving all incoming requests and delegating them to the appropriate handlers (controllers) for processing."
+What is the purpose of Spring Boot DevTools?,It provides development-time features like automatic application restarts and live browser reloads when code or resources change.
+"The `@Profile(""dev"")` annotation on a Spring bean indicates that the bean should only be created when which profile is active?",The 'dev' profile.
+What does Spring Data REST accomplish?,It analyzes your application's domain model and automatically exposes hypermedia-driven RESTful resources around your Spring Data repositories.
+What is the main difference between an `idempotent` HTTP method like PUT and a non-idempotent one like POST?,"An idempotent method can be called multiple times with the same result, whereas a non-idempotent method may have additional side-effects on subsequent identical calls."
+"In Spring Integration, a _____ is a component through which messages ferry data in a pipeline.",channel
+What is the purpose of a Transformer in a Spring Integration flow?,It is used to convert a message's payload or headers from one form to another as it passes through the integration flow.
+What does a Router component do in a Spring Integration flow?,"It directs messages to different channels based on routing criteria, allowing for branching within the flow."
+What is the function of a Splitter in Spring Integration?,"It takes a message whose payload is a collection or array and splits it into multiple messages, each containing one item from the collection."
+What is the function of an Aggregator in Spring Integration?,It is the inverse of a Splitter; it receives multiple messages and combines them into a single message.
+What is the primary role of the `@Transactional` annotation in Spring?,"It provides a declarative way to manage database transactions, ensuring that a group of operations either all succeed or all fail together."

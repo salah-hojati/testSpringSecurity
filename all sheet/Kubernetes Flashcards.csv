@@ -1,0 +1,55 @@
+What is the primary function of Kubernetes?,"It is a container orchestration system for automating the deployment, scaling, and management of containerized applications."
+"What is the common abbreviation for Kubernetes, and why is it used?","The abbreviation is k8s, where '8' represents the eight letters between 'k' and 's'."
+Kubernetes takes care of the automatic deployment of containerized applications across different _____.,servers
+"Besides Docker, what are two other container runtimes supported by Kubernetes mentioned in the source?",CRI-O and containerd.
+"In the Kubernetes world, what is the smallest possible unit that can be created and managed?",A Pod.
+What resources do all containers within the same Pod share?,"They share volumes and network resources, such as a single IP address."
+What is the most common use case for the number of containers per Pod?,A single container per Pod.
+"A Kubernetes cluster consists of multiple servers, which are referred to as _____.",nodes
+What is the role of a 'master node' in a Kubernetes cluster?,"The master node, or control plane, manages the worker nodes and distributes the load across them."
+On which type of node (master or worker) are your client application Pods typically deployed?,Worker nodes.
+"Which service, present on every node, is responsible for communicating with the API server on the master node?",The kubelet service.
+What is the main point of communication between different nodes and for managing the entire Kubernetes cluster?,The API server service on the master node.
+Which component of the master node is responsible for planning and distributing the load between different worker nodes?,The scheduler.
+What is the function of the `etcd` service on the master node?,It stores all logs and configuration data for the entire Kubernetes cluster as key-value pairs.
+What command-line tool is used to manage a Kubernetes cluster remotely?,kubectl (or kubecontrol).
+How does `kubectl` communicate with a remote Kubernetes cluster?,It connects to the API server service on the master node using REST API over HTTPS.
+What is `minikube` used for?,It is a tool to create a single-node Kubernetes cluster locally on your computer for learning and testing purposes.
+What command would you use to install `kubectl` on macOS using Homebrew?,brew install kubectl
+What command starts a `minikube` cluster using the Hyper-V driver?,minikube start --driver=hyperv
+How can you check the current status of your `minikube` cluster?,By running the `minikube status` command.
+What `minikube` command retrieves the IP address of the cluster node?,minikube ip
+What command displays information about the Kubernetes control plane and core services?,kubectl cluster-info
+How do you list all the nodes in your Kubernetes cluster?,By using the command `kubectl get nodes`.
+Which command lists all pods in the `default` namespace?,kubectl get pods
+"To list pods in a specific namespace like `kube-system`, you would use the command `kubectl get pods --namespace _____`.",kube-system
+What is the imperative command to create a single pod named `nginx` using the `nginx` image?,kubectl run nginx --image=nginx
+"Which command provides detailed information about a specific pod, including its IP address, node, and events?",kubectl describe pod <pod-name>
+"What is the purpose of a 'pause' container, which is created for each pod when Docker is the container runtime?","It is required to keep the namespace of the pod intact, as the main application container could be stopped or recreated."
+"To create multiple, scalable copies of a pod, you should use a _____ instead of creating individual pods.",Deployment
+What command creates a deployment named `nginx-deployment` using the `nginx` image?,kubectl create deployment nginx-deployment --image=nginx
+What Kubernetes object is responsible for maintaining a specified number of pod replicas for a deployment?,A ReplicaSet.
+How do Deployments and Services connect to the correct set of Pods?,They use labels and selectors to identify which Pods to manage or route traffic to.
+What is the command to scale a deployment named `nginx-deployment` to 5 replicas?,kubectl scale deployment nginx-deployment --replicas=5
+What must you create to expose a deployment and make its pods accessible over the network?,A Service.
+"What is the command to expose a deployment named `nginx-deployment` on port 8080, targeting the container's port 80?",kubectl expose deployment nginx-deployment --port=8080 --target-port=80
+What is the function of a `ClusterIP` service type in Kubernetes?,It creates a virtual IP address that is only accessible from within the Kubernetes cluster.
+A _____ service type exposes the application on a static port on each of the cluster's nodes.,NodePort
+Which service type is typically used for exposing applications to the internet and relies on a cloud provider to assign an external IP address?,LoadBalancer.
+What is the `minikube` command to automatically open a URL for a service named `k8s-web-hello` in your browser?,minikube service k8s-web-hello
+"When a deployment's image is updated, Kubernetes replaces pods one by one, ensuring no service interruption. What is this strategy called?",Rolling update.
+What is the command to update the container image for a deployment?,kubectl set image deployment/<deployment-name> <container-name>=<new-image:tag>
+How can you monitor the progress of a deployment's rolling update?,By using the command `kubectl rollout status deployment/<deployment-name>`.
+What happens if you manually delete a pod that is managed by a deployment?,"The deployment's ReplicaSet will automatically create a new pod to replace the deleted one, maintaining the desired replica count."
+What is the single command to launch the Kubernetes dashboard when using `minikube`?,minikube dashboard
+The _____ approach in Kubernetes involves using configuration files (like YAML) to declare the desired state of resources.,declarative
+What is the command to apply a configuration from a YAML file to a Kubernetes cluster?,kubectl apply -f <filename.yaml>
+"In a YAML file, which top-level key specifies the type of Kubernetes resource being defined (e.g., Deployment, Service)?",kind
+"In a Deployment YAML, where do you specify the number of desired pod replicas?","Under `spec`, using the `replicas` key."
+"In a Deployment YAML's pod template, the `spec.containers` section requires you to specify the container's name and its _____.",image
+"How can you define multiple Kubernetes resources, like a Deployment and a Service, in a single YAML file?",By separating their definitions with three dashes (`---`).
+How can one deployment connect to another deployment within the same Kubernetes cluster?,"By using the name of the other deployment's Service, which is resolved to its ClusterIP by the internal DNS service."
+What command can be used inside a pod to verify that a service name like `nginx` is being resolved to an IP address?,nslookup nginx
+What `kubectl` command allows you to execute a command inside a running container?,kubectl exec <pod-name> -- <command>
+"To start a `minikube` cluster with CRI-O as the container runtime, you must add the option `--container-runtime=_____` to the start command.",cri-o
+"When using CRI-O as the container runtime in `minikube`, what command is used inside the node to list running containers?",sudo crictl ps

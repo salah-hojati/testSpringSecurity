@@ -1,0 +1,70 @@
+What three new operators were introduced in Expression Language (EL) 3.0?,"String concatenation (+=), assignment (=), and semicolon (;)."
+"In EL 3.0, what symbol is used for a lambda expression?",The arrow operator (->).
+"In JSF, what is the purpose of the Expression Language (EL)?","To provide a mechanism for dynamically accessing and manipulating application data, primarily from JavaBeans components (managed beans)."
+"To allow JSF to call a method that has an `ActionEvent` argument without explicitly passing the argument, how should the EL expression be written?",The method should be called without parentheses.
+"In JSF, which tag is used to register a custom `ELResolver` in the `faces-config.xml` file?",The `<el-resolver>` tag.
+"EL 3.0 provides methods for collection manipulation based on the concept of _____, which allow operations to be applied in a pipeline.",streams
+"In JSF 2.0, what tag is used within `<f:metadata>` to bind request parameters to managed bean properties?",The `<f:viewParam>` tag.
+What is a significant advantage of using `<f:viewParam>` over `<f:param>` for handling request parameters?,It supports fine-grained conversion and validation using standard JSF mechanisms like `<f:validator>` and `<f:converter>`.
+"In JSF 2.2, what tag is used within `<f:metadata>` to execute actions on GET requests, as part of the JSF lifecycle?",The `<f:viewAction>` tag.
+"If you need to access the value set by `<f:viewParam>` before the view is rendered (e.g., in a bean's initialization method), which system event should you listen for?",The `preRenderView` event.
+What is the primary purpose of the Flash scope in JSF?,"To pass temporary objects between views across an HTTP redirect, surviving exactly one redirect before being removed."
+"To make a message added to the `FacesContext` survive a redirect, what method must be called on the Flash scope instance?",`flash.setKeepMessages(true)`.
+What JSTL tag can be used as an alternative to `<f:param>` to make a value available in the constructor of a managed bean for an included page?,"The `<c:set>` tag with `scope=""request""`."
+What is the lifespan of an object in the JSF `@RequestScoped`?,It lasts for the duration of a single HTTP request-response cycle.
+What is the lifespan of an object in the JSF `@SessionScoped`?,It lasts for the duration of a user's HTTP session.
+What is the lifespan of an object in the JSF `@ViewScoped`?,It lasts as long as the user interacts with the same JSF view via postbacks.
+What is the lifespan of an object in the JSF `@ApplicationScoped`?,It lasts for the entire lifecycle of the web application and is shared among all users.
+What is the primary purpose of the JSF 2.2 Flow scope (`@FlowScoped`)?,"To define and manage a user's navigation through a sequence of pages (a flow), with data scoped specifically to that flow."
+"By convention, where are the configuration files and pages for a specific JSF flow located?","In a folder under the web root whose name matches the flow name, with a configuration file named `flowname-flow.xml`."
+"In a JSF flow configuration, what does a `<flow-return>` node define?",An exit point from the flow that can return an outcome to the calling page or flow.
+"In JSF 2.2, which annotation is used on a method to programmatically define a flow using the `FlowBuilder` API?",The `@FlowDefinition` annotation.
+What is the general rule for injecting a managed bean from one scope into another?,You can only inject a bean from a scope that has an equal or longer lifespan than the bean it is being injected into.
+"In JSF, if you omit the `value` attribute from the `@FacesValidator` annotation, how does JSF determine the validator ID?",JSF uses the simple class name with the first letter de-capitalized.
+What is the difference in when the outcome of `<h:link>` is evaluated versus when the action of `<h:commandButton>` is evaluated?,"The outcome of `<h:link>` is evaluated during the Render Response phase, while the action of `<h:commandButton>` is evaluated during the Invoke Application phase."
+"To force a JSF navigation case to use an HTTP redirect instead of a server-side forward, what must be added to the `<navigation-case>` in `faces-config.xml`?",The empty `<redirect/>` tag.
+"An action listener method, attached via the `actionListener` attribute, is typically called during the _____ phase of the JSF lifecycle.",Invoke Application
+"If `immediate=""true""` is set on a command component, during which JSF phase is its action listener invoked?",The Apply Request Values phase.
+"What type of event is used to apply a behavior to all components of a specific class, such as applying a validation style to all invalid `UIInput` components?","A system event, specifically `PostValidateEvent`."
+A class that implements the _____ interface can listen to the start and end of each phase in the JSF lifecycle.,PhaseListener
+"Starting with JSF 2.2, what is now possible within Phase Listeners and Validators that wasn't officially supported before?",Dependency injection using annotations like `@Inject` and `@EJB`.
+What is the purpose of the JSF `ResourceHandler`?,"To manage and serve web resources like CSS, JavaScript, and images from predefined locations in the application."
+"To use a background image located in a JSF resource library from within a CSS file, what EL expression format must be used?",`#{resource['libraryName:path/to/image.png']}`
+What is the purpose of the JSF `ViewHandler`?,"To handle the creation, restoration, and rendering of the JSF component tree for a given view."
+"In JSF, what is the role of a `Renderer`?","To generate the specific markup (e.g., HTML) for a UI component and to decode incoming request data for that component."
+"Instead of configuring a custom renderer in `faces-config.xml`, what JSF 2.2 annotation can be used directly on the renderer class?",The `@FacesRenderer` annotation.
+What is the purpose of the JSF `ExceptionHandler`?,To provide a centralized mechanism for catching and handling unhandled exceptions that occur during the JSF lifecycle.
+What problem does the JSF 2.2 Client Window ID API solve?,It solves the problem of correctly managing view-scoped and flash-scoped beans when a user has the same application open in multiple browser tabs or windows within the same session.
+How is the Client Window ID mode enabled in a JSF 2.2 application?,By setting the context parameter `javax.faces.CLIENT_WINDOW_MODE` to `url` in `web.xml`.
+"In the `<f:ajax>` tag, what does the `delay` attribute do?","It specifies a time in milliseconds, and if another identical request is triggered within that time, the previous request is cancelled and only the last one is sent."
+"What is the purpose of `resetValues=""true""` on an `<f:ajax>` tag?","It resets the state of input components that fail validation, causing them to re-display their model value rather than the invalid submitted value."
+What are JSF 2.2 pass-through attributes?,"They are attributes on a JSF component tag that are rendered directly onto the resulting HTML element, allowing the use of HTML5-specific attributes like `placeholder` or `type=""email""`."
+What is the purpose of the `<f:passThroughAttribute>` tag?,It allows a pass-through attribute to be added to a component when the attribute name is not a valid XML attribute name or needs to be determined dynamically.
+"When using the JSF 2.2 `<h:inputFile>` component, what `enctype` must be set on the `<h:form>` tag?",`multipart/form-data`.
+"On the server side, what Java Servlet 3.0 class is used to access the data from an uploaded file submitted via `<h:inputFile>`?",The `javax.servlet.http.Part` class.
+"In JSF, what does the `ViewExpiredException` typically indicate?","It indicates that the user tried to restore a view whose state is no longer available in the session, often because the session timed out or the view state limit was exceeded."
+"What is the effect of setting `<f:view transient=""true"">` in a JSF 2.2 page?","It makes the view stateless, meaning JSF will not save or restore its state between requests, which can improve performance but limits dynamic component tree changes."
+What is a key limitation of using JSF in stateless mode?,"The component tree cannot be dynamically generated or changed (e.g., using JSTL or component bindings), and some stateful components may not work as expected."
+What is the difference between a JSF custom component and a composite component?,"A custom component is primarily defined in a Java class extending `UIComponent`, while a composite component is defined declaratively in an XHTML file using `<cc:interface>` and `<cc:implementation>`."
+"In a custom component class, which method is typically overridden to render the markup at the end of the component's processing?",The `encodeEnd()` method.
+"In JSF 2.0, what interface provides a standardized way for custom components to save and restore their state across postbacks?",The `StateHelper` interface.
+"The _____ section of a composite component defines the public contract, including the attributes the page author can set.",`<cc:interface>`
+The _____ section of a composite component contains the JSF tags that make up the component's actual structure and behavior.,`<cc:implementation>`
+What is a 'backing component' in the context of JSF composite components?,"An optional Java class, extending `UIComponent`, that is associated with a composite component to provide complex server-side logic, event handling, or state management."
+What is the standard directory location for composite component files?,They are placed in a subdirectory under the `/resources` folder of the web application.
+What does the `<cc:insertChildren/>` tag do within a composite component's implementation?,It inserts any child components that were nested inside the composite component's tag on the calling page.
+"To allow a composite component to act as a source for action events (e.g., for use with `<f:actionListener>`), what tag must be declared in its interface?",The `<cc:actionSource>` tag.
+How can you package JSF composite components for reuse across multiple applications?,By placing them in the `META-INF/resources` directory of a JAR file.
+What new feature in JSF 2.2 provides a standardized way to implement application-wide themes or skins?,Resource Library Contracts.
+Where must resource library contracts be located within a web application or JAR file?,In the `META-INF/contracts/{contract-name}` directory.
+"In Facelets templating, what is the role of the `<ui:composition>` tag?","It defines a template client page and specifies the template it will use, ignoring all content outside of its body."
+"In a Facelets template file, what does the `<ui:insert>` tag do?",It defines a named placeholder where a template client can insert its own content.
+"In a Facelets template client, what does the `<ui:define>` tag do?",It provides the content that will be inserted into a corresponding named `<ui:insert>` placeholder in the template.
+What is the purpose of the `<ui:include>` tag in Facelets?,To include and render the content of another Facelets file at the tag's location.
+How do you pass a parameter to a template or an included Facelets file?,"Using the `<ui:param>` tag, which sets a value that is accessible via EL in the target file."
+"Which Facelets tag is specifically designed for iterating over a collection to build part of the component tree, without creating an HTML table?",The `<ui:repeat>` tag.
+What is a common pitfall when trying to re-render a `<ui:repeat>` tag with AJAX?,"The `<ui:repeat>` tag itself doesn't render an HTML container, so it cannot be directly targeted by an AJAX `render` attribute; it must be wrapped in a container like `<h:panelGroup>`."
+"What debugging utility tag does Facelets provide to inspect the component tree, scoped variables, and view state in the browser?",The `<ui:debug>` tag.
+"In JSF 2.2, the functionality of the deprecated `ResourceResolver` class was merged into which existing class?","The `ResourceHandler` class, through the new `createViewResource` method."
+"The JSF lifecycle consists of six phases. The first phase is Restore View, and the final phase is _____.",Render Response
+"During which phase of the JSF lifecycle are submitted component values converted, validated, and applied to the model?",The Process Validations phase and the Update Model Values phase.

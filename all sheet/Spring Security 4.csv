@@ -1,0 +1,17 @@
+"In Spring Security, what is the primary goal of the 'form login' approach?",The goal is to authenticate users.
+What is the key difference between Authentication and Authorization in application security?,"Authentication validates a user's credentials, while Authorization verifies if an authenticated user has permission to access a resource."
+"In the context of security, what process must precede Authorization?",Authentication must precede Authorization.
+Concept: Authentication,"Definition: The process of validating received credentials, such as verifying that a username and password match those recognized by the application."
+Concept: Authorization,Definition: The process of verifying if a successfully authenticated user has the necessary permissions to access a certain functionality or resource within the application.
+What is the default behavior of Spring Security when a form login authentication fails?,"By default, Spring redirects the user back to the login page with a request parameter containing information about the error."
+"To provide custom behavior for authentication failures in Spring Security, you must implement the _____ interface.",AuthenticationFailureHandler
+"When implementing the `AuthenticationFailureHandler` interface, which method must be overridden to define custom logic?",The `onAuthenticationFailure` method must be overridden.
+"In the Baeldung example, what HTTP status code does the `CustomAuthenticationFailureHandler` return upon failure?",It returns a 401 Unauthorized status (`HttpStatus.UNAUTHORIZED.value()`).
+"Instead of a redirect, what does the custom failure handler in the source material's example return in the response body?",It returns a JSON object containing a timestamp and the exception message.
+Which built-in Spring `AuthenticationFailureHandler` is used by default?,The `SimpleUrlAuthenticationFailureHandler` is the component used by default.
+What is the function of the `SimpleUrlAuthenticationFailureHandler` in Spring Security?,"It redirects the user to a specified `failureUrl` or, if none is specified, returns a 401 response."
+What is the purpose of the `ExceptionMappingAuthenticationFailureHandler`?,It redirects the user to a specific URL based on the full class name of the `AuthenticationException` that occurred.
+How does the `ForwardAuthenticationFailureHandler` handle authentication exceptions?,"It forwards the user to a specified URL, regardless of the type of `AuthenticationException`."
+"Which `AuthenticationFailureHandler` implementation allows delegating different `AuthenticationException` subclasses to different, specialized handlers?",The `DelegatingAuthenticationFailureHandler`.
+"In the `SecurityFilterChain` bean configuration, which method is called on `formLogin()` to specify a custom handler for authentication failures?",The `.failureHandler(authenticationFailureHandler())` method is called.
+"The `onAuthenticationFailure` method provides access to the `HttpServletRequest`, `HttpServletResponse`, and the _____ that caused the failure.",AuthenticationException

@@ -1,0 +1,78 @@
+"In the context of computing paradigms, what type of architecture is best categorized by a central computer making all decisions for a business transaction end-to-end, like a mainframe?",Centralized computing.
+"Which computing paradigm involves different components of a system being located on different networked computers, such as client-server or n-tier architectures?",Distributed computing.
+"What computing paradigm involves application services being carried out by individual nodes on a distributed network with no central location, as seen in protocols like Bitcoin?",Decentralized computing.
+"What is the term for a software system's property where, if no new updates are made to a given data item, all accesses to that item will eventually return the last updated value?",Eventual consistency.
+What type of service granularity describes an architecture where functional modules are only logically separated but are physically packaged into a single .ear archive?,Monolith.
+"The _____ architecture, also known as the ports and adapter architecture, allows an application to be developed in isolation from its runtime devices and databases.",Hexagonal
+"In the Hexagonal Architecture, what is the term for a consumer-agnostic entry and exit point to/from the application, often implemented as a Java interface?",A port.
+"In the Hexagonal Architecture, what component provides the functionality promised by an interface (a port) without having to know the specific class used to implement that interface?",An adapter.
+"In a ports and adapters architecture, adapters on the UI side that initiate an action on the application are called _____ or driving adapters.",primary
+"In a ports and adapters architecture, adapters representing connections to backend resources like databases are called _____ or driven adapters because they react to an action.",secondary
+"What does HATEOAS, a constraint of the REST application architecture, stand for?",Hypermedia as the Engine of Application State.
+What convention for defining hypermedia within JSON or XML data is structured around the concepts of Resources and Links?,Hypertext Application Language (HAL).
+"In which software architecture pattern do outer layers depend on inner layers, with the direction of coupling always toward the center?",The Onion Architecture.
+"What query language for APIs enables clients to ask for exactly the data they need and nothing more, making it easier to evolve APIs over time?",GraphQL.
+"What is the term for the design principle where a microservice owns and encapsulates its own data, and is available even when other services in the application flow are down?",Autonomy.
+"What type of messaging channel ensures that only one receiver will receive a particular message, as seen with typical synchronous HTTP transport?",A point-to-point channel.
+"What messaging pattern delivers a copy of a particular event to each subscribed receiver, providing one-to-many communication?",The Publish-Subscribe pattern.
+"In a request-reply pattern over an asynchronous channel, what pattern is used where the request message includes the channel address for the reply, allowing the server to respond without knowing the client's address beforehand?",The return address pattern.
+"What does SEDA, an architecture for well-conditioned, highly concurrent server applications, stand for?",Staged Event-Driven Architecture.
+"What type of scalability involves increasing the compute or memory capacity of existing hardware, such as upgrading the CPU or RAM?",Vertical scalability.
+"What type of scalability involves improving overall compute or memory by incorporating more modules, such as adding more servers to a cluster?",Horizontal scalability.
+Which integration pattern involves a stateful filter that collects and stores individual messages until a complete set of related messages has been received before publishing a single distilled message?,The Aggregator pattern.
+What form of operating system virtualization allows code and dependencies to be packaged together in lightweight units that share the host's OS kernel?,Containers.
+"The _____ is an essential component in virtualization that creates a virtual platform on a host computer, on top of which multiple guest operating systems are executed.",hypervisor
+How does a Type 1 (native) hypervisor differ from a Type 2 (hosted) hypervisor?,"A Type 1 hypervisor runs directly on the host's hardware, while a Type 2 hypervisor runs within a conventional operating system."
+"What Linux kernel feature allows global resources like networks and disks to be wrapped in namespaces, making them visible only to processes within that same namespace?",Namespaces.
+"A Docker image is made up of filesystems layered over each other, starting with a base filesystem called the _____, which resembles a typical Linux/UNIX boot filesystem.",bootfs
+What is the term for the read-write layer that Docker adds on top of the read-only image layers when a container is created?,The container layer.
+"What pattern, also known as _____, is a feature of Docker where a file from a read-only layer is copied into the read-write layer only when a modification is needed?",copy on write
+"What is the term for a repository that stores Docker images and facilitates their sharing, such as the public Docker Hub?",A Docker Registry.
+"What file contains a series of instructions on how to build a Docker image, specifying a base image and the steps to add application code and dependencies?",A Dockerfile.
+What is the purpose of the `FROM` instruction in a Dockerfile?,It specifies the base image that the Docker engine will use to build upon.
+Which Dockerfile instruction is used to copy files or directories from the build context into the image's filesystem?,The `COPY` instruction.
+"What Google tool, available as a Maven or Gradle plugin, builds optimized Docker images for Java applications without requiring a Dockerfile or a local Docker installation?",Jib.
+"In Docker networking, what legacy feature enabled containers to discover each other and securely transfer information, which has largely been replaced by user-defined networks?",Links.
+"What is the preferred mechanism for persisting data generated by and used by Docker containers, which exists outside the container's lifecycle and filesystem?",Volumes.
+"What tool is used for defining and running multi-container Docker applications, using a YAML file to configure the application's services, networks, and volumes?",Docker Compose.
+"In a Docker Compose YAML file, what top-level key is used to define the logical groupings of related container services that make up the application?",The `services` key.
+"In a Dockerfile, what feature allows for multiple `FROM` statements, where each one begins a new stage of the build, enabling the selective copying of artifacts between stages?",Multi-stage builds.
+What is the primary role of a container orchestrator like Kubernetes?,"It manages the lifecycle of running containers, including deployment, scaling, and networking."
+"In Kubernetes architecture, the master nodes host the _____, which controls and manages the entire Kubernetes system.",Control Plane
+"Which component of the Kubernetes Control Plane exposes the Kubernetes API, acting as the front end for all cluster communications?",The Kubernetes API server.
+What component of the Kubernetes Control Plane is responsible for scheduling workloads (pods) onto the worker nodes?,The Scheduler.
+Which component of a Kubernetes worker node is responsible for ensuring that containers are running in a pod as specified by the Control Plane?,The kubelet.
+"What is the smallest deployable unit in Kubernetes, which acts as a wrapper around one or more running containers?",A Pod.
+What Kubernetes object's job is to constantly monitor the list of running pods and ensure the number of replicas always matches the desired count?,A ReplicaSet.
+"What higher-level Kubernetes resource is used for deploying applications and updating them declaratively, managing ReplicaSets underneath?",A Deployment.
+"What Kubernetes resource provides an abstract way to expose an application running on a set of pods as a network service with a single, stable IP address?",A Service.
+"What type of Kubernetes Service exposes the service on each node's IP at a static port, making it accessible from outside the cluster?",A NodePort.
+What Kubernetes service type provisions an external load balancer from the cloud infrastructure to expose the service to the internet?,A LoadBalancer.
+"Which Kubernetes object operates at the HTTP level (layer 7) and can expose multiple services through a single IP address, often used for host or path-based routing?",An Ingress.
+"For managing stateful applications, what Kubernetes object represents a set of pods with unique, persistent identifiers and stable network names?",A StatefulSet.
+"In Kubernetes, a _____ is a request for storage by a user, specifying characteristics like size and access mode.",PersistentVolumeClaim (PVC)
+A _____ is a piece of storage in the Kubernetes cluster that has been provisioned by an administrator or dynamically provisioned using Storage Classes.,PersistentVolume (PV)
+"What does IaC, the practice of writing code to define, deploy, and update infrastructure, stand for?",Infrastructure as Code.
+What open-source IaC software tool enables users to define and provision a data center infrastructure using a declarative configuration language?,Terraform.
+"In AWS, what service allows you to provision a logically isolated section of the cloud where you can launch AWS resources in a virtual network that you define?",Virtual Private Cloud (VPC).
+What is the term for a range of IP addresses within a VPC where you can place groups of isolated resources like EC2 instances?,A subnet.
+"What AWS service provides secure, resizable compute capacity in the cloud, essentially virtual servers?",Amazon Elastic Compute Cloud (EC2).
+What managed Kubernetes service from Amazon runs the Kubernetes management infrastructure across multiple AWS Availability Zones?,Amazon Elastic Kubernetes Service (EKS).
+What is the term for a package of pre-configured Kubernetes resources that can be managed as a single unit using the Helm package manager?,A Chart.
+"In Helm, what is the term for an instance of a chart running in a Kubernetes cluster?",A Release.
+Which file in a Helm chart is used to provide default configuration values that can be overridden during installation or upgrade?,The `values.yaml` file.
+"What command-line tool helps you manage the state of your entire Kubernetes cluster declaratively, bundling multiple Helm charts into a single definition file?",Helmfile.
+"What open-source command-line tool from Google facilitates continuous development for container-based applications by handling the workflow for building, pushing, and deploying?",Skaffold.
+"In the Skaffold configuration file (`skaffold.yaml`), what section is used to define how application images are built, for example using `jibMaven` or a `Dockerfile`?",The `build` section.
+What is the purpose of the `deploy` section in a `skaffold.yaml` file?,"It specifies how the built artifacts should be deployed, for instance, using Kubernetes manifests (`kubectl`)."
+"In the context of the Onion vs. Hexagonal architecture, _____ services, such as a REST controller, handle protocol and format transformations and connect peripherals to inner layers.",application
+"What type of messaging semantics involves a client sending a request and waiting for a response from the service, causing the client-side thread to block until it receives the response?",Synchronous.
+The `docker ps` command is used to list what?,Running containers.
+What does the `docker run` command do?,It creates and starts a new container from a specified image.
+To what does the `ENTRYPOINT` instruction in a Dockerfile refer?,It configures a container that will run as an executable.
+What is the purpose of the `kubectl create -f <filename>` command?,It creates Kubernetes resources from a definition file (in YAML or JSON format).
+How can you view the logs of a specific running pod in Kubernetes?,By using the `kubectl logs <pod-name>` command.
+What does the `helm install <release-name> <chart-name>` command achieve?,"It installs a specified Helm chart into the Kubernetes cluster, creating a new release."
+What is the function of the `terraform apply` command?,It applies the changes required to reach the desired state of the configuration defined in the Terraform files.
+The _____ command in Terraform is used to initialize a working directory containing Terraform configuration files.,terraform init
+What does the `skaffold dev` command initiate?,"It starts a continuous development loop that watches source files, rebuilds, and redeploys the application on changes."

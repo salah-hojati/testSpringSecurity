@@ -1,0 +1,20 @@
+"In Spring Security, what is the primary contract of an `AuthenticationProvider`?",It processes an `Authentication` request and returns a fully authenticated object with complete credentials if successful.
+What is the standard and most common implementation of `AuthenticationProvider` in Spring Security?,"The `DaoAuthenticationProvider`, which uses a `UserDetailsService` to retrieve user details."
+What is a key limitation of a `UserDetailsService` that a custom `AuthenticationProvider` can overcome?,"A `UserDetailsService` only has access to the username, whereas a custom `AuthenticationProvider` can access the full `Authentication` request, including the password."
+What is a typical scenario where a custom `AuthenticationProvider` is necessary?,"When authenticating against an external, third-party service where both the username and password from the request are needed."
+What interface must a custom authentication provider class implement in Spring Security?,The `AuthenticationProvider` interface.
+"In the `AuthenticationProvider` interface, which method is responsible for performing the actual authentication logic?",The `authenticate(final Authentication authentication)` method.
+What is the purpose of the `supports(Class<?> authentication)` method in the `AuthenticationProvider` interface?,To indicate whether the provider can process the specific type of `Authentication` token presented.
+"In a custom `AuthenticationProvider`, what should the `authenticate` method return if it cannot validate the provided credentials?",It should return `null`.
+What should the `authenticate` method return upon successful validation of credentials?,"A fully authenticated `Authentication` object, such as a `UsernamePasswordAuthenticationToken`, containing the principal, credentials, and authorities."
+"In the `authenticate` method, how do you typically retrieve the username from the `Authentication` object?",By calling `authentication.getName()`.
+"In the `authenticate` method, how do you typically retrieve the password from the `Authentication` object?",By calling `authentication.getCredentials().toString()`.
+"To support standard username and password login forms, the `supports` method should return true if the authentication class equals _____.",`UsernamePasswordAuthenticationToken.class`
+"When constructing a `UserDetails` object, what class is commonly used to represent a user's role or permission?",`SimpleGrantedAuthority`.
+"In the Baeldung example, what class is instantiated and returned to represent the successfully authenticated user?",`UsernamePasswordAuthenticationToken`.
+"In Spring Security's XML configuration, what tag is used inside `<authentication-manager>` to register a custom provider by its bean reference?","The `<authentication-provider ref=""..."" />` tag."
+"In Spring Security Java configuration, which builder object is used to register a custom `AuthenticationProvider`?",`AuthenticationManagerBuilder`.
+How can an instance of `AuthenticationManagerBuilder` be retrieved within a `@Bean` method in a security configuration class?,By calling `http.getSharedObject(AuthenticationManagerBuilder.class)`.
+Which method on the `AuthenticationManagerBuilder` is called to register your custom provider instance?,`.authenticationProvider(authProvider)`.
+What annotation must be added to a Java configuration class to enable Spring's web security features?,`@EnableWebSecurity`.
+"When an application uses a custom `AuthenticationProvider` on the backend, does the client need to change how it sends its credentials (e.g., via a `curl` request with Basic Auth)?","No, the client-side authentication process remains the same."

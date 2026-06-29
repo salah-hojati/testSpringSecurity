@@ -1,0 +1,38 @@
+What is NGINX?,"NGINX is an open-source web server software used for reverse proxying, load balancing, and caching."
+"In a web architecture, placing an NGINX server between the client's browser and the application server is an example of what?",A reverse proxy.
+What problem does having a single application server create when an application receives high traffic?,"The server can reach a bottleneck, causing extremely high latency."
+"When NGINX is used to distribute incoming client requests across multiple backend servers, what is its role?",It is acting as a load balancer.
+"Besides load balancing, what is another important use case for using NGINX as a reverse proxy with multiple servers?",To centralize SSL/TLS encryption and decryption in one place instead of on every server.
+What command is used to install NGINX on a Mac using the Homebrew package manager?,`brew install nginx`
+"After installing with Homebrew on a Mac, in which parent directory is the NGINX configuration located?",`/user/local/etc/`
+What is the name of the main NGINX configuration file?,`nginx.conf`
+What command starts the NGINX service from the terminal?,`nginx`
+"After modifying the `nginx.conf` file, what command must be run to apply the new configuration without stopping the server?",`nginx -s reload`
+"In an NGINX configuration file, a key-value pair like `worker_processes 1;` is known as a _____.",directive
+"In an NGINX configuration file, a block of code defined by a name and curly braces, such as `http { ... }`, is known as a _____.",context
+"Which two contexts are required for a basic NGINX HTTP configuration to work, even if one is empty?",The `events` context and the `http` context.
+"Within the `http` context, what context is used to define a virtual server that handles requests?",The `server` context.
+Which directive inside the `server` context specifies the port for NGINX to listen on for incoming connections?,The `listen` directive.
+Which directive specifies the root directory from which NGINX will serve static files for a given server or location?,The `root` directive.
+"When a browser receives a file, what response header tells the browser how to interpret the file's content (e.g., as CSS, HTML, or plain text)?","The `Content-Type` header, which specifies the MIME type."
+"If a CSS file is served with `Content-Type: text/plain`, what will be the result in the browser?",The styles will not be applied to the HTML document.
+"What directive can be used within the `http` context to include the contents of another file, such as the default `mime.types` file?",The `include` directive.
+What context is used within a `server` block to configure how NGINX responds to requests for a specific URI or path?,The `location` context.
+"If a `server` has `root /path/to/site;` and a `location /images { ... }`, where will NGINX look for a requested file like `/images/logo.png`?","NGINX will append the location path, looking in `/path/to/site/images/logo.png`."
+What is the key difference between the `root` and `alias` directives inside a `location` block?,"`root` appends the location path to its value, while `alias` replaces the location path with its value."
+"Use case: If a request for `/downloads/file.zip` should serve the file from `/var/data/files/file.zip`, which directive should be used in the `/downloads` location block: `root` or `alias`?",The `alias` directive should be used (`alias /var/data/files/;`).
+"If NGINX cannot find a default index file in a directory and directory listing is off, what HTTP status code does it typically return?",403 Forbidden.
+"What directive allows you to specify a sequence of files or locations to check for a request, with a fallback if none are found?",The `try_files` directive.
+"In a `try_files` directive, what is the syntax to return a 404 Not Found error as the final fallback?",You add `=404` as the last parameter in the list.
+What prefix is added to a `location` block to specify that the path should be interpreted as a regular expression?,A tilde (`~`) or tilde-asterisk (`~*` for case-insensitive matching).
+What directive and HTTP status code are used to perform a temporary redirect to a different URL?,The `return 307 /new/path;` directive.
+What is the primary difference between a redirect and a rewrite from the user's perspective?,"A redirect changes the URL in the browser's address bar, while a rewrite processes the request internally without changing the visible URL."
+Which NGINX directive is used to internally modify the request URI without sending a redirect to the client?,The `rewrite` directive.
+"In a `rewrite` directive, what syntax is used to refer to the part of the URI captured by parentheses in the regular expression?","A dollar sign followed by a number, such as `$1` for the first capture group."
+What context is defined at the `http` level to create a named group of backend servers for load balancing?,The `upstream` context.
+"Inside an `upstream` block, what directive is used to list each of the backend application servers?","The `server` directive, followed by the server's address and port."
+What directive is used inside a `location` block to forward requests to a defined `upstream` group?,The `proxy_pass` directive.
+"By default, what algorithm does NGINX use to distribute requests among servers in an `upstream` group?",The Round Robin algorithm.
+"What is the command to build a Docker image from a Dockerfile in the current directory, tagging it with the name 'my-server'?",`docker build . -t my-server`
+"What does the `-p` flag do in the `docker run` command, for example `docker run -p 1111:7777 ...`?",It maps a port on the host machine (1111) to a port inside the container (7777).
+What does the `-d` flag signify in the `docker run` command?,"It runs the container in detached mode, meaning it runs in the background."

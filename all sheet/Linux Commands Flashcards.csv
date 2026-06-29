@@ -1,0 +1,85 @@
+What is the primary function of the `ls` command in Linux?,It is used to list the content (both files and directories) of a specified directory in alphabetical order.
+How do you list files and directories in a long list format with additional information using the `ls` command?,"Use the `-l` argument, as in `ls -l`."
+Which argument for the `ls` command is used to include hidden files and directories in the output?,"The `-a` argument, as in `ls -a`."
+What does the `pwd` command stand for and what does it do?,"It stands for 'Print Working Directory' and it prints the full path of the current directory, starting from the root."
+What is the function of the `cd` command in Linux?,It stands for 'Change Directory' and is used to move from one directory to another in the terminal.
+What happens if you execute the `cd` command without specifying a directory?,It changes the current directory to the user's home directory.
+How do you navigate to the parent directory (one level up) using the `cd` command?,"By using two dots, as in `cd ..`."
+What is the purpose of the `touch` command in Linux when used with a non-existent filename?,"It creates a new, empty file with that name."
+What happens when the `touch` command is used on a file that already exists?,"It updates the access, change, and modification timestamps of the file to the current time without altering the data."
+How can you create multiple empty files at once using a single command?,"By using the `touch` command followed by a space-separated list of filenames (e.g., `touch file1.txt file2.txt`)."
+What is the purpose of the `mkdir` command?,It stands for 'make directory' and is used to create one or more new directories.
+"To create a nested directory structure, such as `dir/dir1/dir2`, where the parent directories might not exist, you would use the `mkdir` command with the _____ argument.","`-p` (e.g., `mkdir -p dir/dir1/dir2`)"
+What argument for `mkdir` allows you to set specific permissions (like 777 for all users) upon creation?,"The `-m` argument, as in `mkdir -m777 mydir`."
+What is the primary function of the `rm` command?,It stands for 'remove' and is used to delete files or directories.
+Which argument for the `rm` command prompts the user for confirmation before deleting each file?,"The `-i` argument, as in `rm -i filename`."
+"By default, `rm` cannot remove directories. What argument is required to delete a directory and all of its contents recursively?","The `-r` argument, as in `rm -r directory_name`."
+What is the limitation of the `rmdir` command?,It can only be used to delete empty directories.
+What is the `cat` command primarily used for in Linux?,It is used to concatenate and display the contents of one or more files to the standard output (terminal).
+"To display the content of a file with line numbers, you would use the `cat` command with the _____ argument.","`-n` (e.g., `cat -n filename`)"
+"Which command displays the contents of a file in reverse order, with the last line appearing first?","The `tac` command, which is 'cat' spelled backwards."
+What is the purpose of the `cp` command?,It stands for 'copy' and is used to copy files or directories.
+How do you copy a directory and all of its contents to a new location using the `cp` command?,"Use the `-r` argument for recursive copying, as in `cp -r source_directory destination_directory`."
+What are the two primary functions of the `mv` command?,It is used to either move files/directories to a different location or to rename them.
+What does the `head` command do by default?,It prints the first 10 lines of a given file.
+How can you specify the number of lines to display with the `head` command?,"Use the `-n` argument followed by the number of lines (e.g., `head -n 5 filename`)."
+What is the function of the `tail` command?,"It is the complement of `head`; it prints the last N lines of a file, defaulting to 10 lines."
+Which `tail` command argument is used by programmers to watch a file (like a log file) in real-time as new data is written to it?,"The `-f` argument, as in `tail -f somelogfile.txt`."
+What is the purpose of the `mount` command in Linux?,"It is used to attach a storage device (like a USB drive) to the existing file system tree, making it accessible."
+What does the `df` command stand for and what information does it provide?,It stands for 'disk free' and it reports the amount of available and used disk space on filesystems.
+"The `df` command displays disk space in 1K-blocks by default. How can you display the output in a more human-readable format (e.g., MB, GB)?","Use the `-h` argument, as in `df -h`."
+What information does the `lsblk` command display?,It lists information about all available block devices (except RAM) in a tree-like structure.
+What is the `fdisk` command used for?,"It is a disk partition management utility used to create, view, delete, resize, and move partitions on a disk."
+"Which command lists the contents of a directory in a tree-like format, but may need to be installed first?",The `tree` command.
+What is the `du` command used for?,It stands for 'disk usage' and it estimates and displays the space used by files and directories.
+"To display disk usage in a human-readable format, you would use the `du` command with the _____ argument.","`-h` (e.g., `du -h`)"
+What information does the `free` command display?,"It displays the total, used, and free amounts of physical and swap memory in the system."
+What does the `ps` command stand for and what does it do?,It stands for 'Process Status' and it lists the currently running processes on the system.
+What is the function of the `top` command?,"It provides a real-time, dynamic view of the running processes, similar to the Task Manager in Windows, showing CPU and memory usage."
+"Which command displays the currently running processes in the form of a tree, showing parent-child relationships?",The `pstree` command.
+What is the purpose of the `nice` command?,It is used to start a new process with a specific priority level.
+How do you change the priority of an already running process?,Use the `renice` command followed by the new priority and the process ID (PID).
+What does the `history` command display?,It displays a list of previously executed commands in the current shell session.
+How can you clear the entire command history?,By using the command `history -c`.
+What information is provided by the `last` command?,"It displays a list of the last logged in users, showing login/logout times and session durations."
+What is the purpose of the `sudo` command?,It stands for 'Super User Do' and allows a permitted user to execute a command as the superuser or another user.
+Which command provides detailed information about the system's CPU architecture?,The `lscpu` command.
+What is the `mpstat` command used for?,"It is used to display CPU statistics, such as usage per processor."
+What is the function of the `kill` command?,"It is used to send a signal to a process, typically to terminate it."
+"Which signal, used with the `kill` command, forces an immediate termination of a process that is not responding?","Signal 9 (SIGKILL), used as `kill -9 [process_id]`."
+What information does the `w` command provide?,"It displays who is logged on and what they are currently doing, including their current process."
+Which simple command displays the username of the current user?,The `whoami` command.
+What information can you get from the `finger` command?,"It displays detailed information about logged-in users, including login name, real name, terminal, and login time."
+What is the `uname` command used for?,"It prints system information, such as the kernel name, version, and machine hardware name."
+"To get all available system information from the `uname` command, you would use the _____ argument.","`-a` (e.g., `uname -a`)"
+Which command is used to change the password for a user account?,The `passwd` command.
+What is the primary function of the `shutdown` command?,"It is used to securely shut down or reboot the system, notifying logged-in users and running processes."
+How can you schedule the system to reboot in 50 minutes using the `shutdown` command?,Use the command `shutdown -r +50`.
+Which command is used to add a new user account to the system?,The `useradd` command.
+What does `ifconfig` stand for and what is its main purpose?,It stands for 'interface configuration' and is used to view and manage network interfaces on the system.
+What is the `wget` command used for?,It is a non-interactive utility for downloading files from the web.
+"Which command lists all network connections, routing tables, and interface statistics?",The `netstat` command.
+What is the purpose of the `ping` command?,It is used to test the reachability of a host on a network and to measure the round-trip time for messages sent.
+The `ping` command runs indefinitely by default. How do you specify the number of packets to send?,"Use the `-c` argument followed by the count (e.g., `ping -c 5 google.com`)."
+What is the `cmp` command used for?,It stands for 'compare' and is used to compare two files byte by byte to check if they are identical.
+What is the function of the `clear` command?,It clears the terminal screen.
+How do you find a file by its name within the current directory and its subdirectories?,"Use the `find` command with the `-name` argument, as in `find . -name ""filename.txt""`."
+What is the `grep` command used for?,It searches for a specific pattern of characters (string or regular expression) within files and prints the lines that contain a match.
+"To perform a case-insensitive search with `grep`, you would use the _____ argument.","`-i` (e.g., `grep -i ""pattern"" filename`)"
+What does the `wc` command stand for and what does it do?,"It stands for 'word count' and it counts the number of lines, words, and characters in a file."
+Which command is used to display a line of text or string that is passed as an argument?,The `echo` command.
+What is the purpose of the `uniq` command?,It filters out and reports repeated adjacent lines from a file.
+Which command is used to print a list of all environment variables?,The `env` command.
+What is the function of the `split` command?,"It is used to split a large file into smaller, more manageable pieces."
+Which command is used to merge the lines of multiple files horizontally?,The `paste` command.
+What does the `watch` command do?,"It executes a specified command repeatedly at a set interval, displaying its output on the screen."
+What is the `look` command used for?,It searches for lines in a file that begin with a specific string.
+Which command is used to compress files and directories into a single `.zip` archive?,The `zip` command.
+How do you extract the contents of a `.zip` file?,Use the `unzip` command followed by the filename.
+What does the `od` command do?,"It dumps the contents of a file in octal and other formats like hexadecimal, decimal, and ASCII."
+Which command displays a calendar for a given month or year in the terminal?,The `cal` command.
+What is the primary function of the `date` command?,It displays or sets the system date and time.
+Which command is used to print a sequence of numbers?,The `seq` command.
+What is the `expr` command used for?,"It evaluates expressions, allowing you to perform basic arithmetic calculations in the shell."
+What is the purpose of the `man` command?,"It displays the online manual pages for other commands, providing detailed information about their usage and options."
+Which command is used to close the current terminal session?,The `exit` command.

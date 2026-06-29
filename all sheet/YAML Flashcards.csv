@@ -1,0 +1,47 @@
+"What type of language is YAML, similar to XML and JSON?",YAML is a data serialization language.
+What is the primary purpose of a data serialization language like YAML?,To allow applications with different data structures to transfer data using a standard format.
+What does the acronym YAML stand for?,YAML Ain't Markup Language.
+What are the two valid file extensions for a YAML file?,`.yaml` or `.yml`.
+"What is considered the main advantage of YAML, especially for configuration files, compared to JSON or XML?",It is considered more human-readable and intuitive.
+"How is data structure defined in YAML, as opposed to using special characters like brackets in JSON and XML?",Data structure in YAML is defined through line separations and indentation with spaces.
+What happens if you have a single incorrect space or indentation in a YAML file?,It will result in a validation error.
+Name two specific DevOps tools mentioned that use YAML for configuration files.,"Docker (Docker Compose), Kubernetes, Ansible, or Prometheus."
+What is the most basic structure for defining data in YAML?,A simple key-value pair.
+"In YAML, do string values for keys or values always need to be enclosed in quotes?","No, quotes are optional for most strings but can be used (single or double)."
+Under what circumstance must a string value in YAML be enclosed in quotes?,"When using special characters, such as a line carriage return."
+Which character is used to denote the start of a comment in a YAML file?,The hash symbol (`#`).
+How do you create a nested object in YAML?,By indenting key-value pairs under a parent key.
+What syntax element is used to denote an item in a YAML list?,A hyphen followed by a space (`- `).
+What is a critical rule regarding the indentation of attributes within the same YAML object?,Each attribute must have the exact same level of indentation.
+"Besides `true` and `false`, what other pairs of words can represent boolean values in YAML?",`yes`/`no` and `on`/`off`.
+"What is the alternative, inline syntax for defining a list of simple values in YAML?","Using square brackets with comma-separated values, like `[value1, value2, value3]`."
+"In a Kubernetes YAML file, the `containers` key is typically a list. How would you start the definition for the first container in that list?",With a hyphen and a space (`- `) followed by the container's attributes on indented lines.
+Which character is used to create a multi-line string in YAML while preserving the line breaks?,The pipe symbol (`|`).
+Which character is used to create a multi-line string in YAML that will be interpreted as a single line (folding newlines into spaces)?,The greater-than sign (`>`).
+"How can you define multiple, separate YAML documents within a single `.yaml` file?",By separating each document with three hyphens (`---`).
+"In tools like Helm or Ansible, what syntax is used to define a placeholder that will be replaced by a template generator?","Double curly braces around the placeholder name, like `{{ placeholder }}`."
+"How can you access an environment variable from within a YAML configuration file, for example, in a Kubernetes pod definition?","By prefixing the environment variable's name with a dollar sign (`$`), for example `$MY_VARIABLE`."
+It is a good practice to use a _____ before executing a YAML configuration file to ensure its syntax and indentation are correct.,YAML validator.
+"In YAML, you can create a list of _____, where each item is a set of indented key-value pairs.",objects
+"The following YAML snippet defines what data structure?
+yaml
+- user-authentication
+- shopping-cart
+",A list of simple string values.
+"The following YAML snippet defines what data structure?
+yaml
+app: user-auth
+port: 9000
+",An object with two key-value pairs.
+"In a Kubernetes configuration, if you have a `command` attribute followed by `|`, what does the indented text below it represent?","A multi-line string, often representing a shell script, where newlines are preserved."
+"In a YAML list, is it required for all list items (`-`) to be vertically aligned with the parent attribute's first letter?","No, they can be indented relative to the parent, as long as all list items are aligned with each other."
+A YAML file can contain a list of lists. True or False?,"True, you can nest a list inside of another list item."
+"In the comparison between YAML, JSON, and XML, which format uses angle brackets and tags to define its structure?",XML.
+"In the comparison between YAML, JSON, and XML, which format primarily uses curly brackets `{}` to define objects?",JSON.
+YAML is often used in DevOps for writing _____ files for tools and applications.,configuration
+What data type is the value `9000` in the YAML pair `port: 9000`?,A number (integer).
+What data type is the value `1.7` in the YAML pair `version: 1.7`?,A number (float).
+The use of three dashes (`---`) is particularly handy when you want to group multiple _____ for a single service in one file.,components
+"In a Kubernetes Pod specification, `volumeMounts` is a list of objects. What would be the two primary keys for an object in this list?",`name` (of the volume) and `mountPath`.
+"If you see `args: [""--do-something"", ""--with-this""]` in a Kubernetes YAML, what does it represent?",A list of arguments using the inline square bracket syntax.
+Can you use both YAML and JSON to write Kubernetes configuration files?,"Yes, both formats are supported."

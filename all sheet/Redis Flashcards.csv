@@ -1,0 +1,59 @@
+What is the primary method used by Redis to scale write performance and increase data storage capacity?,Client-side sharding.
+How does Redis differ from memcached regarding data storage and persistence?,Redis supports disk persistence and offers five data structures instead of just plain strings.
+"The five core data structures in Redis are STRINGs, LISTs, SETs, HASHes, and _____.",ZSETs (Sorted Sets)
+What data structure in Redis is characterized as an ordered sequence of strings that allows pushing and popping from both ends?,LIST
+Which Redis data structure uses a hash table to ensure all stored strings are unique but provides no specific order?,SET
+"In a Redis HASH, what are the two components that make up the internal mapping?",Keys (fields) and values.
+What unique property do ZSET members possess that allows them to be ordered numerically?,A floating-point score.
+What is the return value of the DEL command in Redis?,The number of items that were deleted.
+Which command is used to fetch a range of items from a Redis LIST using start and end offsets?,LRANGE
+"In Redis SETs, which command checks if a specific member exists within the set?",SISMEMBER
+What happens if you use SADD to add an item that is already present in a SET?,Redis returns 0 and does not add the duplicate.
+Which Redis command fetches all key-value pairs stored within a HASH?,HGETALL
+"When using ZRANGE in a ZSET, what does an end index of $-1$ represent?",The last item in the sorted set.
+What is the common naming convention in Redis for separating nested namespaces within a key?,The colon character ($:$).
+"In the context of web application session management, what is a 'token cookie'?",A cookie containing random bytes used as a key to look up user information in a server-side database.
+What is the primary performance advantage of using Redis for session cookies over a relational database?,Redis handles significantly more writes per second (often $10-100$ times faster) due to its in-memory design.
+"In Redis, what command is used to remove all items from a ZSET except for a specific range of ranks?",ZREMRANGEBYRANK
+Why might a developer choose a HASH to store a shopping cart instead of a serialized string in a cookie?,"It allows for efficient, individual updates to item quantities without reparsing the entire structure."
+What Redis command allows you to set a value and specify its expiration time in seconds simultaneously?,SETEX
+"When caching database rows in Redis, what serialization format is most commonly used for its balance of readability and speed?",JSON
+Which ZSET command allows you to combine multiple sets while multiplying their scores by a specific factor?,ZINTERSTORE (using the WEIGHTS parameter).
+What does the Redis INCR command do if it is called on a key that does not exist?,It treats the initial value as $0$ and increments it to $1$.
+What is the difference between GETRANGE and the older SUBSTR command in Redis?,"They perform the same function, but GETRANGE is the preferred name in Redis $2.6$ and later."
+"In bit manipulation, what command counts the number of set bits (1s) in a STRING?",BITCOUNT
+Which LIST command removes the leftmost item and returns it to the client?,LPOP
+What is the purpose of the LTRIM command?,"To reduce a list to only the items within a specified range of indices, discarding all others."
+How does BLPOP differ from LPOP?,BLPOP blocks the connection and waits for an item to become available if the list is empty.
+What is the result of a SUNION operation on two SETs?,A new set containing all unique items present in at least one of the input sets.
+Which command moves a member from a source SET to a destination SET atomically?,SMOVE
+What is the default score aggregation method for ZINTERSTORE when no method is specified?,SUM
+"In Redis Pub/Sub, what happens to messages sent to a channel if a subscriber is offline?",The messages are lost; they are not buffered for disconnected clients.
+What does the ALPHA argument do in the Redis SORT command?,It sorts the items lexicographically (alphabetically) rather than numerically.
+Which Redis command marks the beginning of a transaction block?,MULTI
+How does Redis handle transactions (MULTI/EXEC) differently than relational databases regarding rollbacks?,Redis does not support rollbacks; every command in the block is executed sequentially even if one fails.
+What is the function of the PERSIST command in Redis?,"It removes the expiration timeout from a key, making it permanent."
+What are the two primary persistence options provided by Redis?,Snapshotting (RDB) and Append-Only File (AOF).
+What is the difference between the SAVE and BGSAVE commands?,"SAVE blocks the Redis server until the snapshot is complete, while BGSAVE forks a child process to save in the background."
+What is a potential performance risk of using BGSAVE on a server with very large memory usage?,"The fork operation can cause the system to pause for several seconds, especially in virtualized environments like Xen."
+"Under the `appendfsync everysec` configuration, what is the maximum amount of data (in time) that could be lost during a crash?",One second of writes.
+Why is it necessary to periodically run BGREWRITEAOF?,To compact the append-only file by removing redundant commands and reducing its size on disk.
+What happens to a Redis slave's existing data when it connects to a master for the first time?,All existing data on the slave is discarded and replaced with the snapshot from the master.
+Does Redis support master-master (multi-master) replication?,"No, Redis only supports master-slave replication."
+"In a replication chain, what happens if Slave A (which has its own Slave B) receives a new sync from the Master?","Slave A will disconnect Slave B, causing Slave B to reconnect and resync."
+"Which Redis command provides statistics such as memory usage, connected clients, and persistence status?",INFO
+What is the purpose of the WATCH command in Redis transactions?,It provides optimistic locking by causing a transaction to fail if the watched keys are modified by another client before EXEC.
+What is 'pipelining' in the context of Redis clients?,Sending multiple commands to the server in a single batch to reduce the overhead of network round trips.
+What does the `auto-aof-rewrite-percentage` configuration option control?,It determines how much larger the AOF must grow compared to its last rewrite before another automatic rewrite is triggered.
+Which utility can be used to repair a corrupted Redis Append-Only File?,redis-check-aof
+"In Redis transactions, what command cancels a MULTI block and clears all queued commands?",DISCARD
+What is the time complexity of the Redis TYPE command?,$O(1)$
+What command allows a slave to stop replicating and become an independent master?,SLAVEOF NO ONE
+"In a Redis ZSET, what is the 'rank' of a member?",Its 0-indexed position in the set when members are ordered by score.
+What does the `stop-writes-on-bgsave-error` setting do?,"It prevents Redis from accepting new writes if the background snapshot fails, alerting the user to persistence issues."
+How does `appendfsync always` affect Redis performance?,It significantly slows down performance because it forces a disk write for every single command.
+Which command is used to find the number of members in a ZSET with scores between $10$ and $20$?,ZCOUNT key 10 20
+What is 'write amplification' in the context of SSDs and Redis persistence?,"Frequent, small writes (like `appendfsync always`) that can prematurely wear out solid-state drives."
+What information is returned by the PTTL command?,The remaining time to live of a key in milliseconds.
+Which command is used to add multiple members to a SET in a single call?,SADD
+"If multiple slaves connect to a master at the same time during Step 1 of the sync process, what does the master do?",It performs a single BGSAVE and sends the resulting snapshot to all connected slaves simultaneously.

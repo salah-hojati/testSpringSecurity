@@ -1,0 +1,44 @@
+Which Spring Boot starter automatically includes all core dependencies for Spring Security?,The `spring-boot-starter-security` starter.
+What annotation is used on a configuration class to enable Spring Security and MVC integration support?,The `@EnableWebSecurity` annotation.
+"In modern Spring Security Java configuration, what type of bean is typically created to define security rules?",A `SecurityFilterChain` bean.
+Which `UserDetailsManager` implementation is useful for rapid prototyping by storing user details in memory?,The `InMemoryUserDetailsManager`.
+"Starting with Spring 5, what must be defined for handling passwords?",A `PasswordEncoder` bean.
+What `PasswordEncoder` implementation uses a widely supported and strong hashing function?,The `BCryptPasswordEncoder`.
+"In `HttpSecurity` configuration, what method chain is used to define authorization rules for different URL patterns?",The `.authorizeRequests()` method chain.
+What is the significance of the order of `antMatchers()` elements when configuring authorization rules?,"The more specific rules need to come first, followed by the more general ones."
+"In `HttpSecurity`, which method restricts access to a URL pattern to users with a specific role?","The `.hasRole(""ROLENAME"")` method."
+Which `HttpSecurity` method allows anonymous users to access a specific URL pattern?,The `.anonymous()` method.
+"To allow all users, including unauthenticated ones, to access a specific URL, which `HttpSecurity` method is used?",The `.permitAll()` method.
+How do you specify that any request not previously matched must be authenticated in `HttpSecurity`?,By using `.anyRequest().authenticated()`.
+"In `HttpSecurity`, what method is used to specify a custom login page URL?","The `.loginPage(""/custom-login-url"")` method."
+What is the purpose of the `.loginProcessingUrl()` method in form login configuration?,It specifies the URL to which the username and password should be submitted for authentication.
+Which method sets the landing page after a successful login in Spring Security's form login configuration?,"The `.defaultSuccessUrl(""/homepage.html"")` method."
+How do you configure the landing page after an unsuccessful login attempt?,"Using the `.failureUrl(""/login.html?error=true"")` method."
+What method in `HttpSecurity` configures a custom URL to trigger a logout?,"The `.logoutUrl(""/perform_logout"")` method."
+"In a non-Spring Boot application, which interface can be implemented to programmatically configure the `ServletContext`, replacing the need for a `web.xml`?",The `WebApplicationInitializer` interface.
+What is the name of the filter that delegates to a Spring-managed bean to apply the security chain?,The `DelegatingFilterProxy`.
+"In a non-Boot application using `WebApplicationInitializer`, what is the conventional bean name for the security filter chain?",The `springSecurityFilterChain`.
+Is the `WebApplicationInitializer` necessary for loading security configuration in a standard Spring Boot application?,"No, Spring Boot's auto-configuration handles it automatically."
+What annotation is used in a Java `@Configuration` class to import an XML-based configuration file?,"The `@ImportResource({""classpath:config.xml""})` annotation."
+"In Spring Security XML configuration, what is the main element used to configure web-based security?",The `<http>` element.
+"What is the XML equivalent of `.antMatchers(""/**"").authenticated()`?","The `<intercept-url pattern=""/**"" access=""isAuthenticated()""/>` element."
+"In XML configuration, which element is used to configure form-based login?",The `<form-login>` element.
+What attribute of the `<form-login>` element in XML specifies the custom login page?,The `login-page` attribute.
+"In Spring Security XML, what is the equivalent of `BCryptPasswordEncoder`?","A bean definition: `<beans:bean id=""encoder"" class=""org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"">`."
+What is the purpose of the `DelegatingFilterProxy` when configured in `web.xml`?,"It delegates filtering to a Spring-managed bean, the `FilterChainProxy`, which applies the security configuration."
+"In a standard HTML login form, what should the `name` attribute be for the username input field for Spring Security to recognize it by default?",The `name` attribute should be 'username'.
+"In a standard HTML login form, what should the `name` attribute be for the password input field?",The `name` attribute should be 'password'.
+What is a primary non-functional reason to override Spring Security's default URLs and behaviors?,"To hide that the application is secured with Spring Security, minimizing information available to potential attackers."
+"If a custom login page is not specified using `.loginPage()`, where will Spring Security generate a default login form?",At the `/login` URL.
+What was the default login processing URL in Spring Security versions before 4?,It was `/j_spring_security_check`.
+What is the default login processing URL in Spring Security 4 and later?,It is `/login`.
+"After a successful login, what is the default page a user is redirected to if not otherwise configured?",The user is redirected to the root of the web application.
+"In the `.defaultSuccessUrl(""/home"", true)` method, what does the `true` parameter signify?","It forces redirection to the specified URL, ignoring the page the user was trying to access before authentication."
+What is the default URL where Spring Security redirects a user after a login failure?,It is `/login?error`.
+The _____ class is used to build `UserDetails` objects with a fluent API in Spring Security.,`User`
+"When using `InMemoryUserDetailsManager`, the `.roles(""USER"")` method grants the user an authority of _____.",`ROLE_USER`
+"In `HttpSecurity` configuration, `.csrf().disable()` is used to _____.",disable Cross-Site Request Forgery protection.
+The `login-processing-url` attribute in the `<form-login>` XML tag corresponds to the _____ method in Java configuration.,`.loginProcessingUrl()`
+The `default-target-url` attribute in the `<form-login>` XML tag is equivalent to the _____ method in Java config.,`.defaultSuccessUrl()`
+The `authentication-failure-url` attribute in the `<form-login>` XML tag corresponds to the _____ method in Java configuration.,`.failureUrl()`
+"To delete the session cookie upon logout, the _____ method can be used in the `logout()` configuration.","`.deleteCookies(""JSESSIONID"")`"

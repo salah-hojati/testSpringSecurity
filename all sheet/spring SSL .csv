@@ -1,0 +1,28 @@
+What feature did Spring Boot 3.1 introduce to simplify the complexities of managing secure communications and trust materials?,SSL Bundles.
+"An SSL Bundle encapsulates all trust material and configuration settings, such as keystores and private keys, into a single, easily manageable _____.",unit
+Under what primary prefix do configuration properties for SSL Bundles reside in `application.yaml` or `application.properties`?,spring.ssl.bundle
+"To configure SSL Bundles that use Java Keystore (JKS) files, which configuration prefix is used?",spring.ssl.bundle.jks
+"To configure SSL Bundles using PEM-encoded text files, which configuration prefix is used?",spring.ssl.bundle.pem
+"What Java objects does Spring Boot automate the creation of based on SSL Bundle configurations, removing the need for manual management?","KeyStore, KeyManager, and SSLContext."
+"In the example of securing a `RestTemplate`, what method is called on the `RestTemplateBuilder` to apply a configured bundle?",setSslBundle()
+Which bean can be injected into a Spring component to get programmatic access to all configured SSL Bundles?,The `SslBundles` bean.
+"To retrieve a specific named bundle from the `SslBundles` bean, what method is used?","getBundle(""bundle-name"")"
+What three Java interfaces form the structured abstraction layer introduced in Spring Boot 3.1 for SSL configurations?,"SslStoreBundle, SslManagerBundle, and SslBundle."
+Which Spring Boot 3.1 interface offers a gateway to `KeyStore` objects containing cryptographic keys and trusted certificates?,SslStoreBundle
+Which Spring Boot 3.1 interface coordinates and provides methods to manage `KeyManager` and `TrustManager` objects?,SslManagerBundle
+"Which Spring Boot 3.1 interface serves as a one-stop shop, aggregating all SSL functionalities into a unified model?",SslBundle
+"To create a custom `SSLContext` from a retrieved `SslBundle` instance, what method should be called on the bundle?",createSslContext()
+"For many data services, what property activates SSL support, leveraging the trust material in the Java runtime's `cacerts`?",The `.ssl.enabled` property.
+"For data services, which property allows you to apply a named SSL bundle to customize the trust material?",The `.ssl.bundle` property.
+"To configure SSL for a MongoDB connection in Spring Boot using an SSL Bundle, what are the three required properties under `spring.data.mongodb`?","`ssl.enabled: true`, and `ssl.bundle: <bundle-name>`."
+"Traditionally, what prefix was used for setting individual SSL configurations for an embedded web server in Spring Boot?",`server.ssl.*`
+"When using an SSL Bundle to secure an embedded web server, which single property is used to apply the bundle configuration?","`server.ssl.bundle: ""<bundle-name>""`"
+What is a primary benefit of using SSL Bundles for embedded servers compared to the traditional `server.ssl.*` properties?,"Configurations are grouped, reusable, and less prone to mistakes."
+"Besides `server.ssl`, what are two other configurations mentioned that also support the `.bundle` property for SSL setup?",`management.server.ssl` and `spring.rsocket.server.ssl`.
+"Before Spring Boot 3.1 introduced SSL Bundles, developers often had to work directly with which classic Java class to store key material?",`java.security.KeyStore`
+The SSL Bundle approach is particularly beneficial for reducing _____ risks and increasing the efficiency of managing SSL across multiple services.,misconfiguration
+"A key advantage of SSL Bundles is that they lend themselves well to _____ management, allowing the same bundle to be reused across different parts of an application.",centralized
+"When configuring a JKS bundle in `application.yml`, which property under the keystore specifies the path to the keystore file?","`location` (e.g., `location: ""classpath:server.p12""`)"
+"When configuring a PEM bundle in `application.yml`, which property under the truststore specifies the path to the certificate file?","`certificate` (e.g., `certificate: ""classpath:client.crt""`)"
+"In a JKS bundle configuration, what property specifies the alias of the private key within the keystore?",The `key.alias` property.
+"The classic Java class `javax.net.ssl.SSLContext` acts as a factory for what two types of objects, orchestrating how SSL configurations are implemented at runtime?",`SSLEngine` and `SSLSocket` objects.

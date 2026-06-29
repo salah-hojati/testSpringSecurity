@@ -1,0 +1,59 @@
+"In Redis, what three types of values can be stored within a STRING?","Byte strings, integers, and floating-point values."
+What happens when the INCR command is called on a key that does not exist or contains an empty string?,Redis operates as though the key's value were zero.
+Which numeric precision limit applies to Redis integers on a 64-bit platform?,The range of a signed 64-bit integer.
+What format is used to store floating-point values in Redis?,IEEE 754 floating-point doubles.
+"Which command is used to fetch a substring from a Redis STRING, including start and end offsets?",GETRANGE
+"When using SETRANGE or SETBIT on a STRING that isn't long enough, how does Redis handle the gap?",It automatically extends the STRING with nulls before writing the new data.
+Which bitwise operation command can combine multiple Redis STRINGs and store the result in a destination key?,BITOP
+"In Redis LISTs, which side of the sequence is considered the 'beginning' for the LPUSH command?",The left end.
+What does the LTRIM command do to a Redis LIST?,"It trims the list to only include items within the specified start and end indices, inclusive."
+Which LIST command pops the rightmost item from a source and pushes it to the leftmost position of a destination?,RPOPLPUSH
+How do blocking LIST commands like BLPOP handle a request if all specified lists are empty?,They wait for the specified timeout in seconds for an item to be added.
+What is the primary characteristic that distinguishes a Redis SET from a Redis LIST?,"SET items are unique and unordered, whereas LIST items are ordered and allow duplicates."
+Which SET command returns the number of items currently in the set?,SCARD
+The _____ command moves a specific member from a source SET to a destination SET atomically.,SMOVE
+Which Redis SET operation returns only the items that exist in the first set but not in any of the subsequent sets?,SDIFF
+Redis HASHes are functionally similar to what structure in relational databases?,A row in a table.
+Which command allows a user to fetch all key-value pairs stored in a Redis HASH at once?,HGETALL
+What command is used to check if a specific field exists within a HASH?,HEXISTS
+"In a Sorted Set (ZSET), what is the relationship between members and scores?",Every member is mapped to a numeric score used for ordering.
+Which ZSET command returns the 0-indexed position of a member ordered from lowest to highest score?,ZRANK
+What is the function of the ZCOUNT command?,It returns the number of members with scores between a provided minimum and maximum.
+"In ZINTERSTORE, what is the default 'aggregate' behavior for scores of items present in multiple sets?",The scores are added together (SUM).
+"In Redis Pub/Sub, what happens to messages sent to a channel if a subscriber is disconnected at the time of transmission?",The subscriber will never see those messages.
+What is the purpose of the 'ALPHA' keyword when using the SORT command?,It sorts items alphabetically (as strings) rather than numerically.
+"Which command begins a Redis transaction, causing subsequent commands to be queued rather than executed immediately?",MULTI
+How does a Redis transaction differ from a relational database transaction regarding partial execution?,Redis executes every command in the transaction one after another without the ability to roll back individual commands if one fails.
+What is 'pipelining' in the context of a Redis client?,Sending multiple commands to the server at once and waiting for all replies to reduce network round trips.
+Which command is used to set a key to automatically delete after a specific number of seconds?,EXPIRE
+The _____ command returns the amount of time remaining before a key is set to expire.,TTL (Time To Live)
+What are the two primary methods of data persistence in Redis?,Snapshotting and Append-Only File (AOF).
+Which Redis command initiates a background snapshot of the data to disk?,BGSAVE
+What is a major risk when using only snapshotting for persistence?,Data written since the start of the last successful snapshot will be lost in the event of a crash.
+How does the 'appendfsync everysec' configuration balance performance and data safety?,"It syncs write commands to disk once per second, limiting potential data loss to at most one second of writes."
+What is the purpose of the BGREWRITEAOF command?,It creates a shorter AOF by removing redundant commands to prevent the log file from growing indefinitely.
+What does a Redis 'slave' do upon its initial connection to a 'master' server?,It discards all its own old data and loads a snapshot received from the master.
+"In a master/slave setup, which command is used to turn a slave back into a standalone master?",SLAVEOF no one
+What does the Redis tool 'redis-check-aof' do when the '--fix' argument is provided?,"It trims the AOF file to the last valid command, removing any trailing incomplete or corrupt data."
+What is 'optimistic locking' in Redis?,"A mechanism (WATCH) that notifies a client if a key has changed before the client executes a transaction, allowing the client to retry."
+How does a 'non-transactional pipeline' differ from a standard pipeline in the Python Redis client?,It reduces round trips by batching commands but does not wrap them in MULTI/EXEC for atomicity.
+Why is 'SETNX' a critical command for building distributed locks in Redis?,"It only sets a key if it does not exist, allowing a process to claim a lock only if no one else has."
+"In a robust Redis distributed lock, why should the lock value be a unique identifier (like a UUID)?","To ensure that a process only releases the lock it actually acquired, preventing it from accidentally releasing another's timed-out lock."
+What is a 'counting semaphore'?,A lock that limits the number of concurrent processes that can access a resource to a specific fixed number.
+Why is a basic ZSET-based semaphore considered 'unfair' across multiple hosts?,"It relies on system clocks, meaning a host with a faster clock can 'steal' a semaphore from a host with a slower clock."
+How does a 'fair semaphore' solve the problem of inconsistent system clocks?,"It uses an incrementing counter as the score for ownership, ensuring that the acquisition order is strictly based on who reached the counter first."
+"Which command is used to remove an expiration time from a key, making it permanent?",PERSIST
+"When a Redis master forks for a BGSAVE, how much memory is typically required for the operation?","It uses copy-on-write, so it initially shares memory but can require up to double the memory if many writes occur during the save."
+What is the 'client-output-buffer-limit' specifically relevant for in Redis?,Managing the buffer for Pub/Sub clients to prevent them from crashing Redis if they cannot keep up with message volume.
+Which Redis data structure is most efficient for implementing a 'recent contacts' autocomplete list of fixed size?,A LIST (using LPUSH and LTRIM).
+What is 'write amplification' in the context of SSDs and Redis persistence?,"The excessive wearing of an SSD caused by many small, frequent writes to disk (such as 'appendfsync always')."
+"In the process of IP-to-City lookup, why is the IP address converted to an integer?",To allow for efficient range queries using a ZSET's scores.
+"Which Redis command fetches the current status of the server, including memory usage and client counts?",INFO
+"When implementing a distributed lock with a timeout, what command ensures the lock is released only if it hasn't expired?",A WATCH/MULTI/EXEC sequence that checks if the lock's value matches the process's unique identifier.
+What is the primary benefit of 'master/slave chaining'?,It reduces the outgoing bandwidth load on the primary master by allowing slaves to replicate to other slaves.
+"In the Python Redis client, what does the `pipeline(False)` call return?",A non-transactional pipeline object.
+"When using Redis for logging, what is the benefit of using a ZSET for 'common' logs?",It allows messages to be ranked by frequency of occurrence (using ZINCRBY).
+What happens if a process attempts to acquire a semaphore and its rank is greater than or equal to the limit?,"The acquisition fails, and the process should remove its identifier from the ZSET."
+What is the purpose of 'service discovery' using Redis?,"Using a central Redis server to store connection details (IPs, ports) for all other services in an application."
+"Which Redis data structure allows for the intersection and union of unique, unordered items?",SETS
+Why is the character '{' (left curly brace) used when calculating prefix ranges for ZSET autocomplete?,"It is the character that follows 'z' in ASCII, serving as an effective upper bound for alphabetical strings."

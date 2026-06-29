@@ -1,0 +1,30 @@
+"What is the primary objective of Lab 9, Part 1 in the ""Oracle WebLogic 12c for Administrators"" series?",To secure access to the admin server using an administration port.
+"In the WebLogic lab, which pre-existing domain is used for experimentation?","The wl_server domain, which contains a single admin server."
+"When a WebLogic server is started without a specifically defined listen address, how does it behave?","It will bind to any available address on the machine, such as IPv4, IPv6, localhost, and the local IP address."
+Where in the WebLogic Admin Console do you navigate to configure server-specific settings like listen ports?,"Under Environment, go to Servers, and then click on the name of the server (e.g., admin server)."
+"To find the setting for the local administration port override on a server, you must first expand the _____ section on the server's configuration page.",Advanced
+What is the main reason for overriding the default administration port on a WebLogic server?,To avoid port binding conflicts when multiple WebLogic servers are running on the same machine.
+"In the lab example, what port number was chosen for the admin server's administration port?",9001.
+Does simply defining a port number for the administration port enable it?,"No, defining the port number is a separate step from enabling the administration port feature domain-wide."
+What is the critical prerequisite that must be configured on all WebLogic servers in a domain before you can enable the domain-wide admin port?,SSL must be configured on a server-by-server basis for all servers in the domain.
+What are the names of the default keystores provided in a WebLogic development domain?,Demo Identity and Demo Trust.
+Why should you never use the Demo Identity and Demo Trust keystores in a production environment?,"Because these demo certificates are included with every WebLogic product installation, making them universally known and insecure."
+Where are the SSL settings for a specific WebLogic server configured in the Admin Console?,"On the server's configuration page, under the SSL tab."
+What is the purpose of the Hostname Verification feature in WebLogic SSL configuration?,"It checks whether the identity (e.g., common name) in a certificate matches the hostname of the server presenting it."
+"In WebLogic's SSL settings, the BEA hostname verifier is a remnant from when the product was owned by which company?","BEA Systems, which was acquired by Oracle."
+"In the context of SSL, what happens during a one-way SSL connection?","The server presents the client with a certificate, and it is the client's responsibility to validate that certificate."
+What distinguishes a two-way SSL connection from a one-way SSL connection?,"In two-way SSL, both the server and the client exchange and verify each other's certificates."
+"If the 'Two-way Client Cert Behavior' in WebLogic SSL settings is set to 'Client certs not requested', what type of SSL connection is established?",A one-way SSL connection.
+What is the behavior when WebLogic's 'Two-way Client Cert Behavior' is set to 'Client certs requested but not enforced'?,It supports both one-way and two-way SSL; it will attempt a two-way handshake if the client provides a certificate but will fall back to one-way if not.
+Which 'Two-way Client Cert Behavior' setting mandates that clients must present a valid certificate for the connection to succeed?,Client certs requested and enforced.
+How do you access domain-wide configuration settings in the WebLogic Admin Console?,By clicking on the name of the domain in the 'Domain Structure' panel.
+On which tab of the domain configuration page do you find the option to enable the administration port?,The 'Configuration' tab.
+What is the default port number for the domain-wide administration port in WebLogic?,9002.
+"After enabling the administration port, what new messages related to security appear in the server's terminal output upon startup?",Messages indicating that the server has loaded the Demo Identity and Demo Trust keystores.
+"After enabling the administration port, a new network channel is created. What is this channel called?",The default administration network channel.
+"The new default administration network channel listens on the same listen addresses as the default channel, but on a different ____.","port number (the one specified for administration, e.g., 9001)."
+What type of traffic is exclusively handled by the default administration network channel once it's enabled?,Any and all administration tasks.
+"What error message appears if you try to perform an admin task through the Admin Console on the old, non-admin port (e.g., 7001) after the admin port is enabled?",An error stating that admin traffic can only be made through an administration channel.
+"After enabling the WebLogic administration port, which protocol must you use to connect to the Admin Console?","HTTPS, because the administration port requires SSL."
+What is the correct URL format to access the WebLogic Admin Console via an administration port configured on port 9001?,https://[hostname]:9001/console
+Why does a web browser typically show a security warning when connecting to the WebLogic Admin Console over SSL using the demo certificates?,Because the demo certificates are self-signed and not issued by a trusted Certificate Authority (CA) that the browser recognizes.

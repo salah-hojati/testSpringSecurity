@@ -1,0 +1,60 @@
+What is jQuery?,"jQuery is an open-source, fast, tiny, and feature-rich JavaScript library designed to simplify interaction with HTML documents, including DOM traversal and manipulation, event handling, and animations."
+What problem did John Resig aim to solve when he created jQuery in 2006?,He aimed to overcome the complexity and frustration of cross-browser JavaScript compatibility issues.
+What are the two primary ways to include jQuery in an HTML file?,"You can either download the jQuery file and host it locally, or you can use a Content Delivery Network (CDN) link."
+What is a major requirement for using a CDN to include jQuery?,An active internet connection is required for the browser to fetch the library from the CDN's servers.
+Why is it recommended to place the `<script>` tag for jQuery at the bottom of the `<body>` tag?,"This practice ensures the HTML document is rendered first, so jQuery has access to all the DOM elements when it loads."
+"In jQuery, the `$` sign is primarily used as a _____.",selector
+What is the jQuery syntax to select an HTML element with the ID 'img1'?,$('#img1')
+Which jQuery method can be used to both fade in and fade out an element with a single function call?,The `.fadeToggle()` method.
+What does the `$(document).ready(function(){...});` event ensure?,It ensures that the jQuery code inside the function only runs after the entire HTML document's DOM is fully loaded and ready.
+How do you select all `<p>` (paragraph) elements on a page using jQuery?,$('p')
+What is the jQuery equivalent of the JavaScript `ondblclick` event?,The `.dblclick()` event method.
+The jQuery `.mouseenter()` event is equivalent to which native JavaScript event?,The `onmouseover` event.
+The jQuery `.mouseleave()` event is equivalent to which native JavaScript event?,The `onmouseout` event.
+Which two jQuery methods are used to respectively hide and display an element?,The `.hide()` and `.show()` methods.
+The _____ method in jQuery combines the functionality of `.hide()` and `.show()` into one.,.toggle()
+"How can you specify the duration of a jQuery effect, such as making a fade-out take 3 seconds?","Pass the duration in milliseconds as an argument to the effect method, for example: `.fadeOut(3000)`."
+Which jQuery method is used to create custom animations by manipulating CSS properties?,The `.animate()` method.
+What is the purpose of the `.stop()` method in jQuery animations?,It stops the currently running animation on the selected element.
+A _____ function in jQuery is a function that is executed after the current effect is finished.,callback
+What is 'chaining' in jQuery?,"Chaining is the practice of running multiple jQuery methods, one after the other, on the same selection within a single statement."
+What is the key difference in execution timing between a callback function and a chained method in jQuery?,"A callback function waits for the preceding effect to complete, while a chained method executes immediately."
+"Which jQuery method is used to get the text content of an element, excluding any HTML tags?",The `.text()` method.
+"Which jQuery method is used to get the inner content of an element, including any HTML tags?",The `.html()` method.
+"How can you get or set the value of an HTML attribute, like `src` or `href`, using jQuery?","Using the `.attr()` method, e.g., `$('img').attr('src')` to get or `$('img').attr('src', 'new.jpg')` to set."
+The _____ method in jQuery inserts content at the end of the selected element(s).,.append()
+The _____ method in jQuery inserts content at the beginning of the selected element(s).,.prepend()
+What is the difference between the `.append()` and `.after()` methods in jQuery?,"`.append()` inserts content inside the selected element at the end, while `.after()` inserts content outside the selected element, immediately following it."
+Which jQuery method removes the selected element(s) and all of its child elements from the DOM?,The `.remove()` method.
+What is the difference between jQuery's `.remove()` and `.empty()` methods?,"`.remove()` deletes the element itself, while `.empty()` only removes the child elements, leaving the original element in the DOM."
+What is jQuery UI?,"jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library."
+What is the correct order for including jQuery and jQuery UI script files in an HTML document?,The core jQuery library file must be included before the jQuery UI library file.
+What is a 'widget' in the context of jQuery UI?,"A widget is a component of an interface, like a date picker or an accordion, that enables a user to perform a function or access a service with minimal code."
+Which jQuery UI widget is used to display a calendar for date selection in a form field?,The Datepicker widget.
+"In the jQuery UI Datepicker widget, what does the `showOtherMonths: true` option do?",It displays the dates from the previous and next months in the calendar grid.
+Which jQuery UI widget displays a customizable message that appears when the cursor is positioned over an element?,The Tooltip widget.
+"In the jQuery UI Tooltip, how can you make the tooltip follow the mouse cursor?",By setting the `track` property to `true`.
+"Which jQuery UI widget is used to create a set of vertically stacked, collapsible panels?",The Accordion widget.
+"In the jQuery UI Accordion widget, setting the `collapsible` option to `true` allows the user to do what?",It allows the user to close the currently open panel by clicking on its header again.
+The _____ widget in jQuery UI creates a floating window that can contain any content.,Dialog
+What is the effect of setting the `modal` property to `true` on a jQuery UI Dialog widget?,"It disables all other page content, requiring the user to interact with the dialog before continuing."
+Which jQuery UI widget provides suggestions to a user while they type into an input field?,The Autocomplete widget.
+"In the jQuery UI Autocomplete widget, what is the purpose of the `source` option?",The `source` option defines the data (usually an array of strings) that the widget will use to provide suggestions.
+What does the `minLength` option in the jQuery UI Autocomplete widget control?,It controls the minimum number of characters a user must type before the autocomplete suggestions appear.
+What are 'interactions' in jQuery UI?,"Interactions are behaviors, such as dragging or resizing, that can be added to any DOM element using the mouse."
+Which jQuery UI interaction is used to make a DOM element movable with the mouse?,The `.draggable()` interaction.
+"In the `.draggable()` interaction, how can you constrain movement to only the horizontal axis?",By passing the option `{ axis: 'x' }` to the method.
+Which jQuery UI interaction allows the user to change the height and width of an element by dragging its edges or corner?,The `.resizable()` interaction.
+The _____ interaction in jQuery UI allows elements in a list or grid to be reordered by dragging and dropping.,.sortable()
+What is the purpose of the ThemeRoller tool provided by the jQuery UI website?,"ThemeRoller allows you to design and download custom jQuery UI themes to change the visual appearance (colors, fonts, etc.) of widgets and interactions."
+How do you apply a downloaded jQuery UI theme to your project?,You replace the default jQuery UI CSS files in your project with the new CSS files from the downloaded theme folder.
+How do you select all elements that have the class 'box' using jQuery?,$('.box')
+What is the jQuery selector for the first `<p>` element in the entire document?,$('p:first')
+How can you select all paragraph elements that are direct children of a `<div>` element?,$('div > p')
+What is an anonymous function in the context of jQuery events?,"It is an unnamed function defined directly inside an event handler, such as `$('#btn').click(function() { ... });`."
+"In the `.animate()` method, how are the CSS properties to be animated specified?","They are specified as an object of key-value pairs, where keys are the CSS properties and values are the target values."
+Which method would you use to change the background color of a `div` with the ID 'container' to blue?,"$('#container').css('background-color', 'blue');"
+What is the purpose of the `autoOpen: false` property in a jQuery UI Dialog widget?,"It prevents the dialog from appearing automatically when the page loads, allowing it to be opened later with a command like `.dialog('open')`."
+"In the `.sortable()` interaction, what does the `containment: 'parent'` option do?",It restricts the dragging of sortable items to within the boundaries of their direct parent element.
+How can you make a `.resizable()` element maintain its original aspect ratio while being resized?,By setting the `aspectRatio` option to `true`.
+The jQuery _____ event represents the `onmouseover` event and the _____ event represents the `onmouseout` event.,".mouseenter(), .mouseleave()"

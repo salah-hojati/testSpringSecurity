@@ -1,0 +1,81 @@
+"What is the primary architectural difference between proprietary operating systems like Windows and open-source systems like Linux, according to the source?","Proprietary systems are often a 'black box,' unknowable and unfixable by the user, while Linux is open, allowing users to understand and modify it."
+"According to the Unix philosophy as stated by Doug McIlroy, what are the three core principles for writing programs?","Write programs that do one thing well, write programs to work together, and write programs to handle text streams as a universal interface."
+"In the context of the Linux Philosophy for SysAdmins, what is the 'Everything is a file' tenet?","It's the principle that nearly all interfaces to the system, including hardware devices, are represented as files in the directory tree."
+The Linux Philosophy tenet 'Automate Everything' suggests using tools to automate mundane tasks for what primary benefit?,To allow humans (SysAdmins) to concentrate on tasks that computers cannot yet perform and to work more efficiently.
+What is the fundamental role of an operating system's kernel?,"The kernel is the core program that manages the computer's hardware, memory allocation, and provides system services for applications."
+What was the name of the multitasking operating system project that preceded UNIX and influenced its development?,Multics (Multiplexed Information and Computing System).
+Who is credited with creating the Linux kernel in 1991?,Linus Torvalds.
+"What collection of essential system utilities, developed by Richard M. Stallman's project, is paired with the Linux kernel to form a complete OS?",The GNU core utilities.
+"What type of software license, such as the GNU GPL2, is referred to as a 'copyleft'?",A license that allows distribution and sale of software but requires that the complete source code also be made available without restriction.
+What is the primary function of the `root` user account on a Linux system?,The `root` account is the system administrator with unlimited privileges to perform any task on the system.
+"Which command-line utility is used to install, update, and manage software packages on Fedora Linux, handling dependencies automatically?",The `dnf` (Dandified YUM) command.
+"What is the purpose of the Xfce desktop environment, as chosen for the course?","It is a lightweight, fast desktop that conserves memory and CPU, making it ideal for virtual machines and older hardware."
+"The default shell for most Linux distributions, which acts as a command-line interpreter, is called _____.",bash (Bourne Again Shell).
+What is the difference between a virtual console and a terminal emulator in Linux?,"A virtual console provides a full-screen, text-mode login session, while a terminal emulator is a graphical application that provides a command-line window on the desktop."
+What does PWD stand for in the context of the Linux command line?,Present Working Directory.
+What is the difference between an absolute path and a relative path in the Linux filesystem?,"An absolute path starts from the root directory (/), while a relative path starts from the present working directory."
+"In a command pipeline, what is the function of the pipe character (`|`)?",It redirects the standard output (STDOUT) of one command to the standard input (STDIN) of the next command.
+The `dd` command is used for low-level copying of data; what does `if=/dev/urandom` specify?,"It specifies the input file (`if`) as `/dev/urandom`, a special file that provides a stream of random data."
+Why do SysAdmins need text editors like `vim` or `nano` instead of word processors like LibreOffice Writer?,"Text editors create plain ASCII text files without hidden formatting characters, which is required for configuration files and scripts."
+What is the primary danger of running commands as the `root` user?,"A mistake made as `root` can cause catastrophic harm to the system, as there are very few restrictions on the `root` user's power."
+What is the purpose of the `sudo` command?,"It allows a permitted user to execute a command as the superuser or another user, as specified in the `/etc/sudoers` file."
+"What problem, common in early Linux distributions, does a modern package manager like `dnf` solve?","Dependency hell, which is the complex and frustrating process of manually resolving all software packages required by another package."
+What is the first step in the five-step problem-solving process described in the text?,"Knowledge, which is having a foundational understanding of the system you are trying to fix."
+"In the output of the `top` command, what do the 'load average' numbers represent?","They represent the average number of processes in the run queue (running or waiting for CPU) over the last 1, 5, and 15 minutes."
+What is the difference between the `SIGTERM` (15) and `SIGKILL` (9) signals used to terminate processes?,"SIGTERM is a polite request for a process to terminate, allowing it to clean up, while SIGKILL is a forceful, immediate termination that cannot be ignored."
+What is the purpose of the `/proc` filesystem in Linux?,"It is a virtual filesystem that provides a real-time view into the kernel's data structures, allowing tools to monitor the system's status."
+The `sar` (System Activity Reporter) command is useful for problem solving because it does what?,"It collects and reports historical system performance data, allowing analysis of trends over time."
+"When the shell searches for a command to execute, it looks in a series of directories defined by which environment variable?",The `$PATH` environment variable.
+What is the difference between a bash internal command and an external command?,"An internal command is built directly into the shell itself, while an external command is a separate executable file located in the filesystem."
+What is the function of file 'globbing' in the bash shell?,It is the use of special pattern characters (like `*` and `?`) to match multiple file names.
+What is the primary function of the `grep` command?,It searches for lines in a text stream or file that match a specified pattern.
+The `find` command is a powerful utility used to _____.,"locate files within a directory hierarchy based on a wide range of criteria like name, size, type, or modification time."
+What are the three distinct parts of the complete process that takes a Linux host from off to a running state?,"Hardware boot, Linux boot (kernel loading), and Linux startup (service initialization)."
+What is the role of GRUB (GRand Unified Bootloader) in the Linux boot process?,GRUB is the bootloader that loads the selected Linux kernel and the initial RAM disk (initramfs) into memory.
+"In modern Linux systems using `systemd`, what is the equivalent of the old SystemV 'runlevels'?","Targets, such as `graphical.target` or `multi-user.target`."
+What is the function of a 'display manager' like LightDM?,It provides the graphical login screen and starts the user's chosen desktop environment or window manager after authentication.
+What is the purpose of booting into 'rescue mode' or 'single-user mode'?,It provides a minimal system environment with a root shell to perform maintenance or fix problems that prevent a normal boot.
+"Which file is executed for interactive, non-login shells to set user-specific configurations like aliases and functions?",`~/.bashrc`.
+What is a shell 'alias'?,A user-defined shortcut that replaces a short command string with a longer command and its options.
+"In the EXT4 filesystem, what is the function of an 'inode'?","The inode stores all metadata about a file, such as permissions, ownership, timestamps, and pointers to the file's data blocks."
+What is the key difference between a hard link and a symbolic (soft) link?,"A hard link is a direct pointer to an inode and cannot cross filesystems, while a symbolic link is a pointer to a file's name and can cross filesystems."
+What is the purpose of the Filesystem Hierarchy Standard (FHS)?,It defines a standard set of directories and their contents to ensure consistency across different Linux distributions.
+"In the FHS, which directory is designated for system-wide configuration files?",The `/etc` directory.
+What is the primary advantage of a journaling filesystem like EXT4?,It drastically reduces the time needed for filesystem recovery (fsck) after a crash by keeping a log of changes before they are committed.
+"Which command is used to create a new filesystem on a partition, such as `mkfs -t ext4`?",The `mkfs` (make filesystem) command.
+The command-line utility for creating and manipulating partition tables on a storage device is _____.,`fdisk`.
+What is the function of the `fsck` command?,It is used to check and repair inconsistencies in a Linux filesystem.
+The central hardware unit that performs computations in a computer is known as the _____.,CPU (Central Processing Unit).
+What type of volatile memory is used to store data and programs while they are being actively used by the computer?,RAM (Random-Access Memory).
+The `dmesg` command displays messages generated by the _____ during the boot process.,Linux kernel.
+How can you view the current list of logged-in users and what they are doing?,By using the `w` or `who` commands.
+What does the command `chmod 755 filename` do?,"It changes the file's permissions to read, write, and execute for the owner, and read and execute for the group and others (rwxr-xr-x)."
+"To download a file from the internet via the command line, you can use the _____ utility.",`wget`.
+Which command is used to display real-time I/O usage by processes?,`iotop`.
+"In `bash`, what is the function of the `&&` control operator?","It acts as a logical AND, executing the second command only if the first command succeeds (returns an exit code of 0)."
+The `systemctl` command is the central management tool for controlling the _____ init system.,`systemd`.
+What is the purpose of the `initramfs` (initial RAM filesystem) during the Linux boot process?,It is a temporary root filesystem loaded into memory that contains the modules needed to mount the actual root filesystem.
+"In the bash shell, what does the `export` command do?",It makes a shell variable available to any subsequently executed commands or sub-shells as an environment variable.
+What is the purpose of the `/boot` directory in the Linux filesystem?,"It contains the static files needed to boot the system, including the bootloader configuration, Linux kernel, and initramfs image."
+The command `tail -n +3` is used to output a data stream starting from which line?,It outputs the data stream starting from the third line.
+"To see a calendar for the entire year of 1949, what command would you use?",`cal 1949`.
+What is the purpose of the `screen` utility?,It is a terminal multiplexer that allows a user to manage multiple terminal sessions from a single window and to detach/reattach sessions.
+What is the function of the `su -` command?,"It switches the current user to the `root` user and loads `root`'s full login environment, including path and profile settings."
+"What is S.M.A.R.T. (Self-Monitoring, Analysis, and Reporting Technology) used for?",It is a monitoring system included in storage devices that detects and reports on various indicators of drive reliability to anticipate failures.
+"What does 'brace expansion' in bash, such as `echo file{1..3}.txt`, accomplish?","It generates arbitrary strings, in this case expanding to `file1.txt file2.txt file3.txt`."
+What is the function of a 'window manager' in a graphical Linux environment?,It is a system software that controls the placement and appearance of windows within a graphical user interface.
+"When a command is not an internal shell command, bash searches a list of _____ and shell functions.",aliases.
+"In the FHS, what is the designated purpose of the `/home` directory?","It is used for user home directories, containing personal files and configurations."
+What is the primary function of the journal in the EXT3/EXT4 filesystem?,"To record changes that are about to be made to the filesystem, which allows for fast recovery after a system crash."
+The `||` control operator in bash executes the second command only if the first command _____.,fails (returns a non-zero exit code).
+"What command allows you to view memory usage, including physical RAM and swap space?",The `free` command.
+The command to change the permissions of a file is _____.,`chmod`.
+"In the output of `ls -l`, what does the third column represent?",The owner of the file or directory.
+What is the purpose of the `/var` directory?,"It contains variable data files, such as logs, mail spools, and temporary files from running services."
+How can you regenerate the GRUB configuration file after editing `/etc/default/grub`?,By running the `grub2-mkconfig -o /boot/grub2/grub.cfg` command.
+A pointer to a file's name that can cross filesystem boundaries is known as a _____.,symbolic link (or soft link).
+"Which command displays the contents of a file one screen at a time, allowing for forward and backward navigation?",The `less` command.
+The first 512-byte sector on a hard drive that contains the initial bootstrap code and the partition table is known as the _____.,Master Boot Record (MBR).
+The `lscpu` command is used to display information about what hardware component?,The CPU (Central Processing Unit) architecture.
+What is the purpose of a 'pseudo-terminal' (pts)?,It is a device file pair that provides a communication channel for a terminal emulator to interface with the operating system.
+What is the purpose of the `/dev` directory in the Linux filesystem?,It contains special device files that represent the hardware devices attached to the system.

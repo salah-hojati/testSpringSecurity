@@ -1,0 +1,79 @@
+What HTTP method allows a web server to send data incrementally in a streaming API?,Chunked transfer encoding.
+"In a social network streaming API, what Redis feature is typically used to implement message filtering and distribution?",PUBLISH and SUBSCRIBE (Pub/Sub).
+Why is the Python 'cgi.FieldStorage' used in the streaming server's 'process_filters' function?,To parse POST requests containing filter arguments like keywords or locations.
+What is the primary benefit of sending the entire status message to a channel during deletion in a streaming API?,It allows clients to perform the same filtering on deletions as they did on posts without the server needing to track status IDs for every client.
+"When using Redis Pub/Sub for a high-traffic stream, what configuration setting prevents the server from being overwhelmed by outgoing buffers?",client-output-buffer-limit pubsub.
+How does the 'SampleFilter' in the text ensure that the same client consistently receives the same subset of messages upon reconnection?,It seeds a random number generator with the user-provided identifier to choose message IDs.
+What is the lookup time complexity for a Python set compared to a Python list?,"A set offers $O(1)$ lookup time, while a list offers $O(n)$."
+How does the 'TrackFilter' handle multi-word phrase matching using Python sets?,It checks if the intersection of the message words and the tracked group words is equal to the length of the group.
+"The compact, unstructured representation used by Redis to store short LISTs, HASHes, and ZSETs is called a _____.",ziplist
+"In a standard doubly linked list on a 32-bit platform, what is the estimated overhead to store a 3-character string?",Approximately 21 bytes.
+What information does a 'ziplist' entry store for each element to allow scanning in both directions?,"The size of the previous entry, the size of the current entry, and the string data."
+What configuration setting determines the maximum number of items allowed in a LIST for it to remain encoded as a ziplist?,list-max-ziplist-entries
+What happens to a ziplist-encoded HASH if an individual entry exceeds the 'hash-max-ziplist-value' setting?,It is converted into a standard hash table structure.
+"Once a ziplist is converted to a regular structure (like a linked list), does Redis automatically re-encode it back if it becomes small again?","No, it remains in the non-ziplist structure."
+What is the compact representation used for SETs that contain only base-10 integers?,intset
+What is the primary performance drawback of very long ziplist-encoded structures?,Operations require decoding the entire ziplist and may involve significant memory copying.
+At what entry count did the benchmark show ziplists effectively becoming unusable for performance?,"100,000 entries."
+What technique partitions data into smaller pieces based on rules to scale storage and processing loads?,Sharding
+Why is sharding ZSETs considered difficult for operations like 'ZRANGE' or 'ZRANK'?,These commands require operating on all shards simultaneously to calculate the final result.
+"When sharding non-numeric keys, what function is commonly used to produce an integer for shard calculation?",CRC32 checksum.
+What is the process of moving data from old shards to new shards after changing the shard count called?,Resharding
+How many bits of a session UUID are stored in the unique visitor counter example to save memory?,56 bits.
+"According to the 'birthday collision' math, what is the probability of a match if 25 million unique visitors are tracked using 56-bit identifiers?","Negligible (the site would need to run for ~2,739 years to miss one person)."
+What Redis command allows setting a specific substring within an existing STRING value?,SETRANGE
+What is the maximum size allowed for a single Redis STRING?,512 megabytes.
+"Why is 'zunionstore' used with an 'aggregate=""max""' setting in the sharded location example?",To maintain a record of the highest user ID seen across all shards.
+What is the primary method for increasing the total read throughput of a Redis deployment?,Adding read-only slave servers.
+"By default, what is the server response if a client attempts to write to a Redis slave?",The server replies with an error.
+What is a major risk when multiple Redis slaves connect to a master simultaneously?,The master may consume all network bandwidth sending multiple copies of the same snapshot.
+What tool provides automated failover from a Redis master to one of its slaves?,Redis Sentinel
+What is 'presharding'?,Running a large number of shards initially (perhaps on one machine) to allow for easier migration to multiple machines later.
+What Redis setting must be changed to 'no' to allow search query results to be cached on a slave in Redis 2.6+?,slave-read-only
+How must search indexes be sharded to support complex queries like 'SINTER' or 'ZINTER'?,All data for a single document must be stored on the same shard.
+"In the sharded social network, how are 'follower' ZSETs sharded to ensure both sides of a relationship are on the same shard?","The shard key is calculated using a pair of user IDs, always ordered from lower to higher."
+What Redis command is used to load a Lua script and return its SHA1 hash?,SCRIPT LOAD
+What command executes a previously loaded Lua script using its SHA1 hash?,EVALSHA
+"In Lua scripting, what is the purpose of the 'KEYS' argument versus the 'ARGV' argument?","KEYS specifies the keys the script will access (for cluster compatibility), while ARGV contains supplementary data."
+How is the Lua boolean 'true' represented when returned to Python?,As the integer 1.
+Why can Lua scripts be considered atomic in Redis?,"Redis executes each script as a single command, preventing other commands from running until it finished."
+What command can stop a Lua script that has entered an infinite loop but has NOT yet performed a write?,SCRIPT KILL
+"If a Lua script hangs after performing a write operation, what is the only way to recover the Redis server?",Executing 'SHUTDOWN NOSAVE' to kill the process without persisting corrupt/incomplete state.
+What is the index base for tables in the Lua programming language?,Lua tables are 1-indexed.
+How does the Lua implementation of 'release_lock' ensure the correct client is deleting the lock?,It checks if the current value of the lock key matches the provided identifier before calling 'DEL'.
+How did the use of Lua impact the number of successful 'acquires' in a high-contention lock benchmark?,It more than doubled the number of successful acquires under heavy client load (5-10 clients).
+Why does a Lua-based counting semaphore remove the need for a separate 'owner' ZSET?,"The script handles cleanup and checking in one atomic step, making the first client to execute the one that gets the spot."
+What is the primary reason for the 20x performance increase in the Lua autocomplete example compared to 'WATCH/MULTI/EXEC'?,Reduction in network round trips and elimination of 'WatchError' retries.
+"In the Lua marketplace example, why is 'tonumber()' used on results from 'redis.call'?","Redis returns values as strings, and they must be converted to numbers for comparison in Lua."
+How are sharded LIST shards named in the text's implementation?,<listname>:<shardid>
+What keys track the boundaries of a sharded LIST?,<listname>:first and <listname>:last.
+Why does the sharded LIST implementation in Lua limit pushes to 64 items at a time?,To prevent exceeding the 'list-max-ziplist-entries' limit and to allow for intermediate processing like blocking pops.
+Why do blocking pop operations (like BLPOP) within a 'MULTI/EXEC' block execute as non-blocking?,To prevent the entire Redis server from blocking indefinitely since no other commands can run inside the transaction.
+How does the sharded 'blpop' implementation handle the risk of blocking on the wrong shard?,It uses a Lua script to verify the shard ID and inserts a 'dummy' value if the client is at the wrong end.
+What is a 'ziplist'?,"A compact, serialized representation of a structure used to reduce memory overhead from pointers and metadata."
+Formula: Overhead reduction using 'ziplist',Overhead can drop from ~21 bytes per entry in a linked list to ~2 bytes in a ziplist.
+"What defines the 'value' setting in ziplist configuration (e.g., 'list-max-ziplist-value 64')?",The maximum size in bytes an individual entry can be to stay in the ziplist encoding.
+"If a SET contains the string 'abc', can it be stored as an 'intset'?","No, 'intset' is strictly for base-10 integers."
+Concept: Pre-sharding,Starting with many Redis instances/shards on one machine to simplify future horizontal scaling to multiple machines.
+What does 'EVALSHA' return if the script has not been loaded into the server's cache?,A 'NOSCRIPT' error.
+What is the effect of returning 'nil' from a Lua script to a Python client?,It is translated to the Python value 'None'.
+What Redis command is used to remove all scripts from the script cache?,SCRIPT FLUSH
+Which Lua command executes a Redis command and raises a Lua error if the Redis command fails?,redis.call()
+How does sharding across multiple Redis masters affect write throughput?,It increases write throughput by distributing the write load across multiple CPU cores and disks.
+What is the 'lua-time-limit' setting used for in Redis?,It defines how long a script can run before Redis starts allowing 'SCRIPT KILL' and responding with errors to other clients.
+Why is 'unpack(ARGV)' used in the 'create_status_lua' script?,To pass the variable-length list of field-value pairs to the 'HMSET' command.
+"In the context of scaling search, what is the 'merge' step?",Combining and re-sorting results fetched from multiple independent index shards.
+How does 'sharded_zrangebyscore' handle pagination across shards efficiently?,It fetches the top 'num' items from every shard using the score as a starting point and then merges them.
+Which Redis data structure is most appropriate for storing a live updated count of unique website visitors with minimum memory?,Sharded SETs (leveraging intsets) or bitmaps.
+"What is the purpose of 'divmod(user_id, USERS_PER_SHARD)' in sharded string storage?",To calculate both the 'shard_id' (quotient) and the 'position' (remainder) within that shard.
+How does the streaming API 'parse_identifier' function handle query arguments?,It uses 'urlparse.parse_qs' to extract and store the client's unique identifier from the request path.
+"In a threaded server, why is 'daemon_threads = True' set for the 'StreamingAPIServer'?",To ensure that all client request threads are shut down if the main server thread terminates.
+What is the role of 'handler.wfile.write' in the chunked transfer encoding implementation?,"It sends the length of the data chunk in hexadecimal, followed by the data itself and line terminators."
+Process: Identifying a client in the streaming API,Extract the 'identifier' from the query string and store it on the request handler object.
+Why use 'Decimal' when merging sharded numeric search results in Python?,"It provides consistent handling of integers, floats, and infinity for accurate sorting."
+How does 'FollowFilter' represent usernames to ensure consistent matching?,It prefixes every name with an '@' symbol and converts it to lowercase.
+What is the geographic data format for the 'LocationFilter' based on the Twitter API?,"A sequence of four numbers: minimum longitude, minimum latitude, maximum longitude, maximum latitude."
+"In the social network, what does 'syndicate_status' do?",It pushes a new status message to the home timelines of all users following the poster.
+What is the complexity of 'ZREMRANGEBYRANK' used to trim timelines?,"$O(\log(N) + M)$, where $N$ is the number of elements and $M$ is the number of elements removed."
+Why is 'force_eval=True' used inside the pipelined portion of a sharded blocking pop?,To avoid a potential 'NOSCRIPT' error which would break the pipeline's execution flow.
+What is the primary reason to use SSH tunnels with Redis replication?,To provide both encryption for data in transit and compression to reduce bandwidth usage.

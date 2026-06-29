@@ -1,0 +1,36 @@
+"In a Spring Boot application, which starter dependency automatically includes all necessary dependencies for Spring Security?",The `spring-boot-starter-security` starter.
+"For a non-Spring Boot application, which two core Spring Security dependencies are required for form login?",`spring-security-web` and `spring-security-config`.
+Which annotation is added to a configuration class to enable Spring Security's web security support and provide MVC integration?,`@EnableWebSecurity`
+What type of bean is typically created in a Spring Security configuration class to define the security filter chain?,A `SecurityFilterChain` bean.
+What is `InMemoryUserDetailsManager` primarily used for in Spring Security?,"It provides a simple, in-memory implementation for user details, useful for rapid prototyping."
+"Starting with Spring Security 5, what must be defined when configuring users and their passwords?",A `PasswordEncoder` bean.
+What is `BCryptPasswordEncoder`?,A widely used implementation of the `PasswordEncoder` interface that uses the BCrypt strong hashing function.
+"In `HttpSecurity` configuration, which method is used to configure authorization rules for specific URL patterns?",The `.authorizeRequests()` method.
+How would you restrict access to all URLs under `/admin/` to only users with the 'ADMIN' role using `antMatchers`?,"By using `.antMatchers(""/admin/**"").hasRole(""ADMIN"")`."
+Which `antMatchers` method allows access to a URL pattern for unauthenticated users only?,The `.anonymous()` method.
+"Which `antMatchers` method grants access to a URL pattern to all users, whether they are authenticated or not?",The `.permitAll()` method.
+How do you ensure that any request not previously matched by an `antMatcher` requires authentication?,By using `.anyRequest().authenticated()`.
+What is the crucial rule regarding the order of `antMatchers()` elements in an `HttpSecurity` configuration?,"The more specific rules must come first, followed by the more general ones."
+"In `HttpSecurity`, which method is used to begin the configuration of form-based authentication?",The `.formLogin()` method.
+The _____ method in a form login configuration specifies the URL of the custom login page.,`loginPage()`
+What is the purpose of the `loginProcessingUrl()` method in Spring Security's form login configuration?,It specifies the URL to which the username and password are submitted for authentication.
+The `defaultSuccessUrl()` method in a form login configuration defines the _____.,landing page after a successful login
+How do you specify the page to redirect to after an unsuccessful login attempt?,Using the `failureUrl()` method.
+Which method is used to configure a custom URL for logging out?,The `logoutUrl()` method.
+"In the logout configuration, what is the purpose of `.deleteCookies(""JSESSIONID"")`?","It instructs Spring Security to delete the JSESSIONID cookie upon successful logout, invalidating the session."
+"For a non-Spring Boot application, which class is typically implemented to attach the Spring Security configuration to the web application without a `web.xml`?",`WebApplicationInitializer`
+"In a legacy `web.xml` configuration, which filter is used to delegate to the Spring-managed security filter chain?",`org.springframework.web.filter.DelegatingFilterProxy`
+"If you don't specify a custom login page with `.loginPage()`, what does Spring Security do?",It generates a basic login form at the `/login` URL.
+What is the default URL where Spring Security expects a login form to POST to for authentication?,`/login` (previously `/j_spring_security_check` before Spring Security 4).
+What is a primary security reason for overriding default URLs like `/login` and `/perform_login`?,"To hide the fact that the application is secured with Spring Security, minimizing information available to potential attackers."
+"After a successful login, where does Spring Security redirect the user by default if `defaultSuccessUrl()` is not configured?",To the root of the web application.
+"In the `defaultSuccessUrl()` configuration, what happens if the second boolean parameter is set to `false`?",The user will be redirected to the page they were trying to access before being prompted to authenticate.
+What is the default URL where Spring Security redirects users after a failed login attempt?,`/login?error`
+"In a standard HTML login form for Spring Security, what `name` attribute should the username input field have?",`username`
+"In a standard HTML login form for Spring Security, what `name` attribute should the password input field have?",`password`
+What is the purpose of the `action` attribute in the `<form>` tag of a login page for Spring Security?,It should match the URL configured in `loginProcessingUrl()` (or the default `/login`).
+"In Spring Security's XML configuration, what is the purpose of the `<intercept-url>` element?","It defines access-control rules for specific URL patterns, similar to `antMatchers` in Java configuration."
+Term: `DelegatingFilterProxy`,"A filter used in `web.xml` that delegates to a Spring-managed bean, allowing the security filter to benefit from the Spring application context."
+"In XML configuration for Spring Security, the _____ element is the equivalent of the `.formLogin()` method in Java configuration.",`<form-login>`
+How are users and their roles defined within an `<authentication-provider>` using XML configuration for in-memory authentication?,By using the `<user-service>` and nested `<user>` elements.
+Which annotation can be used on a Java `@Configuration` class to import an XML-based security configuration file?,`@ImportResource`

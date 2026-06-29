@@ -1,0 +1,54 @@
+"In Git's internal structure, what type of object is a compressed representation of your file structure, pointing to other tree and blob objects?",A tree object.
+What is the term for a Git object that contains the actual content of a file?,A blob object.
+Git structures its object repository by using the first _____ characters of an object's SHA-1 hash as a directory name.,two
+What algorithm does Git use for simple text files to perform merges and detect merge conflicts?,The longest common subsequence algorithm.
+"Which git config setting can be used to show a three-way merge, including the common ancestor, during a merge conflict?",Set `merge.conflictstyle` to `diff3`.
+"In a merge conflict marker, what does `<<< HEAD` signify?",It marks the beginning of the changes from the current branch you are on (HEAD).
+"In a merge conflict marker, what does `>>>>>>> <branch_name>` signify?",It marks the end of the changes from the branch being merged in.
+What is the primary purpose of the `git stash` command?,"To save uncommitted changes (both staged and unstaged) temporarily, allowing you to switch contexts or branches."
+"Which command retrieves the most recently stashed changes, applies them to the working directory, and removes the stash from the stack?",git stash pop
+Which command retrieves stashed changes and applies them to the working directory but leaves the stash on the stack?,git stash apply
+How can you view a list of all the stashes you have saved?,By running the `git stash list` command.
+"To see the diff or patch of a specific stash entry without applying it, you can use the command `git stash show -p _____`.",stash@{n}
+What happens if you `git stash pop` and a merge conflict occurs?,Git reports the conflict and keeps the stash entry on the stack in case you need it again.
+The process of replaying a series of commits from one branch on top of a different base commit is known as _____.,rebasing
+What is a key difference between merging and rebasing in terms of commit history?,"Rebasing creates a linear history by replaying commits, whereas merging creates a merge commit, preserving the divergent history."
+"During a `git rebase`, Git does not move the original commits; it creates new _____ based on the patch of each original commit.",commits
+"When a rebase is completed, what happens to the original commits that were replayed?",They become orphaned (unreferenced) and will eventually be garbage collected by Git.
+"If you encounter conflicts during a rebase, what command do you run after resolving the conflicts and staging the files?",git rebase --continue
+What command allows you to cancel a rebase operation and return to the state before it began?,git rebase --abort
+"To begin an interactive rebase, you use the command `git rebase` with the _____ flag.",-i (or --interactive)
+"In an interactive rebase script, what does the `squash` command do?","It melds the commit with the commit on the previous line, prompting you to create a new commit message for the combined commits."
+"In an interactive rebase script, what is the purpose of the `reword` command?",It allows you to change the commit message of that specific commit without altering its content.
+"In an interactive rebase script, the `fixup` command is similar to `squash`, but with what key difference?","It melds the commit with the previous one and discards the fixup commit's message, using the message from the previous commit automatically."
+Why does adding a file path to `.gitignore` not cause Git to ignore a file that has already been committed?,Because the file is already being tracked in Git's index (staging area).
+What command removes a file from Git's tracking index but leaves the file in the working directory?,git rm --cached <file>
+"Which command can be used to rewrite the entire commit history of a repository, for example, to completely remove a file from every commit?",git filter-branch
+"When using `git filter-branch`, why might you need the `--ignore-unmatch` option with `git rm`?",To prevent the script from halting with a fatal error if it tries to remove a file that doesn't exist in a particular commit's history.
+The `git reset --soft HEAD~` command moves the HEAD pointer back one commit but leaves the staging area and working directory ____.,untouched
+Which `git reset` mode leaves the working directory untouched but unstages the changes from the last commit?,`--mixed` (this is the default mode).
+What is the effect of the `git reset --hard <commit>` command?,"It resets the HEAD, staging area, and working directory to match the specified commit, discarding all subsequent changes."
+"What powerful Git command shows a log of where the HEAD and branch tips have been, allowing you to find and recover 'lost' commits?",git reflog
+"What command creates a new commit that is the inverse of a specified commit, making it a safe way to undo changes on a shared branch?",git revert <commit>
+What is a 'detached HEAD' state in Git?,It's when HEAD points directly to a specific commit hash instead of a branch name.
+"In Git's relative referencing, what does `HEAD~` or `HEAD~1` refer to?",The first parent (immediate ancestor) of the current commit.
+"In a merge commit with two parents, how would you reference the second parent of the current commit?",Using `HEAD^2`.
+The _____ workflow is a simple Git collaboration model where all team members work directly on a single `main` branch.,Centralized
+"In a Centralized Workflow, what is the recommended way to integrate remote changes into your local `main` branch to avoid creating merge commits?",Use `git pull --rebase`.
+What does Git save in `ORIG_HEAD` during a merge operation?,"It saves the commit hash of the branch tip before the merge began, allowing for an easy reset."
+"The _____ workflow involves creating separate, short-lived branches for each new piece of work to keep the `main` branch stable.",Feature Branch
+What is a primary benefit of using the Feature Branch workflow for teams?,"It isolates development work, allows for parallel development, and facilitates code reviews through pull requests."
+"In the Gitflow workflow, what is the purpose of the `develop` branch?","It serves as the main integration branch for day-to-day development, containing pre-production code."
+"In the Gitflow workflow, the `main` branch should only contain _____ code.",production-ready (or released)
+"According to Gitflow rules, `feature` branches are created from and merged back into which branch?",The `develop` branch.
+"In Gitflow, _____ branches are used to prepare for a new production release, allowing for final testing and bug fixes.",release
+"When a Gitflow `release` branch is finished, where is it merged?",It is merged into both the `main` branch (and tagged) and back into the `develop` branch.
+"For urgent bug fixes in production, the Gitflow workflow uses _____ branches.",hotfix
+From which branch are `hotfix` branches created in the Gitflow model?,The `main` branch.
+The _____ workflow is primarily used for contributing to open-source projects where you don't have direct push access.,Forking
+"In a Forking workflow, what is a 'fork'?","A personal, server-side copy (clone) of a repository under your own account that you have write access to."
+"When working with a forked repository, what is the conventional name for the remote that points to the original source repository?",upstream
+"When working with a forked repository, what is the conventional name for the remote that points to your personal fork?",origin
+What is the mechanism used to propose changes from your forked repository to the original (upstream) repository?,A pull request (PR).
+"To sync your local clone's `main` branch with the original project's `main` branch, you should fetch from _____ and then merge or rebase.",upstream
+What does the command `git fetch <remote_url> <remote_branch>` store the fetched commit hash in if no local branch is specified?,In a reference called `FETCH_HEAD`.

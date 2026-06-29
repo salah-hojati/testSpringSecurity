@@ -1,0 +1,26 @@
+What is the primary function of Terraform?,"To automate and manage your infrastructure, platform, and services."
+"Terraform uses a _____ language, meaning you define the desired end result, not the steps to get there.",declarative
+What is the key difference between a declarative and an imperative approach to infrastructure management?,"A declarative approach defines the desired end state, while an imperative approach specifies the exact steps to execute to reach that state."
+"In the process of setting up an application, what is the term for preparing the underlying infrastructure like servers, networks, and firewalls?",Infrastructure provisioning.
+Which part of the application setup process is Terraform primarily used for: infrastructure provisioning or application deployment?,Infrastructure provisioning.
+Terraform and Ansible are both classified as what type of tool?,Infrastructure as Code (IaC).
+What is considered Terraform's main strength when compared to a tool like Ansible?,Terraform is a better tool for provisioning the infrastructure itself.
+What is considered Ansible's main strength when compared to Terraform?,Ansible is a better tool for configuring infrastructure and deploying applications onto it.
+What is a common practice for DevOps engineers when using both Terraform and Ansible?,"To use a combination of the tools, leveraging Terraform for provisioning and Ansible for configuration."
+"Besides initial setup, what is another crucial and continuous task where Terraform provides automation benefits?","Managing existing infrastructure, such as adding, reconfiguring, or removing resources."
+"How does Terraform facilitate the creation of multiple, identical environments like development, staging, and production?",It allows you to replicate an entire infrastructure setup easily using the same Terraform code.
+What are the two main components that make up Terraform's architecture?,Terraform Core and Providers.
+What are the two input sources that the Terraform Core uses to do its job?,The Terraform configuration file you write and the Terraform state file.
+What is the purpose of the Terraform configuration file?,"It is where you, the user, define the desired end state of the infrastructure that needs to be created or provisioned."
+What information does the Terraform state file contain?,It stores the up-to-date state of how the current infrastructure setup looks.
+How does the Terraform Core determine what actions need to be taken?,It compares the desired state in the configuration file with the current state in the state file and figures out the plan.
+What is the role of 'Providers' in Terraform's architecture?,Providers are plugins for specific technologies (like AWS or Kubernetes) that allow Terraform to connect to and manage their resources.
+"How does a Terraform provider, such as the AWS provider, grant access to resources?","It gives the Terraform user access to that platform's specific resources, like EC2 instances or VPCs for AWS."
+"In a Terraform configuration file, what does a 'resource' block define?","An infrastructure object you want to create, such as an AWS VPC or a Kubernetes namespace, along with its attributes."
+"When updating infrastructure, how does the declarative approach in Terraform simplify the process?","You just adjust the configuration file to the new desired state, and Terraform figures out the necessary changes, rather than you writing new instructions."
+What is the benefit of always having the configuration file represent the end state?,You always know what the current setup is supposed to be just by looking at the configuration file.
+What is the purpose of the `terraform refresh` command?,"It queries the infrastructure provider (e.g., AWS) to get the up-to-date state of the infrastructure."
+What does the `terraform plan` command do?,It creates an execution plan by showing what changes Terraform will make to reach the desired state in the configuration file.
+The `terraform plan` command is like a _____ of what will happen if you execute `apply`.,preview
+Which Terraform command actually executes the plan and makes changes to the infrastructure?,The `terraform apply` command.
+What is the function of the `terraform destroy` command?,"It removes all the resources that were created by Terraform, cleaning up the entire setup."

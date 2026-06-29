@@ -1,0 +1,78 @@
+"In Java, what is the key difference between the `javac` and `java` commands?","The `javac` command compiles Java source code (.java) into bytecode (.class), while the `java` command runs the compiled bytecode."
+What is the purpose of the `static` keyword in the `public static void main(String[] args)` method signature?,It allows the method to be run by the JVM without creating an instance of the class.
+"The `void` keyword in a Java method signature, such as `public static void main(...)`, indicates what?",The method does not return any value.
+"In Java, command-line arguments are passed to the `main` method as an array of what type?",An array of Strings (`String[]`).
+"How can you implement a constraint on a private class variable, such as ensuring a name is not null and has a minimum length?",By using a public setter method that contains the validation logic before assigning the value.
+A special form of multi-line comment that starts with `/**` and is used to generate API documentation is called a _____.,Javadoc comment.
+What command-line tool is used to generate HTML documentation from Javadoc comments in Java source code?,The `javadoc` tool.
+"In a Javadoc comment, what is the purpose of the `@param` tag?",It is used to describe a method's parameter.
+What Javadoc tag is used to describe the return value of a method?,The `@return` tag.
+How does the Java command `java` handle arguments that appear after the class name or `-jar` option?,It treats them as command-line arguments to be passed to the Java application's `main` method.
+How should you pass a file path containing spaces as a single command-line argument in a UNIX-like shell?,By enclosing the path in quotes or by escaping each space with a backslash (\).
+"Since Java 7, what character can be used to improve the readability of numeric literals by separating groups of digits?",The underscore character (`_`).
+What suffix must be appended to an integer literal to explicitly define it as a `long` type in Java?,"An `L` or `l` suffix (e.g., `2147483648L`)."
+Why is it generally recommended to use the `BigDecimal` class instead of `float` or `double` for precise values like currency?,Because `float` and `double` can introduce small rounding errors due to their binary floating-point representation.
+What is the result of comparing two String objects using the `==` operator in Java?,"It tests for reference equality, meaning it checks if both variables point to the same object in memory."
+"To compare the actual character content of two String objects for equality in Java, which method should be used?",The `.equals()` method.
+What is the key characteristic of `String` objects in Java regarding their state after creation?,"They are immutable, meaning they cannot be changed once created."
+"When a String literal is created, the JVM stores a reference to it in a special memory area called the _____.",String pool (or string intern pool).
+"What is the difference in behavior between `String a = ""alpha"";` and `String c = new String(""alpha"");`?","`a` will use the String pool, while `c` forces the creation of a new object on the heap, so `a == c` would be false."
+"For concatenating a large number of strings within a loop, which class is more efficient than using the `+` operator, and why?",`StringBuilder` is more efficient because it is mutable and avoids creating a new intermediate String object for each concatenation.
+What is the purpose of the `SimpleDateFormat` class in Java?,"It is used for formatting and parsing dates in a customizable way (e.g., `yyyy/MM/dd`)."
+"In a `SimpleDateFormat` pattern string, what is the difference between `mm` and `MM`?","`mm` (lowercase) represents minutes, while `MM` (uppercase) represents the month."
+Why is `BigDecimal` considered immutable?,Because methods like `add()` do not change the object itself but instead return a new `BigDecimal` object with the result.
+"For mathematical operations on integers that are too large to be represented by the `long` primitive type, which Java class should be used?",The `java.math.BigInteger` class.
+What are the default initialization values for elements in a newly created `int[]` array and a `boolean[]` array?,The default value is `0` for `int[]` and `false` for `boolean[]`.
+"In Java, the property to get the number of elements in an array `myArray` is `_____`.",`myArray.length`
+The method `Arrays.asList(stringArray)` returns a `List` that has what relationship with the original array?,"It is a fixed-size list backed by the original array, meaning changes to the list will modify the array and vice-versa."
+Why is it generally considered unsafe to remove elements from a `List` using `list.remove()` inside an enhanced for-each loop?,It can throw a `ConcurrentModificationException` because the collection's structure is being modified while it is being iterated over.
+What is the correct way to remove elements from a `List` while iterating over it?,By using an `Iterator` and calling its `remove()` method.
+A `java.util.Map` is a collection that maps _____ to _____.,keys to values
+"For iterating over both the keys and values of a `Map` efficiently, which method is preferred?","The `entrySet()` method, which returns a `Set` of `Map.Entry` objects."
+Can an enum have a `public` constructor in Java?,"No, enum constructors are implicitly private or package-private; they cannot be declared public."
+"In an enum, what is the difference between the `.name()` method and the `.toString()` method?","`.name()` returns the exact declared constant name, while `.toString()` can be overridden to provide a more user-friendly representation."
+What is the difference between the pre-increment operator (`++x`) and the post-increment operator (`x++`) when used in an expression?,Pre-increment increments the value then returns it; post-increment returns the original value then increments it.
+"For object references, the `==` operator tests for _____, while the `.equals()` method is intended to test for _____.",reference equality (same object); value equality (logically equal)
+The Java operator used to introduce a lambda expression is `_____`.,`->`
+What is the contract between the `equals()` and `hashCode()` methods in Java?,"If two objects are equal according to `equals()`, then their `hashCode()` methods must return the same integer value."
+"When overriding the `equals(Object obj)` method, why is it important to check `getClass() != obj.getClass()`?","To ensure that the object being compared is of the exact same class, preventing comparison issues with subclasses."
+What is the first line of code that is implicitly or explicitly called in any Java constructor?,"A call to the superclass constructor, `super()`."
+Which annotation is used to indicate that a method is intended to override a method in a superclass?,The `@Override` annotation.
+The `@Deprecated` annotation signals that the annotated API element is discouraged from use for what general reason?,"It is considered obsolete, error-prone, or has been superseded by a better alternative."
+What is a key principle for creating an immutable class in Java?,"Declare the class as `final`, make all fields `private` and `final`, and do not provide any setter methods."
+"When an immutable class contains a field that is a mutable object (like a `Date` or `List`), what must be done in the constructor and getter to maintain immutability?","Defensive copies must be made: a new copy of the mutable object is created in the constructor, and a new copy is returned by the getter."
+"In Java Generics, what does the `<T>` in `class Param<T>` signify?","It signifies a generic type parameter, allowing the class to operate on objects of various types specified at instantiation."
+What is the difference between method overloading and method overriding?,"Overloading is defining multiple methods with the same name but different parameters in the same class, while overriding is a subclass providing a specific implementation for a method defined in its superclass."
+What does it mean for a class to be declared `final`?,The class cannot be extended or subclassed.
+What does it mean for a method to be declared `final`?,The method cannot be overridden by subclasses.
+"In Java Streams, operations that return a `Stream` and can be chained together are called _____ operations.",intermediate
+"In Java Streams, an operation that is eager and produces a result or a side-effect, closing the stream, is called a _____ operation.",terminal
+What is the primary advantage of using a `BufferedInputStream` when reading from a file?,"It improves performance by reading data in larger chunks (a buffer) from the underlying source, reducing the number of system calls."
+"In Java serialization, what keyword is used to mark a field so that it is not included in the object's serialized form?",The `transient` keyword.
+Java passes all arguments to methods by _____.,value
+"When an object reference is passed to a method in Java, what is actually being passed by value?",A copy of the reference (the memory address) to the object is passed by value.
+What is the difference between a checked exception and an unchecked exception in Java?,"Checked exceptions must be handled (caught or declared with `throws`), while unchecked exceptions (like `RuntimeException`) do not have this compile-time requirement."
+What is the purpose of the `throws` clause in a method signature?,It declares the checked exceptions that the method might throw and that the caller must handle.
+"In a `try-catch-finally` block, under what circumstances will the `finally` block execute?","The `finally` block will always execute, regardless of whether an exception was thrown or caught, except for JVM shutdowns."
+A method reference like `String::valueOf` is a compact alternative to what kind of lambda expression?,"A lambda expression that only calls a single, existing method, such as `num -> String.valueOf(num)`."
+Which type of loop in Java is guaranteed to execute its body at least once?,The `do...while` loop.
+What does the `continue` statement do inside a loop?,It skips the rest of the current iteration and proceeds to the next iteration of the loop.
+What is the purpose of the `volatile` keyword when applied to a variable in a multithreaded context?,"It ensures that any read of the variable gets the most recent write from any thread, guaranteeing visibility across threads."
+A block of code or a method marked with the `synchronized` keyword ensures what property in a multithreaded environment?,"It ensures mutual exclusion, meaning only one thread can execute that block or method on a given object instance at a time."
+"In Java's concurrency framework, what is the difference between a `Runnable` and a `Callable`?","A `Runnable`'s `run()` method does not return a value and cannot throw a checked exception, whereas a `Callable`'s `call()` method returns a value (via a `Future`) and can throw an exception."
+An `ExecutorService` is used to manage a pool of _____.,threads
+"The code `int a = 1; a = a++;` results in `a` having what final value, and why?","The final value is `1`, because the original value of `a` is assigned back to `a` after the post-increment operation."
+"What is the ""dangling else"" problem?",It is an ambiguity where an `else` clause could logically belong to more than one `if` statement; Java resolves it by associating the `else` with the nearest preceding `if`.
+Why is it generally better to implement the `Runnable` interface than to extend the `Thread` class?,Implementing `Runnable` allows the class to extend another class (as Java does not support multiple inheritance) and promotes better separation of concerns.
+What exception is thrown if `wait()` or `notify()` is called on an object without the current thread holding that object's monitor lock?,`IllegalMonitorStateException`.
+"In the Java Memory Model, the concept that guarantees that a write by one thread is visible to a subsequent read by another is known as a _____ relationship.",happens-before
+Why can using `null` to represent an empty array or collection be a poor practice?,"It forces clients of the code to add extra `null` checks, increasing complexity and the risk of `NullPointerException`."
+"When a `FileOutputStream` is opened in a `try` block, why should `out.close()` be placed in a `finally` block?",To ensure the stream is closed even if an exception occurs during the file writing process.
+What performance issue can arise from repeatedly calling `String.matches()` inside a loop?,"Each call compiles the regular expression, which is inefficient; it is better to compile the `Pattern` once and reuse the `Matcher`."
+What is the primary motivation for using atomic types like `AtomicInteger` instead of `synchronized` blocks?,They can offer better performance under low to moderate contention by using hardware-level compare-and-swap (CAS) operations instead of locking.
+"In cryptography, what property of a hash function means that it is impractically difficult to find the original input data from its hash value?",Irreversibility.
+What is an UberJAR (or fat JAR)?,A single JAR file that contains both the application's classes and all of its dependency library classes.
+How does Java Web Start (JNLP) allow applications to be launched?,"It enables full-featured applications to be launched from a web browser with a single click, without a lengthy installation process."
+"In Java 7, what feature allows for more concise instantiation of generic types, such as `Map<String, List<String>> myMap = new HashMap<>();`?","Type inference for generic instance creation, also known as the diamond operator (`<>`)."
+"The `try-with-resources` statement, introduced in Java 7, is used for what purpose?","To automatically close resources (like streams) that implement the `AutoCloseable` interface, eliminating the need for an explicit `finally` block for closing."
+A JIT compiler improves the performance of Java programs by doing what at run time?,By compiling Java bytecodes into native machine code.
