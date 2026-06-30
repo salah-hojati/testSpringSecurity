@@ -1,0 +1,68 @@
+Which update of JDK 7 is the minimum required to run the tutorial examples?,Update 65
+Which update of JDK 8 is the minimum required to run the tutorial examples?,Update 20
+Which specific version of GlassFish Server is targeted for the Java EE 7 tutorial examples?,GlassFish Server Open Source Edition 4.1
+Which specific SDK must be installed to obtain GlassFish Server for the tutorial?,Java EE 7 Software Development Kit (SDK) Update 1
+Which SDK version should be avoided when downloading the Java EE 7 SDK Update 1?,Java EE 7 Web Profile SDK Update 1
+What is the default administration user name for the Java EE 7 SDK installation?,admin
+"By default, what is the required password for the SDK administration user?",None (no password required)
+What is the default Admin Port for the Java EE 7 SDK?,4848
+What is the default HTTP Port for the Java EE 7 SDK?,8080
+"In the context of the tutorial, what does 'as-install-parent' refer to?",The directory where GlassFish Server is installed.
+What is the default installation directory (as-install-parent) on Microsoft Windows?,C:\glassfish4
+How is the 'as-install' directory defined in relation to the parent directory?,The glassfish directory located under as-install-parent.
+Which two bin directories should be added to the system PATH after installing GlassFish?,as-install-parent/bin and as-install/bin
+Which NetBeans IDE bundle is required to run the tutorial examples?,The Java EE bundle
+"During NetBeans installation, which component should be deselected to avoid redundancy?",GlassFish Server
+Why is it recommended to install the Junit library during NetBeans installation?,A few tutorial examples require it.
+"In NetBeans IDE, which menu is used to begin adding GlassFish Server?",Tools menu
+What minimum version of Apache Maven is required to run examples from the command line?,3.0
+Which Maven directory must be added to your system path for CLI use?,maven-install/bin
+How do you start GlassFish Server using NetBeans IDE?,Right-click the GlassFish instance in the Services tab and select Start.
+What CLI command is used to start GlassFish Server?,asadmin start-domain --verbose
+"In GlassFish, what is a 'domain'?",A set of one or more GlassFish Server instances managed by one administration server.
+What is the name of the default domain used by GlassFish Server?,domain1
+What is the purpose of the --verbose flag when starting a domain?,It causes all logging and debugging output to appear in the terminal window.
+Where is the server log located within a domain directory?,domain-dir/logs/server.log
+What CLI command is used to stop the default GlassFish domain?,asadmin stop-domain domain1
+"Which tool is used to manage users, resources, and applications in GlassFish?",The Administration Console
+What is the default URL for accessing the GlassFish Administration Console?,http://localhost:4848/
+How do you open the Administration Console using NetBeans IDE?,Right-click the GlassFish instance and select View Domain Admin Console.
+What database server is included with GlassFish Server?,Java DB
+What CLI command starts the Java DB server?,asadmin start-database
+What CLI command stops the Java DB server?,asadmin stop-database
+"In NetBeans, what happens to the database server when you start GlassFish?",It starts automatically.
+Under which tab in NetBeans can you manually start or stop Java DB?,The Services tab
+Which build tool directory structure is used for the tutorial examples?,The Maven application directory structure
+Where are Java source files located in the tutorial's Maven structure?,src/main/java
+Where are configuration files for non-web applications located in Maven?,src/main/resources
+Where are web pages and style sheets located in a web application module?,src/main/webapp
+Where are configuration files for web applications stored within the project?,src/main/webapp/WEB-INF
+"In an EAR file, what is the naming convention for enterprise bean JAR files?",example-name-ejb
+"In an EAR file, what is the naming convention for web application modules?",example-name-war
+"In an EAR file, what is the naming convention for application clients?",example-name-app-client
+What suffix is used for library JARs containing shared classes in an EAR?,-common
+"In Maven, what are archetypes?",Templates for generating a particular Maven project.
+Where are the tutorial's Maven archetypes located in the installation directory?,tut-install/examples/archetypes/
+What command installs Maven archetypes into the local repository via CLI?,mvn install
+Which CLI tool is used to obtain the latest updates for the tutorial?,updatetool
+"In the Update Tool, what is the package name for the Java EE 7 Tutorial?",javaee-tutorial
+How can you view the last 40 entries of the server log in the Admin Console?,Select the GlassFish Server node and click View Log Files.
+What method is used by web components to log messages?,ServletContext.log
+"If GlassFish is started in the background, where is debugging information available?",In the server log only.
+What does JPDA stand for in the context of Java EE debugging?,Java Platform Debugger Architecture
+What mechanism does JPDA use to communicate debugging information?,A socket
+What is the default debugger socket port for GlassFish Server?,9009
+Under which Admin Console node can you enable the 'Debug Enabled' check box?,JVM Settings
+What must be done after enabling debugging in the Administration Console?,Stop and then restart GlassFish Server.
+Where does logging output appear in NetBeans IDE?,In the Output window
+What file in a Maven module contains the goals to compile and assemble the application?,pom.xml
+Which NetBeans tab is used to view the Domain Update Center?,The Services tab
+Which installation directory for NetBeans should NOT include a GlassFish instance?,The one used for this tutorial (to avoid conflicts with the SDK version).
+"In the Admin Console log viewer, what button allows you to specify constraints on entries?",Modify Search
+The standard location for the server log on Windows is domain-dir/_____/server.log.,logs
+Which specific check box must be deselected in the NetBeans Installer to skip its default server?,GlassFish Server
+"When adding GlassFish to NetBeans, which location should you browse to under 'Server Location'?",The location of the Java EE 7 SDK
+What CLI command allows you to view the Update Tool?,updatetool
+The default domain started by 'asadmin start-domain' is _____.,domain1
+"In the Maven structure for the tutorial, where are images for web applications stored?",src/main/webapp
+Which menu in NetBeans is used to install archetypes from 'tut-install/examples'?,File menu (choose Open Project)

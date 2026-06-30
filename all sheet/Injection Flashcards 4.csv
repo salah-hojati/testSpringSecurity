@@ -1,0 +1,60 @@
+What Java EE mechanism allows objects to obtain references to resources without direct instantiation?,Injection
+What is the primary architectural benefit of using injection in Java EE?,It decouples code from the implementations of its dependencies.
+How does injection simplify developer code in Java EE?,It removes the need for manual instantiation of dependencies.
+What are the two specific injection mechanisms provided by the Java EE platform?,Resource injection and dependency injection.
+How are injection points marked within a Java class?,By decorating fields or methods with specific injection annotations.
+When does the container provide required instances to marked injection points?,At runtime.
+What specific injection type is used to access resources in the JNDI namespace?,Resource injection
+Name three examples of container-managed objects that can receive resource injection.,"Servlets, enterprise beans, and managed beans."
+What are common examples of resources injected via the JNDI namespace?,"Data sources, connectors, or custom resources."
+Why is an interface typically used as the reference type for an injected resource?,To decouple the code from the specific implementation of the resource.
+Which annotation is primarily used for resource injection?,@Resource
+What is the injection style called when an annotation is placed directly on a class member variable?,Field-based injection
+What is the injection style called when an annotation is placed on a setter method?,Method-based injection
+What naming convention must a method follow to be valid for method-based injection?,JavaBeans conventions (the name must begin with 'set').
+What is the required return type for a method used in method-based injection?,void
+How many parameters are allowed in a method used for resource injection?,Exactly one parameter.
+In which package is the @Resource annotation located?,javax.annotation
+"Which JSR defines the Common Annotations for the Java Platform, including @Resource?",JSR 250
+On what basis does resource injection resolve the object to be injected?,By resource name.
+Why is resource injection considered not typesafe?,The object type is not known at compile time.
+What is a common consequence of type mismatch in resource injection?,The application will encounter runtime errors.
+What mechanism allows regular Java classes to be turned into managed objects and injected?,Dependency injection
+Who manages the lifecycle of instances provided via dependency injection?,The container
+What concept in dependency injection determines the lifecycle of container-instantiated objects?,Scopes
+What scope is appropriate for a managed object that only needs to exist for a single client request?,Request scope
+What scope is appropriate for a managed object that must process multiple requests within a session?,Session scope
+What is another term used for managed objects in the context of dependency injection?,Managed beans
+How is a regular class defined as a managed bean?,By assigning a scope to the class.
+Which annotation is used specifically to inject managed beans?,@Inject
+In which package is the @Inject annotation located?,javax.inject
+On what basis does dependency injection resolve the object to be injected?,By type.
+Why is dependency injection considered typesafe?,It resolves dependencies based on their Java type.
+How can you decouple code from a managed bean's implementation when using DI?,Reference the injected instance using an interface type.
+Which JSR defines Contexts and Dependency Injection (CDI) for the Java EE Platform?,JSR 299
+Can resource injection be used to inject regular classes directly?,No
+Can dependency injection be used to inject JNDI resources directly?,No
+Which injection mechanism allows for the direct injection of JNDI resources?,Resource injection
+Which injection mechanism allows for the direct injection of regular Java classes?,Dependency injection
+"The @Resource(name=""java:comp/DefaultDataSource"") annotation targets which specific resource in GlassFish?",The default Java DB database.
+The statement 'dependency injection is typesafe because it resolves by type' is an example of _____ knowledge.,Conceptual
+Which mechanism identifies dependencies by their JNDI resource name?,Resource Injection
+What is the primary difference in how Resource Injection and DI resolve dependencies?,"Resource injection resolves by name, while DI resolves by type."
+Is it possible to use method-based injection with @Resource?,Yes
+What is the effect of applying @javax.enterprise.context.RequestScoped to a class?,It turns the class into a managed object with a request-based lifecycle.
+Which injection mechanism is prone to runtime errors if types do not match?,Resource injection
+What is the standard name for the JSR covering Common Annotations for the Java Platform?,JSR 250
+True or False: Dependency injection allows the container to manage the lifecycle of injected instances.,True
+True or False: Resource injection is typesafe.,False
+"True or False: In method-based injection, the setter must have a void return type.",True
+True or False: Dependency injection resolves objects by name.,False
+The _____ annotation enables your code to declare dependencies on any managed object.,@Inject
+The _____ annotation enables the injection of any resource available in the JNDI namespace.,@Resource
+Managed objects used in DI are also known as _____.,Managed beans
+Method-based injection requires setter methods to follow _____ conventions.,JavaBeans
+"In the example `@Resource(name=""java:comp/DefaultDataSource"") private DataSource dsc;`, what is the injection point?",The field 'dsc'.
+What determines how long a managed object instantiated by the container remains in memory?,Its scope.
+Does resource injection support injecting custom resources available in JNDI?,Yes
+Which injection mechanism is described in Chapter 23 of the Java EE documentation?,Dependency Injection (CDI)
+What is the consequence of not using interfaces for injected references?,The code becomes more tightly coupled to specific implementations.
+Which specific server is mentioned as providing a default Java DB database?,GlassFish Server

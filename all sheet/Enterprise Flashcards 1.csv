@@ -1,0 +1,60 @@
+What is the primary goal of the Java EE 7 platform?,To simplify development by providing a common foundation for components.
+"In Java EE, what can a developer use instead of XML deployment descriptors to configure components?",Annotations entered directly into Java source files.
+What technology allows a Java EE container to automatically insert references to required resources using annotations?,Dependency injection
+Which organization is responsible for ensuring the standards of stability and cross-platform compatibility for Java technology?,The Java Community Process (JCP)
+Name the new technology in Java EE 7 designed for processing data in a specific lightweight text-based format.,Java API for JSON Processing (JSON-P)
+"Which Java EE 7 technology supports full-duplex, bidirectional communication over a single TCP connection?",Java API for WebSocket
+"In the Java EE application model, where are the business functions typically conducted to ensure control and access to enterprise services?",The middle tier
+"Java EE applications are generally considered three-tiered applications because they are distributed across client machines, the Java EE server, and _____.",Back-end storage (databases or legacy machines)
+On which machine do client-tier components typically run?,The client machine
+Where do web-tier and business-tier components run in a Java EE environment?,The Java EE server
+How does the Java EE platform shield developers from the complexity of implementing security features?,By defining declarative access control rules that are interpreted at deployment.
+A self-contained functional software unit that is assembled into a Java EE application is called a _____.,Java EE component
+Which specific client-side component executes within a web browser's Java virtual machine?,An applet
+Why are web clients often referred to as 'thin clients'?,They off-load heavyweight operations like database queries to the server.
+What are the two primary APIs used to create the Graphical User Interface for an application client?,Swing and Abstract Window Toolkit (AWT)
+Are JavaBeans components considered Java EE components by the Java EE specification?,No
+What is the primary difference between a servlet and a JSP page?,"Servlets are Java classes, while JSP pages are text-based documents that allow a natural approach to static content."
+"Which business component is designed to receive messages asynchronously, typically via the Java Message Service?",Message-driven bean
+What is the function of a 'container' in the Java EE architecture?,"It acts as the interface between a component and low-level, platform-specific functionality."
+Which container manages the execution of enterprise beans?,EJB container
+Which container manages the execution of servlets and JSP pages?,Web container
+Which container provides a web browser and Java Plug-in for client-side execution?,Applet container
+What service provides a unified interface to multiple naming and directory services in an enterprise?,Java Naming and Directory Interface (JNDI)
+What are the two standard parts of a packaged Java EE unit?,Functional components and an optional deployment descriptor.
+What XML-based protocol follows the HTTP request-and-response model for web service communication?,Simple Object Access Protocol (SOAP)
+"Which standardized XML format is used to describe the name, location, and communication methods of a network service?",Web Services Description Language (WSDL)
+What type of enterprise bean represents a transient conversation with a client?,Session bean
+Which Java EE 7 technology introduced nonblocking I/O features?,Java Servlet 3.1
+What is the purpose of a 'Renderer' object in JavaServer Faces technology?,It generates markup for components and converts data types for the view.
+What display technology is recommended for new applications instead of JavaServer Pages?,Facelets
+Which library provides iterator and conditional tags to handle flow control in JSP applications?,JavaServer Pages Standard Tag Library (JSTL)
+What approach does the Java Persistence API use to bridge the gap between object-oriented models and relational databases?,Object/relational mapping
+What does 'auto commit' mean in the context of the Java Transaction API?,Updated data is visible to other applications after each individual database read or write operation.
+Which API is used to develop web services according to the Representational State Transfer architectural style?,Java API for RESTful Web Services (JAX-RS)
+What are Managed Beans in the Java EE 7 platform?,Lightweight container-managed Plain Old Java Objects (POJOs) supporting basic services like resource injection.
+Which technology provides contextual services for stateful objects to integrate components in a typesafe way?,Contexts and Dependency Injection for Java EE (CDI)
+What is the primary benefit of the Bean Validation API?,It allows data validation constraints to be defined in one place and shared across different application layers.
+What does the Java Message Service (JMS) API provide to Java EE components?,"A standard for creating, sending, and receiving reliable, asynchronous messages."
+"In JMS 2.0, which object combines the functions of a Connection and a Session?",JMSContext
+What software component allows Java EE applications to interact with an underlying resource manager of an EIS?,Resource adapter
+Which API is used by Java EE applications to send email notifications?,JavaMail API
+What technology is defined by the JSR 342 specification?,Managed Beans
+Which tier represents the environment run on dedicated hardware with access to full enterprise services?,The middle tier
+What is the role of the 'Applet Container'?,It manages the execution of applets using a web browser and the Java Plug-in.
+Which Java EE feature handles resource pooling and data persistence as nonconfigurable services?,The container
+Which specific protocol defines an XML-based envelope to describe and process messages?,SOAP
+What is the requirement for a session bean once a client finishes executing?,The session bean and its data are removed.
+What is the standard RenderKit version required for JavaServer Faces in Java EE 7?,HTML 4.01
+Which specification defines metadata and APIs for validating data in JavaBeans components?,Bean Validation
+"What is the name of the standard for representing data as a cross-platform, extensible, text-based format?",Extensible Markup Language (XML)
+How do application clients written in non-Java languages interact with Java EE servers?,Through standard interoperability features provided by the Java EE platform.
+Which tier is responsible for running Enterprise Information System software?,EIS tier
+What is the main advantage of using annotations over XML configuration?,Specifications are placed directly in the code next to the relevant program element.
+Which Java EE 7 API is used for processing batch jobs?,Batch Applications for the Java Platform
+What allows a Java EE server to configure a component at deployment without an XML descriptor?,Metadata annotations
+Which API provides standard login mechanisms to application developers?,Java EE security
+Which tier manages the database and legacy systems in a multitier application?,Enterprise information system (EIS) tier
+What is the specific purpose of the Expression Language (EL) in JSF?,To support the functionality of GUI components and managed model objects.
+What interface is implemented by JMS objects to support the Java SE 7 'try-with-resources' statement?,java.lang.Autocloseable
+Which version of the Java Persistence API is required by the Java EE 7 platform?,Java Persistence API 2.1

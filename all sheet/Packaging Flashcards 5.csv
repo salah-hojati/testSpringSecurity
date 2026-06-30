@@ -1,0 +1,53 @@
+What is the primary purpose of packaging in Java EE?,To group functional components into standard units for deployment to compliant systems.
+Name the three types of archive files used to deliver a Java EE application.,"JAR, WAR, and EAR files."
+"Technically, what is a Java EE WAR or EAR file?",A standard JAR file with a .war or .ear extension.
+What optional component in an EAR file describes the deployment settings of an application or module?,A deployment descriptor.
+What is the file format and extension used for Java EE deployment descriptors?,XML document with an .xml extension.
+What is the main advantage of using declarative deployment descriptors over modifying source code?,Deployment settings can be changed without needing to modify or recompile the source code.
+"In Java EE, how is deployment information most commonly specified within the source code?",Annotations.
+"If both are present, which takes precedence: source code annotations or deployment descriptors?",Deployment descriptors.
+Which type of deployment descriptor is defined by a Java EE specification and is portable across compliant implementations?,Java EE deployment descriptor.
+What is the purpose of a runtime deployment descriptor?,To configure Java EE implementation-specific parameters.
+Give an example of an implementation-specific parameter found in a GlassFish Server runtime deployment descriptor.,The context root of a web application.
+Where are GlassFish Server runtime deployment descriptors typically located in relation to Java EE deployment descriptors?,In the same META-INF directory.
+What is the naming convention for GlassFish Server runtime deployment descriptors?,glassfish-moduleType.xml
+Define a Java EE module.,One or more components for the same container type and an optional component deployment descriptor.
+What file extension is used for EJB modules?,.jar
+What specific file extension is used for Web modules?,.war
+What is the file extension for Resource adapter modules?,.rar
+Which module type implements the Connector architecture for a particular Enterprise Information System (EIS)?,Resource adapter modules.
+What does an EJB module deployment descriptor typically declare?,Transaction attributes and security authorizations for an enterprise bean.
+In which two types of modules can enterprise beans be packaged?,EJB JAR or WAR modules.
+"When packaging enterprise beans directly in a WAR module, where should the class files be located?",The WEB-INF/classes directory.
+"If a JAR file containing enterprise beans is bundled within a WAR, where should it be placed?",The WEB-INF/lib directory.
+Where must the ejb-jar.xml be located if it is used within a WAR module?,The WEB-INF directory.
+To what is the environment namespace of enterprise beans packaged in a WAR module scoped?,The WAR module.
+True or False: A JAR file containing enterprise bean classes packaged inside WEB-INF/lib is considered an EJB JAR file.,False.
+What is the 'smallest deployable and usable unit of web resources' in the Java EE architecture?,A web module.
+To what does a Java EE web module correspond in the Java Servlet specification?,A web application.
+What term is used for static web content files like images and XHTML pages?,Web resources.
+"In a web module structure, what is the name of the top-level directory?",The document root.
+What types of files are stored in the document root of a web module?,"XHTML pages, client-side classes, and static web resources."
+Which web module subdirectory contains server-side classes like servlets and utility classes?,WEB-INF/classes
+Which web module subdirectory contains JAR archives of libraries called by server-side classes?,WEB-INF/lib
+Under what condition is a web.xml file mandatory for a web module?,If it uses JavaServer Faces (JSF) technology.
+What is the purpose of providing a web.xml file when annotations are already used?,To override information specified by web component annotations.
+A web module can be deployed as an unpacked file structure or packaged as a _____ file.,WAR (Web Archive)
+What is the name of the runtime deployment descriptor for a GlassFish Server web application?,glassfish-web.xml
+Where is the glassfish-web.xml file located within a web module?,The WEB-INF directory.
+What does a Resource Adapter Archive (RAR) file store?,"XML files, Java classes, and objects for Java EE Connector Architecture (JCA) applications."
+Where is the optional ra.xml file located in a RAR file?,The META-INF/ directory.
+How do applications access a standalone resource adapter deployed on an application server?,Through a lookup procedure.
+Which archive type is specifically designed to hold a full Java EE application including multiple modules?,EAR (Enterprise Archive) file.
+What does the 'classes' directory under WEB-INF contain?,"Servlets, enterprise bean class files, utility classes, and JavaBeans components."
+Name one type of mapping found in the glassfish-web.xml file.,"Mapping of application security roles to GlassFish Server users, groups, or principals."
+What can be found in the WEB-INF directory of a web module besides subdirectories?,"Deployment descriptors, such as web.xml and ejb-jar.xml."
+True or False: A resource adapter can be deployed as part of an EAR file or as a standalone file.,True.
+Which specific directory in an EJB JAR file contains the ejb-jar.xml file?,META-INF
+What file is found in the META-INF directory of an EJB JAR to describe its contents and configurations?,MANIFEST.MF
+"In an EAR file structure, where are the application.xml and glassfish-application.xml files located?",The META-INF directory.
+What type of modules contain class files and an optional application client deployment descriptor?,Application client modules.
+What is the relationship between enterprise beans in WEB-INF/classes and those in JARs inside WEB-INF/lib within a WAR?,They are semantically equivalent.
+Which deployment descriptor is used to map portable resource names to implementation-specific server resources?,The runtime deployment descriptor.
+A web module deployed into any container conforming to the Java Servlet specification is considered _____.,Portable.
+"Besides web components and resources, name one type of class a web module might contain.","Server-side utility classes (e.g., shopping carts)."

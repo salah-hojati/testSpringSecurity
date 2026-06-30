@@ -1,0 +1,75 @@
+What is the preferred presentation technology for building JavaServer Faces (JSF) applications in Java EE 7?,Facelets
+Which presentation technology is considered deprecated for JavaServer Faces as of Java EE 7?,JavaServer Pages (JSP)
+Facelets uses which language for creating web pages and building component trees?,XHTML
+"By convention, what file extension is used for Facelets views?",.xhtml
+Which XML Document Type Definition (DTD) should XHTML pages conform to for JSF support?,XHTML Transitional
+What Facelets feature supports code reuse through the creation of reusable component sets?,Composite components
+What is the URI for the JavaServer Faces Facelets Tag Library?,http://xmlns.jcp.org/jsf/facelets
+Which JSF tag library uses the conventional prefix 'h:'?,JavaServer Faces HTML Tag Library
+What is the purpose of the JavaServer Faces Core Tag Library (prefix 'f:')?,It provides tags for custom actions independent of any particular render kit.
+Which tag library supports HTML5-friendly markup through pass-through elements?,Pass-through Elements Tag Library (jsf:)
+What prefix is conventionally used for the Pass-through Attributes Tag Library?,p:
+Which tag library provides JSTL 1.2 Core Tags like 'c:forEach'?,JSTL Core Tag Library
+What is the URI for the Composite Component Tag Library?,http://xmlns.jcp.org/jsf/composite
+"In the Facelets lifecycle, what object is created and placed in the FacesContext when a browser makes a new request?",UIViewRoot
+During which step of the Facelets lifecycle is the state of input components and form data saved?,On rendering back as a response to the client.
+"In the Facelets lifecycle, what occurs when a client interacts with a view that was previously saved?",The saved view is restored from the stored state.
+Which annotation is used to make a managed bean accessible through the Expression Language (EL)?,@Named
+What bean scope is used in the 'guessnumber-jsf' example to allow multiple guesses across requests?,@SessionScoped
+Why must a session-scoped managed bean implement the 'Serializable' interface?,To allow the bean's state to be persisted or migrated by the server.
+What JSF tag is used to register a validator that checks if a value is between a specific minimum and maximum?,f:validateLongRange
+What mechanism allows a developer to navigate to 'response.xhtml' by specifying the action attribute as 'response'?,Implicit navigation
+Which JSF tag is used to display error messages for a specific component identified by its 'for' attribute?,h:message
+"In 'web.xml', which context parameter identifies the status of an application in the software lifecycle?",javax.faces.PROJECT_STAGE
+What is the default value for the 'PROJECT_STAGE' parameter if it is not explicitly defined?,Production
+What is the benefit of setting 'PROJECT_STAGE' to 'Development' in a JSF application?,Debugging information is automatically generated for the user.
+What is the fully qualified class name for the Faces Servlet mapped in 'web.xml'?,javax.faces.webapp.FacesServlet
+Which Facelets tag is used within a template to define where content will be inserted by client pages?,ui:insert
+Which Facelets tag is used by a client page to invoke a specific template?,ui:composition
+How does 'ui:composition' handle content located outside of its start and end tags?,The content is ignored.
+Which tag is used in a client page to specify content for a named placeholder in a template?,ui:define
+How does the 'ui:decorate' tag differ from 'ui:composition'?,It does not disregard content outside of the tag.
+Which tag is used as a Facelets alternative to loop tags like 'h:dataTable'?,ui:repeat
+What is the primary function of the 'ui:param' tag?,Passing parameters to an included file.
+What defines a composite component in Facelets?,A special type of template that acts as a reusable component.
+Which tag is used to declare the usage contract for a composite component?,composite:interface
+Which tag defines the actual markup and components that make up a composite component?,composite:implementation
+What reserved word is used in EL to access attributes of a composite component?,cc
+Where should a composite component file be stored to be recognized as a library named 'emcomp'?,resources/emcomp
+"When using a composite component from a library 'emcomp', what is the required namespace URI?",http://xmlns.jcp.org/jsf/composite/emcomp
+Where must resources packaged at the web application root be located?,resources/resource-identifier
+What is the standard location for resources packaged within a JAR file in a web application?,META-INF/resources/resource-identifier
+What are the required elements of a JSF resource identifier?,resource-name (file name)
+"In an 'h:outputStylesheet' tag, which attribute specifies the directory within the 'resources' folder?",library
+What EL syntax is used to reference a resource named 'wave.med.gif' in the 'images' library?,#{resource['images:wave.med.gif']}
+"Which attribute allows a resource tag to be rendered in a different part of the page, such as the 'head'?",target
+What are the three acceptable values for the 'target' attribute in relocatable resources?,"head, body, and form"
+What JSF feature allows defining a different look and feel for different parts of an application without page-by-page specification?,Resource library contracts
+Where must resource library contracts be located within a JAR file for reuse?,META-INF/contracts
+"In 'faces-config.xml', which element maps a resource library contract to a specific URL pattern?",contract-mapping
+How is an HTML5 element converted into a pass-through element in Facelets?,By specifying at least one of its attributes using the 'http://xmlns.jcp.org/jsf' namespace.
+Which namespace prefix is conventionally used to turn standard HTML5 tags into JSF pass-through elements?,jsf:
+How does the JSF implementation determine the corresponding Facelets tag for an HTML5 pass-through element?,It uses the element name and the identifying attribute.
+Which Facelets tag corresponds to an '<a>' tag using the 'jsf:action' attribute?,h:commandLink
+What is the purpose of pass-through attributes in JSF?,They pass attributes directly to the browser without interpretation by JSF components.
+Which namespace is used to prefix pass-through attributes in a JSF component?,http://xmlns.jcp.org/jsf/passthrough
+Which JSF tag is nested within a component to pass a single pass-through attribute?,f:passThroughAttribute
+What type of object must the 'value' of 'f:passThroughAttributes' evaluate to for passing multiple attributes?,"Map<String, Object>"
+What DOCTYPE header is used to indicate an HTML5 page in a Facelets view?,<!DOCTYPE html>
+Which HTML5 input type can be used via pass-through elements to provide a calendar date picker?,date
+"In the 'reservation' example, what HTML5 attribute provides a step-wise increment for numeric inputs?",step
+Which Facelets tag is used to include an external file for reuse across multiple pages?,ui:include
+What is the conventional prefix for the Pass-through Elements Tag Library?,jsf:
+The 'ui:remove' tag is used for what purpose in Facelets?,To remove content from a page during rendering.
+Which composite component tag exposes an implementation of 'EditableValueHolder'?,composite:editableValueHolder
+Which composite component tag is used to reparent child components from the using page into the implementation?,composite:insertChildren
+What is the URI for the JSTL Functions Tag Library?,http://xmlns.jcp.org/jsp/jstl/functions
+"If a developer wants to use 'fn:toUpperCase', which tag library should they declare?",JSTL Functions Tag Library
+"In the Facelets lifecycle, if validation fails on a restored view, what happens in Step 6?",The current view is re-rendered.
+Which annotation replaces '@Named' and '@RequestScoped' in some simple JSF examples like 'hello1-rlc'?,@Model
+How is a resource identifier for a library version formatted?,library-name/library-version/resource-name
+"In the reservation example, how is the total cost recalculated in response to changing the ticket price?",Using an 'f:ajax' tag with a 'change' event and a listener method.
+Which tag library prefix is used for 'cc:interface'?,cc:
+What is the benefit of Facelets regarding Expression Language (EL)?,It supports compile-time EL validation.
+How can you specify a custom prefix for a composite component tag library?,"By declaring it in the XML namespace, e.g., xmlns:custom=""http://xmlns.jcp.org/jsf/composite/libraryname""."
+Which JSF HTML tag is used to add an image to a page using the resources facility?,h:graphicImage

@@ -1,0 +1,75 @@
+"In JavaServer Faces, what technology typically represents the presentation layer for web applications?",Facelets pages.
+Which JSF tag library defines tags representing common HTML user interface components?,The standard HTML tag library.
+Which JSF tag library defines tags for core actions that are independent of a specific render kit?,The core tag library.
+What XML namespace prefix is conventionally used for the JSF HTML tag library?,h
+What XML namespace prefix is conventionally used for the JSF core tag library?,f
+"In Facelets, which attribute uniquely identifies a component for reference by other components or server-side classes?",id
+"Unlike most JSF attributes, the `id` attribute must use the evaluation syntax delimited by _____.",${}
+Which attribute determines whether a component is actually rendered on the page based on a Boolean expression?,rendered
+What restriction applies to the EL expressions used with the `rendered` attribute?,They must be rvalue expressions (read-only).
+Which attribute binds a component instance to a specific bean property?,binding
+Which attribute identifies a bean property and binds the component's data value to it?,value
+Setting the `immediate` attribute to true on an input component forces validation and conversion to occur during the _____ phase.,Apply Request Values
+Which JSF HTML tag represents the standard HTML `<form>` element?,h:form
+What happens to data from multiple `h:form` tags on a single page during a postback?,Only values from the form actually submitted by the user are included.
+Which JSF tag represents the head element of an HTML page and supports resource relocation?,h:head
+Which JSF tag represents the body element of an HTML page?,h:body
+"Which tag renders an HTML password input field, masking the characters entered?",h:inputSecret
+Setting the `redisplay` attribute to false in `h:inputSecret` prevents the password from appearing in the _____.,HTML source file (or query string).
+Which tag renders a standard editable HTML text field?,h:inputText
+Which tag displays read-only text as a single-line string?,h:outputText
+Which tag renders a multiline text area for user input?,h:inputTextarea
+The `label` attribute on an input tag provides a name used to identify the component in _____.,Error messages.
+What Boolean attribute indicates that a user must provide a value for a specific input component?,required
+Which JSF tag is used to attach a label to an input field to improve accessibility?,h:outputLabel
+"In an `h:outputLabel` tag, which attribute must match the `id` of the associated input component?",for
+Which tag creates a link that loads a new page without generating an action event?,h:outputLink
+Which tag displays concatenated messages using a `java.text.MessageFormat` pattern?,h:outputFormat
+Which core tag provides substitution parameters for an `h:outputFormat` component?,f:param
+Which tag renders a button used to submit forms to the application?,h:commandButton
+Which tag renders an HTML link that generates an action event when clicked?,h:commandLink
+What is the primary difference between `h:commandLink` and `h:outputLink`?,"h:commandLink generates an action event and uses POST, while h:outputLink uses GET without an action event."
+"In an `h:commandButton`, the `action` attribute can point to a bean method that returns a _____.",Logical outcome String.
+Which tag is used to render an image on a JSF page?,h:graphicImage
+Which attribute of `h:graphicImage` specifies the path to an image relative to the web application context?,url
+Which tag renders a set of components as an HTML table layout?,h:panelGrid
+What attribute of `h:panelGrid` determines how many components are placed in a single row?,columns
+Which tag is used to group multiple components so they appear as a single child to a parent layout component?,h:panelGroup
+"If the `layout` attribute of `h:panelGroup` is set to `block`, what HTML element is rendered?",A `div` element.
+"If the `layout` attribute of `h:panelGroup` is not set to `block`, what HTML element is rendered by default?",A `span` element.
+"Which tag represents a single Boolean choice, typically rendered as a checkbox?",h:selectBooleanCheckbox
+Which tag renders a set of checkboxes allowing the selection of multiple values?,h:selectManyCheckbox
+Which tag renders a drop-down menu for selecting exactly one value?,h:selectOneMenu
+Which tag represents a set of radio buttons for selecting one value?,h:selectOneRadio
+Which tag represents a single item within a selection component like a menu or listbox?,f:selectItem
+Which tag is used to bind a selection component to a collection or map of items in a managed bean?,f:selectItems
+Which JSF component tag is designed specifically to display relational data in a dynamic HTML table?,h:dataTable
+Which tag represents a column within an `h:dataTable` component?,h:column
+"In `h:dataTable`, what attribute specifies the name of the request-scoped variable used to iterate over the data?",var
+"Which core tag is used to define headers, footers, or captions for columns and tables?",f:facet
+How many child components can an `f:facet` tag contain?,Exactly one (though it can be a container like `h:panelGroup`).
+Which `h:dataTable` attribute defines the index of the first row to be displayed?,first
+Which `h:dataTable` attribute defines the number of rows to display starting from the `first` index?,rows
+Which tag displays error messages associated with a specific component identified by its `id`?,h:message
+Which tag displays all validation and conversion error messages for the entire page?,h:messages
+"In `h:message`, what attribute specifies the target component's ID?",for
+Which JSF tags are used to create bookmarkable URLs that utilize GET requests?,h:button and h:link.
+Setting the `includeViewParams` attribute to true in an `h:link` tag adds _____ to the generated hyperlink.,View parameters.
+Which core tag is used inside `f:metadata` to define a parameter for configuring bookmarkable URLs?,f:viewParam
+Where must the `f:viewParam` tag be declared on a page to properly configure parameters?,Inside the `f:metadata` facet.
+Which tag is used to relocate a JavaScript resource to a specific target location like the head or body?,h:outputScript
+Which tag is used to include a CSS style sheet in a JSF page?,h:outputStylesheet
+"In `h:outputScript`, what attribute defines where the resource is rendered (e.g., 'head' or 'body')?",target
+Which core tag registers a specialized action listener to push a value into a bean when a form is submitted?,f:setPropertyActionListener
+Which core tag adds a `DateTimeConverter` to a parent component?,f:convertDateTime
+Which core tag adds a `NumberConverter` to a parent component?,f:convertNumber
+Which validator tag ensures a numeric value falls within a specified range of double-precision values?,f:validateDoubleRange
+Which validator tag checks the length of a component's local value against minimum and maximum limits?,f:validateLength
+Which core tag delegates validation of a value to a Bean Validation provider?,f:validateBean
+Which core tag allows the association of an Ajax action with a single component or group?,f:ajax
+Which core tag is used to specify a `ResourceBundle` that is exposed as a Map for localization?,f:loadBundle
+"In `h:panelGrid`, what attribute allows you to specify CSS classes for the table's columns?",columnClasses
+"In `h:panelGrid`, what attribute allows you to specify CSS classes for the table's rows?",rowClasses
+Which JSF tag attribute is used to reference a CSS class for styling a component?,styleClass
+Which JSF tag attribute is used to define inline CSS styles for a component?,style
+Which core tag is used to install a `ComponentSystemEventListener` on a component?,f:event

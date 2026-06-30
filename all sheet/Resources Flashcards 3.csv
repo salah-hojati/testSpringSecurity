@@ -1,0 +1,55 @@
+"In Java EE, what is a program object that provides connections to systems like database servers called?",A resource.
+List four types of resources that Java EE components can access.,"Databases, mail sessions, Java Message Service (JMS) objects, and URLs."
+Which service in the Java EE platform allows components to locate other components and resources?,Java Naming and Directory Interface (JNDI).
+"What is the unique, human-readable name identifying a resource object in JNDI?",JNDI name.
+What is the default JNDI name for the preconfigured JDBC resource for Java DB in GlassFish Server?,java:comp/DefaultDataSource
+"In GlassFish Server, what are the two primary tools used by an administrator to create resources?",The Administration Console and the asadmin command.
+Which annotation is used to inject resources into an application?,@Resource
+What action does GlassFish Server take when an application uses resource injection?,It invokes the JNDI API on behalf of the application.
+True or False: Applications are required to use the JNDI API directly to locate resources.,False.
+What process connects a resource object to its specific JNDI name?,Binding (within the naming and directory service).
+Which mechanism can be used to override a resource mapping specified in an annotation?,A deployment descriptor.
+What is the benefit of using a deployment descriptor over recompiling source files for resource mapping changes?,It allows the application to be changed by repackaging only.
+Through which API do Java EE 7 components access relational databases?,The JDBC API.
+"In the JDBC API, what object represents a real-world data source and contains its connection properties?",A DataSource object.
+List three properties typically identified by a DataSource object.,"Database server location, database name, and the network protocol."
+What is the specific name for a data source in the context of GlassFish Server?,A JDBC resource.
+A DataSource object acts as a _____ for connections to a specific data source.,Factory.
+"In a basic DataSource implementation, what is returned by a call to the getConnection method?",A physical connection to the data source.
+"In a DataSource implementing connection pooling, what does the getConnection method return?",A handle to a PooledConnection object.
+What is the primary performance benefit of connection pooling?,It avoids the time-consuming process of creating a new physical connection for every request.
+What must an application always do with a pooled connection once it is finished using it?,Explicitly close the connection.
+Where is a pooled connection returned after an application closes it?,To a pool of reusable connections.
+Define a JDBC connection pool.,A group of reusable connections for a particular database.
+In which file do applications using the Persistence API define their DataSource object?,persistence.xml
+Which XML element is used in persistence.xml to specify the DataSource JNDI name?,<jta-data-source>
+True or False: Application code using the Persistence API usually contains direct references to JDBC objects.,False.
+What file can be included in an application to define resources that can be created using the asadmin command?,glassfish-resources.xml
+Which asadmin command is used to create resources from a specified file?,asadmin add-resources
+Which tool can be used to create the glassfish-resources.xml file within a project?,NetBeans IDE.
+Which directory in the JMS simple producer example contains the resource setup file?,jms/simple/producer/src/main/setup
+What specific asadmin command creates a JMS resource?,asadmin create-jms-resource
+What command displays the names of all currently existing JMS resources?,asadmin list-jms-resources
+Which command is used to remove a JMS resource from the server?,asadmin delete-jms-resource
+What is the relationship between a JDBC resource and a DataSource object?,A JDBC resource is the GlassFish term for a DataSource object registered with JNDI.
+"In a distributed Java EE application, how do servlets typically interact with databases?",By invoking remote methods on enterprise beans that access the database.
+Why does the server maintain a pool of available connections?,To increase performance by reusing existing connections.
+How does an application obtain a connection when connection pooling is active?,It requests one from the pool.
+"When a new resource is created, what is entered into the JNDI namespace?",A new name/object binding.
+What is the primary role of a JNDI namespace in resource management?,It stores the bindings between resource objects and their human-friendly names.
+A DataSource registered with JNDI allows an application to access it using which API?,The JNDI API.
+What is the term for a connection object that is a physical connection to the data source in a basic implementation?,Physical connection.
+What is the effect of connection pooling on standard application source code?,"It has no effect, other than requiring connections to be explicitly closed."
+What does a call to getConnection return if a pooled connection is available in the pool?,A handle to one of the reusable pooled connections.
+Which asadmin command argument is used to specify the resource configuration file?,"The filename (e.g., glassfish-resources.xml)."
+Can resources be removed if they were created using the 'add-resources' command?,"Yes, using specific delete commands like delete-jms-resource."
+Concept: Resource Injection,Definition: A mechanism where the server automatically provides a resource to an application via annotations like @Resource.
+Why is the java:comp/DefaultDataSource resource significant in GlassFish?,It is the preconfigured JDBC resource for the built-in Java DB database.
+How does an administrator typically create a resource in a JNDI namespace?,By using the Administration Console or the asadmin command.
+What is the role of the 'Naming and Directory Service' regarding JNDI names?,It binds the resource object and its JNDI name together.
+Under what condition is a deployment descriptor necessary for Java EE applications?,When an administrator needs to override resource mappings without changing source code.
+What determines the communication protocol used between a DataSource and a database server?,The properties of the DataSource object.
+What does the 'jta-data-source' element in persistence.xml represent?,The JNDI name of the database connection used by the persistence unit.
+True or False: A glassfish-resources.xml file can define resources for multiple applications.,True.
+What is the result of failing to explicitly close a pooled connection?,"The connection cannot be returned to the pool for reuse, potentially leading to resource exhaustion."
+"In Java EE 7, can applications access URLs as resources?","Yes, the platform provides mechanisms to access URLs similar to other resources."

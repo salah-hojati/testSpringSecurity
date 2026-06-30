@@ -1,0 +1,75 @@
+What is the primary definition of JavaServer Faces (JSF) technology?,It is a server-side component framework for building Java-based web applications.
+What are the two main components that comprise JavaServer Faces technology?,An API and tag libraries.
+"In JSF, the API is used for managing component state, handling events, and which other server-side task?",Data validation and conversion.
+What do the JSF tag libraries contain that help implement component tags on a web page?,Tag handlers.
+"What is the term for the lightweight, container-managed objects used as backing beans in JSF?",Managed beans.
+What is the primary purpose of a backing bean in a JSF application?,To define properties and functions for UI components on a page.
+Which file serves as the web deployment descriptor in a typical JSF application?,web.xml
+What is the purpose of the optional 'faces-config.xml' file?,To define page navigation rules and configure custom objects or beans.
+The server-side representation of a JSF page is specifically referred to as the _____.,view
+What is the term for the process where the web container generates HTML or XHTML output from the server-side view?,Rendering
+What architectural advantage does JSF offer by isolating logic from presentation?,Clean separation of behavior and presentation.
+Which underlying Java API serves as the foundation for JavaServer Faces technology?,Servlet API
+What is the preferred presentation technology for building JSF-based web applications?,Facelets
+How can managed beans be automatically registered as resources in modern JSF applications?,Using annotations.
+What are the two primary phases that constitute the JSF application lifecycle?,Execute and Render.
+"During the Execute phase of the JSF lifecycle, what happens to request parameter values?",They are applied to the components.
+"For an initial request, which specific action is the only one taken during the Execute phase?",The application view is built.
+What type of request occurs when a user submits a form on a page that was previously loaded?,Postback request
+"In the context of the hello1 example, what happens to the component tree after the view is rendered?",It is destroyed automatically.
+What is the abstract base class for all UI components in JavaServer Faces?,javax.faces.component.UIComponent
+"Which component class represents a control that fires actions when activated, such as a button?",UICommand
+Which component class is designed to handle data binding to a collection of data?,UIData
+The _____ component class is responsible for taking data input from a user.,UIInput
+Which UI component class represents the root of the component tree?,UIViewRoot
+What is the role of the 'NamingContainer' behavioral interface?,It mandates that each component rooted at it must have a unique ID.
+Which behavioral interface signifies that a component's state must be preserved between requests?,StateHolder
+Which interface is used by components that maintain a local value and access model tier data?,ValueHolder
+What is the function of a Renderer class in the JSF component architecture?,It defines how a component is visually displayed to the client.
+What is a 'render kit' in JSF?,A set of Renderer classes that map component classes to tags for a specific client type.
+"In the JSF conversion model, what is the 'model view' of data?","The representation of data as specific data types, such as int or long."
+"When a component is bound to a bean property of type 'Integer', how does JSF handle the data conversion?",It automatically converts the component's String data to an Integer.
+Which class must be implemented to convert component data to a custom type or format?,javax.faces.convert.Converter
+What are the three types of events defined by the JSF specification?,"Application events, system events, and data-model events."
+Which application event occurs when a user clicks a button or a link?,Action event
+A _____ event occurs when a user modifies the local value of an input component.,value-change
+Under what condition are value-change events fired?,Only if no validation errors are detected.
+What is the effect of setting a component's 'immediate' attribute to true for action events?,The event is processed during the Apply Request Values phase instead of Invoke Application.
+Which tag is nested inside a component tag to register a listener for value-change events?,f:valueChangeListener
+At what point in the JSF process does validation of local data typically occur?,Before the corresponding model data is updated.
+How can a page author register a standard validator on a UI component?,By nesting the validator's tag within the component's tag.
+What are the two ways to implement custom validation in JSF?,Implementing the Validator interface or creating a managed bean method.
+What does 'implicit navigation' refer to in JSF?,Navigation that occurs without explicitly configured rules in application configuration files.
+"In a JSF navigation rule, which element specifies the starting page of the transition?",<from-view-id>
+What is a 'logical outcome' in the context of JSF navigation?,A String returned by an action or defined in a tag used to select a navigation rule.
+Which object is responsible for selecting the next page to display by matching outcomes against rules?,NavigationHandler
+"If the NavigationHandler fails to find a matching navigation case, what is the result?",The current view is displayed again.
+What is the first subphase of the Execute phase in the JSF lifecycle?,Restore View Phase
+What is the purpose of the 'FacesContext' instance?,It represents all information associated with processing an incoming request and creating a response.
+In which lifecycle phase does a component use its 'decode' method to extract its new value?,Apply Request Values Phase
+What occurs during the Process Validations phase if a component's local value is found to be invalid?,An error message is added to FacesContext and the lifecycle skips to Render Response.
+"During the Update Model Values phase, which part of the server-side application is updated?",The bean properties pointed at by the components' value attributes.
+What is the primary activity of the Invoke Application phase?,Handling application-level events like form submissions or page linking.
+What happens during the Render Response phase for an initial request?,Components represented on the page are added to the component tree and rendered.
+How does calling 'FacesContext.responseComplete()' affect the JSF lifecycle?,It signals that the response is complete and skips the Render Response phase.
+What is 'partial rendering' in the context of JSF Ajax support?,The ability to render only specific parts of a page back to the client.
+Which object processes information regarding which components to execute or render in an Ajax request?,PartialViewContext
+"In an 'f:ajax' tag, which attribute identifies the components to be processed during the Execute phase?",execute
+"In an 'f:ajax' tag, which attribute identifies the components to be refreshed during the Render phase?",render
+What happens to the state of the response after the content of the view is rendered?,It is saved so that subsequent requests can access it.
+Which behavioral interface is implemented by UIInput to enable value-change events and validation?,EditableValueHolder
+What is the role of the 'UIOutcomeTarget' component class?,It displays a link in the form of a link or a button for navigation.
+Which phase is skipped when 'FacesContext.renderResponse()' is called during the Apply Request Values phase?,"The remaining Execute subphases (Process Validations, Update Model, Invoke Application)."
+System events in JSF are generated by an Object rather than a _____.,UIComponent
+What is the purpose of the 'UIParameter' component class?,It represents substitution parameters.
+"In the navigation rule structure, which element defines the next page to open?",<to-view-id>
+Which interface specifies that a component can reference methods handling action events using EL?,ActionSource2
+What determines if an application event is handled in the Apply Request Values phase or the Invoke Application phase?,The value of the component's immediate attribute.
+Which component class is used specifically to display an image?,UIGraphic
+During which lifecycle phase is the component tree rebuilt for a postback request?,Restore View Phase
+What specific task does the 'decode' method perform?,It extracts a component's new value from request parameters.
+"In navigation rules, the _____ element allows for conditional navigation logic.",<if>
+Which behavioral interface is a subclass of 'ValueHolder'?,EditableValueHolder
+What does a 'data-model event' specifically track?,When a new row of a UIData component is selected.
+Which JSF feature allows page authors to use tags to link to server-side objects without writing scripts?,Expression Language (EL)
+Which component class handles the display of a set of localized error messages?,UIMessages

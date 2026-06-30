@@ -1,0 +1,70 @@
+What is the primary purpose of the Expression Language (EL) in Java EE?,To enable communication between the presentation layer and the application logic.
+Which technologies besides JavaServer Faces use the Expression Language?,JavaServer Pages (JSP) and Contexts and Dependency Injection (CDI).
+What syntax is used for immediate evaluation in EL?,${}
+What syntax is used for deferred evaluation in EL?,#{}
+Define 'immediate evaluation' in the context of EL.,The expression is evaluated and the result returned as soon as the page is first rendered.
+What does 'deferred evaluation' allow a technology to do?,Evaluate the expression at an appropriate point during the page's lifecycle using its own machinery.
+Why does JavaServer Faces primarily use deferred evaluation expressions?,To ensure evaluation happens at the correct point in its multiphase lifecycle.
+Contrast 'rvalue' and 'lvalue' expressions in EL.,"An lvalue can be assigned a value, whereas an rvalue can only yield a value."
+Which evaluation syntax allows an expression to act as an lvalue for assignment?,#{}
+Name three types of top-level identifiers that an EL expression can refer to.,"Lambda parameters, managed beans, and implicit objects."
+What is the function of an EL resolver in JavaServer Faces?,To handle the resolution of managed beans.
+How can an enum constant be referenced in an EL expression?,It is referenced directly as a special case of a static field.
+What are the two notations used to refer to bean properties or collection elements?,The dot (.) and bracket ([]) notation.
+Why is the [] syntax considered more general than the . syntax for property access?,"It allows the use of any String expression, not just literals, inside the brackets."
+What is the default package imported for referencing static fields or methods in EL?,java.lang
+What notation is required when accessing an item in an array or a list?,The bracket notation ([]) with an integer index.
+How can you access a Map item if the key is a String literal?,By using either the dot notation or the bracket notation.
+List the five types of literals defined in the Expression Language.,"Boolean, Integer, Floating-point, String, and Null."
+"In an EL String literal, how is a double quote ("") escaped?","\"""
+What is the syntax for a parameterized method call using an identifier?,expr-a.identifier-b(parameters)
+Where can value expressions using the ${} delimiters be used?,In static text or in any standard or custom tag attribute that accepts expressions.
+What is a 'composite expression' in EL?,An attribute value consisting of one or more expressions separated or surrounded by text.
+In what order are composite expressions evaluated?,From left to right.
+Which operator can be used to convert a composite expression into a single expression?,+=
+What happens if an expression evaluation result does not match the tag attribute's expected type?,The EL performs a type conversion.
+What is the primary function of a method expression in JSF component tags?,To specify methods for event handling or data validation.
+Why must method expressions always use deferred evaluation syntax?,Because the method might need to be invoked during different phases of the lifecycle.
+What characters denote a lambda expression in EL?,The arrow token ($->$).
+"In a lambda expression, what constitutes the 'body' to the right of the arrow token?",An EL expression.
+How is a lambda expression invoked immediately in EL?,By enclosing it in parentheses followed by arguments in parentheses.
+"What is the result of the invocation $((x, y) -> x + y)(3, 4)$?",$7$
+Syntax for creating a Set literal in EL.,"{item1, item2, item3}"
+Syntax for creating a List literal in EL.,"[item1, item2, item3]"
+Syntax for creating a Map literal in EL.,"{""key1"": value1, ""key2"": value2}"
+Describe the three components of a stream pipeline in EL.,"A source, any number of intermediate operations, and a terminal operation."
+What is the difference between intermediate and terminal stream operations?,"Intermediate operations return a stream, while terminal operations do not."
+Does the stream() method modify the original java.util.Collection?,"No, stream operations do not modify the original collection object."
+Which arithmetic operator is equivalent to 'div'?,/
+Which arithmetic operator is equivalent to 'mod'?,%
+What is the function of the 'empty' operator?,A prefix operation to determine if a value is null or an empty string.
+List the relational operator equivalent for 'not equal'.,ne (or $!=$)
+List the relational operator equivalent for 'greater than or equal to'.,ge (or $\ge$)
+What is the precedence of the bracket ([]) and dot (.) operators relative to others?,They have the highest precedence.
+Which operator has the lowest precedence in the EL operator hierarchy?,The semicolon (;) operator.
+Why should reserved words like 'instanceof' and 'empty' not be used as identifiers?,They are reserved for specific operations within the Expression Language.
+Evaluated result of the expression $1 > (4/2)$.,false
+Evaluated result of the expression $100.0 = 100$.,true
+Evaluated result of the expression $3 \text{ div } 4$.,$0.75$
+Evaluated result of the expression $10 \text{ mod } 4$.,$2$
+Evaluated result of the expression $1.2E4 + 1.4$.,$12001.4$
+"What is the result of $[1, 2, 3, 4].stream().sum()$?",$10$
+Which implicit object is used to access the context path of the web application?,pageContext.request.contextPath
+Expression to access the request parameter named 'productId'.,${param.productId} or ${param['productId']}
+How do you access the 'host' value from the request header?,"${header[""host""]}"
+How is the semicolon (;) operator used with lambda expressions?,To assign a lambda to a variable and then invoke it in a sequence.
+What is returned by ${'hip' < 'hit'}?,true
+Which evaluation syntax is used for the action attribute of a JSF h:commandButton?,Deferred evaluation syntax (#{}).
+"In a postback request, what does the expression #{customer.name} do in an h:inputText tag?","It retrieves the value from the request, validates it, and propagates it to the bean."
+What does the expression ${sessionScope.cart.numberOfItems} retrieve?,The numberOfItems property of a session-scoped bean named cart.
+Identify the logical operator equivalent to '&&'.,and
+Identify the logical operator equivalent to '||'.,or
+Identify the logical operator equivalent to '!'.,not
+Relational operator equivalent to 'lt'.,<
+Relational operator equivalent to 'gt'.,>
+Relational operator equivalent to 'le'.,$\le$
+Relational operator equivalent to 'eq'.,$=$ (or $==$)
+What is the purpose of the findFirst stream operation?,It is a terminal operation that returns the first element of the stream.
+What does the 'sum' operation do in an EL stream pipeline?,It is a terminal operation that calculates the total of the numerical elements in the stream.
+"In the expression ${departments[deptName]}, what does 'deptName' represent?",A variable whose value serves as the key to look up an entry in the departments map.
+What return value does an EL method expression provide when referencing a literal for an action attribute?,"It returns the String literal, which is then converted to the expected return type."
