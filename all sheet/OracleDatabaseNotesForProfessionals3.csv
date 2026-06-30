@@ -1,0 +1,51 @@
+"In Oracle object types, what is the purpose of the TREAT function?",It attempts to change the declared type of an object to a more specific subtype in the hierarchy.
+"When declaring a subtype in Oracle, which keyword is used to indicate its parent type?",UNDER
+What is the specific requirement for the return type of a CONSTRUCTOR FUNCTION in an object type?,It must RETURN SELF AS RESULT.
+Member Function vs. Member Procedure,"Functions return a value, while procedures perform an action without returning a value."
+What does the keyword FINAL signify when applied to an Oracle object type?,It prevents any further subtypes from being derived from that specific type.
+"In an Oracle simple loop, which statement is required to prevent an infinite execution?",EXIT WHEN
+How does a WHILE loop differ from a simple loop regarding its execution condition?,It checks the condition at the start and only executes if the condition is true.
+"In a PL/SQL FOR loop, what keyword allows the counter to decrement from the upper bound to the lower bound?",REVERSE
+What is a primary advantage of using an implicit 'FOR loop' cursor over an explicit cursor?,"It eliminates the need for manual declaration, opening, fetching, and closing of the cursor."
+Which cursor attribute returns TRUE if the most recent FETCH did not return a row?,%NOTFOUND
+When is a SYS_REFCURSOR preferred over a standard cursor?,When a function needs to return a dynamic result set to a calling environment.
+What is the function of the CURRVAL pseudocolumn in an Oracle sequence?,It returns the current value of the sequence without incrementing it.
+"In sequence creation, what does the CACHE parameter specify?",The number of sequence values pre-allocated and stored in memory for faster access.
+What happens when a sequence with the CYCLE attribute reaches its MAXVALUE?,It resets and starts again from its minimum value.
+Which index type is Oracle's default for general-purpose use?,B-tree index
+Under what condition is a B-tree index most effective?,When the data cardinality of the indexed column is high.
+What data structure does a bitmap index use to represent column values for rows?,A two-dimensional array.
+Under what data condition should a developer choose a bitmap index over a B-tree index?,When the data cardinality of the indexed column is low.
+How do indexes generally affect the performance of DML (Data Manipulation Language) operations?,They decrease performance because the index must be updated for every record change.
+What is the primary use case for a Function Based Index?,To optimize queries that frequently use a specific function in their WHERE clause.
+Which optimizer hint forces the engine to join tables using row-by-row comparison?,USE_NL (Nested Loops)
+What is the functional impact of the APPEND hint during an INSERT operation?,"It uses the direct path method to write data directly to the tablespace, bypassing memory structures."
+What is a significant restriction on a table after using the APPEND hint but before committing?,The table cannot be read from within the same session.
+"In the context of parallel hints, what does DOP stand for?",Degree of Parallelism
+How does a HASH join operate during query execution?,It builds a hash table in memory for the smaller table and probes it with rows from the larger table.
+Which hint instructs Oracle to ignore existing indexes and perform a full table scan?,FULL
+Where are cached results stored when the RESULT_CACHE hint is used?,The System Global Area (SGA).
+What event triggers the release of data from the Result Cache?,"Any update, alteration, or deletion of the data in the underlying database tables."
+The package _____ contains the signatures of public functions and procedures accessible from outside the package.,Specification (or Header)
+Where are private declarations and the actual code of a package stored?,The Package Body.
+What is 'overloading' in the context of PL/SQL packages?,Defining multiple subprograms with the same name but different parameter types or counts.
+Why can standalone subprograms not be overloaded?,"Oracle restrictions only permit overloading for local subprograms, packaged subprograms, or type methods."
+What is the restriction on overloading two subprograms if their parameters only differ by name?,They cannot be overloaded; their formal parameters must differ in type or number.
+Which PL/SQL loop structure is best suited when the exact number of iterations is known beforehand?,FOR Loop
+Concept: Direct Path Load,"Definition: An insertion method that writes data blocks directly to disk, bypassing the buffer cache for speed."
+What happens if a developer uses the APPEND hint on a table that has triggers defined?,Oracle will not use the direct path method for the load.
+"In a cursor lifecycle, which command must be executed to release the resources consumed by the cursor?",CLOSE
+What sequence pseudocolumn is used to generate and return the next unique integer?,NEXTVAL
+Term: Cardinality,Definition: The number of unique values in a column relative to the total number of rows.
+Which hint is generally preferred over Nested Loops when joining large tables without indexes?,USE_HASH
+The _____ keyword is used in object types to allow a child type to redefine a method from its parent type.,OVERRIDING
+What is the default increment value for a sequence if INCREMENT BY is not specified?,1
+"In the context of cursor handling, what is the purpose of the OPEN statement?",It executes the query associated with the cursor and identifies the result set.
+Why might sequence numbers appear to have gaps in a primary key column?,Because values were generated in a transaction that was later rolled back.
+Which Oracle feature allows the reuse of SQL query results to reduce execution time from seconds to milliseconds?,Result Cache
+How does the PARALLEL hint typically impact execution time for very small queries?,It may increase total time due to the overhead of managing multiple parallel processes.
+What is the primary prerequisite to create a sequence in your own schema?,The CREATE SEQUENCE system privilege.
+"In an Oracle object type, what does the keyword INSTANTIABLE indicate?",It means that objects of that specific type can be created (instantiated).
+"Which PL/SQL structure allows a developer to group logically related procedures, functions, and variables together?",Package
+"When using a parameterized cursor, where are the parameters defined?",In the CURSOR declaration statement before the IS keyword.
+"In a FOR loop using REVERSE, how must the range be written (e.g., higher to lower or lower to higher)?","It must still be written from the lower bound to the upper bound (e.g., $1..10$)."

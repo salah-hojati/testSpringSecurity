@@ -1,0 +1,60 @@
+"In Oracle SQL, what is the result of the comparison $a = NULL$?",UNKNOWN
+What is the correct syntax to check if a column contains no value?,IS NULL
+"Except for concatenation, what do all standard operators return if one operand is NULL?",NULL
+What is the result of the expression: 'Hello ' || NULL || 'world'?,Hello world
+"Function: NVL2(expr1, expr2, expr3)","Definition: Returns expr2 if expr1 is NOT NULL; otherwise, it returns expr3."
+Which function returns the first non-NULL value in a list of parameters?,COALESCE
+Why is COALESCE potentially faster than NVL when using non-constant parameters?,"COALESCE employs short-circuit evaluation, stopping at the first non-NULL value."
+"In Oracle, how are empty strings (represented as '') treated?",As NULL values
+Which function is used to replace a NULL value with a specific alternative value?,NVL
+What is the purpose of the INITCAP function?,It capitalizes the first letter of each word and converts all other letters to lowercase.
+"In REGEXP_REPLACE, what symbols are used in the replacement string to reference matched capturing groups?","Backreferences such as \\1, \\2, and \\3."
+"When using SUBSTR(string, start, length), what does a negative start value indicate?",The starting position is counted backward from the end of the string.
+"What is the output of SUBSTR('abcdefg', -1, 1)?",g
+How does the CONCAT function differ from the || operator in Oracle?,"The CONCAT function only accepts two arguments, while || can join multiple strings."
+Which function converts all uppercase letters in a string to lowercase?,LOWER
+What is the default character removed by the LTRIM and RTRIM functions?,Space
+How do you specify a set of characters to be removed from the beginning of a string using LTRIM?,"Provide the characters as the second parameter (e.g., LTRIM(string, 'set'))."
+The PL/SQL keyword used to handle multiple alternative conditions in an IF block is _____.,ELSIF
+What keyword is required to terminate an IF-THEN-ELSE block in PL/SQL?,END IF;
+"Which clause, introduced in Oracle 12c R1, is used for simple query pagination?",FETCH FIRST
+"In older Oracle versions, which pseudocolumn is often used in a WHERE clause to limit the number of rows returned?",ROWNUM
+"To skip the first 5 rows and return the rest in Oracle 12c, which clause is used?",OFFSET 5 ROWS
+"When using ROWNUM for pagination, why must an ORDER BY clause be placed in an inner subquery?",To ensure rows are sorted before the ROWNUM limit is applied to the result set.
+"In Recursive Sub-Query Factoring, what operator is used to combine the anchor member and the recursive member?",UNION ALL
+What is the primary use of a Recursive CTE as demonstrated in Chapter 14?,Splitting a delimited string or generating a sequence of integers.
+Which SQL statement is designed to handle both updates and inserts in a single command based on a join condition?,MERGE
+"In a MERGE statement, which clause specifies the join condition between the target and source?",ON
+What is the 'non key-preserved row' error usually indicating when updating an inline view?,Oracle cannot guarantee that each row in the underlying table corresponds to only one row in the join.
+How can you resolve the ORA-01779 error when attempting to update through a join?,Add a UNIQUE constraint or index to the joining column of the source table.
+True or False: Oracle allows the use of functions within an IF statement in PL/SQL.,True
+Which function computes the middle value of a sorted group of values?,MEDIAN
+Formula: $RN = (1 + (0.5 * (N - 1)))$ is used to determine what in the MEDIAN function?,The Row Number (RN) of interest.
+"Which analytic function, available since Oracle 9i, can be configured to act like the MEDIAN function?",PERCENTILE_CONT(0.5)
+What does the RATIO_TO_REPORT function calculate?,The ratio of a row's value to the sum of all values within the window.
+"In Chapter 20, what is the role of the 'package' parameter when creating a context?",It specifies the PL/SQL package authorized to set or reset the context attributes.
+Which function is used to retrieve values from a defined session context?,SYS_CONTEXT
+"When splitting a string with a hierarchical query, which pseudocolumn indicates the current depth of recursion?",LEVEL
+"In PL/SQL, what is the operator for variable assignment?",:=
+What is the purpose of the REGEXP_COUNT function in the context of string splitting?,To determine the total number of delimited items in the string.
+True or False: A context's associated PL/SQL package must exist before the context itself can be created.,False
+Which clause in 12c pagination retrieves a specific range of rows using both OFFSET and FETCH?,OFFSET N ROWS FETCH NEXT M ROWS ONLY
+What is the output of the expression: SELECT UPPER('text 123') FROM dual;?,TEXT 123
+"In string manipulation, which function would you use to remove characters from only the end of a string?",RTRIM
+How does Oracle calculate the result if the RN for MEDIAN is not a whole number?,By linear interpolation between the values at the ceiling and floor of the RN.
+What is the specific keyword used in PL/SQL to output text to the buffer for display?,DBMS_OUTPUT.put_line
+"In a MERGE statement, the target table is updated only when the ON condition is _____.",Matched
+What error code is associated with modifying a column mapping to a non key-preserved table?,ORA-01779
+"To get the first three characters of a string, which SUBSTR parameters are used?","SUBSTR(string, 1, 3)"
+Concept: Key-preserved table,"Definition: A table where every row in the join result appears at most once, typically ensured by a unique constraint on the join key."
+What is the effect of using INITIALIZED EXTERNALLY when creating a context?,It allows the OCI interface to initialize the context.
+What logic does CASE WHEN use to handle comparisons involving NULL without NVL?,It evaluates to the ELSE condition (or NULL if no ELSE exists) because NULL comparisons result in UNKNOWN.
+"What does the notation [^,]+ represent in a regular expression?",A sequence of one or more characters that are not a comma.
+"In string splitting with CONNECT BY, why is PRIOR SYS_GUID() used?",To prevent 'loops in data' errors by providing a unique value for the PRIOR check.
+Which section of a PL/SQL block is used to assign an initial value to a variable using a function?,The DECLARE section
+"What is the result of NVL2(5, 'Foo', 'Bar')?",Foo
+"To find the last five records of a table based on a value, how should the inner query be ordered?",ORDER BY val DESC
+Which function would you use to change 'HELLO' to 'hello'?,LOWER
+What is the purpose of the USING clause in a MERGE statement?,"To specify the source data (table, view, or subquery) to be joined with the target table."
+"In the command CREATE CONTEXT my_ctx USING my_pkg, what is 'my_ctx'?",The namespace for the context.
+"What is the result of SUBSTR('abcdefg', 2, 3)?",bcd

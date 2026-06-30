@@ -1,0 +1,60 @@
+Where must the exception section be placed in a PL/SQL block?,At the very end of the block.
+"If a nested PL/SQL block does not handle an exception, what happens to that exception?",It propagates to the exception section of the external block.
+Which PL/SQL statement is used to explicitly trigger a specific exception?,RAISE
+What is the valid range for user-defined error numbers in the `raise_application_error` procedure?,Between $-20000$ and $-20999$.
+Which directive is used to map a user-defined exception name to a specific Oracle error code?,PRAGMA EXCEPTION_INIT
+"According to Oracle documentation, is an internally defined exception with a user-assigned name considered a 'user-defined' exception?","No, it is still considered an internally defined exception."
+What is the Oracle error code associated with the predefined exception `NO_DATA_FOUND`?,$-1403$
+The predefined exception `TOO_MANY_ROWS` corresponds to which error code?,$-1422$
+"In an exception handler, which reserved variable contains the numeric code of the most recent error?",SQLCODE
+"In an exception handler, which reserved variable contains the message text associated with the most recent error?",SQLERRM
+Which procedure in the `DBMS_ERRLOG` package is used to create a log table for tracking DML errors?,CREATE_ERROR_LOG
+What SQL clause is added to an `INSERT` statement to prevent it from failing on individual row errors and instead record them in a log table?,LOG ERRORS INTO
+What is the simplest SQL query used to test a database link connection without knowing specific table names?,SELECT * FROM DUAL@dblink_name;
+"If no domain is specified in a database link's `USING` clause, which domain does Oracle default to?",The domain of the database where the link is being created.
+Which specific privilege is required to create a private database link?,CREATE DATABASE LINK
+Which specific privilege is required to create a public database link?,CREATE PUBLIC DATABASE LINK
+What are the two primary requirements regarding listeners and database states for a database link to function?,Both databases and both listeners must be up and running.
+"In table partitioning, what is the 'partition key'?",A column or set of columns that determines the partition where a row is stored.
+Which data dictionary view is used to check the existing partitions for the current user's tables?,user_tab_partitions
+Which `ALTER TABLE` command is used to combine two partitions into a single new partition?,MERGE PARTITIONS
+Which `ALTER TABLE` operation facilitates a fast data move by updating the data dictionary instead of performing DML?,EXCHANGE PARTITION
+"To ensure even distribution in hash partitioning, the number of partitions should ideally be a _____.",Power of 2
+Which partitioning method organizes data based on specified bounds such as `VALUES LESS THAN`?,Range partitioning
+Which partitioning method organizes data into partitions based on discrete sets of values?,List partitioning
+What is the command to change the name of an existing partition?,ALTER TABLE table_name RENAME PARTITION old_name TO new_name;
+Which command is used to move a partition from its current tablespace to a different one?,ALTER TABLE table_name MOVE PARTITION partition_name TABLESPACE tablespace_name;
+What is the purpose of the `TRUNCATE PARTITION` command?,To remove all data from a specific partition while keeping the partition structure.
+"In Oracle Advanced Queuing, what is the first step required to define the structure of a message?","Create an object type (e.g., `CREATE TYPE message_t AS OBJECT`)."
+Which `DBMS_AQADM` procedure is used to define the storage table for a queue?,create_queue_table
+"In AQ, what happens to a message if a dequeue operation is rolled back and the `retry_delay` is reached?",The message becomes available for dequeue again after the specified delay.
+Which procedure is used to activate a queue for both enqueuing and dequeuing?,DBMS_AQADM.start_queue
+How can you prevent a queue from accepting new messages while still allowing existing ones to be processed?,By calling `DBMS_AQADM.stop_queue` with `enqueue => FALSE` and `dequeue => TRUE`.
+Which `DBMS_AQ` procedure is used to add a message to a queue?,enqueue
+Which `DBMS_AQ` procedure is used to retrieve a message from a queue?,dequeue
+What mechanism allows Oracle AQ to automatically notify a stored procedure when a message is enqueued?,DBMS_AQ.register
+Why is `PRAGMA autonomous_transaction` often used in error logging procedures?,It allows the log entry to be committed even if the main transaction is rolled back.
+What constraint type code ('R' in `user_constraints`) identifies a foreign key relationship?,Referential Integrity (R)
+"In Oracle MAF, which utility class is used to retrieve a `ValueExpression` for data binding?",AdfmfJavaUtilities
+"In Oracle MAF, which method is used to call a JavaScript function from Java code?",AdfmfContainerUtilities.invokeContainerJavaScriptFunction
+Which hierarchical query clause is used to generate a specific number of records from the `DUAL` table?,CONNECT BY LEVEL
+How can you generate a sequence of 100 numbers in a single SQL query?,SELECT LEVEL FROM dual CONNECT BY LEVEL $\le$ 100;
+"What is the formula to generate 10 consecutive dates starting from January 1st, 2017 using a level query?","SELECT TO_DATE('01-01-2017','mm-dd-yyyy') + level - 1 FROM dual CONNECT BY LEVEL $\le$ 10;"
+What is the error code associated with an account being locked (ORA-28000)?,$-28000$
+What is the error code associated with a login denial due to a wrong username or password (ORA-1017)?,$-1017$
+Which predefined exception handles an attempt to divide by zero?,ZERO_DIVIDE
+Which predefined exception occurs when an `INSERT` or `UPDATE` violates a unique index?,DUP_VAL_ON_INDEX
+What does the `WHEN OTHERS` clause do in an exception section?,It acts as a catch-all handler for any exceptions not specifically named.
+Term: Autonomous Transaction,Definition: An independent transaction that can commit or rollback without affecting the main calling transaction.
+"In the context of database links, what does the `IDENTIFIED BY` clause specify?",The password for the remote user on the destination database.
+What happens to a message in Oracle AQ after it exceeds the `max_retries` limit?,It is moved to an exception queue.
+Which `ALTER TABLE` command allows you to change a non-partitioned table into a partition of an existing partitioned table?,EXCHANGE PARTITION
+What SQL keyword is used to divide a single partition into two separate partitions?,SPLIT PARTITION
+Which Oracle MAF class provides the EL context needed to evaluate expressions?,AdfmfJavaUtilities
+True or False: An exception handler must be placed at the beginning of a PL/SQL block.,False; it must be at the end.
+What is the name of the predefined exception for error code $-6530$?,ACCESS_INTO_NULL
+What is the name of the predefined exception for error code $-6592$?,CASE_NOT_FOUND
+"In AQ, what does the `wait` option `DBMS_AQ.no_wait` signify?",The dequeue operation should return immediately if no message is available.
+What is the mandatory final character of a PL/SQL block or procedure script to execute it in SQL*Plus?,The forward slash (/)
+Which command is used to disable a specific constraint on a table?,ALTER TABLE table_name DISABLE CONSTRAINT constraint_name;
+"In partitioning, what does `MAXVALUE` represent in a range partition definition?",A virtual value that is higher than any other possible value for the partition key.

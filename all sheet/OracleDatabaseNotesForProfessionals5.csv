@@ -1,0 +1,50 @@
+"In Oracle 12c, which query clause is used to retrieve data based on a natural parent-child relationship between rows?",CONNECT BY
+"In a hierarchical query, the keyword used to refer to the parent row's value is _____.",PRIOR
+Which clause defines the starting point for a hierarchical query walk from the top down?,START WITH
+"To initiate a top-down hierarchical query for an organizational chart, what condition is typically used in the START WITH clause?",MANAGER_ID IS NULL
+Which data dictionary view can be used to see all active Data Pump jobs?,dba_datapump_jobs
+Which view provides information about active Data Pump sessions?,DBA_DATAPUMP_SESSIONS
+"Data Pump jobs can be monitored for progress using the _____ view, specifically by checking columns like sofar and totalwork.",V$SESSION_LONGOPS
+What command is used within the Import/Export prompt to check the progress of an attached job?,status
+How do you exit the Data Pump interactive prompt without terminating the job?,Press CTRL+C
+What SQL statement is used to define the file system location for Data Pump dump files?,CREATE OR REPLACE directory
+Which Data Pump parameter specifies the location of the parameter file containing the job configuration?,parfile
+"To export an entire schema, which parameter must be defined in the Data Pump export (expdp) command?",schemas
+What is the primary drawback of increasing the parallel parameter in a Data Pump job?,It increases the CPU load on the server.
+"To enable compression for all parts of a Data Pump export dump file, which parameter and value should be used?",compression = ALL
+"In Data Pump, the _____ wildcard in the dumpfile parameter allows for the creation of multiple dump file pieces in a parallel export.",%U
+Which Data Pump parameter is used to export or import only a specific set of named tables?,tables
+What is considered a best practice prerequisite prior to performing a user-level import in Data Pump?,Drop the existing schema or tables to be imported.
+Which Data Pump parameter specifies what action to take when a table being imported already exists in the target database?,TABLE_EXISTS_ACTION
+"To move data from one schema name to another during a Data Pump import, which parameter is used?",remap_schema
+Which parameter allows you to change the target storage location of data from one tablespace to another during import?,remap_tablespace
+What is the final step in the Data Pump migration process after running the import statements?,"Check data, compile invalid objects, and provide related grants."
+Which PL/SQL error code is triggered when a local collection type is used in a SQL statement?,PLS-00642
+"To avoid PLS-00642 when using collections in SELECT statements, where must the collection type be defined?",At the schema level (using CREATE OR REPLACE TYPE).
+Which clause is used in a SELECT statement to retrieve multiple rows of data directly into a PL/SQL collection?,BULK COLLECT INTO
+In which version of the Oracle Database was Real Application Security (RAS) introduced?,Oracle 12c
+What are the three main components required to associate an application with the database using RAS?,"Application Privilege, Application User, and Application Role."
+"In RAS, a collection of privileges like SELECT and INSERT can be summarized into an _____ Privilege.",Aggregate
+Which RAS procedure is used to create a direct login application user that is associated with a specific database schema?,SYS.XS_PRINCIPAL.CREATE_USER
+"In a RAS profile, the parameter PASSWORD_REUSE_TIME can be set to a value like $\frac{1}{4440}$ to limit how soon a password can be reused.",True
+Which RAS procedure is used to assign roles to an application user?,SYS.XS_PRINCIPAL.GRANT_ROLES
+What is the difference between a Regular Application Role and a Dynamic Application Role in RAS?,"Dynamic roles are enabled based on the authentication state, whereas regular roles are static."
+Which predefined dynamic RAS role is enabled when a user is authenticated directly through the database using a password?,DBMS_PASSWD
+Which predefined RAS role is enabled when a user is authenticated via a middle-tier application?,MIDTIER_AUTH
+"In PL/SQL, what is the specific symbol used as the assignment operator?",:=
+"According to the PL/SQL assignment model, what must the left operand always be?",A variable
+Which PL/SQL statement allows for a 'right to left' assignment by fetching database values into local variables?,SELECT INTO
+Define: Trigger,A special type of stored procedure that fires automatically in response to specific data modifications or conditions.
+Which pseudo-record is used in a trigger to access the values of the columns in the row currently being inserted or updated?,:NEW
+"Inside a PL/SQL trigger, the boolean conditional _____ is used to determine if the trigger was fired by an INSERT statement.",inserting
+What is the primary advantage of Dynamic SQL in PL/SQL regarding database objects?,It allows the execution of DDL statements and logic where objects do not exist at compilation time.
+Which command is used to execute a string as a dynamic SQL statement in PL/SQL?,EXECUTE IMMEDIATE
+"In a dynamic SQL statement, which clause is used to pass bind variables into the query string?",USING
+How do you capture a single value returned by a dynamic SELECT statement into a local variable?,Use the INTO clause within the EXECUTE IMMEDIATE statement.
+"To return a value from a dynamic anonymous PL/SQL block, which keyword must precede the variable in the USING clause?",OUT
+"If you need to create a table from within a PL/SQL procedure, you must use _____ because PL/SQL does not allow direct DDL.",Dynamic SQL
+What is the purpose of the 'attach' command in the Data Pump utility?,It allows a user to connect to and manage a currently running Data Pump job.
+Concept: Aggregate Privilege,A collection of individual Application Privileges (like INSERT and UPDATE) grouped under a single name in RAS.
+"In a Data Pump parameter file, multiple tables for a table-level export should be separated by _____.",commas
+What XS_PRINCIPAL procedure is used to establish the security profile for an application user?,SET_PROFILE
+Which predefined dynamic RAS role applies when a user is switched from a proxy user to an application user?,XSSWITCH
